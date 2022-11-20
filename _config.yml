@@ -25,7 +25,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://whdrns2013.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://github.io.whdrns2013" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ll
 github_username:  whdrns2013
 
@@ -33,6 +33,9 @@ github_username:  whdrns2013
 theme: jekyll-theme-so-simple
 plugins:
   - jekyll-feed
+logo : 
+skin: "/assets/css/skins/default.css"
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
