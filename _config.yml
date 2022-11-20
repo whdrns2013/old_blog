@@ -18,6 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+
+# 설정 참고 : https://github.com/mmistakes/so-simple-theme
+
 title: Jongya's Blog
 email: whdrns2013@naver.com
 description: >- # this means to ignore newlines until "baseurl:"
@@ -25,7 +28,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 #  Write an awesome description for your new site here. You can edit this
 #  line in _config.yml. It will appear in your document head meta (for
 #  Google search results) and in your feed.xml site description.
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://whdrns2013.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ll
 github_username:  whdrns2013
@@ -36,6 +39,32 @@ plugins:
   - jekyll-feed
 logo : 
 skin: "/assets/css/skins/default.css"
+date_format : "%Y-%m-%d"
+
+# read_time
+read_time : true
+words_per_minute : 200
+
+# MATH
+mathjax:
+  enable: true             # MathJax equations, e.g. true, false (default)
+  combo: "tex-svg"         # "tex-svg" (default), "tex-mml-chtml", etc.
+  tags: "ams"              # "none", "ams" (default), "all"
+
+# FONT
+google_fonts:
+  - name: "Source Sans Pro"
+    weights: "400,400i,700,700i"
+  - name: "Lora"
+    weights: "400,400i,700,700i"
+
+# PAGINATION
+paginate: 10  # amount of posts to show per page
+paginate_path: /page:num/
+
+# SEARCH
+search_full_content: true
+
 
 
 # Exclude from processing.
