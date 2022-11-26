@@ -1,4 +1,5 @@
 ---
+# no : 연월일_00n
 layout: post                              # 레이아웃 : post(게시물)
 title:  "test"                            # 게시물의 제목
 subtitle: Each post also has a subtitle   # 서브타이틀
