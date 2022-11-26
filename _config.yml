@@ -24,7 +24,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Jongya's Blog
+title: Jongya's Git Page
 email: whdrns2013@naver.com.com
 author: Jongya
 
@@ -160,7 +160,7 @@ night_mode: "auto"
 # Page default value
 defaults:
   home:
-    heading: "Jongya's Blog"
+    heading: "Jongya's Git Page"
     subheading: "프로그래머 새내기"
     banner:
       # video: "https://vjs.zencdn.net/v/oceans.mp4"
