@@ -3,7 +3,7 @@ layout: post
 title: Welcome to Jekyll!
 subtitle: A awesome static site generator.
 author: Jeffrey
-categories: How-To-Use-Git-Blog
+categories: Git_Blog_Samples
 banner:
   video: https://vjs.zencdn.net/v/oceans.mp4
   loop: true

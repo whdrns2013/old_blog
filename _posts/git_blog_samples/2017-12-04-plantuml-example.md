@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Plantuml example
-categories: How-To-Use-Git-Blog
+categories: Git_Blog_Samples
 tags: [plantuml]
 ---
 

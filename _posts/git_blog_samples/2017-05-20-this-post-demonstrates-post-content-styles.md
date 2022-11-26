@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "This post demonstrates post content styles"
-categories: How-To-Use-Git-Blog
+categories: Git_Blog_Samples
 author: "Bart Simpson"
 meta: "Springfield"
 ---
