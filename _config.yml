@@ -164,7 +164,8 @@ defaults:
     heading: "Jongya's Bolg"
     subheading: "프로그래머 신생아"
     banner:
-      image: "https://drive.google.com/file/d/1a2gckwH2_xdOToUbPFpNYXOmJ5AM5IJb/view?usp=share_link"
+      image: "/_data/images/banner_001.jpg"
+      background: "rgba(000, 000, 102)"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
