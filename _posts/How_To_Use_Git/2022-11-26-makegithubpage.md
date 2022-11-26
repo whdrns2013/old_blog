@@ -59,7 +59,8 @@ banner:
 
 Repository Name(저장소 이름)을 작성 후 `Create repository`를 클릭해주세요.
 
->💡 Repository Name 은 ` ID.github.io `  형식으로 만드시길 추천드립니다.
+>💡 Repository Name 은 ` ID.github.io `  형식으로 만드시길 추천드립니다.  
+> 이 Repository Name은 향후 블로그 주소가 됩니다.  
 
 ![](/assets/images/20221126_001_004.png)
 
@@ -101,12 +102,11 @@ index.html 파일을 만들어 볼 것입니다.
 
 </br>
 
-1. 이제부터 본 repository는 아래 주소로 접속할 수 있습니다.
+이제 5분 가량 잠시 쉬고 오세요.  
+잘 쉬고 오셨나요? 그러면 본인의 깃허브 페이지 주소 `ID.github.io`로 접속해봅시다.  
+아래와 같이 index 파일에 적어준 내용이 나온다면 성공!  
 
-<aside>
-💡 [https://](https://whdrns2013.github.io/)ID.github.io/
-
-</aside>
+![](/assets/images/20221126_001_010.png)
 
 # 깃허브 페이지 관리 툴 설치
 
