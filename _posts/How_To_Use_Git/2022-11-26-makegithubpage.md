@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '깃허브 블로그 (페이지) 만들기'
-subtitle: 나만의 깃허브 블로그를 만들어보자!
+title: "깃허브 블로그 (페이지) 만들기"
+subtitle: "나만의 깃허브 블로그를 만들어보자!"
 date:   2022-11-26 22:46:06 +0900
 categories: How_To_Use_Git
 author: Jongya
@@ -9,7 +9,7 @@ tags: [Git], [GitHub], [깃허브], [블로그], [만들기], [블로그 만들�
 meta: "Springfield"
 sidebar: []
 banner:
-  image: https://bit.ly/3xTmdUP
+  image: /assets/images/banner_001.jpg
 ---
 <!-- postNo: 20221126_001-->
 
