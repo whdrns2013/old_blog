@@ -26,7 +26,7 @@
 
 title: Jongya's Blog
 email: whdrns2013@naver.com.com
-author: GitHub User
+author: Jongya
 
 # Copyright setting
 # You can use any html code, currently below placeholders are available:
@@ -40,12 +40,11 @@ author: GitHub User
 #   "Copyright (c) 2017-{currentYear} <a href="https://example.com">{author}</a>"
 #   "Copyright © 2017-2021 Foobar"
 #
-copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
+copyright: "Copyright © (cleft) 2017-{currentYear} {author}"
 
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  새내기 프로그래머 Jongya의 블로그입니다.
+
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://whdrns2013.github.io/" # the base hostname & protocol for your site, e.g. https://example.com
@@ -63,13 +62,13 @@ yat:
 # header_transparent: true
 
 # If you want to change the content width, you can set to another value
-# content_width: "920px"
+content_width: "920px"
 
 # Google analytics
 # google_analytics: [Tracking ID]
 
 # If you want to generate website sitemap, you can set true
-# sitemap: false
+sitemap: True
 
 # If you want to change site language, you can set lang option
 # lang: "en"  # default lang is en
