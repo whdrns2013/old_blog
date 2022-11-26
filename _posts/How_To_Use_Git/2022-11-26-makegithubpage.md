@@ -28,7 +28,7 @@ banner:
 *깃허브에서 진행하므로, 윈도우/맥 어디에서든 가능합니다.*   
 </br>   
 
-## 깃허브 가입과 저장소(Repository) 만들기
+## 깃허브 가입과 Repository 만들기
 
 ### 1) 깃허브 계정 만들기
 
@@ -45,6 +45,7 @@ banner:
 ### 2) 깃허브 저장소(Repository) 만들기
 
 화면 오른쪽 상단에서 'Your respository' 를 클릭해주세요.
+> Repository : '저장소'라고 말할 수 있습니다.
 
 ![저장소](/assets/images/20221126_001_002.png)
 
