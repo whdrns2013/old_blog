@@ -45,4 +45,31 @@ https://github.com
 
 ## 2) 깃허브 저장소(Repository) 만들기
 
+1. 화면 오른쪽 상단 → respository (저장소)
 
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/66455282-519a-487c-af5f-ac89a960cda9/Untitled.png)
+
+1. 오른쪽 위에 NEW 로 새로운 repository 만들기
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2e6d78ea-4a63-4ebd-9176-142a7ae1afbd/Untitled.png)
+
+1. repository Name 작성 후 Create repository
+
+<aside>
+💡 repository name 은 `[ID.github.io](http://XXXXX.github.io)`  형식으로 만드시길 추천드립니다.
+
+</aside>
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/df3640ff-a52c-4ee2-addb-a832d005e720/Untitled.png)
+
+1. 생성된 repository 클릭하여 들어가기
+
+repository 를 생성한 뒤, 바로 해당 repository 화면으로 넘어가는 게 디폴트 값입니다.
+
+repository를 방금 생성했다면, 다음 단계로 넘어가시면 됩니다.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/70059be5-9061-4b68-9f20-8981cea085d8/Untitled.png)
+
+1. 새로운 파일 만들기
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68ee8e5f-3c9c-4c60-aeea-20b502b851fa/Untitled.png)
