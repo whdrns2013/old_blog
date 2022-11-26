@@ -1,15 +1,15 @@
 ---
-layout: post                              # 레이아웃 : post(게시물)
-title: '깃허브 블로그 (페이지) 만들기'                            # 게시물의 제목
-subtitle: 나만의 깃허브 블로그를 만들어보자!  # 서브타이틀
-date:   2022-11-26 22:46:06 +0900         # 게시물 작성 일자
-categories: How_To_Use_Git                          # 게시물이 속하는 카테고리
-author: Jongya                                  # 작성자
-tags: [Git], [GitHub], [깃허브], [블로그], [만들기], [블로그 만들기]                              # 태그
-meta: "Springfield"                       # 이건 뭐지?
-sidebar: []                               # 이건 뭐지?
+layout: post
+title: '깃허브 블로그 (페이지) 만들기'
+subtitle: 나만의 깃허브 블로그를 만들어보자!
+date:   2022-11-26 22:46:06 +0900
+categories: How_To_Use_Git
+author: Jongya
+tags: [Git], [GitHub], [깃허브], [블로그], [만들기], [블로그 만들기]
+meta: "Springfield"
+sidebar: []
 banner:
-  image: https://bit.ly/3xTmdUP  # 배너 이미지
+  image: https://bit.ly/3xTmdUP
 ---
 <!-- postNo: -->
 
@@ -51,7 +51,7 @@ banner:
 
 `NEW` 버튼을 눌러 새로운 repository(저장소)를 만들어 봅시다.
 
-![저장소 만들기](/assets/images/20221126_001_003.png)
+![](/assets/images/20221126_001_003.png)
 
 </br>
 
@@ -59,36 +59,45 @@ Repository Name(저장소 이름)을 작성 후 `Create repository`를 클릭해
 
 >💡 Repository Name 은 ` ID.github.io `  형식으로 만드시길 추천드립니다.
 
-![저장소 만들기2](/assets/images/20221126_001_004.png)
+![](/assets/images/20221126_001_004.png)
 
 </br>
 
 repository가 만들어졌습니다. 한 번 들어가볼까요?
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/70059be5-9061-4b68-9f20-8981cea085d8/Untitled.png)
+![](/assets/images/20221126_001_005.png)
+
+</br>
 
 ## 3) 깃허브 Page Setting
 
-1. repository 화면에서 settings를 클릭해줍니다.
+repository 화면에서 settings를 클릭해줍니다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cfb27758-d735-4a96-b50f-1c32796db792/Untitled.png)
+![](/assets/images/20221126_001_006.png)
 
-1. page 메뉴에서 아래와 같이 설정한 후, save 해줍니다.
+</br>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b89aba2f-6c92-4f00-a51c-caae2903ae4a/Untitled.png)
+page 메뉴에서 아래와 같이 설정한 후, save 해줍니다.
 
-1. 새로운 파일 만들기
+![](/assets/images/20221126_001_007.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68ee8e5f-3c9c-4c60-aeea-20b502b851fa/Untitled.png)
+</br>
 
-1. index.html 파일 만들기
+index.html 파일을 만들어 볼 것입니다.  
+`ADD file -> Create new file` 을 눌러 새로운 파일을 만들어주세요.
+>💡 index.html 파일 : 웹 브라우저가 특정 url에 접근하였을때 처음 읽어들이는 파일로, 보여줄 첫 화면 결정해주는 역할을 합니다.
 
-<aside>
-💡 index.html 파일은, 웹 브라우저가 특정 url에 처음 접근하였을때 읽어들이는 파일로, 어떤 화면을 첫 화면으로 보여줄지 결정해주는 역할을 합니다.
+![](/assets/images/20221126_001_008.png)
 
-</aside>
+</br>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0fe501b5-d176-45fc-b4dd-92df9292efef/Untitled.png)
+빈칸(파일명)에 index.html 을 입력해준 뒤,  
+파일 내용에는 간단한 html문을 입력해보겠습니다.  
+작성이 완료되었다면, `Commit new file` (새로운 파일 확정)을 눌러주세요.  
+
+![](/assets/images/20221126_001_009.png)
+
+</br>
 
 1. 이제부터 본 repository는 아래 주소로 접속할 수 있습니다.
 
