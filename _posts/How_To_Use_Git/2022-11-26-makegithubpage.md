@@ -5,8 +5,8 @@ subtitle: "나만의 깃허브 블로그를 만들어보자!"
 date:   2022-11-26 22:46:06 +0900
 categories: How_To_Use_Git
 author: Jongya
-tags: [Git], [GitHub], [깃허브], [블로그], [만들기], [블로그 만들기]
-meta: "Springfield"
+tags: Git GitHub 깃허브 블로그 만들기
+# meta: "Springfield"
 sidebar: []
 banner:
   image: /assets/images/banner_001.jpg
