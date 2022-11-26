@@ -164,7 +164,8 @@ defaults:
     heading: "Jongya's Bolg"
     subheading: "프로그래머 신생아"
     banner:
-      image: "/_data/images/banner_001.jpg"
+      # video: "https://vjs.zencdn.net/v/oceans.mp4"
+      image: "/assets/images/banners/banner_001.jpg"
       background: "rgba(000, 000, 102)"
 
 # Banner default settings

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "This post demonstrates post content styles"
-categories: junk
+categories: How-To-Use-Git-Blog
 author: "Bart Simpson"
 meta: "Springfield"
 ---

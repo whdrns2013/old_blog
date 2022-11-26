@@ -2,7 +2,7 @@
 layout: post
 title: Table example
 subtitle:
-categories: example
+categories: How-To-Use-Git-Blog
 tags: [table]
 ---
 

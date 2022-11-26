@@ -2,7 +2,7 @@
 layout: post
 title: An exhibit of Markdown
 subtitle: Each post also has a subtitle
-categories: markdown
+categories: How-To-Use-Git-Blog
 tags: [example, markdown]
 ---
 
