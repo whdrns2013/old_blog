@@ -160,7 +160,7 @@ night_mode: "auto"
 # Page default value
 defaults:
   home:
-    heading: "Jongya's Bolg"
+    heading: "Jongya's Blog"
     subheading: "프로그래머 새내기"
     banner:
       # video: "https://vjs.zencdn.net/v/oceans.mp4"
