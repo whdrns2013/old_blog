@@ -162,7 +162,7 @@ night_mode: "auto"
 defaults:
   home:
     heading: "Jongya's Bolg"
-    subheading: "프로그래머 신생아"
+    subheading: "프로그래머 새내기"
     banner:
       # video: "https://vjs.zencdn.net/v/oceans.mp4"
       image: "/assets/images/banners/banner_001.jpg"
