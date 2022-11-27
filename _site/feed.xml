@@ -1,24 +1,234 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-26T17:30:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">test</title><link href="http://localhost:4000/test/2022/11/26/test.html" rel="alternate" type="text/html" title="test" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/test/2022/11/26/test</id><content type="html" xml:base="http://localhost:4000/test/2022/11/26/test.html"><![CDATA[<h1 id="test">test</h1>
-<h2 id="test-1">test</h2>
-<h3 id="test-2">test</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-28T01:10:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
+
+<h3 id="오류-원인-추론">오류 원인 추론</h3>
+
 <ul>
-  <li>test</li>
+  <li>(1) Github Desktop과 연동 불가능한 editor인 경우.</li>
+  <li>(2) 에디터를 설치파일이 아닌 Zip 파일로 설치했거나, 기본 설치 경로가 아닌 곳에 설치한 경우.</li>
+  <li>그 외 원인이 있다면 피드백 부탁드립니다. :)</li>
 </ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>test</th>
-      <th>test</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>test</td>
-      <td>test</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>GitHub User</name></author><category term="test" /><summary type="html"><![CDATA[test test test test]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/how-to-use-git-blog/2022/11/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-11-24T13:46:06+09:00</published><updated>2022-11-24T13:46:06+09:00</updated><id>http://localhost:4000/how-to-use-git-blog/2022/11/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/how-to-use-git-blog/2022/11/24/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<h3 id="1-github-desktop과-연동-가능한-editor-확인">(1) Github Desktop과 연동 가능한 editor 확인</h3>
+<p>Github Desktop과 연동 가능한 editor 목록은 아래 사이트에서 확인이 가능합니다.<br />
+<a href="https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor">GitHub Docs : default-editor</a></p>
+
+<h3 id="2-해결-방법-1--editor-재설치">(2) 해결 방법 1 : editor 재설치</h3>
+<p>editor를 재설치하며, 설치 경로 또한 권장 경로 그대로를 사용해줍니다.</p>
+
+<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_002.png" width="700px" />
+<img src="https://whdrns2013.github.io/assets/images/20221126_002_003.png" width="700px" /></p>
+
+<p>재부팅 후 Visual Studio Code 를 외부 편집기로 사용할 수 있다.</p>
+
+<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_004.png" width="700px" /></p>
+
+<h3 id="2-해결-방법-2--환경-변수-path-추가">(2) 해결 방법 2 : 환경 변수 PATH 추가</h3>
+<p>고급 시스템 설정 메뉴를 들어가줍니다.<br />
+<br />
+<img src="/assets/images/20221126_002_005.png" alt="" width="700" align="left" />
+<br /></p>
+
+<!-- <img src="https://whdrns2013.github.io/assets/images/20221126_002_005.png" width="700px" align='left'> -->
+
+<p>환경 변수 → 시스템 변수의 PATH → 편집</p>
+
+<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_006.png" width="700px" />
+<img src="https://whdrns2013.github.io/assets/images/20221126_002_007.png" width="700px" /></p>
+
+<p>찾아보기 → 프로그램이 설치된 폴더 선택 후 → 확인<br />
+확인을 눌러 설정을 저장해줍니다.</p>
+
+<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_008.png" width="700px" /></p>
+
+<p>중요! 재부팅을 해야 설정이 적용됩니다.</p>
+
+<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_009.png" width="700px" /></p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="Desktop" /><category term="깃허브" /><category term="데스크탑" /><category term="에디터" /><category term="안보일때" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">깃허브 블로그 (페이지) 만들기 (윈도우/맥)</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html" rel="alternate" type="text/html" title="깃허브 블로그 (페이지) 만들기 (윈도우/맥)" /><published>2022-11-26T22:46:06+09:00</published><updated>2022-11-26T22:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_001</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html"><![CDATA[<!-- postNo: 20221126_001-->
+
+<h2 id="인트로">인트로</h2>
+<p>프로그래밍을 배우면서, <u><b>블로그 운영의 필요성</b></u>을 느꼈습니다.<br />
+어떤 블로그가 내게 맞을까.. 고민을 하다가!<br />
+<u><b>html이나 마크다운에 대한 공부</b></u>도 할 겸 깃허브 블로그를 선택했습니다.</p>
+
+<p>이미 만들어진 서비스들보다는 만들기 어렵지만,<br />
+만들고 보니 꽤나 뿌듯함이 있습니다.</p>
+
+<p>이 글을 보는 여러분께 자그마한 도움이 되었으면 하여<br />
+제가 깃허브 블로그를 만들면서 적용했던 방법, 겪었던 어려움들을 공유합니다.</p>
+
+<p><em>깃허브에서 진행하므로, 윈도우/맥 어디에서든 가능합니다.</em><br />
+<em>윈도우/맥 운영체제에 따라 방법이 다른 경우, 별도 표기했습니다.</em></p>
+
+<h2 id="깃허브-가입과-repository-만들기">깃허브 가입과 Repository 만들기</h2>
+
+<h3 id="1-깃허브-계정-만들기">1) 깃허브 계정 만들기</h3>
+<p>깃허브 계정은 간단하게 만들 수 있습니다.<br />
+아래 깃허브 사이트에서 <code class="language-plaintext highlighter-rouge">Sign up</code> 버튼을 클릭해 가입을 진행해주세요.<br />
+(계정이 있으신 분은 Sign in 해주시면 됩니다.)</p>
+
+<blockquote>
+  <p>GitHub : https://github.com</p>
+</blockquote>
+
+<p><img src="/assets/images/20221126_001_001.png" alt="회원가입" /></p>
+
+<h3 id="2-깃허브-저장소repository-만들기">2) 깃허브 저장소(Repository) 만들기</h3>
+<p>화면 오른쪽 상단에서 ‘Your respository’ 를 클릭해주세요.</p>
+<blockquote>
+  <p>Repository : ‘저장소’라고 말할 수 있습니다.
+<img src="/assets/images/20221126_001_002.png" alt="저장소" /></p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">NEW</code> 버튼을 눌러 새로운 repository(저장소)를 만들어 봅시다.</p>
+
+<p><img src="/assets/images/20221126_001_003.png" alt="" /></p>
+
+<p>Repository Name(저장소 이름)을 작성 후 <code class="language-plaintext highlighter-rouge">Create repository</code>를 클릭해주세요.</p>
+
+<blockquote>
+  <p>💡 Repository Name 은 ` ID.github.io `  형식으로 만드시길 추천드립니다.<br />
+이 Repository Name은 향후 블로그 주소가 됩니다.</p>
+</blockquote>
+
+<p><img src="/assets/images/20221126_001_004.png" alt="" /></p>
+
+<p>repository가 만들어졌습니다. 한 번 들어가볼까요?
+<img src="/assets/images/20221126_001_005.png" alt="" /></p>
+
+<h3 id="3-깃허브-page-setting">3) 깃허브 Page Setting</h3>
+<p>repository 화면에서 settings를 클릭해줍니다.
+<img src="/assets/images/20221126_001_006.png" alt="" /></p>
+
+<p>page 메뉴에서 아래와 같이 설정한 후, save 해줍니다.
+<img src="/assets/images/20221126_001_007.png" alt="" /></p>
+
+<p>index.html 파일을 만들어 볼 것입니다.<br />
+<code class="language-plaintext highlighter-rouge">ADD file -&gt; Create new file</code> 을 눌러 새로운 파일을 만들어주세요.</p>
+<blockquote>
+  <p>💡 index.html 파일 : 웹 브라우저가 특정 url에 접근하였을때 처음 읽어들이는 파일로, 보여줄 첫 화면 결정해주는 역할을 합니다.
+<img src="/assets/images/20221126_001_008.png" alt="" /></p>
+</blockquote>
+
+<p>빈칸(파일명)에 index.html 을 입력해준 뒤,<br />
+파일 내용에는 간단한 html문을 입력해보겠습니다.<br />
+작성이 완료되었다면, <code class="language-plaintext highlighter-rouge">Commit new file</code> (새로운 파일 확정)을 눌러주세요.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        첫 화면입니다. 환영합니다. :)
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/20221126_001_009.png" alt="" /></p>
+
+<p>이제 5분 가량 잠시 쉬고 오세요.<br />
+잘 쉬고 오셨나요? 그러면 본인의 깃허브 페이지 주소 <code class="language-plaintext highlighter-rouge">ID.github.io</code>로 접속해봅시다.<br />
+아래와 같이 index 파일에 적어준 내용이 나온다면 성공!<br />
+<img src="/assets/images/20221126_001_010.png" alt="" /></p>
+
+<h2 id="깃허브-페이지-관리-툴-설치">깃허브 페이지 관리 툴 설치</h2>
+
+<h3 id="1-github-desktop-설치">1) Github Desktop 설치</h3>
+<p>깃허브 데스크탑을 다운받습니다. <a href="https://desktop.github.com/">GitHub Desktop</a></p>
+<blockquote>
+  <p>깃허브 데스크탑 : 깃허브 repository와 현재 사용중인 PC를 연동시켜주는 역할을 합니다.</p>
+</blockquote>
+
+<h3 id="2-코드-에디터-설치">2) 코드 에디터 설치</h3>
+<p>코드 에디터를 설치합니다. 주로 사용하는 코드 에디터가 있다면, 굳이 새로 설치할 필요는 없습니다.<br />
+저는 깃허브와 연동성이 좋은 VScode 를 설치했습니다.<br />
+<a href="https://code.visualstudio.com/">Visual Studio Code - Code Editing. Redefined</a></p>
+
+<h3 id="3-깃허브-클론-및-동기화">3) 깃허브 클론 및 동기화</h3>
+<p>깃허브 데스크탑을 설치한 후, repository를 컴퓨터에 clone 해줍니다.<br />
+사용중인 PC의 특정 폴더와 repository를 연결해주는 단계로 이해하시면 편합니다.<br />
+아래 이미지들을 따라 해주세요.<br />
+<img src="/assets/images/20221126_001_011.png" alt="" />
+<img src="/assets/images/20221126_001_012.png" alt="" /></p>
+
+<p>클론 후, repository → pull 을 클릭합니다.<br />
+pull 을 통해, 변경 사항을 동기화한 후에, Clone 한 폴더를 찾아가봅시다.<br />
+(기본 경로 : 내문서 -&gt; ID.github.io 폴더)<br />
+아까 웹상에서 만든 index.html 파일이 보일 것입니다.<br />
+즉, pull은 깃허브 repository의 최신 내용을 PC에 업데이트 해주는 기능입니다.<br />
+<img src="/assets/images/20221126_001_013.png" alt="" />
+<img src="/assets/images/20221126_001_014.png" alt="" /></p>
+<h2 id="이미지-필요--내문서---indexhtml">이미지 필요 : 내문서 -&gt; index.html</h2>
+
+<blockquote>
+  <ul>
+    <li>clone : PC의 특정 폴더와 repository를 연결</li>
+    <li>pull : 깃허브 repository의 최신 내용을 PC에 업데이트</li>
+    <li>push : PC 폴더의 최신 내용을 깃허브 repository에 업데이트</li>
+  </ul>
+</blockquote>
+
+<h3 id="4-에디터로-repository-열기">4) 에디터로 Repository 열기</h3>
+
+<p>Open the repository in your external editor 부분을 주목해주세요.<br />
+코드 에디터를 통해 repository를 여는 기능입니다.</p>
+
+<p>저는 notepad++ 가 설치되어있어 기본으로 잡히는군요!<br />
+본인에게 익숙한 코드 에디터를 option에서 설정하여 사용하시기 바랍니다.<br />
+저는 VScode를 사용할 예정입니다.<br />
+<img src="/assets/images/20221126_001_015.png" alt="" />
+<img src="/assets/images/20221126_001_016.png" alt="" /></p>
+
+<blockquote>
+  <p>에디터가 보이지 않을 때에는 다음 글을 참고해주세요.<br />
+<a href="https://whdrns2013.github.io/how_to_use_git/2022/11/26/20221126_002.html">GitHub Desktop - editor 추가</a></p>
+</blockquote>
+
+<p>external editor로 열기를 선택하면, 해당 에디터가 열릴 것입니다.<br />
+그리고, github 사이트에서 만들었던 index.html 파일 또한 여기서 볼 수 있죠!<br />
+<img src="/assets/images/20221126_001_017.png" alt="" />
+<img src="/assets/images/20221126_001_018.png" alt="" /></p>
+
+<p>인덱스 파일이 보이는 김에, 내용을 간단히 수정해볼까요?<br />
+저희 삼촌께서 선물해주신 365일 문장달력 문구를 써봤습니다.<br />
+이후 꼭 저장!</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;/br&gt;</span>
+    <span class="nt">&lt;/br&gt;</span>
+    <span class="nt">&lt;/br&gt;</span>
+    <span class="nt">&lt;/br&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">align=</span><span class="s">"center"</span><span class="nt">&gt;</span>
+        당신의 사고를 변화 시켜라.
+        <span class="nt">&lt;/br&gt;</span>
+        그러면 당신이 살고 있는 세상을 변화시킬 수 있을 것이다.
+    <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/20221126_001_019.png" alt="" /></p>
+
+<p>깃허브 데스크탑 화면으로 돌아가봅시다.<br />
+PC에서 진행된 변경사항이 화면에 출력되어있을 것입니다.<br />
+(1) Commit to main 을 눌러 변경 사항을 확정하고,<br />
+(2) Push를 눌러 깃허브의 repository에 업데이트를 해줍니다.</p>
+
+<p><img src="/assets/images/20221126_001_020.png" alt="" />
+<img src="/assets/images/20221126_001_021.png" alt="" /></p>
+
+<p>다시 5~10분의 휴식 시간을 가져봅시다.<br />
+5~10분을 기다리는 이유는.. 깃허브 페이지에 적용되는 데 시간이 걸리기 때문입니다.</p>
+
+<p>유료로 사용하면 바로 적용이 된다는 이야기도 듣긴 했지만,<br />
+직접 사용해본 게 아니라 정확히는 모르겠네요! 😅</p>
+
+<p>적용이 완료되면, ID.github.io로 들어갔을 때, 아래와 같은 화면이 보일 것입니다.</p>
+
+<p><img src="/assets/images/20221126_001_022.png" alt="" /></p>
+
+<p>&lt;!– 이하부터 수정 필요&gt;</p>
+
+<h2 id="테마-적용-준비--지킬과-루비">테마 적용 준비 : 지킬과 루비</h2>
+<p>맥 홈브루 및 지킬 설치 후 노션 업데이트 -&gt; 이후 이 페이지 업데이트</p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-11-24T13:46:06+09:00</published><updated>2022-11-24T13:46:06+09:00</updated><id>http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
 <p>Jekyll requires blog post files to be named according to the following format:</p>
 
@@ -34,7 +244,7 @@
 <span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
 <span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>GitHub User</name></author><category term="How-To-Use-Git-Blog" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/how-to-use-git-blog/2018/12/07/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-12-07T00:00:00+09:00</published><updated>2018-12-07T00:00:00+09:00</updated><id>http://localhost:4000/how-to-use-git-blog/2018/12/07/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/how-to-use-git-blog/2018/12/07/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2018/12/07/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-12-07T00:00:00+09:00</published><updated>2018-12-07T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2018/12/07/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2018/12/07/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
 <p>To add new posts, simply add a file in the <code class="language-plaintext highlighter-rouge">_posts</code> directory that follows the convention <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
 
@@ -77,7 +287,7 @@
 
 <span class="k">print</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
-</code></pre></div></div>]]></content><author><name>Jeffrey</name></author><category term="How-To-Use-Git-Blog" /><category term="jekyll" /><category term="theme" /><category term="yat" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">An exhibit of Markdown</title><link href="http://localhost:4000/how-to-use-git-blog/2018/12/05/an-exhibit-of-markdown.html" rel="alternate" type="text/html" title="An exhibit of Markdown" /><published>2018-12-05T00:00:00+09:00</published><updated>2018-12-05T00:00:00+09:00</updated><id>http://localhost:4000/how-to-use-git-blog/2018/12/05/an-exhibit-of-markdown</id><content type="html" xml:base="http://localhost:4000/how-to-use-git-blog/2018/12/05/an-exhibit-of-markdown.html"><![CDATA[<p>This note demonstrates some of what <a href="https://daringfireball.net/projects/markdown/">Markdown</a> is capable of doing.</p>
+</code></pre></div></div>]]></content><author><name>Jeffrey</name></author><category term="Git_Blog_Samples" /><category term="jekyll" /><category term="theme" /><category term="yat" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">An exhibit of Markdown</title><link href="http://localhost:4000/git_blog_samples/2018/12/05/an-exhibit-of-markdown.html" rel="alternate" type="text/html" title="An exhibit of Markdown" /><published>2018-12-05T00:00:00+09:00</published><updated>2018-12-05T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2018/12/05/an-exhibit-of-markdown</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2018/12/05/an-exhibit-of-markdown.html"><![CDATA[<p>This note demonstrates some of what <a href="https://daringfireball.net/projects/markdown/">Markdown</a> is capable of doing.</p>
 
 <h2 id="an-exhibit-of-markdown">An exhibit of Markdown</h2>
 
@@ -162,7 +372,7 @@
 
 <h2 id="finally">Finally</h2>
 
-<p>There’s actually a lot more to Markdown than this. See the official <a href="https://daringfireball.net/projects/markdown/basics">introduction</a> and <a href="https://daringfireball.net/projects/markdown/syntax">syntax</a> for more information. However, be aware that this is not using the official implementation, and this might work subtly differently in some of the little things.</p>]]></content><author><name>GitHub User</name></author><category term="How-To-Use-Git-Blog" /><category term="example" /><category term="markdown" /><summary type="html"><![CDATA[This note demonstrates some of what Markdown is capable of doing.]]></summary></entry><entry><title type="html">Mathjax Test</title><link href="http://localhost:4000/how-to-use-git-blog/2018/05/26/mathjax-test.html" rel="alternate" type="text/html" title="Mathjax Test" /><published>2018-05-26T00:00:00+09:00</published><updated>2018-05-26T00:00:00+09:00</updated><id>http://localhost:4000/how-to-use-git-blog/2018/05/26/mathjax-test</id><content type="html" xml:base="http://localhost:4000/how-to-use-git-blog/2018/05/26/mathjax-test.html"><![CDATA[<ul>
+<p>There’s actually a lot more to Markdown than this. See the official <a href="https://daringfireball.net/projects/markdown/basics">introduction</a> and <a href="https://daringfireball.net/projects/markdown/syntax">syntax</a> for more information. However, be aware that this is not using the official implementation, and this might work subtly differently in some of the little things.</p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="example" /><category term="markdown" /><summary type="html"><![CDATA[This note demonstrates some of what Markdown is capable of doing.]]></summary></entry><entry><title type="html">Mathjax Test</title><link href="http://localhost:4000/git_blog_samples/2018/05/26/mathjax-test.html" rel="alternate" type="text/html" title="Mathjax Test" /><published>2018-05-26T00:00:00+09:00</published><updated>2018-05-26T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2018/05/26/mathjax-test</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2018/05/26/mathjax-test.html"><![CDATA[<ul>
   <li>A safe integer is an integer that
     <ul>
       <li>can be exactly represented as an IEEE-754 double precision number, and</li>
@@ -174,7 +384,7 @@
       <li>it can be exactly represented</li>
     </ul>
   </li>
-</ul>]]></content><author><name>GitHub User</name></author><category term="How-To-Use-Git-Blog" /><category term="test" /><summary type="html"><![CDATA[A safe integer is an integer that can be exactly represented as an IEEE-754 double precision number, and whose IEEE-75 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation For example, $ 2 ^ {53} - 1 $ is a safe integer, it can be exactly represented]]></summary></entry><entry><title type="html">Video example</title><link href="http://localhost:4000/how-to-use-git-blog/2017/12/18/video-example.html" rel="alternate" type="text/html" title="Video example" /><published>2017-12-18T00:00:00+09:00</published><updated>2017-12-18T00:00:00+09:00</updated><id>http://localhost:4000/how-to-use-git-blog/2017/12/18/video-example</id><content type="html" xml:base="http://localhost:4000/how-to-use-git-blog/2017/12/18/video-example.html"><![CDATA[<h2 id="canon-in-d-pachelbels-canon---cello--piano-best-wedding-version">Canon in D (Pachelbel’s Canon) - Cello &amp; Piano [BEST WEDDING VERSION]</h2>
+</ul>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="test" /><summary type="html"><![CDATA[A safe integer is an integer that can be exactly represented as an IEEE-754 double precision number, and whose IEEE-75 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation For example, $ 2 ^ {53} - 1 $ is a safe integer, it can be exactly represented]]></summary></entry><entry><title type="html">Video example</title><link href="http://localhost:4000/git_blog_samples/2017/12/18/video-example.html" rel="alternate" type="text/html" title="Video example" /><published>2017-12-18T00:00:00+09:00</published><updated>2017-12-18T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2017/12/18/video-example</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2017/12/18/video-example.html"><![CDATA[<h2 id="canon-in-d-pachelbels-canon---cello--piano-best-wedding-version">Canon in D (Pachelbel’s Canon) - Cello &amp; Piano [BEST WEDDING VERSION]</h2>
 <p>Some of you know that we occasionally play for weddings. As you can imagine, we get a LOT of requests for Canon in D, and we discovered that there were no good arrangements available anywhere for piano and cello! Hard to believe given its popularity. So we decided to make our own! We tried to stick as closely to the original as possible (which was written for three violins and basso continuo), and we performed it <em>not</em> at a snail’s pace so the bride can actually make it down the aisle without putting everyone to sleep. 🙊(Yeah, we said it! Nobody likes a slow processional!) Also, the number one complaint about this piece from cellists is always how booooring it is to play because they literally have to play the same 8 bass notes over and over for the entire piece. Problem solved with this arrangement because the cello never has to play the bass! 🙌(The piano does, but we get lots of other fun stuff too so it’s ok!) So for all you musicians out there playing weddings, we hope you enjoy playing this arrangement a little more than the ones you were used to…You can get it from www.musicnotes.com. 😊Be sure to let us know in the comments if you do!</p>
 
 <p><img src="//www.youtube.com/watch?v=Ptk_1Dc2iPY" alt="" /></p>
@@ -204,7 +414,7 @@ some of his greatest musical breakthroughs in songs such as bad guy, bury a frie
 
 <h2 id="this-is-the-poster-image">This is the poster image</h2>
 <p>In modern browsers, adding a video to your page is as easy as adding an image. No longer do you need to deal with special plug-ins or require crazy markup, you can do it with a single element.
-<img src="//www.html5rocks.com/en/tutorials/video/basics/devstories.webm" alt="video" /></p>]]></content><author><name>GitHub User</name></author><category term="How-To-Use-Git-Blog" /><category term="video" /><summary type="html"><![CDATA[Canon in D (Pachelbel’s Canon) - Cello &amp; Piano [BEST WEDDING VERSION] Some of you know that we occasionally play for weddings. As you can imagine, we get a LOT of requests for Canon in D, and we discovered that there were no good arrangements available anywhere for piano and cello! Hard to believe given its popularity. So we decided to make our own! We tried to stick as closely to the original as possible (which was written for three violins and basso continuo), and we performed it not at a snail’s pace so the bride can actually make it down the aisle without putting everyone to sleep. 🙊(Yeah, we said it! Nobody likes a slow processional!) Also, the number one complaint about this piece from cellists is always how booooring it is to play because they literally have to play the same 8 bass notes over and over for the entire piece. Problem solved with this arrangement because the cello never has to play the bass! 🙌(The piano does, but we get lots of other fun stuff too so it’s ok!) So for all you musicians out there playing weddings, we hope you enjoy playing this arrangement a little more than the ones you were used to…You can get it from www.musicnotes.com. 😊Be sure to let us know in the comments if you do!]]></summary></entry><entry><title type="html">Table example</title><link href="http://localhost:4000/how-to-use-git-blog/2017/12/15/table-example.html" rel="alternate" type="text/html" title="Table example" /><published>2017-12-15T00:00:00+09:00</published><updated>2017-12-15T00:00:00+09:00</updated><id>http://localhost:4000/how-to-use-git-blog/2017/12/15/table-example</id><content type="html" xml:base="http://localhost:4000/how-to-use-git-blog/2017/12/15/table-example.html"><![CDATA[<h2 id="table-example-as-below">Table example as below</h2>
+<img src="//www.html5rocks.com/en/tutorials/video/basics/devstories.webm" alt="video" /></p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="video" /><summary type="html"><![CDATA[Canon in D (Pachelbel’s Canon) - Cello &amp; Piano [BEST WEDDING VERSION] Some of you know that we occasionally play for weddings. As you can imagine, we get a LOT of requests for Canon in D, and we discovered that there were no good arrangements available anywhere for piano and cello! Hard to believe given its popularity. So we decided to make our own! We tried to stick as closely to the original as possible (which was written for three violins and basso continuo), and we performed it not at a snail’s pace so the bride can actually make it down the aisle without putting everyone to sleep. 🙊(Yeah, we said it! Nobody likes a slow processional!) Also, the number one complaint about this piece from cellists is always how booooring it is to play because they literally have to play the same 8 bass notes over and over for the entire piece. Problem solved with this arrangement because the cello never has to play the bass! 🙌(The piano does, but we get lots of other fun stuff too so it’s ok!) So for all you musicians out there playing weddings, we hope you enjoy playing this arrangement a little more than the ones you were used to…You can get it from www.musicnotes.com. 😊Be sure to let us know in the comments if you do!]]></summary></entry><entry><title type="html">Table example</title><link href="http://localhost:4000/git_blog_samples/2017/12/15/table-example.html" rel="alternate" type="text/html" title="Table example" /><published>2017-12-15T00:00:00+09:00</published><updated>2017-12-15T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2017/12/15/table-example</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2017/12/15/table-example.html"><![CDATA[<h2 id="table-example-as-below">Table example as below</h2>
 
 <p><strong>For now, these extended features are provided:</strong></p>
 
@@ -548,7 +758,7 @@ This feature is contributed by <a href="https://github.com/Lucas-C">Lucas-C</a>.
       <td style="text-align: left"> </td>
     </tr>
   </tbody>
-</table>]]></content><author><name>GitHub User</name></author><category term="How-To-Use-Git-Blog" /><category term="table" /><summary type="html"><![CDATA[Table example as below]]></summary></entry><entry><title type="html">Mermaid example</title><link href="http://localhost:4000/how-to-use-git-blog/2017/12/08/mermaid-example.html" rel="alternate" type="text/html" title="Mermaid example" /><published>2017-12-08T00:00:00+09:00</published><updated>2017-12-08T00:00:00+09:00</updated><id>http://localhost:4000/how-to-use-git-blog/2017/12/08/mermaid-example</id><content type="html" xml:base="http://localhost:4000/how-to-use-git-blog/2017/12/08/mermaid-example.html"><![CDATA[<h3 id="1-pie-chart">1. Pie chart</h3>
+</table>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="table" /><summary type="html"><![CDATA[Table example as below]]></summary></entry><entry><title type="html">Mermaid example</title><link href="http://localhost:4000/git_blog_samples/2017/12/08/mermaid-example.html" rel="alternate" type="text/html" title="Mermaid example" /><published>2017-12-08T00:00:00+09:00</published><updated>2017-12-08T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2017/12/08/mermaid-example</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2017/12/08/mermaid-example.html"><![CDATA[<h3 id="1-pie-chart">1. Pie chart</h3>
 
 <p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoicGllIHRpdGxlIFBldHMgYWRvcHRlZCBieSB2b2x1bnRlZXJzXG5cIkRvZ3NcIiA6IDM4NlxuXCJDYXRzXCIgOiA4NVxuXCJSYXRzXCIgOiAzNSIsIm1lcm1haWQiOm51bGx9" /></p>
 
@@ -562,7 +772,7 @@ This feature is contributed by <a href="https://github.com/Lucas-C">Lucas-C</a>.
 <p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5BbmltYWwgPHwtLSBEdWNrXG5BbmltYWwgPHwtLSBGaXNoXG5BbmltYWwgPHwtLSBaZWJyYVxuQW5pbWFsIDogK2ludCBhZ2VcbkFuaW1hbCA6ICtTdHJpbmcgZ2VuZGVyXG5BbmltYWw6ICtpc01hbW1hbCgpXG5BbmltYWw6ICttYXRlKClcbmNsYXNzIER1Y2t7XG4rU3RyaW5nIGJlYWtDb2xvclxuK3N3aW0oKVxuK3F1YWNrKClcbn1cbmNsYXNzIEZpc2h7XG4taW50IHNpemVJbkZlZXRcbi1jYW5FYXQoKVxufVxuY2xhc3MgWmVicmF7XG4rYm9vbCBpc193aWxkXG4rcnVuKClcbn0iLCJtZXJtYWlkIjpudWxsfQ" /></p>
 
 <h3 id="4-state-diagram">4. State diagram</h3>
-<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoic3RhdGVEaWFncmFtXG5bKl0gLS0-IFN0aWxsXG5TdGlsbCAtLT4gWypdXG4lJS1cblN0aWxsIC0tPiBNb3Zpbmdcbk1vdmluZyAtLT4gU3RpbGxcbk1vdmluZyAtLT4gQ3Jhc2hcbkNyYXNoIC0tPiBbKl0iLCJtZXJtYWlkIjpudWxsfQ" /></p>]]></content><author><name>GitHub User</name></author><category term="How-To-Use-Git-Blog" /><category term="mermaid" /><summary type="html"><![CDATA[1. Pie chart]]></summary></entry><entry><title type="html">Plantuml example</title><link href="http://localhost:4000/how-to-use-git-blog/2017/12/04/plantuml-example.html" rel="alternate" type="text/html" title="Plantuml example" /><published>2017-12-04T00:00:00+09:00</published><updated>2017-12-04T00:00:00+09:00</updated><id>http://localhost:4000/how-to-use-git-blog/2017/12/04/plantuml-example</id><content type="html" xml:base="http://localhost:4000/how-to-use-git-blog/2017/12/04/plantuml-example.html"><![CDATA[<h2 id="my-first-plantuml">My First PlantUML</h2>
+<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoic3RhdGVEaWFncmFtXG5bKl0gLS0-IFN0aWxsXG5TdGlsbCAtLT4gWypdXG4lJS1cblN0aWxsIC0tPiBNb3Zpbmdcbk1vdmluZyAtLT4gU3RpbGxcbk1vdmluZyAtLT4gQ3Jhc2hcbkNyYXNoIC0tPiBbKl0iLCJtZXJtYWlkIjpudWxsfQ" /></p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="mermaid" /><summary type="html"><![CDATA[1. Pie chart]]></summary></entry><entry><title type="html">Plantuml example</title><link href="http://localhost:4000/git_blog_samples/2017/12/04/plantuml-example.html" rel="alternate" type="text/html" title="Plantuml example" /><published>2017-12-04T00:00:00+09:00</published><updated>2017-12-04T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2017/12/04/plantuml-example</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2017/12/04/plantuml-example.html"><![CDATA[<h2 id="my-first-plantuml">My First PlantUML</h2>
 
 <h3 id="plantuml-block-1">PlantUML Block-1</h3>
 <p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a426f62202d3e20416c696365203a2068656c6c6f0a40656e64756d6c" /></p>
@@ -575,183 +785,4 @@ This feature is contributed by <a href="https://github.com/Lucas-C">Lucas-C</a>.
 
 <h3 id="plantuml-block-4">PlantUML Block-4</h3>
 
-<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a736b696e706172616d2068616e647772697474656e20747275650a0a736b696e706172616d2075736563617365207b0a20204261636b67726f756e64436f6c6f72204461726b536561477265656e0a2020426f72646572436f6c6f72204461726b536c617465477261790a0a20204261636b67726f756e64436f6c6f723c3c204d61696e203e3e2059656c6c6f77477265656e0a2020426f72646572436f6c6f723c3c204d61696e203e3e2059656c6c6f77477265656e0a0a20204172726f77436f6c6f72204f6c6976650a20204163746f72426f72646572436f6c6f7220626c61636b0a20204163746f72466f6e744e616d6520436f75726965720a0a20204163746f724261636b67726f756e64436f6c6f723c3c2048756d616e203e3e20476f6c640a7d0a0a55736572203c3c2048756d616e203e3e0a3a4d61696e2044617461626173653a206173204d7953716c203c3c204170706c69636174696f6e203e3e0a28537461727429203c3c204f6e652053686f74203e3e0a2855736520746865206170706c69636174696f6e29206173202855736529203c3c204d61696e203e3e0a0a55736572202d3e20285374617274290a55736572202d2d3e2028557365290a0a4d7953716c202d2d3e2028557365290a0a40656e64756d6c" /></p>]]></content><author><name>GitHub User</name></author><category term="How-To-Use-Git-Blog" /><category term="plantuml" /><summary type="html"><![CDATA[My First PlantUML]]></summary></entry><entry><title type="html">Quick markdown example</title><link href="http://localhost:4000/how-to-use-git-blog/2017/06/10/quick-mardown-example.html" rel="alternate" type="text/html" title="Quick markdown example" /><published>2017-06-10T00:00:00+09:00</published><updated>2017-06-10T00:00:00+09:00</updated><id>http://localhost:4000/how-to-use-git-blog/2017/06/10/quick-mardown-example</id><content type="html" xml:base="http://localhost:4000/how-to-use-git-blog/2017/06/10/quick-mardown-example.html"><![CDATA[<p>Paragraphs are separated by a blank line.</p>
-
-<p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code class="language-plaintext highlighter-rouge">monospace</code>. Itemized lists
-look like:</p>
-
-<ul>
-  <li>this one</li>
-  <li>that one</li>
-  <li>the other one</li>
-</ul>
-
-<p>Note that — not considering the asterisk — the actual text
-content starts at 4-columns in.</p>
-
-<blockquote>
-  <p>Block quotes are
-written like so.</p>
-
-  <p>They can span multiple paragraphs,
-if you like.</p>
-</blockquote>
-
-<p>Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., “it’s all
-in chapters 12–14”). Three dots … will be converted to an ellipsis.
-Unicode is supported. ☺</p>
-
-<h2 id="an-h2-header">An h2 header</h2>
-
-<p>Here’s a numbered list:</p>
-
-<ol>
-  <li>first item</li>
-  <li>second item</li>
-  <li>third item</li>
-</ol>
-
-<p>Note again how the actual text starts at 4 columns in (4 characters
-from the left side). Here’s a code sample:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Let me re-iterate ...
-for i in 1 .. 10 { do-something(i) }
-</code></pre></div></div>
-
-<p>As you probably guessed, indented 4 spaces. By the way, instead of
-indenting the block, you can use delimited blocks, if you like:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>define foobar() {
-    print "Welcome to flavor country!";
-}
-</code></pre></div></div>
-
-<p>(which makes copying &amp; pasting easier). You can optionally mark the
-delimited block for Pandoc to syntax highlight it:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
-<span class="c1"># Quick, count to ten!
-</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="c1"># (but not *too* quick)
-</span>    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="an-h3-header">An h3 header</h3>
-
-<p>Now a nested list:</p>
-
-<ol>
-  <li>
-    <p>First, get these ingredients:</p>
-
-    <ul>
-      <li>carrots</li>
-      <li>celery</li>
-      <li>lentils</li>
-    </ul>
-  </li>
-  <li>
-    <p>Boil some water.</p>
-  </li>
-  <li>
-    <p>Dump everything in the pot and follow
-this algorithm:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find wooden spoon
-uncover pot
-stir
-cover pot
-balance wooden spoon precariously on pot handle
-wait 10 minutes
-goto first step (or shut off burner when done)
-</code></pre></div>    </div>
-
-    <p>Do not bump wooden spoon or it will fall.</p>
-  </li>
-</ol>
-
-<p>Notice again how text always lines up on 4-space indents (including
-that last line which continues item 3 above).</p>
-
-<p>Here’s a link to <a href="http://foo.bar">a website</a>, to a <a href="local-doc.html">local
-doc</a>, and to a <a href="#an-h2-header">section heading in the current
-doc</a>. Here’s a footnote <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
-
-<p>Tables can look like this:</p>
-
-<p>Name           Size  Material      Color
-————- —–  ————  ————
-All Business      9  leather       brown
-Roundabout       10  hemp canvas   natural
-Cinderella       11  glass         transparent</p>
-
-<p>Table: Shoes sizes, materials, and colors.</p>
-
-<p>(The above is the caption for the table.) Pandoc also supports
-multi-line tables:</p>
-
-<hr />
-<p>Keyword   Text
-——–  ———————–
-red       Sunsets, apples, and
-          other red or reddish
-          things.</p>
-
-<p>green     Leaves, grass, frogs
-          and other things it’s
-          not easy being.
-——–  ———————–</p>
-
-<p>A horizontal rule follows.</p>
-
-<hr />
-
-<p>Here’s a definition list:</p>
-
-<dl>
-  <dt>apples</dt>
-  <dd>Good for making applesauce.</dd>
-  <dt>oranges</dt>
-  <dd>Citrus!</dd>
-  <dt>tomatoes</dt>
-  <dd>There’s no “e” in tomatoe.</dd>
-</dl>
-
-<p>Again, text is indented 4 spaces. (Put a blank line between each
-term and  its definition to spread things out more.)</p>
-
-<p>Here’s a “line block” (note how whitespace is honored):</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Line one</td>
-    </tr>
-    <tr>
-      <td>Line too</td>
-    </tr>
-    <tr>
-      <td>Line tree</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>and images can be specified like so:</p>
-
-<p><img src="https://user-images.githubusercontent.com/9413601/123900693-1d9ebd00-d99c-11eb-8e9e-cf7879187606.png" alt="example image" title="An exemplary image" /></p>
-
-<p>Inline math equation: $\omega = d\phi / dt$. Display
-math should get its own line like so:</p>
-
-<p>$$I = \int \rho R^{2} dV$$</p>
-
-<p>And note that you can backslash-escape any punctuation characters
-which you wish to be displayed literally, ex.: `foo`, *bar*, etc.</p>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>Some footnote text. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>GitHub User</name></author><category term="How-To-Use-Git-Blog" /><category term="example" /><summary type="html"><![CDATA[Paragraphs are separated by a blank line.]]></summary></entry></feed>
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a736b696e706172616d2068616e647772697474656e20747275650a0a736b696e706172616d2075736563617365207b0a20204261636b67726f756e64436f6c6f72204461726b536561477265656e0a2020426f72646572436f6c6f72204461726b536c617465477261790a0a20204261636b67726f756e64436f6c6f723c3c204d61696e203e3e2059656c6c6f77477265656e0a2020426f72646572436f6c6f723c3c204d61696e203e3e2059656c6c6f77477265656e0a0a20204172726f77436f6c6f72204f6c6976650a20204163746f72426f72646572436f6c6f7220626c61636b0a20204163746f72466f6e744e616d6520436f75726965720a0a20204163746f724261636b67726f756e64436f6c6f723c3c2048756d616e203e3e20476f6c640a7d0a0a55736572203c3c2048756d616e203e3e0a3a4d61696e2044617461626173653a206173204d7953716c203c3c204170706c69636174696f6e203e3e0a28537461727429203c3c204f6e652053686f74203e3e0a2855736520746865206170706c69636174696f6e29206173202855736529203c3c204d61696e203e3e0a0a55736572202d3e20285374617274290a55736572202d2d3e2028557365290a0a4d7953716c202d2d3e2028557365290a0a40656e64756d6c" /></p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="plantuml" /><summary type="html"><![CDATA[My First PlantUML]]></summary></entry></feed>
