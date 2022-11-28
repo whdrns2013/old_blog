@@ -1,15 +1,10 @@
 ---
 layout: post                              # 레이아웃 : post(게시물)
-title:  "test"                            # 게시물의 제목
-subtitle: Each post also has a subtitle   # 서브타이틀
-date:   2022-11-26 16:46:06 +0900         # 게시물 작성 일자
-categories: test                          # 게시물이 속하는 카테고리
-author:                                   # 작성자
-tags: [test]                              # 태그
-meta: "Springfield"                       # 이건 뭐지?
-sidebar: []                               # 이건 뭐지?
-
-
+title:  "해커톤에 임할 자세"                            # 게시물의 제목
+subtitle: 되든 안되든 자신 있게, 하지만 하고자 표현한 것은 책임지고   # 서브타이틀
+date:   2022-11-28 11:07:06 +0900         # 게시물 작성 일자
+categories: experience                          # 게시물이 속하는 카테고리
+tags: 해커톤 자세                            # 태그
 
 # 배너 설정
 # banner:
@@ -29,4 +24,6 @@ sidebar: []                               # 이건 뭐지?
 # 작성이 완료된 글은 글 앞에 "날짜"를 달아놓습니다 eg. 2022-11-25-title
 # 날짜가 달리지 않은 글은 작성이 완료되지 않은 글입니다.
 ---
-<!--postNo: 연월일_00n-->
+<!-- postNo: 20221128_001 -->
+
+해커톤 - 되든 안되든 자신 있게, 하지만 하고자 표현한 것과 맡은 바는 책임지고
