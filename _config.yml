@@ -140,13 +140,15 @@ brand_color : "#1a8e42"
 
 night_mode: "auto"
 
+
 # Code badge setting
 # You can enable or disable the code badge and so on
-# code_badge:
-#   enabled: "true"
-#   color: "#fff"
-#   background_color: "#ff4e00"
-#   text_transform: "uppercase"  # ("uppercase", "lowercase", "capitalize")
+code_badge:
+  enabled: "true"
+  color: "#fff"
+  background_color: "#ff4e00"
+  text_transform: "uppercase"  # ("uppercase", "lowercase", "capitalize")
+
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
@@ -212,11 +214,16 @@ defaults:
 #   theme: "github-light"
 #   follow_site_theme: true
 
+
+
 # Build settings
-# highlighter: none
 markdown: kramdown
 kmarkdown:
-  input: GFM
+  # input: GFM
+  syntax_highlighter: rougue
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
 
 plugins:
   - jekyll-feed

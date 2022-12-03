@@ -7,7 +7,7 @@ categories: test                          # 게시물이 속하는 카테고리
 author:                                   # 작성자
 tags: [test]                              # 태그
 meta: "Springfield"                       # 이건 뭐지?
-sidebar: []                               # 이건 뭐지?
+
 
 
 
@@ -25,6 +25,8 @@ sidebar: []                               # 이건 뭐지?
 #   heading_style: "font-size: 4.25em; font-weight: bold; text-decoration: underline"  # 헤드글 스타일
 #   subheading_style: "color: gold"  #서브헤드글 스타일
 
+# 사이드바 없애기
+# sidebar: []
 
 # 작성이 완료된 글은 글 앞에 "날짜"를 달아놓습니다 eg. 2022-11-25-title
 # 날짜가 달리지 않은 글은 작성이 완료되지 않은 글입니다.

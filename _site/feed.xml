@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T01:08:38+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T03:33:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
+
+<h3 id="오류-사항">오류 사항</h3>
+
+<ul>
+  <li>Github Desktop 에서 <code class="language-plaintext highlighter-rouge">Select your editor in Preference</code> 에서 editor 안보임</li>
+  <li>본 글에서는 OS : 윈도우10, editor : VScode 기준입니다.</li>
+</ul>
 
 <h3 id="오류-원인-추론">오류 원인 추론</h3>
 
@@ -45,9 +52,9 @@
 <p>중요! 재부팅을 해야 설정이 적용됩니다.</p>
 
 <p><img src="/assets/images/20221126_002_009.png" alt="" width="700" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="Desktop" /><category term="깃허브" /><category term="데스크탑" /><category term="에디터" /><category term="안보일때" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[작성중]깃허브 블로그 페이지 만들기 (윈도우/맥)</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html" rel="alternate" type="text/html" title="[작성중]깃허브 블로그 페이지 만들기 (윈도우/맥)" /><published>2022-11-26T22:46:06+09:00</published><updated>2022-11-26T22:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_001</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html"><![CDATA[<!-- postNo: 20221126_001-->
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="Desktop" /><category term="깃허브" /><category term="데스크탑" /><category term="에디터" /><category term="안보일때" /><category term="윈도우" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[작성중]깃허브 블로그 페이지 만들기 (윈도우/맥)</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html" rel="alternate" type="text/html" title="[작성중]깃허브 블로그 페이지 만들기 (윈도우/맥)" /><published>2022-11-26T22:46:06+09:00</published><updated>2022-11-26T22:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_001</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html"><![CDATA[<!-- postNo: 20221126_001-->
 
-<h2 id="인트로">인트로</h2>
+<h2 id="1-인트로">1. 인트로</h2>
 <p>프로그래밍을 배우면서, <u><b>블로그 운영의 필요성</b></u>을 느꼈습니다.<br />
 어떤 블로그가 내게 맞을까.. 고민을 하다가!<br />
 <u><b>html이나 마크다운에 대한 공부</b></u>도 할 겸 깃허브 블로그를 선택했습니다.</p>
@@ -61,7 +68,7 @@
 <p><em>깃허브에서 진행하므로, 윈도우/맥 어디에서든 가능합니다.</em><br />
 <em>윈도우/맥 운영체제에 따라 방법이 다른 경우, 별도 표기했습니다.</em></p>
 
-<h2 id="깃허브-가입과-repository-만들기">깃허브 가입과 Repository 만들기</h2>
+<h2 id="2-깃허브-repository-만들기">2. 깃허브 Repository 만들기</h2>
 
 <h3 id="1-깃허브-계정-만들기">1) 깃허브 계정 만들기</h3>
 <p>깃허브 계정은 간단하게 만들 수 있습니다.<br />
@@ -69,22 +76,25 @@
 (계정이 있으신 분은 Sign in 해주시면 됩니다.)</p>
 
 <blockquote>
-  <p>GitHub : https://github.com</p>
+  <p>GitHub : <a href="https://github.com">https://github.com</a></p>
 </blockquote>
 
-<p><img src="/assets/images/20221126_001_001.png" alt="회원가입" /></p>
+<p><img src="/assets/images/20221126_001_001.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
-<h3 id="2-깃허브-저장소repository-만들기">2) 깃허브 저장소(Repository) 만들기</h3>
+<h3 id="2-깃허브-repository-만들기-1">2) 깃허브 Repository 만들기</h3>
 <p>화면 오른쪽 상단에서 ‘Your respository’ 를 클릭해주세요.</p>
 <blockquote>
   <p>Repository : ‘저장소’라고 말할 수 있습니다.</p>
 </blockquote>
 
-<p><img src="/assets/images/20221126_001_002.png" alt="저장소" /></p>
+<p><img src="/assets/images/20221126_001_002.png" alt="저장소" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p><code class="language-plaintext highlighter-rouge">NEW</code> 버튼을 눌러 새로운 repository(저장소)를 만들어 봅시다.</p>
 
-<p><img src="/assets/images/20221126_001_003.png" alt="" /></p>
+<p><img src="/assets/images/20221126_001_003.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>Repository Name(저장소 이름)을 작성 후 <code class="language-plaintext highlighter-rouge">Create repository</code>를 클릭해주세요.</p>
 
@@ -93,28 +103,34 @@
 이 Repository Name은 향후 블로그 주소가 됩니다.</p>
 </blockquote>
 
-<p><img src="/assets/images/20221126_001_004.png" alt="" /></p>
+<p><img src="/assets/images/20221126_001_004.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>repository가 만들어졌습니다. 한 번 들어가볼까요?
-<img src="/assets/images/20221126_001_005.png" alt="" /></p>
+<img src="/assets/images/20221126_001_005.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <h3 id="3-깃허브-page-setting">3) 깃허브 Page Setting</h3>
 <p>repository 화면에서 settings를 클릭해줍니다.
-<img src="/assets/images/20221126_001_006.png" alt="" /></p>
+<img src="/assets/images/20221126_001_006.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>page 메뉴에서 아래와 같이 설정한 후, save 해줍니다.
-<img src="/assets/images/20221126_001_007.png" alt="" /></p>
+<img src="/assets/images/20221126_001_007.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>index.html 파일을 만들어 볼 것입니다.<br />
 <code class="language-plaintext highlighter-rouge">ADD file -&gt; Create new file</code> 을 눌러 새로운 파일을 만들어주세요.</p>
-<blockquote>
-  <p>💡 index.html 파일 : 웹 브라우저가 특정 url에 접근하였을때 처음 읽어들이는 파일로, 보여줄 첫 화면 결정해주는 역할을 합니다.
-<img src="/assets/images/20221126_001_008.png" alt="" /></p>
-</blockquote>
+
+<p><img src="/assets/images/20221126_001_008.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>빈칸(파일명)에 index.html 을 입력해준 뒤,<br />
 파일 내용에는 간단한 html문을 입력해보겠습니다.<br />
 작성이 완료되었다면, <code class="language-plaintext highlighter-rouge">Commit new file</code> (새로운 파일 확정)을 눌러주세요.</p>
+<blockquote>
+  <p>💡 index.html 파일 : 웹 브라우저가 특정 url에 접근하였을때 처음 읽어들이는 파일로, 보여줄 첫 화면 결정해주는 역할을 합니다.</p>
+</blockquote>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
     <span class="nt">&lt;body&gt;</span>
@@ -123,14 +139,15 @@
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
 
-<p><img src="/assets/images/20221126_001_009.png" alt="" /></p>
+<p><img src="/assets/images/20221126_001_009.png" alt="" align="left" /></p>
 
 <p>이제 5분 가량 잠시 쉬고 오세요.<br />
 잘 쉬고 오셨나요? 그러면 본인의 깃허브 페이지 주소 <code class="language-plaintext highlighter-rouge">ID.github.io</code>로 접속해봅시다.<br />
 아래와 같이 index 파일에 적어준 내용이 나온다면 성공!<br />
-<img src="/assets/images/20221126_001_010.png" alt="" /></p>
+<img src="/assets/images/20221126_001_010.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
-<h2 id="깃허브-페이지-관리-툴-설치">깃허브 페이지 관리 툴 설치</h2>
+<h2 id="3-깃허브-페이지-관리-툴-설치">3. 깃허브 페이지 관리 툴 설치</h2>
 
 <h3 id="1-github-desktop-설치">1) Github Desktop 설치</h3>
 <p>깃허브 데스크탑을 다운받습니다. <a href="https://desktop.github.com/">GitHub Desktop</a></p>
@@ -147,17 +164,19 @@
 <p>깃허브 데스크탑을 설치한 후, repository를 컴퓨터에 clone 해줍니다.<br />
 사용중인 PC의 특정 폴더와 repository를 연결해주는 단계로 이해하시면 편합니다.<br />
 아래 이미지들을 따라 해주세요.<br />
-<img src="/assets/images/20221126_001_011.png" alt="" />
-<img src="/assets/images/20221126_001_012.png" alt="" /></p>
+<img src="/assets/images/20221126_001_011.png" alt="" align="left" />
+<img src="/assets/images/20221126_001_012.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>클론 후, repository → pull 을 클릭합니다.<br />
 pull 을 통해, 변경 사항을 동기화한 후에, Clone 한 폴더를 찾아가봅시다.<br />
 (기본 경로 : 내문서 -&gt; ID.github.io 폴더)<br />
 아까 웹상에서 만든 index.html 파일이 보일 것입니다.<br />
 즉, pull은 깃허브 repository의 최신 내용을 PC에 업데이트 해주는 기능입니다.<br />
-<img src="/assets/images/20221126_001_013.png" alt="" />
-<img src="/assets/images/20221126_001_014.png" alt="" /></p>
+<img src="/assets/images/20221126_001_013.png" alt="" align="left" />
+<img src="/assets/images/20221126_001_014.png" alt="" align="left" /></p>
 <h2 id="이미지-필요--내문서---indexhtml">이미지 필요 : 내문서 -&gt; index.html</h2>
+<p><img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <blockquote>
   <ul>
@@ -175,8 +194,9 @@ pull 을 통해, 변경 사항을 동기화한 후에, Clone 한 폴더를 찾�
 <p>저는 notepad++ 가 설치되어있어 기본으로 잡히는군요!<br />
 본인에게 익숙한 코드 에디터를 option에서 설정하여 사용하시기 바랍니다.<br />
 저는 VScode를 사용할 예정입니다.<br />
-<img src="/assets/images/20221126_001_015.png" alt="" />
-<img src="/assets/images/20221126_001_016.png" alt="" /></p>
+<img src="/assets/images/20221126_001_015.png" alt="" align="left" />
+<img src="/assets/images/20221126_001_016.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <blockquote>
   <p>에디터가 보이지 않을 때에는 다음 글을 참고해주세요.<br />
@@ -185,8 +205,9 @@ pull 을 통해, 변경 사항을 동기화한 후에, Clone 한 폴더를 찾�
 
 <p>external editor로 열기를 선택하면, 해당 에디터가 열릴 것입니다.<br />
 그리고, github 사이트에서 만들었던 index.html 파일 또한 여기서 볼 수 있죠!<br />
-<img src="/assets/images/20221126_001_017.png" alt="" />
-<img src="/assets/images/20221126_001_018.png" alt="" /></p>
+<img src="/assets/images/20221126_001_017.png" alt="" align="left" />
+<img src="/assets/images/20221126_001_018.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>인덱스 파일이 보이는 김에, 내용을 간단히 수정해볼까요?<br />
 저희 삼촌께서 선물해주신 365일 문장달력 문구를 써봤습니다.<br />
@@ -209,15 +230,17 @@ pull 을 통해, 변경 사항을 동기화한 후에, Clone 한 폴더를 찾�
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
 
-<p><img src="/assets/images/20221126_001_019.png" alt="" /></p>
+<p><img src="/assets/images/20221126_001_019.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>깃허브 데스크탑 화면으로 돌아가봅시다.<br />
 PC에서 진행된 변경사항이 화면에 출력되어있을 것입니다.<br />
 (1) Commit to main 을 눌러 변경 사항을 확정하고,<br />
 (2) Push를 눌러 깃허브의 repository에 업데이트를 해줍니다.</p>
 
-<p><img src="/assets/images/20221126_001_020.png" alt="" />
-<img src="/assets/images/20221126_001_021.png" alt="" /></p>
+<p><img src="/assets/images/20221126_001_020.png" alt="" align="left" />
+<img src="/assets/images/20221126_001_021.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>다시 5~10분의 휴식 시간을 가져봅시다.<br />
 5~10분을 기다리는 이유는.. 깃허브 페이지에 적용되는 데 시간이 걸리기 때문입니다.</p>
@@ -227,12 +250,324 @@ PC에서 진행된 변경사항이 화면에 출력되어있을 것입니다.<br
 
 <p>적용이 완료되면, ID.github.io로 들어갔을 때, 아래와 같은 화면이 보일 것입니다.</p>
 
-<p><img src="/assets/images/20221126_001_022.png" alt="" /></p>
+<p><img src="/assets/images/20221126_001_022.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
-<p>&lt;!– 이하부터 수정 필요&gt;</p>
+<h2 id="4-테마-적용-준비--루비와-지킬">4. 테마 적용 준비 : 루비와 지킬</h2>
+<h3 id="1-루비-지킬">1) 루비? 지킬?</h3>
 
-<h2 id="테마-적용-준비--지킬과-루비">테마 적용 준비 : 지킬과 루비</h2>
-<p>맥 홈브루 및 지킬 설치 후 노션 업데이트 -&gt; 이후 이 페이지 업데이트</p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-11-24T13:46:06+09:00</published><updated>2022-11-24T13:46:06+09:00</updated><id>http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<p>루비는 프로그램 언어 중 하나이며, 지킬은 루비를 기반으로 만들어진 정적 웹 페이지블로그 제작 목적의 툴입니다.<br />
+지킬은 마크다운 형식의 글쓰기가 가능하며, 많은 무료 테마(템플릿)가 있기에 사용하기 좋아 많은 깃허브 블로그가 지킬을 사용합니다.</p>
+
+<h3 id="2-루비-설치">2) 루비 설치</h3>
+
+<ol>
+  <li>루비 설치 페이지로 접속하고, 설치 프로그램 다운로드 후 설치해줍니다.</li>
+</ol>
+
+<blockquote>
+  <p>🤔 Windows와 Mac 두 OS에서의 루비 설치 방법이 다릅니다.<br />
+첫 번째는 Windows에서의 루비 설치 방법입니다.</p>
+</blockquote>
+
+<h4 id="--windows-에서-설치">- Windows 에서 설치</h4>
+
+<p>설치시에는 PATH에 추가하시겠습니까? 라는 질문에 필히 체크하여, PATH에 추가될 수 있도록 해주세요.
+이거 안하면 나중에 또 환경변수에 추가를 해야하는 번거로움이 있습니다.</p>
+
+<p><a href="https://rubyinstaller.org/downloads/">https://rubyinstaller.org/downloads/</a>
+<img src="/assets/images/20221126_001_023.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<h4 id="--mac-에서-설치">- MAC 에서 설치</h4>
+
+<blockquote>
+  <p>🤔 MAC은 루비가 기본적으로 설치되어 있습니다.<br />
+하지만 예전 버전이라 재설치가 필요합니다.<br />
+아래에서 Homebrew를 통한 루비 설치 방법을 서술합니다.</p>
+</blockquote>
+
+<p>아래 사이트에서 Homebrew 설치 명령어를 복사한 후, Terminal에서 설치해줍니다.</p>
+
+<p><a href="https://brew.sh/index_ko">Homebrew 설치</a>
+<img src="/assets/images/20221126_001_024.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>PASSWORD는 맥 로그인 할 때 사용하는 비밀번호를 입력하면 됩니다.
+그런데! 비밀번호를 입력을 해도 화면에는 안보일겁니다. 
+보안을 위해 비밀번호를 노출하지 않는 것일 뿐, 입력은 되고 있으니 당황하지 말고
+입력 후 엔터를 눌러주세요.</p>
+
+<p><img src="/assets/images/20221126_001_025.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<blockquote>
+  <p>홈브루 설치가 안된다면?
+<a href="https://whdrns2013.github.io/how_to_use_git/2022/11/26/20221126_003.html">에러 : 맥 홈브루 설치 오류 Not a valid ref: refs/remotes/origin/master</a></p>
+</blockquote>
+
+<p>홈브루 설치가 완료되었다면, rbenv 설치를 진행합니다.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">brew install rbenv
+</span></code></pre></div></div>
+
+<p><img src="/assets/images/20221126_001_026.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>이후 루비를 설치 진행해줍니다.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">* rbenv install 2.6.3 #</span>루비 2.6.3 버전 설치
+<span class="gp">* rbenv global 2.6.3 #</span>전역 루비 버전 지정
+</code></pre></div></div>
+
+<p>아래 명령어를 통해 루비 버전을 확인했을 때, 정상적으로 버전이 나오면 성공입니다.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">ruby -v
+</span></code></pre></div></div>
+
+<p>터미널을 통해 루비를 편하게 호출할 수 있도록 아래 명령어를 진행해줍니다.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(1) `echo 'if which rbenv &gt;</span><span class="w"> </span>/dev/null<span class="p">;</span> <span class="k">then </span><span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>rbenv init -<span class="si">)</span><span class="s2">"</span><span class="p">;</span> <span class="k">fi</span><span class="s1">' **&gt;&gt;** **~**/.bash_profile`
+</span><span class="go">(2) `source **~**/.bash_profile`
+</span></code></pre></div></div>
+
+<p>이후 rehash를 진행합니다.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">`rbenv rehash`
+</span></code></pre></div></div>
+
+<p>이후 터미널에서는 <code class="language-plaintext highlighter-rouge">gem</code> + 명령어를 통해 지킬을 설치할 수 있습니다.</p>
+
+<h3 id="3-지킬-설치">3) 지킬 설치</h3>
+<h4 id="--windows-에서-설치-1">- Windows 에서 설치</h4>
+
+<p>지킬을 설치합니다.
+지킬 설치 명령어는 <code class="language-plaintext highlighter-rouge">gem install jekyll</code> 이며, 필수적인 것만 설치하려면 아래 두 가지를 설치해주시면 됩니다.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">(1) `gem install jekyll bundler`
+(2) `gem install webrick`
+</span></code></pre></div></div>
+
+<p><img src="/assets/images/20221126_001_027.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>repository가 clone된 폴더로 이동합니다.</p>
+
+<p><img src="/assets/images/20221126_001_028.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>chcp 65001로 인코딩을 진행합니다.</p>
+
+<p><img src="/assets/images/20221126_001_029.png" alt="" align="left" />
+<img src="/assets/images/20221126_001_030.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>지킬 생성
+지킬을 생성할 차례입니다.</p>
+
+<p>jekyll 생성 : <code class="language-plaintext highlighter-rouge">jekyll new ./ --force</code></p>
+
+<blockquote>
+  <p>force : 강제 실행. 원래 지킬은 빈 디렉토리(empty directory)에만 설치가 가능합니다. 하지만 해당 폴더에는 index.html 파일이 있죠. 때문에 force 명령어로 강제 설치를 진행합니다.</p>
+</blockquote>
+
+<p><img src="/assets/images/20221126_001_031.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>번들 설치와 지킬 서버 실행</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">(1) 번들 설치 : `bundle install`
+(2) 지킬 서버 실행 : `bundle exec jekyll serve`
+</span></code></pre></div></div>
+
+<p><img src="/assets/images/20221126_001_032.png" alt="" align="left" />
+<img src="/assets/images/20221126_001_033.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>서버 실행 확인
+서버가 정상적으로 실행되었다면, 웹브라우저를 통해 server address 로 접속시,
+아래와 같이 작성했던 index.html 페이지가 나오게 됩니다.</p>
+
+<p><img src="/assets/images/20221126_001_034.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<h4 id="-mac-에서-설치">-MAC 에서 설치</h4>
+
+<p>터미널에서 <code class="language-plaintext highlighter-rouge">gem install jekyll bundler</code> 명령어를 통해 지킬 번들러를 설치합니다.
+아래와 같이 몇 개의 gems가 설치되었다 라는 게 보이면 성공입니다.</p>
+
+<p><img src="/assets/images/20221126_001_035.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>지킬 생성
+지킬을 생성할 차례입니다.</p>
+
+<p>jekyll 생성 : <code class="language-plaintext highlighter-rouge">jekyll new ./ --force</code></p>
+
+<blockquote>
+  <p>force : 강제 실행. 원래 지킬은 빈 디렉토리(empty directory)에만 설치가 가능합니다. 하지만 해당 폴더에는 index.html 파일이 있죠. 때문에 force 명령어로 강제 설치를 진행합니다.</p>
+</blockquote>
+
+<p><img src="/assets/images/20221126_001_036.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>번들 설치와 지킬 서버 실행</p>
+
+<p>(1) 번들 설치 : <code class="language-plaintext highlighter-rouge">bundle install</code></p>
+
+<p><img src="/assets/images/20221126_001_037.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>(2) 지킬 서버 실행 : <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code></p>
+
+<p>아래처럼 나오면 성공입니다.
+server address 를 확인해주세요.</p>
+
+<p><img src="/assets/images/20221126_001_038.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>서버 실행 확인</p>
+
+<p>서버가 정상적으로 실행되었다면, 웹브라우저를 통해 server address 로 접속시,
+아래와 같이 작성했던 index.html 페이지가 나오게 됩니다.</p>
+
+<p><img src="/assets/images/20221126_001_039.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<h3 id="4-서버-실행-오류시">4) 서버 실행 오류시</h3>
+
+<p>아래 페이지를 참고한다.<br />
+<a href="https://whdrns2013.github.io/how_to_use_git/2022/11/26/20221126_004.html">깃허브 페이지 테마 적용 : Gemfile 오류</a></p>
+
+<!-- 이후 내용 추가 필요 -->]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">지킬 페이지 테마 적용 Gemfile 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_004.html" rel="alternate" type="text/html" title="지킬 페이지 테마 적용 Gemfile 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_004</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_004.html"><![CDATA[<!--postNo: 20221126_004-->
+
+<h2 id="오류-확인">오류 확인</h2>
+
+<p><img src="/assets/images/20221126_004_001.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>아마도.. 필요한 gem을 찾아 설치하는 과정에서의 오류,<br />
+혹은 필요한 gem이 없어서 생기는 오류로 추정된다.</p>
+
+<p>내 경우는 Gemfile 파일 내에 있는 설치 패키지 부분을 수정해줌으로 인해 문제를 해결했다.<br />
+테마가 다르면 다른 문제가 생길 수 있으므로, 테마 설명 페이지를 필히 참고하기를 바란다.<br />
+한시간을 쩔쩔 매며 원인을 찾았다 ㅠㅠ..</p>
+
+<blockquote>
+  <p>오류문구<br />
+Gemfile 파싱 도중 오류이며, jekyll-theme-so-simple.gemspec 파일을 로드하지 못한 게 원인이다.<br />
+특정 파일에서 jekyll-theme-so-simple.gemspec 파일을 원하나, 이 파일이 설치되지 않았기 때문 으로 추정하였다.</p>
+</blockquote>
+
+<h2 id="해결-실마리-잡기">해결 실마리 잡기</h2>
+
+<p><img src="/assets/images/20221126_004_002.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>테마 설치 페이지를 통해 해결의 실마리를 잡았다.<br />
+기본 설명으로 적혀있는데.. 이를 놓쳤었네 ㅠㅠ</p>
+
+<h2 id="해결--gemfile에-문구-추가하기">해결 : Gemfile에 문구 추가하기</h2>
+
+<p><img src="/assets/images/20221126_004_003.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p><a href="http://rubygems.org">rubygems.org</a> 에서 해당 테마 파일을 찾도록 내용을 수정</p>
+
+<p><img src="/assets/images/20221126_004_004.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>에러 없어지고, 페이지 제대로 로딩됨. 해결.</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="gemfile" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">MAC 홈브루 설치 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_03.html" rel="alternate" type="text/html" title="MAC 홈브루 설치 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_03</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_03.html"><![CDATA[<!--postNo: 20221126_003-->
+
+<h2 id="에러-발생">에러 발생</h2>
+
+<p>터미널을 통해 홈브루 설치를 진행했더니..<br />
+그랬더니 아래와 같은 에러가 난다.</p>
+
+<p><img src="/assets/images/20221126_003_001.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<h2 id="에러-원인-탐색">에러 원인 탐색</h2>
+
+<p>홈브루의 문제보다는 깃허브와 PC 사이의 연결 문제일 것이라고 한다.<br />
+깃허브 토픽 discussion에서 해결책을 찾아보라고 한다. VPN등을 사용하는 해결책이 있을 것이라고..</p>
+
+<p><img src="/assets/images/20221126_003_002.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" />
+<a href="https://github.com/orgs/Homebrew/discussions/666">Unable to install: “fatal: the remote end hung up unexpectedly” · Discussion #666 · Homebrew</a></p>
+
+<h2 id="첫-번째-시도--홈브루-강제-update-실패">첫 번째 시도 : 홈브루 강제 update (실패)</h2>
+
+<p>discussion에서 홈브루를 강제 업데이트 해보라는 의견이 있어 진행해본다.<br />
+터미널을 켜고 <code class="language-plaintext highlighter-rouge">brew update --force --verbose</code> 를 입력한다.<br />
+업데이트가 완료되었다.</p>
+
+<p><img src="/assets/images/20221126_003_003.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>터미널에서 <code class="language-plaintext highlighter-rouge">brew doctor</code>를 호출해 홈브루에 문제가 있는지 확인했는데.. 여전히 문제가 있다.</p>
+
+<h2 id="두-번째-시도--brew-doctor가-제시하는-해결책-성공">두 번째 시도 : brew doctor가 제시하는 해결책 (성공)</h2>
+
+<p>brew doctor에서는 다음과 같은 여섯가지 Warning 메세지가 나왔다.<br />
+살펴보면, 파일이 있어야 하는 디렉토리에 없거나 다른 곳에 있다는 오류들로 보인다.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">(1)
+Warning: Homebrew/homebrew-core was not tapped properly! Run:
+  rm -rf "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core"
+  brew tap homebrew/core
+
+(2)
+Warning: "config" scripts exist outside your system or Homebrew directories.
+`./configure` scripts often look for *-config scripts to determine if
+software packages are installed, and which additional flags to use when
+compiling and linking....
+
+(3)
+Warning: Unbrewed dylibs were found in /usr/local/lib.
+If you didn't put them there on purpose they could cause problems when
+building Homebrew formulae, and may need to be deleted....
+
+(4)
+Warning: Unbrewed header files were found in /usr/local/include.
+If you didn't put them there on purpose they could cause problems when
+building Homebrew formulae, and may need to be deleted.
+
+(5)
+Warning: Unbrewed '.pc' files were found in /usr/local/lib/pkgconfig.
+If you didn't put them there on purpose they could cause problems when
+building Homebrew formulae, and may need to be deleted....
+
+(6)
+Warning: Unbrewed static libraries were found in /usr/local/lib.
+If you didn't put them there on purpose they could cause problems when
+building Homebrew formulae, and may need to be deleted....
+</span></code></pre></div></div>
+
+<p>첫 번째 제시된 해결책처럼 homebrew-core 를 삭제해보자.<br />
+터미널에 아래와 같이 명령어를 입력한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">rm -rf "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core"</code></p>
+
+<p>삭제가 되면 사용자에게로 입력권한이 돌아온다.<br />
+이후 <code class="language-plaintext highlighter-rouge">brew doctor</code>를 실행하면 부족한 파일들을 설치한다.<br />
+그래도 아래와 같은 Warning 메세지가 떴지만, 무시해도 된다.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">Please note that these warnings are just used to help the Homebrew maintainers
+with debugging if you file an issue. If everything you use Homebrew for is
+</span><span class="gp">working fine: please don't worry or file an issue;</span><span class="w"> </span>just ignore this. Thanks!
+<span class="go">
+Warning: "config" scripts exist outside your system or Homebrew directories.
+`./configure` scripts often look for *-config sc....
+</span></code></pre></div></div>
+
+<p>이제 다시 루비를 설치한다.<br />
+터미널을 켜고 <code class="language-plaintext highlighter-rouge">brew update --force --verbose</code> 를 입력한다.</p>
+
+<p><img src="/assets/images/20221126_003_004.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>설치에 성공했다. hooray!</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥" /><category term="MAC" /><category term="홈브루" /><category term="homebrew" /><category term="설치" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-11-24T13:46:06+09:00</published><updated>2022-11-24T13:46:06+09:00</updated><id>http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
 <p>Jekyll requires blog post files to be named according to the following format:</p>
 
@@ -762,31 +1097,4 @@ This feature is contributed by <a href="https://github.com/Lucas-C">Lucas-C</a>.
       <td style="text-align: left"> </td>
     </tr>
   </tbody>
-</table>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="table" /><summary type="html"><![CDATA[Table example as below]]></summary></entry><entry><title type="html">Mermaid example</title><link href="http://localhost:4000/git_blog_samples/2017/12/08/mermaid-example.html" rel="alternate" type="text/html" title="Mermaid example" /><published>2017-12-08T00:00:00+09:00</published><updated>2017-12-08T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2017/12/08/mermaid-example</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2017/12/08/mermaid-example.html"><![CDATA[<h3 id="1-pie-chart">1. Pie chart</h3>
-
-<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoicGllIHRpdGxlIFBldHMgYWRvcHRlZCBieSB2b2x1bnRlZXJzXG5cIkRvZ3NcIiA6IDM4NlxuXCJDYXRzXCIgOiA4NVxuXCJSYXRzXCIgOiAzNSIsIm1lcm1haWQiOm51bGx9" /></p>
-
-<h3 id="2-sequence-diagram">2. sequence diagram</h3>
-
-<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5BbGljZSAtPj4gQm9iOiBIZWxsbyBCb2IsIGhvdyBhcmUgeW91P1xuQm9iLS0-PkpvaG46IEhvdyBhYm91dCB5b3UgSm9obj9cbkJvYi0teCBBbGljZTogSSBhbSBnb29kIHRoYW5rcyFcbkJvYi14IEpvaG46IEkgYW0gZ29vZCB0aGFua3MhXG5Ob3RlIHJpZ2h0IG9mIEpvaG46IEJvYiB0aGlua3MgYSBsb25nPGJyLz5sb25nIHRpbWUsIHNvIGxvbmc8YnIvPnRoYXQgdGhlIHRleHQgZG9lczxici8-bm90IGZpdCBvbiBhIHJvdy5cbiUlLVxuQm9iLS0-QWxpY2U6IENoZWNraW5nIHdpdGggSm9obi4uLlxuQWxpY2UtPkpvaG46IFllcy4uLiBKb2huLCBob3cgYXJlIHlvdT8iLCJtZXJtYWlkIjpudWxsfQ" /></p>
-
-<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoiZ3JhcGggVERcbkFbQ2hyaXN0bWFzXSAtLT58R2V0IG1vbmV5fCBCKEdvIHNob3BwaW5nKVxuQiAtLT4gQ3tMZXQgbWUgdGhpbmt9XG5DIC0tPnxPbmV8IERbTGFwdG9wXVxuQyAtLT58VHdvfCBFW2lQaG9uZV1cbkMgLS0-fFRocmVlfCBGW2ZhOmZhLWNhciBDYXJdIiwibWVybWFpZCI6bnVsbH0" /></p>
-
-<h3 id="3-class-diagram">3. Class diagram</h3>
-<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5BbmltYWwgPHwtLSBEdWNrXG5BbmltYWwgPHwtLSBGaXNoXG5BbmltYWwgPHwtLSBaZWJyYVxuQW5pbWFsIDogK2ludCBhZ2VcbkFuaW1hbCA6ICtTdHJpbmcgZ2VuZGVyXG5BbmltYWw6ICtpc01hbW1hbCgpXG5BbmltYWw6ICttYXRlKClcbmNsYXNzIER1Y2t7XG4rU3RyaW5nIGJlYWtDb2xvclxuK3N3aW0oKVxuK3F1YWNrKClcbn1cbmNsYXNzIEZpc2h7XG4taW50IHNpemVJbkZlZXRcbi1jYW5FYXQoKVxufVxuY2xhc3MgWmVicmF7XG4rYm9vbCBpc193aWxkXG4rcnVuKClcbn0iLCJtZXJtYWlkIjpudWxsfQ" /></p>
-
-<h3 id="4-state-diagram">4. State diagram</h3>
-<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoic3RhdGVEaWFncmFtXG5bKl0gLS0-IFN0aWxsXG5TdGlsbCAtLT4gWypdXG4lJS1cblN0aWxsIC0tPiBNb3Zpbmdcbk1vdmluZyAtLT4gU3RpbGxcbk1vdmluZyAtLT4gQ3Jhc2hcbkNyYXNoIC0tPiBbKl0iLCJtZXJtYWlkIjpudWxsfQ" /></p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="mermaid" /><summary type="html"><![CDATA[1. Pie chart]]></summary></entry><entry><title type="html">Plantuml example</title><link href="http://localhost:4000/git_blog_samples/2017/12/04/plantuml-example.html" rel="alternate" type="text/html" title="Plantuml example" /><published>2017-12-04T00:00:00+09:00</published><updated>2017-12-04T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2017/12/04/plantuml-example</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2017/12/04/plantuml-example.html"><![CDATA[<h2 id="my-first-plantuml">My First PlantUML</h2>
-
-<h3 id="plantuml-block-1">PlantUML Block-1</h3>
-<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a426f62202d3e20416c696365203a2068656c6c6f0a40656e64756d6c" /></p>
-
-<h3 id="plantuml-block-2">PlantUML Block-2</h3>
-<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a426f62202d3e20416c696365203a2068656c6c6f20776f726c640a40656e64756d6c" /></p>
-
-<h3 id="plantuml-block-3">PlantUML Block-3</h3>
-<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a282a29202d2d3e2022496e697469616c697a6174696f6e220a0a69662022536f6d65205465737422207468656e0a20202d2d3e5b747275655d2022536f6d65204163746976697479220a20202d2d3e2022416e6f74686572206163746976697479220a20202d72696768742d3e20282a290a656c73650a20202d3e5b66616c73655d2022536f6d657468696e6720656c7365220a20202d2d3e5b456e64696e672070726f636573735d20282a290a656e6469660a40656e64756d6c" /></p>
-
-<h3 id="plantuml-block-4">PlantUML Block-4</h3>
-
-<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a736b696e706172616d2068616e647772697474656e20747275650a0a736b696e706172616d2075736563617365207b0a20204261636b67726f756e64436f6c6f72204461726b536561477265656e0a2020426f72646572436f6c6f72204461726b536c617465477261790a0a20204261636b67726f756e64436f6c6f723c3c204d61696e203e3e2059656c6c6f77477265656e0a2020426f72646572436f6c6f723c3c204d61696e203e3e2059656c6c6f77477265656e0a0a20204172726f77436f6c6f72204f6c6976650a20204163746f72426f72646572436f6c6f7220626c61636b0a20204163746f72466f6e744e616d6520436f75726965720a0a20204163746f724261636b67726f756e64436f6c6f723c3c2048756d616e203e3e20476f6c640a7d0a0a55736572203c3c2048756d616e203e3e0a3a4d61696e2044617461626173653a206173204d7953716c203c3c204170706c69636174696f6e203e3e0a28537461727429203c3c204f6e652053686f74203e3e0a2855736520746865206170706c69636174696f6e29206173202855736529203c3c204d61696e203e3e0a0a55736572202d3e20285374617274290a55736572202d2d3e2028557365290a0a4d7953716c202d2d3e2028557365290a0a40656e64756d6c" /></p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="plantuml" /><summary type="html"><![CDATA[My First PlantUML]]></summary></entry></feed>
+</table>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="table" /><summary type="html"><![CDATA[Table example as below]]></summary></entry></feed>
