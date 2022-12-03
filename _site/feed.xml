@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T00:59:44+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T01:08:38+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
 
 <h3 id="오류-원인-추론">오류 원인 추론</h3>
 
@@ -15,34 +15,37 @@
 <h3 id="2-해결-방법-1--editor-재설치">(2) 해결 방법 1 : editor 재설치</h3>
 <p>editor를 재설치하며, 설치 경로 또한 권장 경로 그대로를 사용해줍니다.</p>
 
-<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_002.png" width="700px" align="left" /> 
-<img src="https://whdrns2013.github.io/assets/images/20221126_002_003.png" width="700px" align="left" />
-<img src="https://whdrns2013.github.io/assets/images/blank_1000px.png" width="700px" /></p>
+<p><img src="/assets/images/20221126_002_002.png" alt="" width="700" align="left" />
+<img src="/assets/images/20221126_002_003.png" alt="" width="700" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>재부팅 후 Visual Studio Code 를 외부 편집기로 사용할 수 있다.</p>
 
-<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_004.png" width="700px" /></p>
+<p><img src="/assets/images/20221126_002_004.png" alt="" width="700" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <h3 id="2-해결-방법-2--환경-변수-path-추가">(2) 해결 방법 2 : 환경 변수 PATH 추가</h3>
-<p>고급 시스템 설정 메뉴를 들어가줍니다.<br />
-<br />
-<img src="/assets/images/20221126_002_005.png" alt="" width="700" /></p>
+<p>고급 시스템 설정 메뉴를 들어가줍니다.</p>
 
-<!-- <img src="https://whdrns2013.github.io/assets/images/20221126_002_005.png" width="700px" align='left'> -->
+<p><img src="/assets/images/20221126_002_005.png" alt="" width="700" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>환경 변수 → 시스템 변수의 PATH → 편집</p>
 
-<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_006.png" width="700px" />
-<img src="https://whdrns2013.github.io/assets/images/20221126_002_007.png" width="700px" /></p>
+<p><img src="/assets/images/20221126_002_006.png" alt="" width="700" align="left" />
+<img src="/assets/images/20221126_002_007.png" alt="" width="700" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>찾아보기 → 프로그램이 설치된 폴더 선택 후 → 확인<br />
 확인을 눌러 설정을 저장해줍니다.</p>
 
-<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_008.png" width="700px" /></p>
+<p><img src="/assets/images/20221126_002_008.png" alt="" width="700" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>중요! 재부팅을 해야 설정이 적용됩니다.</p>
 
-<p><img src="https://whdrns2013.github.io/assets/images/20221126_002_009.png" width="700px" /></p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="Desktop" /><category term="깃허브" /><category term="데스크탑" /><category term="에디터" /><category term="안보일때" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[작성중]깃허브 블로그 페이지 만들기 (윈도우/맥)</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html" rel="alternate" type="text/html" title="[작성중]깃허브 블로그 페이지 만들기 (윈도우/맥)" /><published>2022-11-26T22:46:06+09:00</published><updated>2022-11-26T22:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_001</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html"><![CDATA[<!-- postNo: 20221126_001-->
+<p><img src="/assets/images/20221126_002_009.png" alt="" width="700" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="Desktop" /><category term="깃허브" /><category term="데스크탑" /><category term="에디터" /><category term="안보일때" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[작성중]깃허브 블로그 페이지 만들기 (윈도우/맥)</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html" rel="alternate" type="text/html" title="[작성중]깃허브 블로그 페이지 만들기 (윈도우/맥)" /><published>2022-11-26T22:46:06+09:00</published><updated>2022-11-26T22:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_001</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html"><![CDATA[<!-- postNo: 20221126_001-->
 
 <h2 id="인트로">인트로</h2>
 <p>프로그래밍을 배우면서, <u><b>블로그 운영의 필요성</b></u>을 느꼈습니다.<br />
