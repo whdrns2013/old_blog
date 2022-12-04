@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T11:42:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T23:55:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
 
 <h3 id="오류-사항">오류 사항</h3>
 
@@ -439,7 +439,141 @@ server address 를 확인해주세요.</p>
 <p>아래 페이지를 참고한다.<br />
 <a href="https://whdrns2013.github.io/how_to_use_git/2022/11/26/20221126_004.html">깃허브 페이지 테마 적용 : Gemfile 오류</a></p>
 
-<!-- 이후 내용 추가 필요 -->]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">지킬 페이지 테마 적용 Gemfile 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_004.html" rel="alternate" type="text/html" title="지킬 페이지 테마 적용 Gemfile 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_004</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_004.html"><![CDATA[<!--postNo: 20221126_004-->
+<h2 id="5-깃허브-페이지-테마-적용">5. 깃허브 페이지 테마 적용</h2>
+
+<h3 id="github-로-push-하기">Github 로 Push 하기</h3>
+
+<p>오랜만에 Github Desktop으로 돌아와봅시다. Changes탭에 많은 변경사항이 있습니다.
+살펴보니 지금까지 했던 루비 설치, 지킬 설치 등의 변경사항이 보입니다.</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/973f4d16-d382-403a-b311-7c89a2c0337e/Untitled.png" alt="Untitled" /></p>
+
+<p>PC에서 진행된 변경사항들을 깃허브에도 적용해줍시다.</p>
+
+<p>(1) 변경사항들에 대한 정보를 적어준 후 → Commit to main 을 누릅니다.</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fa856e9-d1f4-45f9-a45f-9425d4767fa8/Untitled.png" alt="Untitled" /></p>
+
+<p>(2) 이후 Push를 진행합니다.
+메인 UI에서도 Push가 가능하고,
+아니라면 상단 Repository 탭에서도 가능합니다.</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8a3f474b-ae36-4535-b453-39bb48f6b108/Untitled.png" alt="Untitled" />
+<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e600c7e6-c8d8-4c23-bd87-a1e3849ed67c/Untitled.png" alt="Untitled" /></p>
+
+<h3 id="깃허브-페이지-테마-고르기">깃허브 페이지 테마 고르기!</h3>
+
+<ol>
+  <li>
+    <p>Push 적용 대기
+Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에서 10분 가량 소요되며 용량에 따라서 다를 수 있습니다.
+그 동안, 내 블로그를 어떠한 테마를 적용해 만들지 둘러봅시다.</p>
+  </li>
+  <li>
+    <p>지킬 테마 둘러보기
+마음에 드는 테마를 골라보세요. 지킬 테마를 볼 수 있는 사이트는 여럿 있으며, 아래 두 사이트를 추천합니다.
+<a href="https://github.com/topics/jekyll-theme">https://github.com/topics/jekyll-theme</a>
+[Free Jekyll Themes | Jekyll Themes](https://jekyll-themes.com/free/)</p>
+  </li>
+  <li>
+    <p>마음에 드는 테마 고르기
+저는 YAT이라는 테마를 선택했습니다.
+가독성, 태그기능, 사이드바, 깔끔한 카테고리 기능 등이 마음에 드네요!
+검색기능, 댓글기능 등은 추후 추가할 예정입니다.</p>
+    <h2 id="-테마-추천-글-올리면-보는-사람들에게-도움-많이-될-듯-추가하기">→ 테마 추천 글 올리면 보는 사람들에게 도움 많이 될 듯 (추가하기!)</h2>
+  </li>
+</ol>
+
+<p><a href="https://github.com/jeffreytse/jekyll-theme-yat">https://github.com/jeffreytse/jekyll-theme-yat</a></p>
+
+<h3 id="블로그-url로-들어가보기">블로그 URL로 들어가보기</h3>
+
+<ol>
+  <li>블로그 URL 확인</li>
+</ol>
+
+<p>테마를 고르는 동안, 아마도 깃허브 변경사항 적용이 끝났을 겁니다.</p>
+
+<p>블로그 URL은 깃허브 → repository의 settings → Pages 탭에서 확인할 수 있습니다.</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1e9bdfc0-49f3-48ae-879a-0bef88d07736/Untitled.png" alt="Untitled" /></p>
+
+<ol>
+  <li>그러면.. 짜잔!</li>
+</ol>
+
+<p>VScode 에서 작성했던 index 파일의 문구가 나오는 걸 볼 수 있습니다.</p>
+
+<p>축하합니다! 블로그가 만들어졌어요!</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8d9cd4eb-e449-46d2-bd15-0d0667834fed/Untitled.png" alt="Untitled" /></p>
+
+<h3 id="테마-적용하기">테마 적용하기</h3>
+
+<ol>
+  <li>테마 다운로드</li>
+</ol>
+
+<p>마음에 드는 테마를 골랐다면, 다운로드 해줍니다.</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b75c5f32-1182-4651-82b2-3b3e08311b1d/Untitled.png" alt="Untitled" /></p>
+
+<ol>
+  <li>테마 파일들 복사 붙여넣기</li>
+</ol>
+
+<p>다운받은 파일을 압축을 풀어준 후, 지킬을 설치했던 github repository의 ~~io 디렉토리 안에 파일들을 붙여넣습니다.</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/583c777b-5039-45a7-9031-74c518b2e34e/Untitled.png" alt="Untitled" /></p>
+
+<p>중복 파일 경고메세지가 뜨면, 덮어쓰기를 선택해주세요.</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/194a9b4b-8d8a-475d-8633-4e7fbe6c9fea/Untitled.png" alt="Untitled" /></p>
+
+<ol>
+  <li>필요 없는 파일 삭제</li>
+</ol>
+
+<p>가장 처음 만들었던 index.html 파일은 이제 필요 없으니, 삭제합니다.</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4ad355b2-dcb2-4bf8-a653-9ae8a7586b1a/Untitled.png" alt="Untitled" /></p>
+
+<h3 id="필요-없는-파일-삭제">필요 없는 파일 삭제</h3>
+
+<p>로컬에서 확인했던 페이지는 샘플 페이지입니다. 나의 페이지를 만들기 위해 샘플에 필요했던 사항들은 삭제를 해줍니다. 테마 다운로드 페이지로 들어가보면, 삭제할 대상들에 대한 설명이 적혀있을 것입니다.</p>
+
+<aside>
+💡 _config.yml 파일은 삭제하지 말고, 이름 변경하여 보관하길 추천합니다. 향후 설정시에 샘플로 보고 참고하기 좋습니다.
+
+</aside>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d292f48-5099-4577-b226-9c84ab938f41/Untitled.png" alt="Untitled" /></p>
+
+<ol>
+  <li>로컬에서 확인</li>
+</ol>
+
+<p>이전에 로컬에서 확인했던 것 처럼 루비 명령 프롬프트를 실행한 후,</p>
+
+<p>(1) 번들 설치 : <code class="language-plaintext highlighter-rouge">bundle install</code></p>
+
+<p>(2) 지킬 서버 실행 : <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code></p>
+
+<p>두 가지를 실행하고, server address로 접속해서 페이지가 잘 로딩되는지 확인합니다.</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2e3ce167-4449-469b-8cc4-19a5aa2441c0/Untitled.png" alt="Untitled" /></p>
+
+<ol>
+  <li>Github로 Push</li>
+</ol>
+
+<p>깃허브에 적용을 위해, Github로 Push를 진행해줍니다.</p>
+
+<p>잠깐 스트레칭 하고 오면, 적용되어있을 거에요.</p>
+
+<p>적용이 안되면 : <a href="https://www.notion.so/Gemfile-4c012a13f0d34b0990d92468b40808e1">깃허브 페이지 테마 적용 : Gemfile 오류</a></p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8a3f474b-ae36-4535-b453-39bb48f6b108/Untitled.png" alt="Untitled" /></p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">지킬 페이지 테마 적용 Gemfile 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_004.html" rel="alternate" type="text/html" title="지킬 페이지 테마 적용 Gemfile 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_004</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_004.html"><![CDATA[<!--postNo: 20221126_004-->
 
 <h2 id="오류-확인">오류 확인</h2>
 
