@@ -217,8 +217,10 @@ defaults:
 
 markdown: kramdown
 kmarkdown:
-  input: GFM
-  syntax_highlighter: rouge
+  highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
 
 plugins:
   - jekyll-feed

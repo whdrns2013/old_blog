@@ -79,3 +79,10 @@
 .highlight .ss {
   color: #a6e22e;
 }
+.highlight .linenos {
+  color: #ccc;
+  display:inline-block;
+  padding: 0 5px;
+  border-right:1px
+  solid #ccc;
+}

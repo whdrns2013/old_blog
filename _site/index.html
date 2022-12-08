@@ -102,11 +102,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
   /* code language badge */
   pre.badge::before {
     content: attr(data-lang);
-    color: #fff;
-    background-color: #ff4e00;
-    padding: 0 .5em;
+    color: '#fff';
+    background-color: '#ff4e00';
+    padding: 0.5em;
     border-radius: 0 2px;
-    text-transform: uppercase;
+    text-transform: 'uppercase';
     text-align: center;
     min-width: 32px;
     display: inline-block;
@@ -1284,7 +1284,7 @@ Gemfile 파싱 도중 오류이며, jekyll-theme-so-simple.gemspec 파일을 로
 
 
 <h2 class="post-title">
-        <a class="post-link" href="/test/2022/11/26/2123123.html">
+        <a class="post-link" href="/test/2022/11/26/1231231212.html">
           test2
         </a>
       </h2>
@@ -1292,12 +1292,14 @@ Gemfile 파싱 도중 오류이며, jekyll-theme-so-simple.gemspec 파일을 로
         <span class="post-date"><i class="fa fa-calendar"></i> Nov 26, 2022</span>
         <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
       </div>
-      <a class="post-excerpt" href="/test/2022/11/26/2123123.html">
+      <a class="post-excerpt" href="/test/2022/11/26/1231231212.html">
         <p>
         
 
+{ % highlight python linenos % }
 for i in range (10):
     i += 1
+{ % endhighlight % }
 
  <span class="read_more">Read More</span>
         </p>
