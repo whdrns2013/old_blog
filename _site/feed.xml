@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T23:55:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-09T04:54:30+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
 
 <h3 id="오류-사항">오류 사항</h3>
 
@@ -59,11 +59,11 @@
 어떤 블로그가 내게 맞을까.. 고민을 하다가!<br />
 <u><b>html이나 마크다운에 대한 공부</b></u>도 할 겸 깃허브 블로그를 선택했습니다.</p>
 
-<p>이미 만들어진 서비스들보다는 만들기 어렵지만,<br />
-만들고 보니 꽤나 뿌듯함이 있습니다.</p>
+<p>시중에서 제공하는 블로그 서비스들보다는 다루기 어렵지만,<br />
+블로그를 만들고 보니 꽤나 뿌듯함이 있습니다.</p>
 
-<p>이 글을 보는 여러분께 자그마한 도움이 되었으면 하여<br />
-제가 깃허브 블로그를 만들면서 적용했던 방법, 겪었던 어려움들을 공유합니다.</p>
+<p>처음 깃허브 블로그를 만들어보려는 분들께 자그마한 도움이 되었으면 하여<br />
+제가 적용했던 방법, 겪었던 어려움들을 공유합니다.</p>
 
 <p><em>깃허브에서 진행하므로, 윈도우/맥 어디에서든 가능합니다.</em><br />
 <em>윈도우/맥 운영체제에 따라 방법이 다른 경우, 별도 표기했습니다.</em></p>
@@ -143,8 +143,9 @@
 
 <p>이제 5분 가량 잠시 쉬고 오세요.<br />
 잘 쉬고 오셨나요? 그러면 본인의 깃허브 페이지 주소 <code class="language-plaintext highlighter-rouge">ID.github.io</code>로 접속해봅시다.<br />
-아래와 같이 index 파일에 적어준 내용이 나온다면 성공!<br />
-<img src="/assets/images/20221126_001_010.png" alt="" align="left" />
+아래와 같이 index 파일에 적어준 내용이 나온다면 성공!</p>
+
+<p><img src="/assets/images/20221126_001_010.png" alt="" align="left" />
 <img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <h2 id="3-깃허브-페이지-관리-툴-설치">3. 깃허브 페이지 관리 툴 설치</h2>
@@ -446,20 +447,23 @@ server address 를 확인해주세요.</p>
 <p>오랜만에 Github Desktop으로 돌아와봅시다. Changes탭에 많은 변경사항이 있습니다.
 살펴보니 지금까지 했던 루비 설치, 지킬 설치 등의 변경사항이 보입니다.</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/973f4d16-d382-403a-b311-7c89a2c0337e/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_040.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>PC에서 진행된 변경사항들을 깃허브에도 적용해줍시다.</p>
 
 <p>(1) 변경사항들에 대한 정보를 적어준 후 → Commit to main 을 누릅니다.</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fa856e9-d1f4-45f9-a45f-9425d4767fa8/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_041.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>(2) 이후 Push를 진행합니다.
 메인 UI에서도 Push가 가능하고,
 아니라면 상단 Repository 탭에서도 가능합니다.</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8a3f474b-ae36-4535-b453-39bb48f6b108/Untitled.png" alt="Untitled" />
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e600c7e6-c8d8-4c23-bd87-a1e3849ed67c/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_042.png" alt="" align="left" />
+<img src="/assets/images/20221126_001_043.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <h3 id="깃허브-페이지-테마-고르기">깃허브 페이지 테마 고르기!</h3>
 
@@ -472,7 +476,7 @@ Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에�
   <li>
     <p>지킬 테마 둘러보기
 마음에 드는 테마를 골라보세요. 지킬 테마를 볼 수 있는 사이트는 여럿 있으며, 아래 두 사이트를 추천합니다.
-<a href="https://github.com/topics/jekyll-theme">https://github.com/topics/jekyll-theme</a>
+<a href="https://github.com/topics/jekyll-theme">https://github.com/topics/jekyll-theme</a><br />
 [Free Jekyll Themes | Jekyll Themes](https://jekyll-themes.com/free/)</p>
   </li>
   <li>
@@ -496,7 +500,8 @@ Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에�
 
 <p>블로그 URL은 깃허브 → repository의 settings → Pages 탭에서 확인할 수 있습니다.</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1e9bdfc0-49f3-48ae-879a-0bef88d07736/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_044.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <ol>
   <li>그러면.. 짜잔!</li>
@@ -506,7 +511,8 @@ Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에�
 
 <p>축하합니다! 블로그가 만들어졌어요!</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8d9cd4eb-e449-46d2-bd15-0d0667834fed/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_045.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <h3 id="테마-적용하기">테마 적용하기</h3>
 
@@ -516,7 +522,8 @@ Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에�
 
 <p>마음에 드는 테마를 골랐다면, 다운로드 해줍니다.</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b75c5f32-1182-4651-82b2-3b3e08311b1d/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_046.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <ol>
   <li>테마 파일들 복사 붙여넣기</li>
@@ -524,11 +531,13 @@ Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에�
 
 <p>다운받은 파일을 압축을 풀어준 후, 지킬을 설치했던 github repository의 ~~io 디렉토리 안에 파일들을 붙여넣습니다.</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/583c777b-5039-45a7-9031-74c518b2e34e/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_047.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <p>중복 파일 경고메세지가 뜨면, 덮어쓰기를 선택해주세요.</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/194a9b4b-8d8a-475d-8633-4e7fbe6c9fea/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_048.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <ol>
   <li>필요 없는 파일 삭제</li>
@@ -536,7 +545,8 @@ Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에�
 
 <p>가장 처음 만들었던 index.html 파일은 이제 필요 없으니, 삭제합니다.</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4ad355b2-dcb2-4bf8-a653-9ae8a7586b1a/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_049.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <h3 id="필요-없는-파일-삭제">필요 없는 파일 삭제</h3>
 
@@ -547,7 +557,8 @@ Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에�
 
 </aside>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d292f48-5099-4577-b226-9c84ab938f41/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_050.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <ol>
   <li>로컬에서 확인</li>
@@ -561,7 +572,8 @@ Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에�
 
 <p>두 가지를 실행하고, server address로 접속해서 페이지가 잘 로딩되는지 확인합니다.</p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2e3ce167-4449-469b-8cc4-19a5aa2441c0/Untitled.png" alt="Untitled" /></p>
+<p><img src="/assets/images/20221126_001_051.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
 <ol>
   <li>Github로 Push</li>
@@ -573,45 +585,12 @@ Push한 사항은 실제로 적용되는 데 시간이 소요됩니다. 5분에�
 
 <p>적용이 안되면 : <a href="https://www.notion.so/Gemfile-4c012a13f0d34b0990d92468b40808e1">깃허브 페이지 테마 적용 : Gemfile 오류</a></p>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8a3f474b-ae36-4535-b453-39bb48f6b108/Untitled.png" alt="Untitled" /></p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">지킬 페이지 테마 적용 Gemfile 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_004.html" rel="alternate" type="text/html" title="지킬 페이지 테마 적용 Gemfile 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_004</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_004.html"><![CDATA[<!--postNo: 20221126_004-->
+<p><img src="/assets/images/20221126_001_052.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">test2</title><link href="http://localhost:4000/test/2022/11/26/2123123.html" rel="alternate" type="text/html" title="test2" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/test/2022/11/26/2123123</id><content type="html" xml:base="http://localhost:4000/test/2022/11/26/2123123.html"><![CDATA[<!--postNo: 연월일_00n-->
 
-<h2 id="오류-확인">오류 확인</h2>
-
-<p><img src="/assets/images/20221126_004_001.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>아마도.. 필요한 gem을 찾아 설치하는 과정에서의 오류,<br />
-혹은 필요한 gem이 없어서 생기는 오류로 추정된다.</p>
-
-<p>내 경우는 Gemfile 파일 내에 있는 설치 패키지 부분을 수정해줌으로 인해 문제를 해결했다.<br />
-테마가 다르면 다른 문제가 생길 수 있으므로, 테마 설명 페이지를 필히 참고하기를 바란다.<br />
-한시간을 쩔쩔 매며 원인을 찾았다 ㅠㅠ..</p>
-
-<blockquote>
-  <p>오류문구<br />
-Gemfile 파싱 도중 오류이며, jekyll-theme-so-simple.gemspec 파일을 로드하지 못한 게 원인이다.<br />
-특정 파일에서 jekyll-theme-so-simple.gemspec 파일을 원하나, 이 파일이 설치되지 않았기 때문 으로 추정하였다.</p>
-</blockquote>
-
-<h2 id="해결-실마리-잡기">해결 실마리 잡기</h2>
-
-<p><img src="/assets/images/20221126_004_002.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>테마 설치 페이지를 통해 해결의 실마리를 잡았다.<br />
-기본 설명으로 적혀있는데.. 이를 놓쳤었네 ㅠㅠ</p>
-
-<h2 id="해결--gemfile에-문구-추가하기">해결 : Gemfile에 문구 추가하기</h2>
-
-<p><img src="/assets/images/20221126_004_003.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p><a href="http://rubygems.org">rubygems.org</a> 에서 해당 테마 파일을 찾도록 내용을 수정</p>
-
-<p><img src="/assets/images/20221126_004_004.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>에러 없어지고, 페이지 제대로 로딩됨. 해결.</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="gemfile" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">MAC 홈브루 설치 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_03.html" rel="alternate" type="text/html" title="MAC 홈브루 설치 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_03</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_03.html"><![CDATA[<!--postNo: 20221126_003-->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>]]></content><author><name>Jongya</name></author><category term="test" /><category term="test" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">MAC 홈브루 설치 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_03.html" rel="alternate" type="text/html" title="MAC 홈브루 설치 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_03</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_03.html"><![CDATA[<!--postNo: 20221126_003-->
 
 <h2 id="에러-발생">에러 발생</h2>
 
@@ -701,7 +680,45 @@ Warning: "config" scripts exist outside your system or Homebrew directories.
 <p><img src="/assets/images/20221126_003_004.png" alt="" align="left" />
 <img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
-<p>설치에 성공했다. hooray!</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥" /><category term="MAC" /><category term="홈브루" /><category term="homebrew" /><category term="설치" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-11-24T13:46:06+09:00</published><updated>2022-11-24T13:46:06+09:00</updated><id>http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<p>설치에 성공했다. hooray!</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥" /><category term="MAC" /><category term="홈브루" /><category term="homebrew" /><category term="설치" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">지킬 페이지 테마 적용 Gemfile 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_004.html" rel="alternate" type="text/html" title="지킬 페이지 테마 적용 Gemfile 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_004</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_004.html"><![CDATA[<!--postNo: 20221126_004-->
+
+<h2 id="오류-확인">오류 확인</h2>
+
+<p><img src="/assets/images/20221126_004_001.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>아마도.. 필요한 gem을 찾아 설치하는 과정에서의 오류,<br />
+혹은 필요한 gem이 없어서 생기는 오류로 추정된다.</p>
+
+<p>내 경우는 Gemfile 파일 내에 있는 설치 패키지 부분을 수정해줌으로 인해 문제를 해결했다.<br />
+테마가 다르면 다른 문제가 생길 수 있으므로, 테마 설명 페이지를 필히 참고하기를 바란다.<br />
+한시간을 쩔쩔 매며 원인을 찾았다 ㅠㅠ..</p>
+
+<blockquote>
+  <p>오류문구<br />
+Gemfile 파싱 도중 오류이며, jekyll-theme-so-simple.gemspec 파일을 로드하지 못한 게 원인이다.<br />
+특정 파일에서 jekyll-theme-so-simple.gemspec 파일을 원하나, 이 파일이 설치되지 않았기 때문 으로 추정하였다.</p>
+</blockquote>
+
+<h2 id="해결-실마리-잡기">해결 실마리 잡기</h2>
+
+<p><img src="/assets/images/20221126_004_002.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>테마 설치 페이지를 통해 해결의 실마리를 잡았다.<br />
+기본 설명으로 적혀있는데.. 이를 놓쳤었네 ㅠㅠ</p>
+
+<h2 id="해결--gemfile에-문구-추가하기">해결 : Gemfile에 문구 추가하기</h2>
+
+<p><img src="/assets/images/20221126_004_003.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p><a href="http://rubygems.org">rubygems.org</a> 에서 해당 테마 파일을 찾도록 내용을 수정</p>
+
+<p><img src="/assets/images/20221126_004_004.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>에러 없어지고, 페이지 제대로 로딩됨. 해결.</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="gemfile" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-11-24T13:46:06+09:00</published><updated>2022-11-24T13:46:06+09:00</updated><id>http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
 <p>Jekyll requires blog post files to be named according to the following format:</p>
 
@@ -887,348 +904,4 @@ some of his greatest musical breakthroughs in songs such as bad guy, bury a frie
 
 <h2 id="this-is-the-poster-image">This is the poster image</h2>
 <p>In modern browsers, adding a video to your page is as easy as adding an image. No longer do you need to deal with special plug-ins or require crazy markup, you can do it with a single element.
-<img src="//www.html5rocks.com/en/tutorials/video/basics/devstories.webm" alt="video" /></p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="video" /><summary type="html"><![CDATA[Canon in D (Pachelbel’s Canon) - Cello &amp; Piano [BEST WEDDING VERSION] Some of you know that we occasionally play for weddings. As you can imagine, we get a LOT of requests for Canon in D, and we discovered that there were no good arrangements available anywhere for piano and cello! Hard to believe given its popularity. So we decided to make our own! We tried to stick as closely to the original as possible (which was written for three violins and basso continuo), and we performed it not at a snail’s pace so the bride can actually make it down the aisle without putting everyone to sleep. 🙊(Yeah, we said it! Nobody likes a slow processional!) Also, the number one complaint about this piece from cellists is always how booooring it is to play because they literally have to play the same 8 bass notes over and over for the entire piece. Problem solved with this arrangement because the cello never has to play the bass! 🙌(The piano does, but we get lots of other fun stuff too so it’s ok!) So for all you musicians out there playing weddings, we hope you enjoy playing this arrangement a little more than the ones you were used to…You can get it from www.musicnotes.com. 😊Be sure to let us know in the comments if you do!]]></summary></entry><entry><title type="html">Table example</title><link href="http://localhost:4000/git_blog_samples/2017/12/15/table-example.html" rel="alternate" type="text/html" title="Table example" /><published>2017-12-15T00:00:00+09:00</published><updated>2017-12-15T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2017/12/15/table-example</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2017/12/15/table-example.html"><![CDATA[<h2 id="table-example-as-below">Table example as below</h2>
-
-<p><strong>For now, these extended features are provided:</strong></p>
-
-<ul>
-  <li>Cells spanning multiple columns</li>
-  <li>Cells spanning multiple rows</li>
-  <li>Cells text align separately</li>
-  <li>Table header not required</li>
-  <li>Grouped table header rows or data rows</li>
-</ul>
-
-<h3 id="rowspan-and-colspan">Rowspan and Colspan</h3>
-<p>^^ in a cell indicates it should be merged with the cell above.<br />
-This feature is contributed by <a href="https://github.com/pmccloghrylaing">pmccloghrylaing</a>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: right">Stage</th>
-      <th style="text-align: right">Direct Products</th>
-      <th style="text-align: right">ATP Yields</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: right">Glycolysis</td>
-      <td style="text-align: right">2 ATP                   |</td>
-      <td style="text-align: right"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: right">^^</td>
-      <td style="text-align: right">2 NADH</td>
-      <td style="text-align: right">3–5 ATP</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">Pyruvaye oxidation</td>
-      <td style="text-align: right">2 NADH</td>
-      <td style="text-align: right">5 ATP</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">Citric acid cycle</td>
-      <td style="text-align: right">2 ATP           |</td>
-      <td style="text-align: right"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: right">^^</td>
-      <td style="text-align: right">6 NADH</td>
-      <td style="text-align: right">15 ATP</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">^^</td>
-      <td style="text-align: right">2 FADH</td>
-      <td style="text-align: right">3 ATP</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">30–32 ATP                         ||</td>
-      <td style="text-align: right"> </td>
-      <td style="text-align: right"> </td>
-    </tr>
-  </tbody>
-</table>
-
-<p>[ Net ATP yields per hexose]</p>
-
-<h3 id="multiline">Multiline</h3>
-<p>A backslash at end to join cell contents with the following lines.<br />
-This feature is contributed by <a href="https://github.com/Lucas-C">Lucas-C</a>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">:     Easy Multiline     :||</th>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange  \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange  \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange  \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="headerless">Headerless</h3>
-<p>Table header can be eliminated.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>♜</td>
-      <td> </td>
-      <td>♝</td>
-      <td>♛</td>
-      <td>♚</td>
-      <td>♝</td>
-      <td>♞</td>
-      <td>♜</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>♟</td>
-      <td>♟</td>
-      <td>♟</td>
-      <td> </td>
-      <td>♟</td>
-      <td>♟</td>
-      <td>♟</td>
-    </tr>
-    <tr>
-      <td>♟</td>
-      <td> </td>
-      <td>♞</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>♗</td>
-      <td> </td>
-      <td> </td>
-      <td>♟</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>♙</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>♘</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>♙</td>
-      <td>♙</td>
-      <td>♙</td>
-      <td>♙</td>
-      <td> </td>
-      <td>♙</td>
-      <td>♙</td>
-      <td>♙</td>
-    </tr>
-    <tr>
-      <td>♖</td>
-      <td>♘</td>
-      <td>♗</td>
-      <td>♕</td>
-      <td>♔</td>
-      <td> </td>
-      <td> </td>
-      <td>♖</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|:     Fruits <span class="se">\|\|</span> Food           :|||
-|:-------- |:-------- |:------------ |
-| Apple    |: Apple  :|    Apple     <span class="err">\</span>
-| Banana   |  Banana  |    Banana    <span class="err">\</span>
-| Orange   |  Orange  |    Orange    |
-|:   Rowspan is 5   :||:  How's it? :|
-|^^   A. Peach       ||^^ 1. Fine    |
-|^^   B. Orange      ||^^ 2. Bad  $I = <span class="se">\i</span>nt <span class="se">\r</span>ho R^{2} dV$     |
-|^^   C. Banana      ||   It's OK! !<span class="p">[</span><span class="nv">example image</span><span class="p">][</span><span class="ss">my-image</span><span class="p">]</span>  |
-</code></pre></div></div>
-
-<h3 id="text-alignment">Text Alignment</h3>
-<p>Table cell can be set alignment separately.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">\:Fruits         |</th>
-      <th style="text-align: left">Food   :</th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left">Fruits\::        |</th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">: \:Fruits       :|</th>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left">:       Food     :|</th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-      <td style="text-align: left">:   Strawberry    :</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple  &amp;  Banana |</td>
-      <td style="text-align: left">^^</td>
-      <td style="text-align: left">Peach        :|</td>
-      <td style="text-align: left"> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
-    <tr>
-      <td>: \:Fruits       :|</td>
-      <td> </td>
-      <td>:       Food     :|</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Apple</td>
-      <td>Banana</td>
-      <td>Orange</td>
-      <td>:   Strawberry    :</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">:     Fruits || Food           :||</th>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">: Apple  :</td>
-      <td style="text-align: left">Apple     \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Banana    \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Orange</td>
-      <td style="text-align: left">Orange</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">:   Rowspan is 5   :|</td>
-      <td style="text-align: left">:  How’s it? :</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">^^   A. Peach       |</td>
-      <td style="text-align: left">^^ 1. Fine</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">^^   B. Orange      |</td>
-      <td style="text-align: left">^^ 2. Bad  $I = \int \rho R^{2} dV$</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">^^   C. Banana      |</td>
-      <td style="text-align: left">It’s OK! ![example image](http://www.unexpected-vortices.com/sw/rippledoc/example-image.jpg "An exemplary image")</td>
-      <td style="text-align: left"> </td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="table" /><summary type="html"><![CDATA[Table example as below]]></summary></entry></feed>
+<img src="//www.html5rocks.com/en/tutorials/video/basics/devstories.webm" alt="video" /></p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="video" /><summary type="html"><![CDATA[Canon in D (Pachelbel’s Canon) - Cello &amp; Piano [BEST WEDDING VERSION] Some of you know that we occasionally play for weddings. As you can imagine, we get a LOT of requests for Canon in D, and we discovered that there were no good arrangements available anywhere for piano and cello! Hard to believe given its popularity. So we decided to make our own! We tried to stick as closely to the original as possible (which was written for three violins and basso continuo), and we performed it not at a snail’s pace so the bride can actually make it down the aisle without putting everyone to sleep. 🙊(Yeah, we said it! Nobody likes a slow processional!) Also, the number one complaint about this piece from cellists is always how booooring it is to play because they literally have to play the same 8 bass notes over and over for the entire piece. Problem solved with this arrangement because the cello never has to play the bass! 🙌(The piano does, but we get lots of other fun stuff too so it’s ok!) So for all you musicians out there playing weddings, we hope you enjoy playing this arrangement a little more than the ones you were used to…You can get it from www.musicnotes.com. 😊Be sure to let us know in the comments if you do!]]></summary></entry></feed>

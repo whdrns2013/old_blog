@@ -58,6 +58,7 @@ $on-laptop:        800px !default;
 
 // Import partials.
 @import
+  "yat/syntax.scss",
   "yat/base",
   "yat/layout",
   "yat/dark",
@@ -66,6 +67,5 @@ $on-laptop:        800px !default;
   "misc/common-list",
   "misc/google-translate",
   "misc/gitment",
-  "misc/click-to-top",
-  "yat/highlighter"
+  "misc/click-to-top"
 ;

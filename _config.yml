@@ -215,15 +215,10 @@ defaults:
 #   follow_site_theme: true
 
 
-
-# Build settings
 markdown: kramdown
 kmarkdown:
-  # input: GFM
-  syntax_highlighter: rougue
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
+  input: GFM
+  syntax_highlighter: rouge
 
 plugins:
   - jekyll-feed
