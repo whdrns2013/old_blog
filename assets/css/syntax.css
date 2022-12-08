@@ -79,10 +79,15 @@
 .highlight .ss {
   color: #a6e22e;
 }
-.highlight .linenos {
-  color: #ccc;
-  display:inline-block;
-  padding: 0 5px;
-  border-right:1px
-  solid #ccc;
+.lineno { 
+  color: #ccc; 
+  display:inline-block; 
+  padding: 0 5px; 
+  border-right:1px solid #ccc;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

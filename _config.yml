@@ -219,8 +219,7 @@ markdown: kramdown
 kmarkdown:
   highlighter: rouge
   syntax_highlighter_opts:
-    block:
-      line_numbers: true
+    inenos: true
 
 plugins:
   - jekyll-feed
