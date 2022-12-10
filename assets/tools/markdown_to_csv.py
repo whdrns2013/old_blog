@@ -1,4 +1,8 @@
 # markdown_to_csv : 마크다운을 CSV 파일로 변환
+# 레퍼런스
+## 파일 대화창 모듈 : https://digiconfactory.tistory.com/entry/파이썬-GUI-프로그래밍-5-7-Tkinter-filedialog
+## 마크다운 -> CSV : https://blog.finxter.com/python-convert-markdown-table-to-csv/
+## 제너레이터 리스트화 : https://whatisthenext.tistory.com/114
 
 def markdown_to_csv():
     import pandas as pd
@@ -13,11 +17,17 @@ def markdown_to_csv():
     if md_file_path.find('.md') == -1:
         print('마크다운 파일이 아닙니다. 다시 확인해주세요.')
 
-    # with open(md_file_path) as f:
-    #     rows = []
-    #     for row in f.readlines():
-            
-    # with open(f'{csv_file_path}/{csv_file_name}.csv', 'w') as csv:
-    #     df.to_csv(buf=csv)
+    rows = []    
+    for row in open(md_file_path, 'r', encoding='utf-8').readlines():
+        rows.append(list(x.strip() for x in row.split('|')))
+    
+    df = pd.DataFrame(i for i in rows)
+    df.drop(columns=[0, 1, list(df.columns)[-1]], index=[0, 1], inplace=True)
+    df.reset_index(drop=True, inplace=True)
+    df.columns = [str(x) for x in range(len(list(df.columns)))]
+    
+    print(df)
+    
+    df.to_csv(f'{csv_file_path}/{csv_file_name}.csv')
 
 markdown_to_csv()
