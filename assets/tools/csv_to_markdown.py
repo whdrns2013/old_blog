@@ -17,11 +17,10 @@ def csv_to_markdown() :
     if csv_file_path.find('.csv') == -1:
         print('csv 파일이 아닙니다. 다시 확인해주세요.')
 
-    df = pd.read_csv(csv_file_path)
-    df.drop(columns=['Unnamed: 0'], inplace=True)
+    df = pd.read_csv(csv_file_path).dropna(axis=1)
     print(df)
     
     with open(f'{md_file_path}/{md_file_name}.md', 'w') as md:
-        df.to_markdown(buf=md)
+        df.to_markdown(buf=md, index=False)
 
 csv_to_markdown()

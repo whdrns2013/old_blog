@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-10T23:10:22+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)</title><link href="http://localhost:4000/etc/2022/12/10/20221210_002.html" rel="alternate" type="text/html" title="맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)" /><published>2022-12-10T20:21:00+09:00</published><updated>2022-12-10T20:21:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221210_002</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221210_002.html"><![CDATA[<!--postNo: 연월일_002-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-11T00:40:28+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)</title><link href="http://localhost:4000/etc/2022/12/10/20221210_002.html" rel="alternate" type="text/html" title="맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)" /><published>2022-12-10T20:21:00+09:00</published><updated>2022-12-10T20:21:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221210_002</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221210_002.html"><![CDATA[<!--postNo: 연월일_002-->
 
 <p>아끼고 아껴 썼던 맥북 프로 2015를 어언 8년째..<br />
 배터리 관리를 잘못 했는지 10분만 지나도 방전이 되어버린다.
@@ -113,7 +113,173 @@ terminal을 열고, 미니콘다 삭제 명령어를 입력해준다.</p>
   <li>파일 대화창 모듈 : https://digiconfactory.tistory.com/entry/파이썬-GUI-프로그래밍-5-7-Tkinter-filedialog</li>
   <li>마크다운 -&gt; CSV : https://blog.finxter.com/python-convert-markdown-table-to-csv/</li>
   <li>제너레이터 리스트화 : https://whatisthenext.tistory.com/114</li>
-</ul>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="csv" /><category term="마크다운" /><category term="변환" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
+</ul>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="csv" /><category term="마크다운" /><category term="변환" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Google Colab Hot Key 구글 코랩 단축키</title><link href="http://localhost:4000/summary/2022/12/08/20221208_002_Google_Colab_Hotkey.html" rel="alternate" type="text/html" title="Google Colab Hot Key 구글 코랩 단축키" /><published>2022-12-08T21:52:00+09:00</published><updated>2022-12-08T21:52:00+09:00</updated><id>http://localhost:4000/summary/2022/12/08/20221208_002_Google_Colab_Hotkey</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/08/20221208_002_Google_Colab_Hotkey.html"><![CDATA[<!--postNo: 20221208_002-->
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">구분</th>
+      <th style="text-align: left">단축키</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">단축키</td>
+      <td style="text-align: left">Ctrl + M , H</td>
+      <td style="text-align: left">단축키 표시</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 생성/변경</td>
+      <td style="text-align: left">Ctrl + M , A</td>
+      <td style="text-align: left">위에 코드 셀 생성</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 생성/변경</td>
+      <td style="text-align: left">Ctrl + M , B</td>
+      <td style="text-align: left">아래에 코드 셀 생성</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 생성/변경</td>
+      <td style="text-align: left">Ctrl + M , D</td>
+      <td style="text-align: left">셀 지우기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 생성/변경</td>
+      <td style="text-align: left">Ctrl + M , M</td>
+      <td style="text-align: left">마크다운 셀로 변경</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 생성/변경</td>
+      <td style="text-align: left">Ctrl + M , Y</td>
+      <td style="text-align: left">코드 셀로 변경</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 생성/변경</td>
+      <td style="text-align: left">Ctrl + M , Z</td>
+      <td style="text-align: left">실행 취소</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 실행</td>
+      <td style="text-align: left">Shift + Enter</td>
+      <td style="text-align: left">셀 실행</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 실행</td>
+      <td style="text-align: left">Alt + Enter</td>
+      <td style="text-align: left">셀 실행 후 아래에 셀 생성</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 실행</td>
+      <td style="text-align: left">Ctrl + F9</td>
+      <td style="text-align: left">모든 셀 실행</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 실행</td>
+      <td style="text-align: left">Ctrl + F8</td>
+      <td style="text-align: left">선택된 셀의 이전 셀들 실행</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 실행</td>
+      <td style="text-align: left">Ctrl + F10</td>
+      <td style="text-align: left">선택된 셀 포함 다음 셀들 실행</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 실행</td>
+      <td style="text-align: left">Ctrl + M</td>
+      <td style="text-align: left">런타임 다시 시작</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 실행</td>
+      <td style="text-align: left">Ctrl + M , I</td>
+      <td style="text-align: left">실행 중단</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 선택/이동</td>
+      <td style="text-align: left">Ctrl + Shift + A</td>
+      <td style="text-align: left">모든 셀 선택</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 선택/이동</td>
+      <td style="text-align: left">Shift + up or down</td>
+      <td style="text-align: left">셀 선택</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 선택/이동</td>
+      <td style="text-align: left">Ctrl + M , K</td>
+      <td style="text-align: left">선택된 셀을 위로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 선택/이동</td>
+      <td style="text-align: left">Ctrl + M , J</td>
+      <td style="text-align: left">선택된 셀을 아래로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 내용 수정</td>
+      <td style="text-align: left">Tab</td>
+      <td style="text-align: left">들여쓰기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">셀 내용 수정</td>
+      <td style="text-align: left">Shift + Tab</td>
+      <td style="text-align: left">들여쓰기 취소 (역 들여쓰기)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">기타</td>
+      <td style="text-align: left">Ctrl + Alt + M</td>
+      <td style="text-align: left">댓글 추가</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">기타</td>
+      <td style="text-align: left">Ctrl + H</td>
+      <td style="text-align: left">전체 찾기/ 바꾸기</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Jongya</name></author><category term="summary" /><category term="Google" /><category term="Colab" /><category term="Hotkey" /><category term="구글" /><category term="코랩" /><category term="단축키" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">딥러닝 기초</title><link href="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html" rel="alternate" type="text/html" title="딥러닝 기초" /><published>2022-12-08T21:46:00+09:00</published><updated>2022-12-08T21:46:00+09:00</updated><id>http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro</id><content type="html" xml:base="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html"><![CDATA[<!--postNo: 20221208_001-->
+
+<ul>
+  <li>코드 : https://whdrns2013.github.io/Workspace_SeSAC/pythonDir/06_deeplearning/df_01_deeplearning.ipynb</li>
+</ul>
+
+<h2 id="들어가기-전에">들어가기 전에</h2>
+<ul>
+  <li>교재 : 백견불여일타</li>
+  <li>환경 : Google Colab</li>
+  <li>Colab 사용 이유 : GPU 세션을 통한 빠른 속도의 연산처리 가능</li>
+  <li>Colab 사용법 : 대부분 주피터 랩과 비슷하나, 단축키 부분은 조금 다름</li>
+  <li>Colab 주의사항 : 런타임 -&gt; 런타임 유형 -&gt; GPU는 6~8시간 사용 후 24시간 대기<br />
+때문에 불필요한 GPU 세션 연결은 지양</li>
+</ul>
+
+<h2 id="케라스">케라스</h2>
+<h2 id="딥러닝-개요">딥러닝 개요</h2>
+<h3 id="딥러닝-용어">딥러닝 용어</h3>
+<h3 id="기본-연산-해보기">기본 연산 해보기</h3>
+<h2 id="신경망">신경망</h2>
+<h3 id="퍼셉트론">퍼셉트론</h3>
+<h3 id="단층-퍼셉트론">단층 퍼셉트론</h3>
+<h3 id="다층-퍼셉트론">다층 퍼셉트론</h3>
+<h3 id="활성화-함수">활성화 함수</h3>
+<h3 id="신경망-만들어보기">신경망 만들어보기</h3>
+<h3 id="학습의-의의">학습의 의의</h3>
+<h2 id="숙제">숙제</h2>]]></content><author><name>Jongya</name></author><category term="study_deep_learning" /><category term="딥러닝" /><category term="케라스" /><category term="텐서플로" /><category term="퍼셉트론" /><category term="신경망모델" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Python Pandas summary 판다스 요약</title><link href="http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary.html" rel="alternate" type="text/html" title="Python Pandas summary 판다스 요약" /><published>2022-12-01T19:32:30+09:00</published><updated>2022-12-01T19:32:30+09:00</updated><id>http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary.html"><![CDATA[<!--postNo: 20221201_001-->
+
+<ul>
+  <li>데이터프레임을 특정 파일로 저장 : DF.to_파일형식()</li>
+  <li>
+    <p>인덱스 없애기 : DF.to_파일형식(index=False)</p>
+  </li>
+  <li>NA 값이 있는 열 제거 : DF.dropna(axis=1)</li>
+  <li>NA 값이 있는 행 제거 : DF.dropna(axis=0)</li>
+  <li>
+    <p>NA 값이 있는 열과 행 제거 : DF.dropna()</p>
+  </li>
+  <li>특정 칼럼 제거 : DF.drop(columns=[칼럼명들], inplace=Bool) : inplace = 본 데이터프레임에 덮어쓰기</li>
+  <li>
+    <p>특정 행 제거 : DF.drop(index=[인덱스], inplace=Boo;) : inplace = 본 데이터프레임에 덮어쓰기</p>
+  </li>
+  <li>인덱스 재설정 : DF.reset_index(drop=Bool, inplace=Bool) : drop = 기존 인덱스 삭제, inplace = 본 데이터프레임에 덮어쓰기</li>
+</ul>]]></content><author><name>Jongya</name></author><category term="summary" /><category term="파이썬" /><category term="판다스" /><category term="요약" /><category term="Python" /><category term="Pandas" /><category term="summary" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
 
 <h3 id="오류-사항">오류 사항</h3>
 
@@ -686,45 +852,7 @@ server address 를 확인해주세요.</p>
   <li>테마 추천 글 올리면 보는 사람들에게 도움 많이 될 듯</li>
   <li>깃허브 테마 적용이 안되면 : <a href="https://www.notion.so/Gemfile-4c012a13f0d34b0990d92468b40808e1">깃허브 페이지 테마 적용 : Gemfile 오류</a></li>
   <li>깃허브 블로그 설정 (커스터마이징) 하기</li>
-</ul>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">지킬 페이지 테마 적용 Gemfile 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_004.html" rel="alternate" type="text/html" title="지킬 페이지 테마 적용 Gemfile 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_004</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_004.html"><![CDATA[<!--postNo: 20221126_004-->
-
-<h2 id="오류-확인">오류 확인</h2>
-
-<p><img src="/assets/images/20221126_004_001.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>아마도.. 필요한 gem을 찾아 설치하는 과정에서의 오류,<br />
-혹은 필요한 gem이 없어서 생기는 오류로 추정된다.</p>
-
-<p>내 경우는 Gemfile 파일 내에 있는 설치 패키지 부분을 수정해줌으로 인해 문제를 해결했다.<br />
-테마가 다르면 다른 문제가 생길 수 있으므로, 테마 설명 페이지를 필히 참고하기를 바란다.<br />
-한시간을 쩔쩔 매며 원인을 찾았다 ㅠㅠ..</p>
-
-<blockquote>
-  <p>오류문구<br />
-Gemfile 파싱 도중 오류이며, jekyll-theme-so-simple.gemspec 파일을 로드하지 못한 게 원인이다.<br />
-특정 파일에서 jekyll-theme-so-simple.gemspec 파일을 원하나, 이 파일이 설치되지 않았기 때문 으로 추정하였다.</p>
-</blockquote>
-
-<h2 id="해결-실마리-잡기">해결 실마리 잡기</h2>
-
-<p><img src="/assets/images/20221126_004_002.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>테마 설치 페이지를 통해 해결의 실마리를 잡았다.<br />
-기본 설명으로 적혀있는데.. 이를 놓쳤었네 ㅠㅠ</p>
-
-<h2 id="해결--gemfile에-문구-추가하기">해결 : Gemfile에 문구 추가하기</h2>
-
-<p><img src="/assets/images/20221126_004_003.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p><a href="http://rubygems.org">rubygems.org</a> 에서 해당 테마 파일을 찾도록 내용을 수정</p>
-
-<p><img src="/assets/images/20221126_004_004.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>에러 없어지고, 페이지 제대로 로딩됨. 해결.</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="gemfile" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">MAC 홈브루 설치 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_03.html" rel="alternate" type="text/html" title="MAC 홈브루 설치 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_03</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_03.html"><![CDATA[<!--postNo: 20221126_003-->
+</ul>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">MAC 홈브루 설치 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_03.html" rel="alternate" type="text/html" title="MAC 홈브루 설치 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_03</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_03.html"><![CDATA[<!--postNo: 20221126_003-->
 
 <h2 id="에러-발생">에러 발생</h2>
 
@@ -814,7 +942,45 @@ Warning: "config" scripts exist outside your system or Homebrew directories.
 <p><img src="/assets/images/20221126_003_004.png" alt="" align="left" />
 <img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
-<p>설치에 성공했다. hooray!</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥" /><category term="MAC" /><category term="홈브루" /><category term="homebrew" /><category term="설치" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-11-24T13:46:06+09:00</published><updated>2022-11-24T13:46:06+09:00</updated><id>http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<p>설치에 성공했다. hooray!</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥" /><category term="MAC" /><category term="홈브루" /><category term="homebrew" /><category term="설치" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">지킬 페이지 테마 적용 Gemfile 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_004.html" rel="alternate" type="text/html" title="지킬 페이지 테마 적용 Gemfile 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_004</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_004.html"><![CDATA[<!--postNo: 20221126_004-->
+
+<h2 id="오류-확인">오류 확인</h2>
+
+<p><img src="/assets/images/20221126_004_001.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>아마도.. 필요한 gem을 찾아 설치하는 과정에서의 오류,<br />
+혹은 필요한 gem이 없어서 생기는 오류로 추정된다.</p>
+
+<p>내 경우는 Gemfile 파일 내에 있는 설치 패키지 부분을 수정해줌으로 인해 문제를 해결했다.<br />
+테마가 다르면 다른 문제가 생길 수 있으므로, 테마 설명 페이지를 필히 참고하기를 바란다.<br />
+한시간을 쩔쩔 매며 원인을 찾았다 ㅠㅠ..</p>
+
+<blockquote>
+  <p>오류문구<br />
+Gemfile 파싱 도중 오류이며, jekyll-theme-so-simple.gemspec 파일을 로드하지 못한 게 원인이다.<br />
+특정 파일에서 jekyll-theme-so-simple.gemspec 파일을 원하나, 이 파일이 설치되지 않았기 때문 으로 추정하였다.</p>
+</blockquote>
+
+<h2 id="해결-실마리-잡기">해결 실마리 잡기</h2>
+
+<p><img src="/assets/images/20221126_004_002.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>테마 설치 페이지를 통해 해결의 실마리를 잡았다.<br />
+기본 설명으로 적혀있는데.. 이를 놓쳤었네 ㅠㅠ</p>
+
+<h2 id="해결--gemfile에-문구-추가하기">해결 : Gemfile에 문구 추가하기</h2>
+
+<p><img src="/assets/images/20221126_004_003.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p><a href="http://rubygems.org">rubygems.org</a> 에서 해당 테마 파일을 찾도록 내용을 수정</p>
+
+<p><img src="/assets/images/20221126_004_004.png" alt="" align="left" />
+<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+
+<p>에러 없어지고, 페이지 제대로 로딩됨. 해결.</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="gemfile" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-11-24T13:46:06+09:00</published><updated>2022-11-24T13:46:06+09:00</updated><id>http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
 <p>Jekyll requires blog post files to be named according to the following format:</p>
 
@@ -830,144 +996,4 @@ Warning: "config" scripts exist outside your system or Homebrew directories.
 <span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
 <span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2018/12/07/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-12-07T00:00:00+09:00</published><updated>2018-12-07T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2018/12/07/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2018/12/07/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
-
-<p>To add new posts, simply add a file in the <code class="language-plaintext highlighter-rouge">_posts</code> directory that follows the convention <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
-
-<h2 id="section-1">section 1</h2>
-
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
-
-<h2 id="section-2">section 2</h2>
-
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
-
-<p>$ a * b = c ^ b $</p>
-
-<p>$ 2^{\frac{n-1}{3}} $</p>
-
-<p>$ \int_a^b f(x)\,dx. $</p>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World!"</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">// prints 'Hi, Tom' to STDOUT.</span>
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
-  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-    <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-    <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">"John"</span><span class="p">,</span> <span class="mi">36</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
-</code></pre></div></div>]]></content><author><name>Jeffrey</name></author><category term="Git_Blog_Samples" /><category term="jekyll" /><category term="theme" /><category term="yat" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">An exhibit of Markdown</title><link href="http://localhost:4000/git_blog_samples/2018/12/05/an-exhibit-of-markdown.html" rel="alternate" type="text/html" title="An exhibit of Markdown" /><published>2018-12-05T00:00:00+09:00</published><updated>2018-12-05T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2018/12/05/an-exhibit-of-markdown</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2018/12/05/an-exhibit-of-markdown.html"><![CDATA[<p>This note demonstrates some of what <a href="https://daringfireball.net/projects/markdown/">Markdown</a> is capable of doing.</p>
-
-<h2 id="an-exhibit-of-markdown">An exhibit of Markdown</h2>
-
-<p><em>Note: Feel free to play with this page. Unlike regular notes, this doesn’t automatically save itself.</em></p>
-
-<h2 id="basic-formatting">Basic formatting</h2>
-
-<p>Paragraphs can be written like so. A paragraph is the basic block of Markdown. A paragraph is what text will turn into when there is no reason it should become anything else.</p>
-
-<p>Paragraphs must be separated by a blank line. Basic formatting of <em>italics</em> and <strong>bold</strong> is supported. This <em>can be <strong>nested</strong> like</em> so.</p>
-
-<h2 id="lists">Lists</h2>
-
-<h3 id="ordered-list">Ordered list</h3>
-
-<ol>
-  <li>Item 1</li>
-  <li>A second item</li>
-  <li>Number 3</li>
-  <li>Ⅳ</li>
-</ol>
-
-<p><em>Note: the fourth item uses the Unicode character for <a href="https://www.fileformat.info/info/unicode/char/2163/index.htm">Roman numeral four</a>.</em></p>
-
-<h3 id="unordered-list">Unordered list</h3>
-
-<ul>
-  <li>An item</li>
-  <li>Another item</li>
-  <li>Yet another item</li>
-  <li>And there’s more…</li>
-</ul>
-
-<h2 id="paragraph-modifiers">Paragraph modifiers</h2>
-
-<h3 id="code-block">Code block</h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Code blocks are very useful for developers and other people who look at code or other things that are written in plain text. As you can see, it uses a fixed-width font.
-</code></pre></div></div>
-
-<p>You can also make <code class="language-plaintext highlighter-rouge">inline code</code> to add code into other things.</p>
-
-<h3 id="quote">Quote</h3>
-
-<blockquote>
-  <p>Here is a quote. What this is should be self explanatory. Quotes are automatically indented when they are used.</p>
-</blockquote>
-
-<h2 id="headings">Headings</h2>
-
-<p>There are six levels of headings. They correspond with the six levels of HTML headings. You’ve probably noticed them already in the page. Each level down uses one more hash character.</p>
-
-<h3 id="headings-can-also-contain-formatting">Headings <em>can</em> also contain <strong>formatting</strong></h3>
-
-<h3 id="they-can-even-contain-inline-code">They can even contain <code class="language-plaintext highlighter-rouge">inline code</code></h3>
-
-<p>Of course, demonstrating what headings look like messes up the structure of the page.</p>
-
-<p>I don’t recommend using more than three or four levels of headings here, because, when you’re smallest heading isn’t too small, and you’re largest heading isn’t too big, and you want each size up to look noticeably larger and more important, there there are only so many sizes that you can use.</p>
-
-<h2 id="urls">URLs</h2>
-
-<p>URLs can be made in a handful of ways:</p>
-
-<ul>
-  <li>A named link to <a href="https://www.markitdown.net/">MarkItDown</a>. The easiest way to do these is to select what you want to make a link and hit <code class="language-plaintext highlighter-rouge">Ctrl+L</code>.</li>
-  <li>Another named link to <a href="https://www.markitdown.net/">MarkItDown</a></li>
-  <li>Sometimes you just want a URL like <a href="https://www.markitdown.net/">https://www.markitdown.net/</a>.</li>
-</ul>
-
-<h2 id="horizontal-rule">Horizontal rule</h2>
-
-<p>A horizontal rule is a line that goes across the middle of the page.</p>
-
-<hr />
-
-<p>It’s sometimes handy for breaking things up.</p>
-
-<h2 id="images">Images</h2>
-
-<p>Markdown can also contain images. I’ll need to add something here sometime.</p>
-
-<h2 id="finally">Finally</h2>
-
-<p>There’s actually a lot more to Markdown than this. See the official <a href="https://daringfireball.net/projects/markdown/basics">introduction</a> and <a href="https://daringfireball.net/projects/markdown/syntax">syntax</a> for more information. However, be aware that this is not using the official implementation, and this might work subtly differently in some of the little things.</p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="example" /><category term="markdown" /><summary type="html"><![CDATA[This note demonstrates some of what Markdown is capable of doing.]]></summary></entry><entry><title type="html">Mathjax Test</title><link href="http://localhost:4000/git_blog_samples/2018/05/26/mathjax-test.html" rel="alternate" type="text/html" title="Mathjax Test" /><published>2018-05-26T00:00:00+09:00</published><updated>2018-05-26T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2018/05/26/mathjax-test</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2018/05/26/mathjax-test.html"><![CDATA[<ul>
-  <li>A safe integer is an integer that
-    <ul>
-      <li>can be exactly represented as an IEEE-754 double precision number, and</li>
-      <li>whose IEEE-75 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation</li>
-    </ul>
-  </li>
-  <li>For example, $ 2 ^ {53} - 1 $ is a safe integer,
-    <ul>
-      <li>it can be exactly represented</li>
-    </ul>
-  </li>
-</ul>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="test" /><summary type="html"><![CDATA[A safe integer is an integer that can be exactly represented as an IEEE-754 double precision number, and whose IEEE-75 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation For example, $ 2 ^ {53} - 1 $ is a safe integer, it can be exactly represented]]></summary></entry></feed>
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>
