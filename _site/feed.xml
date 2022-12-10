@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-10T16:00:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-10T23:10:22+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)</title><link href="http://localhost:4000/etc/2022/12/10/20221210_002.html" rel="alternate" type="text/html" title="맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)" /><published>2022-12-10T20:21:00+09:00</published><updated>2022-12-10T20:21:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221210_002</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221210_002.html"><![CDATA[<!--postNo: 연월일_002-->
+
+<p>아끼고 아껴 썼던 맥북 프로 2015를 어언 8년째..<br />
+배터리 관리를 잘못 했는지 10분만 지나도 방전이 되어버린다.
+그래서! 얼마 전 M2 맥북 에어를 샀다.</p>
+
+<p>가볍고, 성능좋은 노트북에 싱글벙글 하다가<br />
+큰 문제를 맞딱뜨렸다.</p>
+
+<p>바로, 파이썬에서 모듈을 불러오지 못하는 문제!</p>
+
+<h3 id="상황">상황</h3>
+<p>맞딱뜨린 문제는 크게 두 가지로 정리할 수 있다.</p>
+
+<pre><code class="language-Terminal">(1) ImportError: No module named pandas
+(2) File "&lt;stdin&gt;", line 1
+</code></pre>
+
+<ul>
+  <li>
+    <p>(1) ImportError: No module named pandas<br />
+해당 모듈을 찾을 수 없어, import 할 수 없다는 것이다.</p>
+  </li>
+  <li>
+    <p>(2) File “<stdin>", line 1  
+파이썬이 이미 실행되어있는 상태에서, 파이썬을 다시 실행해 생기는 오류라고 한다.  
+보통 이 문구를 보면 exit() 문을 통해 문제가 되는 프로그램에서 나가면 해결이 되나..  
+지금은 상황이 다르다.</stdin></p>
+  </li>
+</ul>
+
+<h3 id="문제-원인-추정">문제 원인 추정</h3>
+<h4 id="1-인텔-맥북---m실리콘-맥북-환경-차이">(1) 인텔 맥북 -&gt; M실리콘 맥북 환경 차이</h4>
+<p>노트북을 바꾸면서 프로세서의 종류 또한 인텔에서 M실리콘으로 바뀌었다.<br />
+마이그레이션을 통해 이전 노트북에 있는 설정과 파일을 그대로 새 노트북으로 가져왔기 때문에<br />
+현재 프로세서와 맞지 않는 설정 혹은 프로그램 설치가 되었을 수도 있겠다고 생각했다.</p>
+
+<h4 id="2-모듈-설치-경로의-문제">(2) 모듈 설치 경로의 문제</h4>
+<p>terminal에서는 모듈을 import하고 사용하는 데 문제가 없다.<br />
+다만, VScode 등 다른 편집기들에서만 모듈이 import 되지 않는다.<br />
+그렇다면 모듈의 설치 경로를 인식하지 못하는 게 아닐까.. 싶다.</p>
+
+<p>테스트를 원한다면 terminal을 실행 후, 아래의 명령어를 실행해보자.</p>
+<pre><code class="language-Terminal">(1) 파이썬 실행 : python
+(2) 모듈 import(예시_pandas) : import pandas
+(3) 해당 모듈의 메서드들을 실행해보자. 에러문구가 뜨지 않으면
+    모듈 설치 자체는 잘 되어있다는 뜻.
+</code></pre>
+
+<h3 id="해결">해결</h3>
+<h4 id="1-미니콘다-삭제-후-재설치">(1) 미니콘다 삭제 후 재설치</h4>
+<p>라이브러리들이 있는 미니콘다를 삭제 후 현재 프로세서에 맞는 버전으로 다시 설치해보기로 했다.<br />
+terminal을 열고, 미니콘다 삭제 명령어를 입력해준다.</p>
+<pre><code class="language-Terminal">* 미니콘다 삭제 : rm -rf ~/miniconda
+</code></pre>
+
+<p>그 외로, 아래 두 경로에도 설치되어있을 수 있으니, 찾아서 직접 삭제해보자.</p>
+<ul>
+  <li>/opt (숨김파일 보기 : finder에서 shift +command + . 키)</li>
+  <li>user/user명/opt/miniconda3</li>
+  <li>lib/miniconda3</li>
+</ul>
+
+<p>이후, 콘다 사이트에서 미니콘다를 현재 프로세서에 맞는 것으로 재설치해준다.<br />
+(나는 Apple M1 64-bit 패키지 버전으로 다시 설치했다.)<br />
+<a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda 설치 페이지</a></p>
+
+<p>하지만 이걸로 해결되지는 않았다..</p>
+
+<h4 id="2-파이썬-삭제-후-재철치">(2) 파이썬 삭제 후 재철치</h4>
+<p>파이썬의 버전이 꼬여 일어난 문제는 아닐까 하여 삭제 후 재설치를 진행했다.<br />
+살펴보니, 미니콘다에 설치된 파이썬 외로, 3.7버전과 3.10버전이 추가 설치되어있었다.</p>
+
+<p>아래 경로에서 파이썬 삭제</p>
+<ul>
+  <li>/응용 프로그램 -&gt; python 버전별 폴더</li>
+  <li>/Library/Frameworks/Python.framework/Versions -&gt; 버전별 폴더</li>
+</ul>
+
+<p>이로써, 미니콘다에 설치된 파이썬 외의 파이썬은 모두 삭제했다.</p>
+
+<h4 id="3-편집기-재실행-및-인터프리터-재선택">(3) 편집기 재실행 및 인터프리터 재선택</h4>
+<p>코드 편집기를 재실행시켜준 후, 코드를 실행해보자.<br />
+내 경우엔, 인터프리터를 다시 선택하라는 경고가 떴고, 미니콘다에 설치되어있는 파이썬 버전을 선택했다.<br />
+이후부터는 설치된 모듈이 잘 돌아간다!</p>
+
+<h3 id="후기">후기</h3>
+<p>아직 설치한 라이브러리가 많지 않아, 프로그램 삭제 후 재설치라는 선택을 할 수 있었다.<br />
+하지만.. 설치된 게 많고, 엮여있는 게 많다면.. 생각하기도 싫다.<br />
+여튼 해결!</p>
+
+<h3 id="레퍼런스">레퍼런스</h3>
+<ul>
+  <li>미니콘다 제거 : https://www.delftstack.com/ko/howto/python/uninstall-miniconda/#macos%25EC%2597%2590%25EC%2584%259C-miniconda-%25EC%25A0%259C%25EA%25B1%25B0</li>
+  <li>미니콘다 설치 : https://docs.conda.io/en/latest/miniconda.html</li>
+  <li>MAC에서 숨김파일 보기 : https://macnews.tistory.com/5286</li>
+  <li>파이썬 삭제하기 : https://investechnews.com/2021/06/25/mac-python-완전-삭제초기화하기/</li>
+  <li>vi 편집기 명령어 : https://blockdmask.tistory.com/25</li>
+</ul>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥북" /><category term="맥" /><category term="M1" /><category term="M2" /><category term="파이썬" /><category term="판다스" /><category term="모듈" /><category term="에러" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">CSV, 엑셀 파일 마크다운으로 바꾸기 (파이썬 코드)</title><link href="http://localhost:4000/etc/2022/12/10/20221210_001.html" rel="alternate" type="text/html" title="CSV, 엑셀 파일 마크다운으로 바꾸기 (파이썬 코드)" /><published>2022-12-10T18:57:00+09:00</published><updated>2022-12-10T18:57:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221210_001</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221210_001.html"><![CDATA[<!--postNo: 20221210_001-->
+
+<p>코드정리 목적으로 만든 CSV - 마크다운 변환 코드를 공유합니다.</p>
+
+<h4 id="csv---마크다운-변환-파이썬-코드">CSV -&gt; 마크다운 변환 파이썬 코드</h4>
+
+<p><a href="/assets/tools/csv_to_markdown.py">CSV-&gt;마크다운 변환 파이썬</a></p>
+
+<h4 id="마크다운---csv-변환-파이썬-코드">마크다운 -&gt; CSV 변환 파이썬 코드</h4>
+
+<p><a href="/assets/tools/markdown_to_csv.py">CSV-&gt;마크다운 변환 파이썬</a></p>
+
+<h4 id="레퍼런스">레퍼런스</h4>
+<ul>
+  <li>파일 대화창 모듈 : https://digiconfactory.tistory.com/entry/파이썬-GUI-프로그래밍-5-7-Tkinter-filedialog</li>
+  <li>마크다운 -&gt; CSV : https://blog.finxter.com/python-convert-markdown-table-to-csv/</li>
+  <li>제너레이터 리스트화 : https://whatisthenext.tistory.com/114</li>
+</ul>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="csv" /><category term="마크다운" /><category term="변환" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
 
 <h3 id="오류-사항">오류 사항</h3>
 
@@ -855,378 +970,4 @@ Warning: "config" scripts exist outside your system or Homebrew directories.
       <li>it can be exactly represented</li>
     </ul>
   </li>
-</ul>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="test" /><summary type="html"><![CDATA[A safe integer is an integer that can be exactly represented as an IEEE-754 double precision number, and whose IEEE-75 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation For example, $ 2 ^ {53} - 1 $ is a safe integer, it can be exactly represented]]></summary></entry><entry><title type="html">Video example</title><link href="http://localhost:4000/git_blog_samples/2017/12/18/video-example.html" rel="alternate" type="text/html" title="Video example" /><published>2017-12-18T00:00:00+09:00</published><updated>2017-12-18T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2017/12/18/video-example</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2017/12/18/video-example.html"><![CDATA[<h2 id="canon-in-d-pachelbels-canon---cello--piano-best-wedding-version">Canon in D (Pachelbel’s Canon) - Cello &amp; Piano [BEST WEDDING VERSION]</h2>
-<p>Some of you know that we occasionally play for weddings. As you can imagine, we get a LOT of requests for Canon in D, and we discovered that there were no good arrangements available anywhere for piano and cello! Hard to believe given its popularity. So we decided to make our own! We tried to stick as closely to the original as possible (which was written for three violins and basso continuo), and we performed it <em>not</em> at a snail’s pace so the bride can actually make it down the aisle without putting everyone to sleep. 🙊(Yeah, we said it! Nobody likes a slow processional!) Also, the number one complaint about this piece from cellists is always how booooring it is to play because they literally have to play the same 8 bass notes over and over for the entire piece. Problem solved with this arrangement because the cello never has to play the bass! 🙌(The piano does, but we get lots of other fun stuff too so it’s ok!) So for all you musicians out there playing weddings, we hope you enjoy playing this arrangement a little more than the ones you were used to…You can get it from www.musicnotes.com. 😊Be sure to let us know in the comments if you do!</p>
-
-<p><img src="//www.youtube.com/watch?v=Ptk_1Dc2iPY" alt="" /></p>
-
-<h2 id="gucci-hallucination--the-line-animation--gucci">GUCCI HALLUCINATION / THE LINE ANIMATION / GUCCI</h2>
-<p>BACKGROUND /</p>
-
-<p>Gucci share their creative vision through a series of surreal animated paintings by acclaimed artist Ignasi Monreal and The Line Animation studio. The animations make up part of a larger campaign shared via social media, above the line and print.</p>
-
-<p>APPROACH /</p>
-
-<p>Our aim was to ground and accentuate the outlandish scenarios with ambient sound design. Neither proclaiming to be positive or negative, the sound conveys a sense of the uncanny and leaves the audience with nothing but their own interpretations. their creative vision through a series of surreal animated paintings by acclaimed artist Ignasi Monreal and The Line Animation studio. The animations make up part of a larger campaign shared via social media, above the line and print.</p>
-
-<p><img src="https://vimeo.com/263856289" alt="" /></p>
-
-<h2 id="finneas-demos-how-he-builds-songs-for-billie-eilish">FINNEAS Demos How He Builds Songs For Billie Eilish</h2>
-<p>Grammy Award-winning musician and producer FINNEAS sits down with Pitchfork and closely examines his creative process while working on some of the biggest hit songs of the past couple years. FINNEAS explores the sounds that brought upon 
-some of his greatest musical breakthroughs in songs such as bad guy, bury a friend, ocean eyes, when the party’s over, I Lost a Friend, Used to This and much more.</p>
-
-<p><img src="https://dai.ly/x7tgcev" alt="" /></p>
-
-<h2 id="2019-bmw-vision-m-next-concept-hd">2019 BMW Vision M NEXT Concept (HD)</h2>
-
-<p>In future, drivers will be able to choose whether they wish to be driven or do the driving themselves. With the BMW Vision M NEXT, the BMW Group is revealing its take on how driving pleasure might look in future. It offers a foretaste of the BMW M brand’s electrified future by placing the focus squarely on the actively engaged driver. Intelligent technologies provide comprehensive yet carefully targeted assistance to turn them into the ultimate driver.</p>
-
-<p><img src="https://www.dailymotion.com/video/x7bur2y" alt="" /></p>
-
-<h2 id="this-is-the-poster-image">This is the poster image</h2>
-<p>In modern browsers, adding a video to your page is as easy as adding an image. No longer do you need to deal with special plug-ins or require crazy markup, you can do it with a single element.
-<img src="//www.html5rocks.com/en/tutorials/video/basics/devstories.webm" alt="video" /></p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="video" /><summary type="html"><![CDATA[Canon in D (Pachelbel’s Canon) - Cello &amp; Piano [BEST WEDDING VERSION] Some of you know that we occasionally play for weddings. As you can imagine, we get a LOT of requests for Canon in D, and we discovered that there were no good arrangements available anywhere for piano and cello! Hard to believe given its popularity. So we decided to make our own! We tried to stick as closely to the original as possible (which was written for three violins and basso continuo), and we performed it not at a snail’s pace so the bride can actually make it down the aisle without putting everyone to sleep. 🙊(Yeah, we said it! Nobody likes a slow processional!) Also, the number one complaint about this piece from cellists is always how booooring it is to play because they literally have to play the same 8 bass notes over and over for the entire piece. Problem solved with this arrangement because the cello never has to play the bass! 🙌(The piano does, but we get lots of other fun stuff too so it’s ok!) So for all you musicians out there playing weddings, we hope you enjoy playing this arrangement a little more than the ones you were used to…You can get it from www.musicnotes.com. 😊Be sure to let us know in the comments if you do!]]></summary></entry><entry><title type="html">Table example</title><link href="http://localhost:4000/git_blog_samples/2017/12/15/table-example.html" rel="alternate" type="text/html" title="Table example" /><published>2017-12-15T00:00:00+09:00</published><updated>2017-12-15T00:00:00+09:00</updated><id>http://localhost:4000/git_blog_samples/2017/12/15/table-example</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2017/12/15/table-example.html"><![CDATA[<h2 id="table-example-as-below">Table example as below</h2>
-
-<p><strong>For now, these extended features are provided:</strong></p>
-
-<ul>
-  <li>Cells spanning multiple columns</li>
-  <li>Cells spanning multiple rows</li>
-  <li>Cells text align separately</li>
-  <li>Table header not required</li>
-  <li>Grouped table header rows or data rows</li>
-</ul>
-
-<h3 id="rowspan-and-colspan">Rowspan and Colspan</h3>
-<p>^^ in a cell indicates it should be merged with the cell above.<br />
-This feature is contributed by <a href="https://github.com/pmccloghrylaing">pmccloghrylaing</a>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: right">Stage</th>
-      <th style="text-align: right">Direct Products</th>
-      <th style="text-align: right">ATP Yields</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: right">Glycolysis</td>
-      <td style="text-align: right">2 ATP                   |</td>
-      <td style="text-align: right"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: right">^^</td>
-      <td style="text-align: right">2 NADH</td>
-      <td style="text-align: right">3–5 ATP</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">Pyruvaye oxidation</td>
-      <td style="text-align: right">2 NADH</td>
-      <td style="text-align: right">5 ATP</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">Citric acid cycle</td>
-      <td style="text-align: right">2 ATP           |</td>
-      <td style="text-align: right"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: right">^^</td>
-      <td style="text-align: right">6 NADH</td>
-      <td style="text-align: right">15 ATP</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">^^</td>
-      <td style="text-align: right">2 FADH</td>
-      <td style="text-align: right">3 ATP</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">30–32 ATP                         ||</td>
-      <td style="text-align: right"> </td>
-      <td style="text-align: right"> </td>
-    </tr>
-  </tbody>
-</table>
-
-<p>[ Net ATP yields per hexose]</p>
-
-<h3 id="multiline">Multiline</h3>
-<p>A backslash at end to join cell contents with the following lines.<br />
-This feature is contributed by <a href="https://github.com/Lucas-C">Lucas-C</a>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">:     Easy Multiline     :||</th>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange  \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange  \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange  \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="headerless">Headerless</h3>
-<p>Table header can be eliminated.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>♜</td>
-      <td> </td>
-      <td>♝</td>
-      <td>♛</td>
-      <td>♚</td>
-      <td>♝</td>
-      <td>♞</td>
-      <td>♜</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>♟</td>
-      <td>♟</td>
-      <td>♟</td>
-      <td> </td>
-      <td>♟</td>
-      <td>♟</td>
-      <td>♟</td>
-    </tr>
-    <tr>
-      <td>♟</td>
-      <td> </td>
-      <td>♞</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>♗</td>
-      <td> </td>
-      <td> </td>
-      <td>♟</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>♙</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>♘</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>♙</td>
-      <td>♙</td>
-      <td>♙</td>
-      <td>♙</td>
-      <td> </td>
-      <td>♙</td>
-      <td>♙</td>
-      <td>♙</td>
-    </tr>
-    <tr>
-      <td>♖</td>
-      <td>♘</td>
-      <td>♗</td>
-      <td>♕</td>
-      <td>♔</td>
-      <td> </td>
-      <td> </td>
-      <td>♖</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|:     Fruits <span class="se">\|\|</span> Food           :|||
-|:-------- |:-------- |:------------ |
-| Apple    |: Apple  :|    Apple     <span class="err">\</span>
-| Banana   |  Banana  |    Banana    <span class="err">\</span>
-| Orange   |  Orange  |    Orange    |
-|:   Rowspan is 5   :||:  How's it? :|
-|^^   A. Peach       ||^^ 1. Fine    |
-|^^   B. Orange      ||^^ 2. Bad  $I = <span class="se">\i</span>nt <span class="se">\r</span>ho R^{2} dV$     |
-|^^   C. Banana      ||   It's OK! !<span class="p">[</span><span class="nv">example image</span><span class="p">][</span><span class="ss">my-image</span><span class="p">]</span>  |
-</code></pre></div></div>
-
-<h3 id="text-alignment">Text Alignment</h3>
-<p>Table cell can be set alignment separately.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">\:Fruits         |</th>
-      <th style="text-align: left">Food   :</th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left">Fruits\::        |</th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">: \:Fruits       :|</th>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left">:       Food     :|</th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Orange</td>
-      <td style="text-align: left">:   Strawberry    :</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Apple  &amp;  Banana |</td>
-      <td style="text-align: left">^^</td>
-      <td style="text-align: left">Peach        :|</td>
-      <td style="text-align: left"> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
-    <tr>
-      <td>: \:Fruits       :|</td>
-      <td> </td>
-      <td>:       Food     :|</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Apple</td>
-      <td>Banana</td>
-      <td>Orange</td>
-      <td>:   Strawberry    :</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">:     Fruits || Food           :||</th>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Apple</td>
-      <td style="text-align: left">: Apple  :</td>
-      <td style="text-align: left">Apple     \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Banana</td>
-      <td style="text-align: left">Banana    \</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Orange</td>
-      <td style="text-align: left">Orange</td>
-      <td style="text-align: left">Orange</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">:   Rowspan is 5   :|</td>
-      <td style="text-align: left">:  How’s it? :</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">^^   A. Peach       |</td>
-      <td style="text-align: left">^^ 1. Fine</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">^^   B. Orange      |</td>
-      <td style="text-align: left">^^ 2. Bad  $I = \int \rho R^{2} dV$</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">^^   C. Banana      |</td>
-      <td style="text-align: left">It’s OK! ![example image](http://www.unexpected-vortices.com/sw/rippledoc/example-image.jpg "An exemplary image")</td>
-      <td style="text-align: left"> </td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="table" /><summary type="html"><![CDATA[Table example as below]]></summary></entry></feed>
+</ul>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><category term="test" /><summary type="html"><![CDATA[A safe integer is an integer that can be exactly represented as an IEEE-754 double precision number, and whose IEEE-75 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation For example, $ 2 ^ {53} - 1 $ is a safe integer, it can be exactly represented]]></summary></entry></feed>
