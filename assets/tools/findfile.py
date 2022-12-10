@@ -1,13 +1,8 @@
-import tkinter as tk
-from tkinter import filedialog as fd
+import pandas as pd
 
-root = tk.Tk()
-root.geometry('320x240')
-root.title('abc')
+a = [1, 2, 3]
+b = [2, 3, 4]
 
-frame = tk.Frame(root)
-frame.pack()
 
-path1 = fd.askopenfilename(initialdir='/',title="select a file",
-                          filetypes =(("Python files","*.py"),
-                                      ("txt files","*.txt"),("all files","*.*")))
+c = pd.DataFrame(columns = [a, b])
+print(c)
