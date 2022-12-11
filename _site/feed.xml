@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-11T18:09:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">마크다운 문법 요약</title><link href="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html" rel="alternate" type="text/html" title="마크다운 문법 요약" /><published>2022-12-11T18:05:30+09:00</published><updated>2022-12-11T18:05:30+09:00</updated><id>http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html"><![CDATA[<!--postNo: 20221211_001-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-11T19:53:19+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">마크다운 문법 요약</title><link href="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html" rel="alternate" type="text/html" title="마크다운 문법 요약" /><published>2022-12-11T18:05:30+09:00</published><updated>2022-12-11T18:05:30+09:00</updated><id>http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html"><![CDATA[<!--postNo: 20221211_001-->
 
 <h2 id="헤딩-heading">헤딩 heading</h2>
 <hr />
@@ -14,8 +14,69 @@
 범위 지정 span과 스타일지정 style을 함께 사용한다.
 
 <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">'background-color: #fff5b1'</span><span class="nt">&gt;</span> 노란색 형광펜 <span class="nt">&lt;/span&gt;</span>
-
 </code></pre></div></div>
+
+<h2 id="펼치기접기-영역">펼치기/접기 영역</h2>
+<hr />
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">*</span> html을 이용한다.
+<span class="p">*</span> <span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/div&gt;</span>안쪽은 마크다운 형식 작성이 가능하다.
+<span class="p">*</span> 디폴트로는 접힌 상태로 보이나,
+<span class="p">*</span> <span class="nt">&lt;details</span> <span class="na">open</span><span class="nt">&gt;</span> 태그로 시작하면 펼쳐진 채로 보인다.<span class="sb">
+
+
+</span><span class="nt">&lt;details&gt;</span>
+<span class="nt">&lt;summary&gt;</span>펼치기/접기 영역<span class="nt">&lt;/summary&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+
+|표만들기|내용|
+|-----|---|
+|내용1|내용2|
+|내용3|내용4|
+
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/details&gt;</span>
+</code></pre></div></div>
+<details>
+<summary>펼치기/접기 영역</summary>
+<div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>표만들기</th>
+          <th>내용</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>내용1</td>
+          <td>내용2</td>
+        </tr>
+        <tr>
+          <td>내용3</td>
+          <td>내용4</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</details>
+
+<h2 id="인용-블록">인용 블록</h2>
+<hr />
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1) 마크다운 방식
+꺽쇠(&gt;) 후 스페이스바 한 후 내용 입력
+<span class="gt">&gt; 내용입력</span>
+
+(2) html 방식
+<span class="nt">&lt;blockquote&gt;</span>
+내용입력
+<span class="nt">&lt;/blockquote&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>내용입력 마크다운 형식 (&gt;)</p>
+</blockquote>
+<blockquote> 내용입력 html 형식 </blockquote>
 
 <h2 id="이미지">이미지</h2>
 <hr />
@@ -329,25 +390,30 @@ terminal을 열고, 미니콘다 삭제 명령어를 입력해준다.</p>
   </tbody>
 </table>]]></content><author><name>Jongya</name></author><category term="summary" /><category term="Google" /><category term="Colab" /><category term="Hotkey" /><category term="구글" /><category term="코랩" /><category term="단축키" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">딥러닝 개요</title><link href="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html" rel="alternate" type="text/html" title="딥러닝 개요" /><published>2022-12-08T21:46:00+09:00</published><updated>2022-12-08T21:46:00+09:00</updated><id>http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro</id><content type="html" xml:base="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html"><![CDATA[<!--postNo: 20221208_001-->
 
-<p>코드<br />
-<a href="https://whdrns2013.github.io/Workspace_SeSAC/pythonDir/06_deeplearning/df_01_deeplearning.ipynb">딥러닝 개요_ipynb 코드</a></p>
+<blockquote>
+<div>
 
-<p>들어가기 전에</p>
+    <ul>
+      <li>코드<br />
+<a href="https://whdrns2013.github.io/Workspace_SeSAC/pythonDir/06_deeplearning/df_01_deeplearning.ipynb">딥러닝 개요_ipynb 코드</a></li>
+    </ul>
+  </div>
+
+* 들어가기 전에  
 <details>
 <summary> 공부 환경 </summary>
 <div>
 
-    <ul>
-      <li>교재 : 백견불여일타</li>
-      <li>코딩 환경 : Google Colab</li>
-      <li>Colab 사용 이유 : GPU 세션을 통한 빠른 속도의 연산처리 가능</li>
-      <li>Colab 사용법 : 대부분 주피터 랩과 비슷하나, 단축키 부분은 조금 다름</li>
-      <li>Colab 주의사항 : GPU 사용은 6~8시간 사용 후 24시간 대기 필요.<br />
+      <ul>
+        <li>교재 : 백견불여일타</li>
+        <li>코딩 환경 : Google Colab</li>
+        <li>Colab 사용 이유 : GPU 세션을 통한 빠른 속도의 연산처리 가능</li>
+        <li>Colab 사용법 : 대부분 주피터 랩과 비슷하나, 단축키 부분은 조금 다름</li>
+        <li>Colab 주의사항 : GPU 사용은 6~8시간 사용 후 24시간 대기 필요.<br />
 때문에 불필요한 GPU 세션 연결은 지양</li>
-    </ul>
+      </ul>
 
-  </div>
-</details>
+    </div></details></blockquote>
 
 <h2 id="1-딥러닝-개요">1. 딥러닝 개요</h2>
 <hr />
@@ -359,10 +425,10 @@ terminal을 열고, 미니콘다 삭제 명령어를 입력해준다.</p>
 <p>딥러닝은 과거 과적합 문제와 느린 학습시간이라는 문제를 안고 있었으나, 과적합 방지 기술과 하드웨어의 발전에 따라 문제들이 해결됐고, 현업과 생활 전반에서 많은 부분들이 데이터화됨에 따라 많은 데이터(=빅데이터)들이 생겨나고 이를 수집하고 분석하는 기술의 발전에 따라 각광받고 있는 기술이다.</p>
 
 <p>딥러닝에 대해서는 아래 영상을 참고.<br />
-https://www.youtube.com/watch?v=aircAruvnKk</p>
+<a href="https://www.youtube.com/watch?v=aircAruvnKk">https://www.youtube.com/watch?v=aircAruvnKk</a></p>
 
 <p>딥러닝의 역사에 대해서는 아래 글을 참고.
-https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html</p>
+<a href="https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html">https://beamandrew.github.io</a></p>
 
 <h3 id="2-딥러닝이-활약하는-분야">(2) 딥러닝이 활약하는 분야</h3>
 
@@ -775,15 +841,13 @@ https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.htm
   </li>
 </ul>
 
-<p><span style="background-color:#fff5b1"></span></p>
 <blockquote>
-  <p>퍼셉트론 만들어보기</p>
-</blockquote>
-<details>
-<summary> 기본적인 퍼셉트론 모델 코딩 FLOW</summary>
-<div>
+<span style="background-color:#fff5b1"><b> 퍼셉트론 만들어보기</b></span>
+<span><details open="">
+<summary><b><u>기본적인 퍼셉트론 모델 코딩 FLOW (펼치기/접기)</u></b></summary>
+ <div>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== Import ==='</span>
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== Import ==='</span>
 
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span> <span class="c1"># 텐서플로우
 </span><span class="n">tf</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">777</span><span class="p">)</span> <span class="c1"># 텐서플로우의 난수 생성 규칙 지정
@@ -792,9 +856,10 @@ https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.htm
 </span><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span> <span class="c1"># Dense 완전 연결층
 </span><span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span> <span class="c1"># 확률적 경사하강법
 </span><span class="kn">from</span> <span class="nn">keras.losses</span> <span class="kn">import</span> <span class="n">mse</span> <span class="c1"># mean squared error 평가 지표
-</span></code></pre></div>    </div>
+</span></code></pre></div>        </div>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 만들기 ==='</span>
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 만들기 ==='</span>
+
 <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
 <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'activation function'</span><span class="p">))</span>
 <span class="c1">## Dense : 완전 연결층. 모든 입력값들에 대해 연결을 하는 층이다.
@@ -802,9 +867,10 @@ https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.htm
 ## input shape 들어오는 값의 형태는 i * j 행렬의 형태 
 ## activation = 활성화 함수
 ## 다층 퍼셉트론을 만들려면, model.add를 여러 번 반복하면 된다.
-</span>
+</span></code></pre></div>        </div>
 
-<span class="s">'=== 모델 컴파일 ==='</span>
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 컴파일 ==='</span>
+
 <span class="c1"># 컴파일 : 모델 설정이라고 보면 편하다.
 </span><span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">옵티마이저</span><span class="p">,</span>
               <span class="n">loss</span> <span class="o">=</span> <span class="n">로스측정방식</span><span class="p">,</span>
@@ -813,16 +879,17 @@ https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.htm
 ## 옵티마이저는 : 모델의 학습 방법을 최적화하는 방법론. 경사하강법 등
 ## 로스 측정은 mse 방식
 ## 평가 지표는 acc, 정확도
-</span>
+</span></code></pre></div>        </div>
 
-<span class="s">'=== 모델 학습 ==='</span>
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 학습 ==='</span>
+
 <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="n">전체데이터</span> <span class="n">학습횟수</span><span class="p">)</span>
 <span class="c1">## x, y : 독립변수들과 종속변수
 ## epochs : 전체 데이터를 몇 번 학습할 것인지
 ## 이 모델은 x1 * w1 _ x2 * w1 .... 형식으로 가중치 계산이 되었다.
-</span></code></pre></div>    </div>
+</span></code></pre></div>        </div>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 가중치(weight와 편향bias 찾기) ==='</span>
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 가중치(weight와 편향bias 찾기) ==='</span>
 <span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
 <span class="c1">## 우리는 x값은 알고 있으나, 학습 과정에서 생긴 w (weight = 가중치) 값은 모른다.
 ## 그러므로, .get_weights() 메서드로 확인해본다.
@@ -832,9 +899,11 @@ https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.htm
 <span class="o">-</span> <span class="n">array</span><span class="p">([</span><span class="mf">0.32719323</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
 <span class="c1">## 가중치 -&gt; 0.49431458, 0.37552658
 ## 편향 -&gt; 0.32719323
-</span></code></pre></div>    </div>
-  </div>
+</span></code></pre></div>        </div>
+      </div>
 </details>
+</span>
+</blockquote>
 
 <h3 id="2-단층-퍼셉트론">(2) 단층 퍼셉트론</h3>
 <blockquote>
@@ -843,39 +912,147 @@ https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.htm
 
 <p><img src="/assets/images/20221208_001_001.png" alt="자체제작" /></p>
 
-<p>입력층과 출력층을 제외한 은닉층이 하나인 퍼셉트론. 
+<p>입력층과 출력층을 제외한 은닉층이 하나인 퍼셉트론. <br />
 각각의 입력값에 대해 유닛에서 가중치를 준 후, 활성화 함수를 통해 다음 층으로 값을 전달하거나 전달하지 않는다.<br />
-AND, OR, NAND(Not-AND) 와 같은 선형 분리가 가능한 문제에 대해선 해결이 가능하나, XOR(배타적 논리합) 연산은 해결이 불가능한 문제를 가지고 있다.<br />
+AND, OR, NAND(Not-AND) 와 같은 선형 분리가 가능한 문제에 대해선 해결이 가능하나,<br />
+<span style="background-color:#fff5b1"><b><u>XOR(배타적 논리합) 연산은 해결이 불가능</u></b></span>한 문제를 가지고 있다. (하기 코드 강조)<br />
 이 문제와 함께 하드웨어의 연산 속도의 한계로 인해 인공신경망은 발전이 더딘 암흑기를 보냈었다.</p>
 
+<blockquote>
+<span style="background-color:#fff5b1"><b> 단층 퍼셉트론 만들어보기</b></span>
 <details>
 <summary> OR 데이터에 대한 단층 퍼셉트론 모델 </summary>
 <div>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># OR 의 경우
-# 데이터 만들기
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== OR 데이터 만들기 ==='</span>
+<span class="c1">## 둘 다 False [0, 0] 이면 -&gt; Flase(0)
+## 둘 중 하나라도 True [0, 1] [1, 0] [1, 1]이면 -&gt; True(1)
 </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
 
 
-<span class="c1"># 모델 만들기
-</span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="s">'=== 모델 만들기 ==='</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
 <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'linear'</span><span class="p">))</span>
+<span class="c1"># 시퀀셜 모델, 은닉층은 완전연결층으로 1개
+# 은닉층에 유닛은 2개, 활성함수는 선형함수
+</span>
 
-<span class="c1"># 모델 컴파일
-</span><span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(),</span>
+<span class="s">'=== 모델 컴파일 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(),</span>
               <span class="n">loss</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span>
               <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
+<span class="c1"># 옵티마이저는 경사하강법 SGD
+# 로스는 mse, 평가는 정확도
+</span>
 
-<span class="c1"># 모델 학습
-</span><span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
-</code></pre></div>    </div>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div>    </div>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div>    </div>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div>    </div>
+<span class="s">'=== 모델 학습 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+<span class="c1"># 전체데이터를 500번 학습함
+</span>
 
-  </div>
-</details>
+<span class="s">'=== 학습결과 ==='</span>
+<span class="o">*</span> <span class="n">loss</span> <span class="p">:</span> <span class="mf">0.2282</span> <span class="o">~</span> <span class="mf">0.0656</span>
+<span class="o">*</span> <span class="n">acc</span> <span class="p">:</span> <span class="mf">1.000</span> <span class="p">(</span><span class="mi">100</span><span class="o">%</span><span class="p">)</span>
+
+
+<span class="s">'=== 가중치값 구하기 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
+<span class="o">*</span> <span class="n">가중치</span> <span class="p">:</span> <span class="p">[[</span><span class="mf">0.5609935</span> <span class="p">],[</span><span class="mf">0.58792883</span><span class="p">]]</span>
+<span class="o">*</span> <span class="n">bias</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.16167852</span><span class="p">]</span>
+
+</code></pre></div>      </div>
+    </div></details>
+
+<details>
+<summary> NAND(Not AND) 데이터에 대한 단층 퍼셉트론 모델 </summary>
+<div>
+
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== NAND 데이터 만들기 ==='</span>
+<span class="c1">## 둘 다 True [1, 1] 이면 -&gt; True가 아님(False=0)
+## 둘 다 True 가 아니면 -&gt; True(1)
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+
+<span class="s">'=== 모델 만들기 ==='</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'linear'</span><span class="p">))</span>
+<span class="c1"># 시퀀셜 모델, 은닉층은 완전연결층으로 1개
+# 은닉층에 유닛은 2개, 활성함수는 선형함수
+</span>
+
+<span class="s">'=== 모델 컴파일 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(),</span>
+              <span class="n">loss</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span>
+              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
+<span class="c1"># 옵티마이저는 경사하강법 SGD
+# 로스는 mse, 평가는 정확도
+</span>
+
+<span class="s">'=== 모델 학습 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+<span class="c1"># 전체데이터를 500번 학습함
+</span>
+
+<span class="s">'=== 학습결과 ==='</span>
+<span class="o">*</span> <span class="n">loss</span> <span class="p">:</span> <span class="mf">1.0076</span> <span class="o">~</span> <span class="mf">0.0712</span>
+<span class="o">*</span> <span class="n">acc</span> <span class="p">:</span> <span class="mf">0.2500</span> <span class="o">~</span> <span class="mf">1.0000</span>
+
+
+<span class="s">'=== 가중치값 구하기 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
+<span class="o">*</span> <span class="n">가중치</span> <span class="p">:</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.3768994</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.3686214</span><span class="p">]]</span>
+<span class="o">*</span> <span class="n">bias</span> <span class="p">:</span> <span class="p">[</span><span class="mf">1.0990759</span><span class="p">]</span>
+
+</code></pre></div>      </div>
+    </div></details>
+
+<details>
+<summary> XOR(exclusive or : 배타적 논리합) 데이터에 대한 단층 퍼셉트론 모델 </summary>
+<div>
+
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== XOR 데이터 만들기 ==='</span>
+<span class="c1">## 두 가지 중 한 가지만 True면 -&gt; True(1)
+## 둘 다 True거나 False면 -&gt; False(0)
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+
+<span class="s">'=== 모델 만들기 ==='</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'linear'</span><span class="p">))</span>
+<span class="c1"># 시퀀셜 모델, 은닉층은 완전연결층으로 1개
+# 은닉층에 유닛은 2개, 활성함수는 선형함수
+</span>
+
+<span class="s">'=== 모델 컴파일 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(),</span>
+              <span class="n">loss</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span>
+              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
+<span class="c1"># 옵티마이저는 경사하강법 SGD
+# 로스는 mse, 평가는 정확도
+</span>
+
+<span class="s">'=== 모델 학습 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+<span class="c1"># 전체데이터를 500번 학습함
+</span>
+
+<span class="s">'=== 학습결과 ==='</span>
+<span class="o">*</span> <span class="n">loss</span> <span class="p">:</span> <span class="mf">0.3424</span> <span class="o">~</span> <span class="mf">0.2500</span>
+<span class="o">*</span> <span class="n">acc</span> <span class="p">:</span> <span class="mf">0.2500</span>
+<span class="s">'정확도가 25%에서 올라가지 않는다.'</span>
+<span class="s">'4개 관측값 중 1/4 확률이므로 찍어맞추는 것. 모델 가치 없음'</span>
+
+
+<span class="s">'=== 가중치값 구하기 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
+<span class="o">*</span> <span class="n">가중치</span> <span class="p">:</span> <span class="p">[[</span><span class="mf">0.0037272</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0037034</span><span class="p">]]</span>
+<span class="o">*</span> <span class="n">bias</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.49559313</span><span class="p">]</span>
+
+</code></pre></div>      </div>
+    </div></details></blockquote>
 
 <h3 id="3-다층-퍼셉트론">(3) 다층 퍼셉트론</h3>
 <blockquote>
@@ -886,8 +1063,65 @@ AND, OR, NAND(Not-AND) 와 같은 선형 분리가 가능한 문제에 대해선
 
 <p>하나의 입력층과 하나의 출력층 및 다수개의 은닉층으로 이루어져있다.<br />
 퍼셉트론을 여러 층 쌓은 모습으로, 각 층에서는 활성함수를 통해 값이 전달된다.<br />
-기존 단층 퍼셉트론이 아무리 학습을 시켜도 XOR문제에 대해서는 정확도가 떨어지는 반면, 다층 퍼셉트론은 이러한 XOR 문제를 해결하였다.<br />
+기존 단층 퍼셉트론이 아무리 학습을 시켜도 XOR문제에 대해서는 정확도가 떨어지는 반면,<br />
+다층 퍼셉트론은 이러한 XOR 문제를 해결하였다.<br />
 이 다층 퍼셉트론은 현재 딥러닝의 기본 바탕이 된다.</p>
+
+<blockquote>
+<span style="background-color:#fff5b1"><b> 다층 퍼셉트론 만들어보기</b></span>
+<details>
+<summary> XOR 데이터에 대한 다층 퍼셉트론 모델 </summary>
+<div>
+
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="s">'=== XOR 데이터 만들기 ==='</span>
+<span class="c1">## 두 가지 중 한 가지만 True면 -&gt; True(1)
+## 둘 다 True거나 False면 -&gt; False(0)
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+
+<span class="s">'=== 모델 만들기 ==='</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'sigmoid'</span><span class="p">))</span>
+<span class="c1"># 시퀀셜 모델, 은닉층은 완전연결층으로 2개
+# 첫 번째 은닉층은 유닛 32개, 활성함수는 ReLU
+# 두 번째 은닉층은 유닛 1개, 활성함수는 시그모이드
+</span>
+
+<span class="s">'=== 모델 컴파일 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">RMSprop</span><span class="p">(),</span>
+              <span class="n">loss</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span>
+              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
+<span class="c1"># 옵티마이저는 RMSprop (Root Mean Square Propagation)
+# 로스는 mse, 평가는 정확도
+</span>
+
+<span class="s">'=== 모델 학습 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+<span class="c1"># 전체데이터를 500번 학습함
+</span>
+
+<span class="s">'=== 학습결과 ==='</span>
+<span class="o">*</span> <span class="n">loss</span> <span class="p">:</span> <span class="mf">0.2490</span> <span class="o">~</span> <span class="mf">0.0421</span>
+<span class="o">*</span> <span class="n">acc</span> <span class="p">:</span> <span class="mf">0.7500</span> <span class="o">~</span> <span class="mf">1.000</span>
+<span class="c1">## 100%의 정확도를 보인다.
+</span>
+
+<span class="s">'=== 가중치값 구하기 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
+<span class="o">*</span> <span class="n">가중치</span> <span class="p">:</span> <span class="mi">32</span><span class="n">개</span> <span class="o">+</span> <span class="mi">32</span><span class="n">개의</span> <span class="n">가중치가</span> <span class="n">나온다</span><span class="p">.</span>
+<span class="o">*</span> <span class="n">bias</span> <span class="p">:</span> <span class="mi">32</span><span class="n">개의</span> <span class="n">bias</span> <span class="n">가</span> <span class="n">나온다</span><span class="p">.</span>
+
+
+<span class="s">'=== x 에 대한 predict 진행 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+ <span class="o">*</span> <span class="p">[</span><span class="mf">0.248</span><span class="p">,</span> <span class="mf">0.812</span><span class="p">,</span> <span class="mf">0.812</span><span class="p">,</span> <span class="mf">0.188</span><span class="p">]</span>
+ <span class="o">*</span> <span class="n">반올림하면</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="n">정답률</span> <span class="mi">100</span><span class="o">%</span>
+
+</code></pre></div>      </div>
+    </div></details></blockquote>
 
 <h3 id="4-활성화-함수">(4) 활성화 함수</h3>
 <blockquote>
@@ -948,14 +1182,14 @@ AND, OR, NAND(Not-AND) 와 같은 선형 분리가 가능한 문제에 대해선
 
 <p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=handuelly&amp;logNo=221824080339">활성화함수 추가 설명</a></p>
 
-<h2 id="신경망-만들어보기">신경망 만들어보기</h2>
+<h2 id="실습--신경망-만들어보기">실습 : 신경망 만들어보기</h2>
 <h3 id="학습의-의의">학습의 의의</h3>
 <h3 id="기본-연산-해보기">기본 연산 해보기</h3>
 <h2 id="숙제">숙제</h2>
 <ul>
   <li>용어 정리 - 인공신경망 부분 추가</li>
   <li>용어 정리 - 평가 지표 부분 추가</li>
-  <li>퍼셉트론 만들기 - 옵티마이저 등 설명하기
+  <li>퍼셉트론 만들기 - 옵티마이저 등 각 사항 설명, 종류명 언급 하면서 한 단원으로 끝내기
     <h2 id="케라스">케라스</h2>
   </li>
 </ul>
