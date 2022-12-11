@@ -1,4 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-11T00:40:28+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)</title><link href="http://localhost:4000/etc/2022/12/10/20221210_002.html" rel="alternate" type="text/html" title="맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)" /><published>2022-12-10T20:21:00+09:00</published><updated>2022-12-10T20:21:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221210_002</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221210_002.html"><![CDATA[<!--postNo: 연월일_002-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-11T18:09:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">마크다운 문법 요약</title><link href="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html" rel="alternate" type="text/html" title="마크다운 문법 요약" /><published>2022-12-11T18:05:30+09:00</published><updated>2022-12-11T18:05:30+09:00</updated><id>http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html"><![CDATA[<!--postNo: 20221211_001-->
+
+<h2 id="헤딩-heading">헤딩 heading</h2>
+<hr />
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># : 헤딩 1번 (#과 스페이스바 후 입력)</span>
+<span class="gu">## : 헤딩 2번 (##과 스페이스바 후 입력)</span>
+<span class="gu">### : 헤딩 3번</span>
+...
+</code></pre></div></div>
+
+<h2 id="형광펜-색상">형광펜 (색상)</h2>
+<hr />
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code>형광펜은 html을 사용해야 한다.
+범위 지정 span과 스타일지정 style을 함께 사용한다.
+
+<span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">'background-color: #fff5b1'</span><span class="nt">&gt;</span> 노란색 형광펜 <span class="nt">&lt;/span&gt;</span>
+
+</code></pre></div></div>
+
+<h2 id="이미지">이미지</h2>
+<hr />
+
+<h2 id="레퍼런스">레퍼런스</h2>
+<p>형광펜 : https://geniewishescometrue.tistory.com/entry/마크다운-관련-팁-글-색상-형광펜</p>]]></content><author><name>Jongya</name></author><category term="summary" /><category term="마크다운" /><category term="markdown" /><category term="문법" /><category term="syntax" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">맥 텐서플로우 설치하기 5단계 (M1 M2 M실리콘)</title><link href="http://localhost:4000/etc/2022/12/10/20221208_002_install_tensorflow_at_m_silicon.html" rel="alternate" type="text/html" title="맥 텐서플로우 설치하기 5단계 (M1 M2 M실리콘)" /><published>2022-12-10T20:21:00+09:00</published><updated>2022-12-10T20:21:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221208_002_install_tensorflow_at_m_silicon</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221208_002_install_tensorflow_at_m_silicon.html"><![CDATA[<!--postNo: 20221210_002-->
+
+<h3 id="m실리콘-tensorflow-설치하기">M실리콘 tensorflow 설치하기</h3>
+
+<ol>
+  <li>Conda 가상환경 만들기
+    <pre><code class="language-Terminal">conda create -n 가상환경명 anaconda
+</code></pre>
+  </li>
+  <li>Conda 가상환경 실행
+    <pre><code class="language-Terminal">conda activate 가상환경명
+</code></pre>
+  </li>
+  <li>numpy, scipy 업그레이드
+    <pre><code class="language-Terminal">pip install numpy --upgrade
+pip install scipy --upgrade
+</code></pre>
+    <blockquote>
+      <p>Requirement already satisfied:<br />
+이 문구는, 이미 최신버전이라는 뜻입니다. 다음 단계로 넘어가세요.</p>
+    </blockquote>
+  </li>
+  <li>tensorflow 설치
+    <pre><code class="language-Terminal">conda install -c apple tensorflow-deps
+pip install tensorflow-macos
+pip install tensorflow-metal
+</code></pre>
+    <blockquote>
+      <p>tensorflow-metal : GPU환경을 사용할 수 있게 해주는 툴</p>
+    </blockquote>
+  </li>
+  <li>tensorflow 설치 확인 (버전 확인)
+```python
+    <h1 id="tensor-버전-확인">tensor 버전 확인</h1>
+    <p>python # 파이썬 실행
+import tensorflow # 텐서플로우 import
+tensorflow.<strong>version</strong> # 텐서 버전 확인
+‘버전명 출력됨 -&gt; 내 경우 2.11.0’</p>
+  </li>
+</ol>
+
+<h1 id="gpu-사용-여부-확인-1이면-정상">GPU 사용 여부 확인 (1이면 정상)</h1>
+<p>print(len(tensorflow.config.experimental.list_physical_devices(‘GPU’)))</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+### 주피터에서 tensorflow를 쓰고 싶다면?
+1. conda 가상환경을 실행
+```Terminal 
+conda activate 가상환경명
+</code></pre></div></div>
+
+<ol>
+  <li>jupyter 설치
+    <pre><code class="language-Terminal">pip install jupyter lab # 주피터랩 설치
+pip install jupyter notebook # 주피터노트북 설치
+</code></pre>
+  </li>
+  <li>jupyter 실행
+    <pre><code class="language-Terminal">conda activate 가상환경명 # 가상환경 실행 후 
+jupyter lab
+</code></pre>
+  </li>
+</ol>
+
+<p>이후 tensorflow를 사용할 때에는, 가상환경 실행 후에야 가능합니다.. ㅠㅠ.. 얼른 업데이트가 되길..<br />
+아니면.. 구글 코랩 사용을 권장합니다!</p>
+
+<h3 id="레퍼런스">레퍼런스</h3>
+<p>(1) https://discuss.tensorflow.org/t/tensorflow-mac-m1/8706
+(2) https://pasus.tistory.com/218
+(3) https://velog.io/@psjlmk/M1-맥북-tensorflow-설치</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥북" /><category term="맥" /><category term="M1" /><category term="M2" /><category term="파이썬" /><category term="텐서플로우" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)</title><link href="http://localhost:4000/etc/2022/12/10/20221210_002.html" rel="alternate" type="text/html" title="맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)" /><published>2022-12-10T20:21:00+09:00</published><updated>2022-12-10T20:21:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221210_002</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221210_002.html"><![CDATA[<!--postNo: 20221210_002-->
 
 <p>아끼고 아껴 썼던 맥북 프로 2015를 어언 8년째..<br />
 배터리 관리를 잘못 했는지 10분만 지나도 방전이 되어버린다.
@@ -235,34 +327,655 @@ terminal을 열고, 미니콘다 삭제 명령어를 입력해준다.</p>
       <td style="text-align: left">전체 찾기/ 바꾸기</td>
     </tr>
   </tbody>
-</table>]]></content><author><name>Jongya</name></author><category term="summary" /><category term="Google" /><category term="Colab" /><category term="Hotkey" /><category term="구글" /><category term="코랩" /><category term="단축키" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">딥러닝 기초</title><link href="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html" rel="alternate" type="text/html" title="딥러닝 기초" /><published>2022-12-08T21:46:00+09:00</published><updated>2022-12-08T21:46:00+09:00</updated><id>http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro</id><content type="html" xml:base="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html"><![CDATA[<!--postNo: 20221208_001-->
+</table>]]></content><author><name>Jongya</name></author><category term="summary" /><category term="Google" /><category term="Colab" /><category term="Hotkey" /><category term="구글" /><category term="코랩" /><category term="단축키" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">딥러닝 개요</title><link href="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html" rel="alternate" type="text/html" title="딥러닝 개요" /><published>2022-12-08T21:46:00+09:00</published><updated>2022-12-08T21:46:00+09:00</updated><id>http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro</id><content type="html" xml:base="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html"><![CDATA[<!--postNo: 20221208_001-->
 
-<ul>
-  <li>코드 : https://whdrns2013.github.io/Workspace_SeSAC/pythonDir/06_deeplearning/df_01_deeplearning.ipynb</li>
-</ul>
+<p>코드<br />
+<a href="https://whdrns2013.github.io/Workspace_SeSAC/pythonDir/06_deeplearning/df_01_deeplearning.ipynb">딥러닝 개요_ipynb 코드</a></p>
 
-<h2 id="들어가기-전에">들어가기 전에</h2>
-<ul>
-  <li>교재 : 백견불여일타</li>
-  <li>환경 : Google Colab</li>
-  <li>Colab 사용 이유 : GPU 세션을 통한 빠른 속도의 연산처리 가능</li>
-  <li>Colab 사용법 : 대부분 주피터 랩과 비슷하나, 단축키 부분은 조금 다름</li>
-  <li>Colab 주의사항 : 런타임 -&gt; 런타임 유형 -&gt; GPU는 6~8시간 사용 후 24시간 대기<br />
+<p>들어가기 전에</p>
+<details>
+<summary> 공부 환경 </summary>
+<div>
+
+    <ul>
+      <li>교재 : 백견불여일타</li>
+      <li>코딩 환경 : Google Colab</li>
+      <li>Colab 사용 이유 : GPU 세션을 통한 빠른 속도의 연산처리 가능</li>
+      <li>Colab 사용법 : 대부분 주피터 랩과 비슷하나, 단축키 부분은 조금 다름</li>
+      <li>Colab 주의사항 : GPU 사용은 6~8시간 사용 후 24시간 대기 필요.<br />
 때문에 불필요한 GPU 세션 연결은 지양</li>
+    </ul>
+
+  </div>
+</details>
+
+<h2 id="1-딥러닝-개요">1. 딥러닝 개요</h2>
+<hr />
+<h3 id="1-딥러닝이란">(1) 딥러닝이란</h3>
+<p>기계학습 방법, 인공지능의 일종. 많은 데이터를 가지고 컴퓨터가 사람처럼 스스로 학습하도록 인공신경망 등의 기술을 이용한 기법이다. 여러(깊은) 학습층을 가지고 유연하고도 확장성 높은 학습이 가능한 기술이다.</p>
+
+<p>자료를 컴퓨터가 알아들을 수 있는 형태로 표현(ex.이미지-&gt;배열화)하고, 이를 컴퓨터가 학습하도록 하기 위한 많은 연구들의 결과로 여러 딥러닝 기법들이 만들어지고 있다. (DNN, CNN, RNN, RBM, DBN, Deep Q-Networks 등)</p>
+
+<p>딥러닝은 과거 과적합 문제와 느린 학습시간이라는 문제를 안고 있었으나, 과적합 방지 기술과 하드웨어의 발전에 따라 문제들이 해결됐고, 현업과 생활 전반에서 많은 부분들이 데이터화됨에 따라 많은 데이터(=빅데이터)들이 생겨나고 이를 수집하고 분석하는 기술의 발전에 따라 각광받고 있는 기술이다.</p>
+
+<p>딥러닝에 대해서는 아래 영상을 참고.<br />
+https://www.youtube.com/watch?v=aircAruvnKk</p>
+
+<p>딥러닝의 역사에 대해서는 아래 글을 참고.
+https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html</p>
+
+<h3 id="2-딥러닝이-활약하는-분야">(2) 딥러닝이 활약하는 분야</h3>
+
+<ol>
+  <li>음성 인식 : 코타나, 스카이프, 구글 나우, 애플 시리 등</li>
+  <li>영상 인식 : 이미지 분류, 자동차 탑재용 컴퓨터 등</li>
+  <li>자연어 처리 : 단어표현에 대한 학습 및 분석. 번역, 감정 분석, 정보 검색 등에 사용</li>
+  <li>약학 및 독성학 : 약 제조 등에 있어 가상 실험 방법으로 사용됨</li>
+  <li>CRM : 고객 관계 관리</li>
+</ol>
+
+<h3 id="3-관련-용어">(3) 관련 용어</h3>
+
+<blockquote>
+  <p>인공신경망</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>용어                   </th>
+      <th>영단어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>인공신경망</td>
+      <td>Artificial Neural Network</td>
+      <td>인간의 뉴런 구조를 참고하여 만든 기계학습 모델. 뉴런에 해당하는 유닛이라 불리는 개체들이 다음 층에 있는 유닛들에 신호를 주면서 학습해간다. 자세한 내용은 하단 신경망 단원에서 서술한다.</td>
+    </tr>
+    <tr>
+      <td>오차</td>
+      <td>Error</td>
+      <td>모델이 예측한 예측값과 실제값 사이의 차이를 의미한다. 오차가 작을 수록 잘 예측했다고 할 수 있다.</td>
+    </tr>
+    <tr>
+      <td>활성화 함수</td>
+      <td>Activation Function</td>
+      <td>유닛이 다음 층의 유닛에게 신호를 전달할지(활성화) 말지 결정하는 함수.</td>
+    </tr>
+    <tr>
+      <td>가중치</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>역치</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>퍼셉트론</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>단층 퍼셉트론</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>다층 퍼셉트론</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="4-딥러닝-알고리즘라이브러리">(4) 딥러닝 알고리즘,라이브러리</h3>
+<blockquote>
+  <p>딥러닝 알고리즘</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>알고리즘</th>
+      <th>영단어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>심층 신경망</td>
+      <td>Deep Neural Network(DNN)</td>
+      <td>입력층과 출력층 사이에 여러 개의 은닉층들로 이뤄진 인공신경망</td>
+    </tr>
+    <tr>
+      <td>합성곱 신경망</td>
+      <td>Convolutional Neural Network(CNN)</td>
+      <td>최소한의 전처리를 사용하도록 설계된 다층 퍼셉트론의 한 종류</td>
+    </tr>
+    <tr>
+      <td>순환 신경망</td>
+      <td>Recurrent Neural Network(RNN)</td>
+      <td>인공신경망의 유닛 사이의 연결이 Directed cycle을 구성하는 신경망</td>
+    </tr>
+    <tr>
+      <td>제한 볼츠만 머신</td>
+      <td>Restircted Boltzmann Machine(RBM)</td>
+      <td>볼츠만 머신에서 층간 연결을 없앤 형태의 모델</td>
+    </tr>
+    <tr>
+      <td>심층 신뢰 신경망</td>
+      <td>Deep Belief Network(DBN)</td>
+      <td>층간에는 연결이 있지만, 층 내 유닛 간에는 연결이 없는 모습의 신경망</td>
+    </tr>
+    <tr>
+      <td>심층 Q 네트워크</td>
+      <td>Deep Q-Networks</td>
+      <td>강화 학습을 위한 딥러닝 모델</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>딥러닝 라이브러리</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>라이브러리</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tensorflow</td>
+      <td>구글에서 발표한 기계학습 오픈소스 라이브러리. 많은 딥러닝 분야가 이 라이브러리를 사용한다.</td>
+    </tr>
+    <tr>
+      <td>NVIDIA cuDNN</td>
+      <td>DNN의 프리미티브를 제공해주는 라이브러리</td>
+    </tr>
+    <tr>
+      <td>convnetjs</td>
+      <td>자바스크립트로 구현된 딥러닝 라이브러리</td>
+    </tr>
+    <tr>
+      <td>그 외 라이브러리는 추후에 설명한다.|</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="2-자주-만날-용어-정리">2. 자주 만날 용어 정리</h2>
+<hr />
+<blockquote>
+  <p>데이터 준비 단계</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>용어</th>
+      <th>영단어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>클래스 불균형</td>
+      <td>class imbalance</td>
+      <td>데이터에서 각 클래스(변수. 주로 범주형)가 가지는 데이터 양의 차이가 큰 경우. 불균형 자체가 의미를 가질 수도 있으므로, 불균형 처리시에 주의 필요.</td>
+    </tr>
+    <tr>
+      <td>언더 샘플링(과소표집)</td>
+      <td>under sampling</td>
+      <td>클래스 불균형 데이터에 대해 양이 적은 쪽 클래스의 데이터 양에 맞춰 샘플링하는 방법</td>
+    </tr>
+    <tr>
+      <td>오버 샘플링(과대표집)</td>
+      <td>over sampling</td>
+      <td>클래스 불균형 데이터에 대해 양이 많은 쪽 클래스의 데이터 양에 맞춰 샘플링하는 방법</td>
+    </tr>
+    <tr>
+      <td>자세한 내용은 이후 단계에서 추가 공부||</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>분석 방법 (분류)</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>용어</th>
+      <th>영단어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>분류</td>
+      <td>Classification</td>
+      <td>데이터에서 규칙을 찾아내고, 유사도와 불순도(그룹 내 불순도)에 따라 분류하는 것. 이를 통한 미래 사건의 예측을 목표로 한다.</td>
+    </tr>
+    <tr>
+      <td>이진 분류</td>
+      <td>Binary -</td>
+      <td>분류되는 범주가 두 가지인 분류 분석 방법. 하나의 데이터는 하나의 범주에만 들어갈 수 있다.</td>
+    </tr>
+    <tr>
+      <td>다중 분류</td>
+      <td>Multiclass -</td>
+      <td>분류되는 범주가 여러 개인 분류 분석 방법. 하나의 데이터는 하나의 범주에만 들어갈 수 있다.</td>
+    </tr>
+    <tr>
+      <td>다중 레이블 분류</td>
+      <td>Multi Label -</td>
+      <td>분류되는 범주가 여러 개이면서, 하나의 데이터가 동시에 여러 범주로 들어갈 수 있는 분류 분석 방법. 비 배타적인(non-exclusive) 분류 방식이라고 부를 수 있다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>분석 방법 (회귀)</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>용어</th>
+      <th>영단어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>회귀</td>
+      <td>Regression</td>
+      <td>둘 이상의 변수 간 관계를 찾는 방법. 보통 종속변수가 연속형 숫자인 경우에 사용. 이를 통한 미래 사건의 예측을 목표로 한다.</td>
+    </tr>
+    <tr>
+      <td>선형 회귀</td>
+      <td>Linear Regression</td>
+      <td>예측 대상인 종속 변수 한 개와 이를 설명하는 한 개 이상의 독립변수 간의 선형 관계성(상관성)을 파악하는 회귀 분석 방법</td>
+    </tr>
+    <tr>
+      <td>단순 회귀</td>
+      <td>Simple Regression</td>
+      <td>예측 대상인 종속변수와 이를 설명하는 독립변수가 <b>모두 하나</b>인 회귀 분석 방법</td>
+    </tr>
+    <tr>
+      <td>다중 회귀</td>
+      <td>Multiple Regression</td>
+      <td>예측 대상인 종속변수는 하나이지만, 이를 설명하는 <b>독립변수를 여러개</b>로 하는 회귀 분석 방법</td>
+    </tr>
+    <tr>
+      <td>로지스틱 회귀</td>
+      <td>Logistic Regression</td>
+      <td>종속변수가 범주형 데이터인 경우 사용되는 회귀 분석 방법</td>
+    </tr>
+    <tr>
+      <td>이항형(단순) 로지스틱 회귀</td>
+      <td>Binomial -</td>
+      <td>종속변수가 이항형(분류가 두 개인 하나의 범주; ex.생물학적 성별)일 때의 분석 방법</td>
+    </tr>
+    <tr>
+      <td>다항형(다항) 로지스틱 회귀</td>
+      <td>Multnomial -</td>
+      <td>종속변수가 다항형(분류가 두 개 초과인 하나의 범주; ex.봄/여름/가을/겨울)일 때의 분석 방법</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>전처리</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>용어        </th>
+      <th>영단어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>원 핫 인코딩</td>
+      <td>One-Hot-Encoding</td>
+      <td>수치형이 아닌 자료를 수치형으로 표현할 수 있게 하는 인코딩 방법. 여러 개의 클래스를 각각 칼럼으로 생성해준 후, 데이터가 해당되는 칼럼에는 1, 해당되지 않는 칼럼에는 0을 표시하는 방법.</td>
+    </tr>
+    <tr>
+      <td>레이블 인코딩</td>
+      <td>Label Encoding</td>
+      <td>수치형이 아닌 자료를 수치형으로 표현할 수 있게 하는 인코딩 방법. 하나의 클래스를 하나의 숫자로 변환한다. 딥러닝에서는 이 방식을 지양하는데, 딥러닝 모델이 인코딩된 숫자값의 크기 차에 영향을 받을 수 있기 때문.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>모델 학습과 파라미터</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>용어           </th>
+      <th>영단어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>하이퍼<br />파라미터</td>
+      <td>Hyper Parameter</td>
+      <td>모델이 스스로 찾는 요소 외로, 사람이 직접 설정해줘야 하는 요소. 학습률, 학습 횟수 등이 있다.</td>
+    </tr>
+    <tr>
+      <td>학습률</td>
+      <td>Learning Rate</td>
+      <td>인공신경망 모델은 데이터를 학습하면서 예측치와 실제값 간의 오차를 줄여나가는 것을 우선 목표로 한다. 이를 위해 예측을 위한 함수에서 가중치(weight)와 역치(bias)를 조정하는데, 이 가중치와 역치를 조정하는 강도를 학습률이라고 한다.</td>
+    </tr>
+    <tr>
+      <td>에폭</td>
+      <td>Epochs</td>
+      <td>전체 데이터를 학습하는 횟수. 전체 데이터를 10번 학습한다면 epochs = 10 (10epochs)이 된다.</td>
+    </tr>
+    <tr>
+      <td>스텝</td>
+      <td>Steps</td>
+      <td>모델의 가중치(weight)와 역치(bias)를 업데이트 하는 횟수. 업데이트 횟수가 10번이면 steps = 10 (10steps)이 된다.</td>
+    </tr>
+    <tr>
+      <td>배치 크기</td>
+      <td>Batch Size</td>
+      <td>1step에서 사용한 데이터의 개수이다. 몇 개의 데이터를 학습할 때마다 중량치를 조정할지.</td>
+    </tr>
+    <tr>
+      <td>예시|</td>
+      <td>일주일동안 매일 벤치 프레스 40개를 5세트로 나눠 하려 한다.<br /> 1. epoch = 7 (일주일) <br />2. step = 5 (5세트) <br /> 3. batch size = 8 (세트당 8회) <br /> 4. 학습률 : 벤치프레스 중량 조정비 <br /> 5. n(전체 데이터 수) = 40</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>과대, 과소적합</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>용어            </th>
+      <th>영단어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>과적합<br />(과대적합)</td>
+      <td>Over Fitting</td>
+      <td>모델이 학습(훈련) 데이터에 너무 최적화하여 만들어진 경우. 학습(훈련)데이터에는 좋은 분류/예측 성능을 보이지만, 검증 혹은 실제 데이터에는 낮은 분류/예측 성능을 보일 수 있다. 그러므로 모델을 만들 때 과적합되지 않도록 주의해야 한다.</td>
+    </tr>
+    <tr>
+      <td>과소적합</td>
+      <td>Under Fitting</td>
+      <td>과대적합의 반대 개념. 모델이 학습(훈련)데이터를 정확히 분류/예측하지 못하는 문제.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>평가</p>
+</blockquote>
+
+<ul>
+  <li>평가는 머신러닝에서의 평가와 동일한 지표들을 사용한다.
+    <h4 id="업데이터-필요-머신러닝-평가지표-링크">(업데이터 필요) 머신러닝 평가지표 링크</h4>
+  </li>
 </ul>
 
-<h2 id="케라스">케라스</h2>
-<h2 id="딥러닝-개요">딥러닝 개요</h2>
-<h3 id="딥러닝-용어">딥러닝 용어</h3>
-<h3 id="기본-연산-해보기">기본 연산 해보기</h3>
-<h2 id="신경망">신경망</h2>
-<h3 id="퍼셉트론">퍼셉트론</h3>
-<h3 id="단층-퍼셉트론">단층 퍼셉트론</h3>
-<h3 id="다층-퍼셉트론">다층 퍼셉트론</h3>
-<h3 id="활성화-함수">활성화 함수</h3>
-<h3 id="신경망-만들어보기">신경망 만들어보기</h3>
+<h2 id="3-인공-신경망">3. 인공 신경망</h2>
+<hr />
+
+<p>딥러닝을 알기 위해서는 우선 인공 신경망을 알아야 한다. 딥러닝은 인공신경망을 베이스로 하기 때문.<br />
+인공신경망은 인간의 뉴런간 시냅스 결합에서 영감을 얻은 기계학습 방법의 하나이다. 하나의 층 혹은 여러 개의 층에 속한 유닛(신경계의 뉴런에 해당)간의 정보 전달을 통해 학습을 해가는 방법으로, 필기체 인식 및 음성 인식 등에 활용된다.</p>
+
+<h3 id="1-퍼셉트론-알고리즘">(1) 퍼셉트론 알고리즘</h3>
+
+<p><img src="/assets/images/20221208_001_002.png" alt="자체제작" /></p>
+
+<p>인공신경망의 한 종류로서, 여러 개의 입력 신호를 받아, 하나의 출력 신호로 출력하는 과정을 이른다.</p>
+
+<p>인공신경망은 크게<br />
+(1) 입력 신호를 받는 입력층<br />
+(2) 신호에 가중치와 역치 계산을 조정한 후, 활성함수를 통해 다음 층으로 전달하는 은닉층<br />
+(3) 값을 출력하는 출력층 으로 이루어져 있다.</p>
+
+<ul>
+  <li>
+    <p>유닛 (=노드 = 뉴런)<br />
+각 층에 있는 정보를 받고, 다음 층으로 정보를 전달하는 x들을 ‘유닛(=뉴런 =노드)’라 한다.</p>
+  </li>
+  <li>
+    <p>가중치 weight<br />
+하나의 유닛에서 다음 층에 있는 유닛에 정보를 전달할 때, 가중치(weight)를 곱하고 편향(bias)을 더한 후 전달하게 된다. 전달된 정보는 활성화 함수를 통해 임계값을 넘어야 전달되며, 임계값에 미달할 경우 전달되지 않는다.</p>
+  </li>
+  <li>
+    <p>활성화 함수 activation function<br />
+입력값(정보)을 변환하는 함수. 변환된 입력값이 임계값을 넘어가면 값이 다음 층의 유닛으로 전달된다.</p>
+  </li>
+</ul>
+
+<p><span style="background-color:#fff5b1"></span></p>
+<blockquote>
+  <p>퍼셉트론 만들어보기</p>
+</blockquote>
+<details>
+<summary> 기본적인 퍼셉트론 모델 코딩 FLOW</summary>
+<div>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== Import ==='</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span> <span class="c1"># 텐서플로우
+</span><span class="n">tf</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">777</span><span class="p">)</span> <span class="c1"># 텐서플로우의 난수 생성 규칙 지정
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># 넘파이
+</span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span> <span class="c1"># Sequential 모델
+</span><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span> <span class="c1"># Dense 완전 연결층
+</span><span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span> <span class="c1"># 확률적 경사하강법
+</span><span class="kn">from</span> <span class="nn">keras.losses</span> <span class="kn">import</span> <span class="n">mse</span> <span class="c1"># mean squared error 평가 지표
+</span></code></pre></div>    </div>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 만들기 ==='</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'activation function'</span><span class="p">))</span>
+<span class="c1">## Dense : 완전 연결층. 모든 입력값들에 대해 연결을 하는 층이다.
+## n : 층에 생성할 유닛(=뉴런)의 갯수
+## input shape 들어오는 값의 형태는 i * j 행렬의 형태 
+## activation = 활성화 함수
+## 다층 퍼셉트론을 만들려면, model.add를 여러 번 반복하면 된다.
+</span>
+
+<span class="s">'=== 모델 컴파일 ==='</span>
+<span class="c1"># 컴파일 : 모델 설정이라고 보면 편하다.
+</span><span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">옵티마이저</span><span class="p">,</span>
+              <span class="n">loss</span> <span class="o">=</span> <span class="n">로스측정방식</span><span class="p">,</span>
+              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="n">평가지표들</span><span class="p">])</span>
+<span class="c1">## 컴파일에서는 옵티마이저, 로스, 평가 모듈을 정의한다.
+## 옵티마이저는 : 모델의 학습 방법을 최적화하는 방법론. 경사하강법 등
+## 로스 측정은 mse 방식
+## 평가 지표는 acc, 정확도
+</span>
+
+<span class="s">'=== 모델 학습 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="n">전체데이터</span> <span class="n">학습횟수</span><span class="p">)</span>
+<span class="c1">## x, y : 독립변수들과 종속변수
+## epochs : 전체 데이터를 몇 번 학습할 것인지
+## 이 모델은 x1 * w1 _ x2 * w1 .... 형식으로 가중치 계산이 되었다.
+</span></code></pre></div>    </div>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 가중치(weight와 편향bias 찾기) ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
+<span class="c1">## 우리는 x값은 알고 있으나, 학습 과정에서 생긴 w (weight = 가중치) 값은 모른다.
+## 그러므로, .get_weights() 메서드로 확인해본다.
+</span>
+<span class="s">'=== 결과값 예시 ==='</span>
+<span class="o">-</span> <span class="n">array</span><span class="p">([[</span><span class="mf">0.49431458</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.37552658</span><span class="p">]]</span><span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">array</span><span class="p">([</span><span class="mf">0.32719323</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+<span class="c1">## 가중치 -&gt; 0.49431458, 0.37552658
+## 편향 -&gt; 0.32719323
+</span></code></pre></div>    </div>
+  </div>
+</details>
+
+<h3 id="2-단층-퍼셉트론">(2) 단층 퍼셉트론</h3>
+<blockquote>
+  <p>Single layer Perceptron</p>
+</blockquote>
+
+<p><img src="/assets/images/20221208_001_001.png" alt="자체제작" /></p>
+
+<p>입력층과 출력층을 제외한 은닉층이 하나인 퍼셉트론. 
+각각의 입력값에 대해 유닛에서 가중치를 준 후, 활성화 함수를 통해 다음 층으로 값을 전달하거나 전달하지 않는다.<br />
+AND, OR, NAND(Not-AND) 와 같은 선형 분리가 가능한 문제에 대해선 해결이 가능하나, XOR(배타적 논리합) 연산은 해결이 불가능한 문제를 가지고 있다.<br />
+이 문제와 함께 하드웨어의 연산 속도의 한계로 인해 인공신경망은 발전이 더딘 암흑기를 보냈었다.</p>
+
+<details>
+<summary> OR 데이터에 대한 단층 퍼셉트론 모델 </summary>
+<div>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># OR 의 경우
+# 데이터 만들기
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+
+
+<span class="c1"># 모델 만들기
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'linear'</span><span class="p">))</span>
+
+<span class="c1"># 모델 컴파일
+</span><span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(),</span>
+              <span class="n">loss</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span>
+              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
+
+<span class="c1"># 모델 학습
+</span><span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div>    </div>
+
+  </div>
+</details>
+
+<h3 id="3-다층-퍼셉트론">(3) 다층 퍼셉트론</h3>
+<blockquote>
+  <p>Multi layer Perceptron</p>
+</blockquote>
+
+<p><img src="/assets/images/20221208_001_002.png" alt="자체제작" /></p>
+
+<p>하나의 입력층과 하나의 출력층 및 다수개의 은닉층으로 이루어져있다.<br />
+퍼셉트론을 여러 층 쌓은 모습으로, 각 층에서는 활성함수를 통해 값이 전달된다.<br />
+기존 단층 퍼셉트론이 아무리 학습을 시켜도 XOR문제에 대해서는 정확도가 떨어지는 반면, 다층 퍼셉트론은 이러한 XOR 문제를 해결하였다.<br />
+이 다층 퍼셉트론은 현재 딥러닝의 기본 바탕이 된다.</p>
+
+<h3 id="4-활성화-함수">(4) 활성화 함수</h3>
+<blockquote>
+  <p>Activation Function</p>
+</blockquote>
+
+<p>한 층의 유닛에서 다음 층의 유닛에 전달하는 값을 변환하는 함수로, 활성화 함수를 통해 변환된 값이 임계값을 넘지 못하는 경우 다음 층으로 값이 전달되지 않는다.<br />
+활성화 함수는 ‘비선형’ 함수를 사용하는데, 이는 딥러닝 모델의 레이어 층을 깊에 가져갈 수 있기 때문이다. 즉, 선형 함수를 사용할 경우 아무리 많은 층을 사용하더라도 선형으로 설명이 가능하기 때문에, 딥러닝을 이용하는 의미가 없어지는 것이다.<br />
+다양한 활성화 함수가 있으며, 아래와 같다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>활성화 함수</th>
+      <th>영단어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>시그모이드 함수</td>
+      <td>Sigmoid Function</td>
+      <td>입력값을 0~1 사이의 값으로 변환한 뒤 출력(전달) 하는 함수</td>
+    </tr>
+    <tr>
+      <td>ReLU</td>
+      <td>Rectified Linear Unit</td>
+      <td>입력값이 0보다 작으면 0으로 출력, 입력값이 0보다 크면 그대로 출력(전달)하는 함수</td>
+    </tr>
+    <tr>
+      <td>쌍곡탄젠트</td>
+      <td>Hyperbolic Function</td>
+      <td>입력값을 -1~1 사이의 값으로 변환한 뒤 출력(전달) 하는 함수</td>
+    </tr>
+    <tr>
+      <td>소프트맥스 함수</td>
+      <td>Softmax Function</td>
+      <td>세 개 이상으로 분류하는 다중 클래스 분류에서 사용되는 함수로, 각 클래스에 속할 확률을 추정하는 함수이다. 인공신경망에서는 가장 마지막 활성화 함수로 자주 쓰인다. 입력값을 자연로그의 밑으로 한 지수 함수를 취한 두, 그 지수함수의 합으로 나눠주는 것. 다른 활성화함수와는 조금 다르게 보아야 한다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/assets/images/20221208_001_003.png" alt="출처:wikipedia" width="400" /></p>
+
+<center><b>↑시그모이드 함수</b></center>
+
+<p><img src="/assets/images/20221208_001_004.png" alt="출처:wikipedia" width="400" /></p>
+
+<center><b>↑ReLU</b></center>
+
+<p><img src="/assets/images/20221208_001_005.png" alt="출처:wikipedia" width="400" /></p>
+
+<center><b>↑쌍곡탄젠트</b></center>
+
+<p><img src="/assets/images/20221208_001_006.png" alt="출처:The Maverick Meerkat https://themaverickmeerkat.com/2019-10-23-Softmax/" width="400" /></p>
+
+<center><b>↑소프트맥스 함수</b></center>
+
+<p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=handuelly&amp;logNo=221824080339">활성화함수 추가 설명</a></p>
+
+<h2 id="신경망-만들어보기">신경망 만들어보기</h2>
 <h3 id="학습의-의의">학습의 의의</h3>
-<h2 id="숙제">숙제</h2>]]></content><author><name>Jongya</name></author><category term="study_deep_learning" /><category term="딥러닝" /><category term="케라스" /><category term="텐서플로" /><category term="퍼셉트론" /><category term="신경망모델" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Python Pandas summary 판다스 요약</title><link href="http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary.html" rel="alternate" type="text/html" title="Python Pandas summary 판다스 요약" /><published>2022-12-01T19:32:30+09:00</published><updated>2022-12-01T19:32:30+09:00</updated><id>http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary.html"><![CDATA[<!--postNo: 20221201_001-->
+<h3 id="기본-연산-해보기">기본 연산 해보기</h3>
+<h2 id="숙제">숙제</h2>
+<ul>
+  <li>용어 정리 - 인공신경망 부분 추가</li>
+  <li>용어 정리 - 평가 지표 부분 추가</li>
+  <li>퍼셉트론 만들기 - 옵티마이저 등 설명하기
+    <h2 id="케라스">케라스</h2>
+  </li>
+</ul>
+
+<h2 id="레퍼런스">레퍼런스</h2>
+<ul>
+  <li>교재1 : 백견불여일타 딥러닝</li>
+  <li>교재2 : 이기적 빅데이터 분석기사 2022(나홍석 등)</li>
+  <li>클래스 불균형 : https://techblog-history-younghunjo1.tistory.com/74</li>
+  <li>회귀분석 : https://bioinformaticsandme.tistory.com/290</li>
+  <li>회귀분석 : https://ko.wikipedia.org/wiki/회귀_분석</li>
+  <li>인공신경망의 역사 : https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html</li>
+  <li>인공신경망 개요 : https://ko.wikipedia.org/wiki/인공_신경망</li>
+  <li>딥러닝 개요 : https://ko.wikipedia.org/wiki/딥_러닝</li>
+  <li>다층 퍼셉트론 설명 : https://www.youtube.com/watch?v=aircAruvnKk</li>
+  <li>Batch, Epoch 등 설명 : http://esignal.co.kr/ai-ml-dl/?board_name=ai_ml_dl&amp;search_field=fn_title&amp;order_by=fn_pid&amp;order_type=asc&amp;board_page=1&amp;list_type=list&amp;vid=15</li>
+  <li>과대적합, 과소적합 : https://heytech.tistory.com/125</li>
+  <li>활성화함수 : https://themaverickmeerkat.com/2019-10-23-Softmax/</li>
+  <li>활성화함수 : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=handuelly&amp;logNo=221824080339</li>
+</ul>]]></content><author><name>Jongya</name></author><category term="study_deep_learning" /><category term="딥러닝" /><category term="케라스" /><category term="텐서플로" /><category term="퍼셉트론" /><category term="신경망모델" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Python Pandas summary 판다스 요약</title><link href="http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary.html" rel="alternate" type="text/html" title="Python Pandas summary 판다스 요약" /><published>2022-12-01T19:32:30+09:00</published><updated>2022-12-01T19:32:30+09:00</updated><id>http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary.html"><![CDATA[<!--postNo: 20221201_001-->
 
 <ul>
   <li>데이터프레임을 특정 파일로 저장 : DF.to_파일형식()</li>
@@ -942,58 +1655,4 @@ Warning: "config" scripts exist outside your system or Homebrew directories.
 <p><img src="/assets/images/20221126_003_004.png" alt="" align="left" />
 <img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
 
-<p>설치에 성공했다. hooray!</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥" /><category term="MAC" /><category term="홈브루" /><category term="homebrew" /><category term="설치" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">지킬 페이지 테마 적용 Gemfile 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_004.html" rel="alternate" type="text/html" title="지킬 페이지 테마 적용 Gemfile 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_004</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_004.html"><![CDATA[<!--postNo: 20221126_004-->
-
-<h2 id="오류-확인">오류 확인</h2>
-
-<p><img src="/assets/images/20221126_004_001.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>아마도.. 필요한 gem을 찾아 설치하는 과정에서의 오류,<br />
-혹은 필요한 gem이 없어서 생기는 오류로 추정된다.</p>
-
-<p>내 경우는 Gemfile 파일 내에 있는 설치 패키지 부분을 수정해줌으로 인해 문제를 해결했다.<br />
-테마가 다르면 다른 문제가 생길 수 있으므로, 테마 설명 페이지를 필히 참고하기를 바란다.<br />
-한시간을 쩔쩔 매며 원인을 찾았다 ㅠㅠ..</p>
-
-<blockquote>
-  <p>오류문구<br />
-Gemfile 파싱 도중 오류이며, jekyll-theme-so-simple.gemspec 파일을 로드하지 못한 게 원인이다.<br />
-특정 파일에서 jekyll-theme-so-simple.gemspec 파일을 원하나, 이 파일이 설치되지 않았기 때문 으로 추정하였다.</p>
-</blockquote>
-
-<h2 id="해결-실마리-잡기">해결 실마리 잡기</h2>
-
-<p><img src="/assets/images/20221126_004_002.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>테마 설치 페이지를 통해 해결의 실마리를 잡았다.<br />
-기본 설명으로 적혀있는데.. 이를 놓쳤었네 ㅠㅠ</p>
-
-<h2 id="해결--gemfile에-문구-추가하기">해결 : Gemfile에 문구 추가하기</h2>
-
-<p><img src="/assets/images/20221126_004_003.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p><a href="http://rubygems.org">rubygems.org</a> 에서 해당 테마 파일을 찾도록 내용을 수정</p>
-
-<p><img src="/assets/images/20221126_004_004.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>에러 없어지고, 페이지 제대로 로딩됨. 해결.</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="gemfile" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-11-24T13:46:06+09:00</published><updated>2022-11-24T13:46:06+09:00</updated><id>http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/git_blog_samples/2022/11/24/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
-
-<p>Jekyll requires blog post files to be named according to the following format:</p>
-
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
-
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
-
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
-
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Jongya</name></author><category term="Git_Blog_Samples" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>
+<p>설치에 성공했다. hooray!</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥" /><category term="MAC" /><category term="홈브루" /><category term="homebrew" /><category term="설치" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry></feed>
