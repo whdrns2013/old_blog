@@ -39,7 +39,8 @@ pip install tensorflow-metal
 > tensorflow-metal : GPU환경을 사용할 수 있게 해주는 툴
 
 5. tensorflow 설치 확인 (버전 확인)
-```python
+```Terminal
+
 # tensor 버전 확인
 python # 파이썬 실행
 import tensorflow # 텐서플로우 import
@@ -49,6 +50,7 @@ tensorflow.__version__ # 텐서 버전 확인
 # GPU 사용 여부 확인 (1이면 정상)
 print(len(tensorflow.config.experimental.list_physical_devices('GPU')))
 ```
+
 
 ### 주피터에서 tensorflow를 쓰고 싶다면?
 1. conda 가상환경을 실행
@@ -72,6 +74,6 @@ jupyter lab
 아니면.. 구글 코랩 사용을 권장합니다!  
 
 ### 레퍼런스
-(1) https://discuss.tensorflow.org/t/tensorflow-mac-m1/8706
-(2) https://pasus.tistory.com/218
-(3) https://velog.io/@psjlmk/M1-맥북-tensorflow-설치
+(1) https://discuss.tensorflow.org/t/tensorflow-mac-m1/8706  
+(2) https://pasus.tistory.com/218  
+(3) https://velog.io/@psjlmk/M1-맥북-tensorflow-설치  

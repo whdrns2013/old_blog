@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-11T19:53:19+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">마크다운 문법 요약</title><link href="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html" rel="alternate" type="text/html" title="마크다운 문법 요약" /><published>2022-12-11T18:05:30+09:00</published><updated>2022-12-11T18:05:30+09:00</updated><id>http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html"><![CDATA[<!--postNo: 20221211_001-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-11T23:22:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">마크다운 문법 요약</title><link href="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html" rel="alternate" type="text/html" title="마크다운 문법 요약" /><published>2022-12-11T18:05:30+09:00</published><updated>2022-12-11T18:05:30+09:00</updated><id>http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html"><![CDATA[<!--postNo: 20221211_001-->
 
 <h2 id="헤딩-heading">헤딩 heading</h2>
 <hr />
@@ -114,18 +114,19 @@ pip install tensorflow-metal
     </blockquote>
   </li>
   <li>tensorflow 설치 확인 (버전 확인)
-```python
-    <h1 id="tensor-버전-확인">tensor 버전 확인</h1>
-    <p>python # 파이썬 실행
+```Terminal</li>
+</ol>
+
+<h1 id="tensor-버전-확인">tensor 버전 확인</h1>
+<p>python # 파이썬 실행
 import tensorflow # 텐서플로우 import
 tensorflow.<strong>version</strong> # 텐서 버전 확인
 ‘버전명 출력됨 -&gt; 내 경우 2.11.0’</p>
-  </li>
-</ol>
 
 <h1 id="gpu-사용-여부-확인-1이면-정상">GPU 사용 여부 확인 (1이면 정상)</h1>
 <p>print(len(tensorflow.config.experimental.list_physical_devices(‘GPU’)))</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
 ### 주피터에서 tensorflow를 쓰고 싶다면?
 1. conda 가상환경을 실행
 ```Terminal 
@@ -149,8 +150,8 @@ jupyter lab
 아니면.. 구글 코랩 사용을 권장합니다!</p>
 
 <h3 id="레퍼런스">레퍼런스</h3>
-<p>(1) https://discuss.tensorflow.org/t/tensorflow-mac-m1/8706
-(2) https://pasus.tistory.com/218
+<p>(1) https://discuss.tensorflow.org/t/tensorflow-mac-m1/8706<br />
+(2) https://pasus.tistory.com/218<br />
 (3) https://velog.io/@psjlmk/M1-맥북-tensorflow-설치</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥북" /><category term="맥" /><category term="M1" /><category term="M2" /><category term="파이썬" /><category term="텐서플로우" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)</title><link href="http://localhost:4000/etc/2022/12/10/20221210_002.html" rel="alternate" type="text/html" title="맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)" /><published>2022-12-10T20:21:00+09:00</published><updated>2022-12-10T20:21:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221210_002</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221210_002.html"><![CDATA[<!--postNo: 20221210_002-->
 
 <p>아끼고 아껴 썼던 맥북 프로 2015를 어언 8년째..<br />
@@ -393,13 +394,9 @@ terminal을 열고, 미니콘다 삭제 명령어를 입력해준다.</p>
 <blockquote>
 <div>
 
-    <ul>
-      <li>코드<br />
-<a href="https://whdrns2013.github.io/Workspace_SeSAC/pythonDir/06_deeplearning/df_01_deeplearning.ipynb">딥러닝 개요_ipynb 코드</a></li>
-    </ul>
+    <p>들어가기 전에 : <a href="https://whdrns2013.github.io/Workspace_SeSAC/pythonDir/06_deeplearning/df_01_deeplearning.ipynb">코드 : 딥러닝 개요_ipynb 코드</a></p>
   </div>
 
-* 들어가기 전에  
 <details>
 <summary> 공부 환경 </summary>
 <div>
@@ -417,6 +414,9 @@ terminal을 열고, 미니콘다 삭제 명령어를 입력해준다.</p>
 
 <h2 id="1-딥러닝-개요">1. 딥러닝 개요</h2>
 <hr />
+
+<p><img src="/assets/images/20221208_001_010.png" alt="" /></p>
+
 <h3 id="1-딥러닝이란">(1) 딥러닝이란</h3>
 <p>기계학습 방법, 인공지능의 일종. 많은 데이터를 가지고 컴퓨터가 사람처럼 스스로 학습하도록 인공신경망 등의 기술을 이용한 기법이다. 여러(깊은) 학습층을 가지고 유연하고도 확장성 높은 학습이 가능한 기술이다.</p>
 
@@ -1182,16 +1182,224 @@ AND, OR, NAND(Not-AND) 와 같은 선형 분리가 가능한 문제에 대해선
 
 <p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=handuelly&amp;logNo=221824080339">활성화함수 추가 설명</a></p>
 
-<h2 id="실습--신경망-만들어보기">실습 : 신경망 만들어보기</h2>
-<h3 id="학습의-의의">학습의 의의</h3>
-<h3 id="기본-연산-해보기">기본 연산 해보기</h3>
+<h2 id="4-실습--신경망-만들어보기">4. 실습 : 신경망 만들어보기</h2>
+
+<h3 id="1-케라스">(1) 케라스</h3>
+<ul>
+  <li>import keras</li>
+  <li>파이썬 기반 머신러닝 라이브러리</li>
+  <li>텐서플로우를 편하게 사용할 수 있도록 보조하는 역할</li>
+  <li>
+    <p>텐서플로우는 거의 모두 케라스를 통해 사용한다 해도 과언이 아님</p>
+  </li>
+  <li>(1) 높은 유연성</li>
+  <li>(2) 명확한 예약어명<br />
+등등의 장점</li>
+</ul>
+
+<h3 id="2-실습--손글씨-인식-딥러닝">(2) 실습 : 손글씨 인식 딥러닝</h3>
+
+<p>이제 딥러닝을 실제로 사용해볼 차례입니다.<br />
+손글씨를 인식하고 예측하는 모델을 만들어봅시다.<br />
+코드는 아래 접어놨으니, 펼쳐서 봐주세요.</p>
+
+<blockquote>
+  <ul>
+    <li>사용 데이터셋 : keras.datasets.mnist</li>
+    <li>손글씨 데이터셋으로</li>
+    <li>x = 총 7만개의 데이터, 각 데이터는 28*28 픽셀 이미지</li>
+    <li>y = 총 7만개의 데이터, 데이터는 0부터 9까지의 값 (답안)</li>
+  </ul>
+</blockquote>
+
+<p><img src="/assets/images/20221208_001_007.png" alt="x데이터 시각화" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== import ==='</span>
+<span class="kn">from</span> <span class="nn">keras.datasets.mnist</span> <span class="kn">import</span> <span class="n">load_data</span>   <span class="c1"># 손글씨 데이터셋
+</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># 이미지 시각화 도구
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># 행렬 연산 도구
+</span><span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span> <span class="c1"># 범주형데이터 인코딩 모듈
+</span></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 훈련/테스트 데이터 나누기 ==='</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
+
+<span class="s">'=== 데이터 살펴보기 ==='</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x_train</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">x_test</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># x_train : 60000, 28, 28 -&gt; 6만개, 28*28 행렬
+# y_train : 60000, -&gt; 6만개 1개씩
+# x_test : 10000, 28, 28 -&gt; 1만개, 28*29 행렬
+# y_test : 10000, -&gt; 1만개 1개씩
+</span></code></pre></div></div>
+
+<blockquote>
+<span style="background-color:#fff5b1"><b> 실습 : 손글씨 인식 딥러닝</b></span>
+<details>
+<summary><b><u>이후 코드 펼치기/접기</u></b></summary>
+ <div>
+
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 샘플 3개 데이터 출력해보기 ==='</span>
+<span class="n">sample_size</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">random_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">sample_size</span><span class="p">)</span>
+<span class="c1"># 0 ~ 59,999 사이의 정수값을 무작위로 3개 뽑기
+</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">random_idx</span><span class="p">:</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># x_train에서 임의 3개 idx 값에 맞는 데이터 추출
+</span>    <span class="n">label</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="c1"># idx에 맞는 label값 추출
+</span>    <span class="n">plt</span><span class="p">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s">'gray'</span><span class="p">)</span> <span class="c1"># img를 흑백으로 시각하에 추가
+</span>    <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s">th, label=</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s">'</span><span class="p">)</span> <span class="c1"># 시각화 제목 설정 (idx값, label값)
+</span>    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># 시각화
+</span>
+</code></pre></div>      </div>
+      <p><img src="/assets/images/20221208_001_007.png" alt="" /></p>
+
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 트레인셋을 훈련-검증 7:3 으로 분할 ==='</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+<span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
+<span class="n">random_state</span> <span class="o">=</span><span class="mi">777</span><span class="p">)</span>
+
+<span class="c1"># 이로써 데이터셋은 아래와 같이 분할되었다.
+# x_train : (42000, 28, 28) 훈련용 데이터
+# y_train : (42000, ) 훈련용 답안
+# x_val : (18000, 28, 28) 검증용 데이터
+# y_val : (18000, ) 검증용 답안
+# x_test : (10000, 28, 28) 최종 테스트용 데이터
+# y_test : (10000, ) 최종 테스트용 답안
+</span></code></pre></div>      </div>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 28*28 데이터를 1차원 데이터로 변환==='</span>
+<span class="c1"># 변환의 목적 : 쉽게 모델에 넣을 수 있도록 변환
+</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_train</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">20</span><span class="p">)))</span><span class="o">/</span><span class="mi">255</span>
+<span class="n">x_val</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_val</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">20</span><span class="p">)))</span><span class="o">/</span><span class="mi">255</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_test</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">20</span><span class="p">)))</span><span class="o">/</span><span class="mi">255</span>
+
+<span class="c1"># 변환 후 데이터 shape
+# x_train : (42000, 784)
+# x_val : (18000, 784)
+# x_test : (10000, 784)
+# x_train.min(), x_train.max() : 0, 255 흑백조 = 256색상 데이터기 때문
+</span></code></pre></div>      </div>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== y값 원-핫 인코딩 ==='</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_val</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_val</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</code></pre></div>      </div>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 생성 ==='</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="p">),</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'softmax'</span><span class="p">))</span>
+
+<span class="c1"># 시퀀셜 모델로, 총 3개의 완전연결 은닉층을 가진 형태의 모델
+# 첫 번째 층은 64개의 유닛, ReLU 활성함수 사용
+# 두 번째 층은 32개의 유닛, ReLU 활성함수 사용
+# 세 번째 층은 10개의 유닛, softmax 활성함수 사용
+# 세 번째 층이 10개인 이유 : label 종류가 10개이기 때문
+# 즉, 출력층은 최종 답안과 같은 개수로 세팅함
+</span>
+
+<span class="s">'=== 컴파일 ==='</span>
+<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="s">'adam'</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="s">'categorical_crossentropy'</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
+
+<span class="c1"># 모델의 옵티마이저는 adam으로
+# 로스는 categorical_crossentropy
+# 평가지표는 정확도
+</span>
+
+<span class="s">'=== 학습 &amp; 학습 이력을 변수에 담기==='</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epoch</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span>
+
+<span class="c1"># loss : 0.5008 ~ 0.0074
+# acc : 0.8548 ~ 0.9980
+# val_loss : 0.2437 ~ 0.1624
+# val_acc : 0.9314 ~ 0.9674
+</span></code></pre></div>      </div>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 학습에 따른 지표 추이를 그래프로 살펴보기 ==='</span>
+<span class="n">hist_dict</span> <span class="o">=</span> <span class="n">history</span><span class="p">.</span><span class="n">history</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">his_dict</span><span class="p">[</span><span class="s">'loss'</span><span class="p">]</span>
+<span class="n">val_loss</span> <span class="o">=</span> <span class="n">his_dict</span><span class="p">[</span><span class="s">'val_loss'</span><span class="p">]</span>
+<span class="n">accs</span> <span class="o">=</span> <span class="n">his_dict</span><span class="p">[</span><span class="s">'acc'</span><span class="p">]</span>
+<span class="n">val_accs</span> <span class="o">=</span> <span class="n">his_dict</span><span class="p">[</span><span class="s">'val_acc'</span><span class="p">]</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 각 지표를 변수에 담아주고, 학습 횟수 또한 range로 담아줌
+</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">gifsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="p">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'train_loss'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'orange'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'val_loss'</span><span class="p">)</span>
+
+<span class="c1"># loss와 val_loss를 하나의 그래프에 그림
+# train_loss(학습)는 파란색, val_loss(검증)는 주황색
+</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">gifsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="p">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">accs</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'train_acc'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_accs</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'orange'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'val_acc'</span><span class="p">)</span>
+
+<span class="c1"># acc와 val_acc를 하나의 그래프에 그림
+# acc(학습)는 파란색, val_acc(검증)는 주황색
+</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1"># 그래프 그리기
+</span></code></pre></div>      </div>
+      <p><img src="/assets/images/20221208_001_008.png" alt="" /></p>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 그래프 해석 ==='</span>
+<span class="c1"># loss
+## 학습 loss는 지속 감소되지만, 검증 loss는 감소하다 증가
+## 이는, 모델이 중간부터 학습데이터에 과적합되었음을 나타냄
+</span>
+<span class="c1"># acc
+## 학습 acc는 지속 증가하지만, 검증 acc는 증가하다 보합세
+## 이 또한 모델이 중간부터 학습데이터에 과적합되었음을 나타냄
+</span>
+<span class="c1"># -&gt; epoch를 10~15회 정도로 설정하는 게 좋음
+</span></code></pre></div>      </div>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 테스트셋으로 모델 평가 ==='</span>
+<span class="c1"># 딥러닝에서는 model.evaluate 메서드로 기본적인 평가 가능
+</span><span class="n">model</span><span class="p">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="c1">## loss = 0.1329, acc = 0.9723
+## 97.23%의 정확도, 꽤 높은 정확도이다.
+</span></code></pre></div>      </div>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 랜덤 테스트데이터를 실제로 검증해보기 ==='</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_test</span><span class="p">[</span><span class="mi">4523</span><span class="p">].</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s">'gray'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'4523번 정답 : </span><span class="si">{</span><span class="n">y_test</span><span class="p">[</span><span class="mi">4523</span><span class="p">].</span><span class="n">argmax</span><span class="p">()</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="c1"># 4523번 정답 : 8
+# 4523번 이미지는 아래
+</span></code></pre></div>      </div>
+      <p><img src="/assets/images/20221208_001_009.png" alt="" /></p>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델의 가중치값 저장과 불러오기 ==='</span>
+<span class="c1"># 모델 학습은 결국 연산 가중치값을 얻어내는 과정이다.
+# 이 가중치값을 저장하고, 이후 불러와 재사용할 수 있다.
+</span>
+<span class="c1"># 가중치 저장
+</span><span class="n">model</span><span class="p">.</span><span class="n">save_weights</span><span class="p">(</span><span class="s">'mnist'</span><span class="p">)</span>
+
+<span class="c1"># 저장된 가중치 값을 가져와 새 모델에 적용
+</span><span class="n">model1</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model1</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">784</span><span class="p">,),</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model1</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model1</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'softmax'</span><span class="p">))</span>
+
+<span class="n">model</span><span class="p">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s">'mnist'</span><span class="p">)</span>
+</code></pre></div>      </div>
+    </div></details></blockquote>
+
+<h3 id="3-딥러닝-학습의-의의">(3) 딥러닝 학습의 의의</h3>
+<ul>
+  <li>딥러닝 학습은 연산의 ‘가중치’를 얻어내는 과정이다.</li>
+</ul>
+
 <h2 id="숙제">숙제</h2>
 <ul>
   <li>용어 정리 - 인공신경망 부분 추가</li>
   <li>용어 정리 - 평가 지표 부분 추가</li>
-  <li>퍼셉트론 만들기 - 옵티마이저 등 각 사항 설명, 종류명 언급 하면서 한 단원으로 끝내기
-    <h2 id="케라스">케라스</h2>
-  </li>
+  <li>퍼셉트론 만들기 - 옵티마이저 등 각 사항 설명, 종류명 언급 하면서 한 단원으로 끝내기</li>
 </ul>
 
 <h2 id="레퍼런스">레퍼런스</h2>
