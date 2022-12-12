@@ -1,0 +1,81 @@
+---
+layout: post                              # 레이아웃 : post(게시물)
+title:  맥 tensorflow GPU issue                           # 게시물의 제목
+subtitle:  I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0  # 서브타이틀
+date:   2022-12-12 23:31:00 +0900         # 게시물 작성 일자
+categories: etc                          # 게시물이 속하는 카테고리
+author:                                   # 작성자
+tags: 맥북 맥 M1 M2 GPU issue                              # 태그
+meta: "Springfield"                       # 이건 뭐지?
+---
+<!--postNo: 20221212_001-->
+
+## Error Code
+
+```python
+(1)
+I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306]
+Could not identify NUMA node of platform GPU ID 0, defaulting to 0.
+Your kernel may not have been built with NUMA support.
+
+(2)
+I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272]
+Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory)
+-> physical PluggableDevice
+
+```
+
+## 에러 원인 확인
+
+> (1) GPU ID 0의 NUMA 노드를 식별할 수 없다.
+> * 커널이 NUMA 지원을 사용하여 빌드되지 않았을 수 있다.
+  
+> (2) ????
+>
+
+## 해결법 탐색
+
+>StackOverFlow
+> (1) 파이썬 3.9 버전이 아닌 3.8 버전을 사용해봐라
+> 원문
+> MacOS with AMD GPU here. I am using tensorflow for metal as soon as it was launched, with GPU acceleration. Sometimes I get the same message (Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.). But, it still uses the GPU. You can check that by opening Activity Monitor, then pressing Cmd + 3 and Cmd + 4, which shows you GPU and CPU usage.
+One potential problem for you, assuming it still is not benefitting from acceleration, could be that you are using Python 3.9. If I recall correctly, tensorflow for metal requires Python 3.8. That is what I am using, without any problems.
+Hope the above can help you & others!
+
+
+>StackOverFlow
+> (2) 메탈을 2버전이 아닌, 0.1.2 버전을 사용해봐라
+> 원문
+> Okay I don't know if you guys faced this issue but with me the kernel also died and the GPU wasn't being used. And I discovered the issue and fixed it. Im on the M1 Macbook Air.
+This arises with the latest tensorflow-metal package ver. 0.2.0.
+Just install the last version 0.1.2. of metal and the GPU will be utlized. You will still get the warning though but the training will run utlizing the GPU.
+
+>StackOverFlow
+> (3) 위 두 해결책을 적용했는데, GPU가 작동되긴 하나 순수 CPU 사용보다 5배 느림
+> 원문
+> I have this same issue with my new MacBook Pro 14 with M1 Max fully loaded.
+I've tried creating a clean python 3.8 and 3.9 installation following instructions here and elsewhere. Tried downgrading my tensor flow-metal package. Just about every possible combination in clean environments and new installations.
+Bottom line is that while the GPU "works", it runs about 5x slower than running on pure CPU. Aka if I uninstall tensorflow-metal package the same training that took say 11 sec with the package installed takes only about 2.5 sec without the metal package. You can also replicate same results with forcing tensorflow to run on CPU with the metal package installed.
+Looking at Activity Monitor during run suggests that the M1 Max GPU is in fact loaded with the package installed. It just performs horribly poorly, in fact so badly as to be unusable. My working assumption is that this is not the intended performance, but a bug.
+What's concerning is that no maintainer in any of the forums, whether it be tensorflow/keras, or whether it be Apple forums, has really acknowledged that this is a bug. Perhaps there's confusion between the different manifestation of the bug in Intel vs. older M1 vs. newer M1 Pro/Max, as well as the different operating systems involved.
+So let me be unambiguously clear: none of the stuff listed above here, or in other threads, involving reinstallation, downgrading packages, etc. makes this work on my M1 Max properly.
+
+## NUMA의 개념
+레퍼런스 : https://hiseon.me/data-analytics/tensorflow/tensorflow-numa-node-error/
+
+
+
+## 시도
+
+파이썬 업그레이드 시도 (최신버전이면 되지 않을까?)
+https://tomorrow001.tistory.com/196
+
+실패 -> 홈브루 설치 위치 이슈
+https://imeom.tistory.com/222
+
+opt에 홈브루 설치
+https://gist.github.com/nrubin29/bea5aa83e8dfa91370fe83b62dad6dfa
+
+홈브루 기본 경로 변경
+https://blog.dalso.org/article/m1-mac-brew-error-cannot-install-in-homebrew-on-arm-processor-in-intel-default-prefix
+

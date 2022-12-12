@@ -10,6 +10,71 @@ meta: "Springfield"                       # 이건 뭐지?
 ---
 <!--postNo: 20221210_002-->
 
+
+## Miniforge를 이용한 tensorflow 설치
+
+Miniconda 는 아직 arm 아키텍처를 지원하지 않음.  
+때문에, arm아키텍처를 유일하게 지원하는 Conda-Forge를 설치해 파이썬을 사용하는 게 유일한 해결책임.  
+
+(1) 아래 링크에서 arm64 버전 forge를 다운로드 해준다.  
+https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
+
+(2) 터미널을 켜고, 아래와 같이 miniforge를 설치해준다.  
+
+```Terminal
+(1) cd ~/Downloads/
+(2) bash Miniforge3-MacOSX-arm64.sh
+```
+
+(3) 설치 중 약관 동의 및 기본 설치 경로 등은 y로 동의한다.
+
+(4) conda 가상환경을 만들어준다.  
+
+```Terminal
+(1) conda create -n 가상환경명 python=3.8
+(2) conda activate 가상환경명
+```
+
+(5) 필요한 프로그램 및 라이브러리를 설치한다.  
+
+```Terminal
+(1) 주피터랩 : conda install jupyterlab
+(2) Pandas 업데이트 : conda install pandas
+(3) Numpy 업데이트 : conda install numpy
+(4) Tensorflow 설치 : conda install tensorflow
+(5) tqdm 설치 : conda install tqdm
+... 등등
+```
+
+(6) 텐서플로우 실행 확인  
+
+* 텐서플로우를 이용한 코드를 실행해, 제대로 실행되는지 확인해주세요.
+
+(7) 이후 사용 : 가상환경 이용  
+이후 사용시에는 가상환경상에서 파이썬을 사용해주면 됨.
+
+```Terminal
+conda activate 가상환경명
+
+이후
+
+jupyter lab ... 등등 ...
+
+```
+
+
+### 레퍼런스
+https://cpuu.postype.com/post/9077219
+
+
+
+
+
+
+##    
+##   
+## 이하는 이전 시도했던 방식으로, 정상적으로 작동하지 않습니다. 참고용으로 남겨놓습니다.
+
 ### M실리콘 tensorflow 설치하기
 
 1. Conda 가상환경 만들기
