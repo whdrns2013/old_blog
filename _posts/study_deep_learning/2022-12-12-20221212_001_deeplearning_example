@@ -12,6 +12,107 @@ meta: "Springfield"                       # 이건 뭐지?
 
 ## 신경망 만들어보기 - 의류 품목 인식 (fashion mnist)
 
+### 예제 설명
+
+* 의류 사진들을 주고, 해당 의류가 어떠한 의류인지 분류하는 모델
+* 층의 수가 다른 2개의 모델을 만들 예정이며, 각 모델의 성능을 비교해볼 것이다.
+
+### 데이터 설명
+
+* 데이터셋은 keras.fashion_mnist. 
+* 데이터 총 수는 7만개이며, train 6만개, test 1만개로 이루어져 있다.
+* X인 의류사진은 28 * 28 사이즈의 array이며
+* Y인 label은 의류종류 10가지가 0~9라는 정수값으로 인코딩 되어있다.
+* 데이터에 대한 설명을 보려면, `load_data()` 의 괄호 안에 커서를 둔 뒤, Tab 키를 누른다.   
+* label의 class 는 아래와 같다.
+
+|int|fashion|
+|---|-------|
+|0|T-shirt/top|
+|1|Trouser|
+|2|Pullover|
+|3|Dress|
+|4|Coat|
+|5|Sandal|
+|6|Shirt|
+|7|Sneaker|
+|8|Bag|
+|9|Ankle boot|
+
+```python
+# 케라스에서 데이터셋 불러오기
+from keras.datasets.fashion_mnist import load_data
+
+# 변수에 트레인, 테스트 데이터 받기
+(x_train, y_train), (x_test, y_test) = load_data()
+
+# 데이터 생김새 확인
+print(x_train.shape, y_train.shape, x_test.shape, y_test.shape)
+print(x_train[0], y_train[0])
+```
+> 출력값  
+> * shape : (60000, 28, 28) (60000,) (10000, 28, 28) (10000,)  
+> * 0번 원소 : 28*28 행렬, 9  
+
+```python
+# X데이터 이미지 시각화하여 살펴보기
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 랜덤으로 9개의 X값 불러와 시각화하기
+sample_size = 9
+random_idx = np.random.randint(0, 60000, size = sample_size)
+
+plt.figure(figsize = (5, 5))
+for 
+
+
+
+
+class_names = ['T-shirt/top','Trouser','Pullover','Dress','Coat','Sandal','Shirt','Sneaker','Bag','Ankle boot']
+
+
+```
+
+
+
+
+
+### 전처리
+
+
+
+### 모델 생성 및 학습
+
+### 모델 비교, 평가
+
+
+
+
+
 ## 신경망 만들어보기 - 보스턴 주택 가격 (회귀)
 
+### 예제 설명
+
+### 데이터 설명
+
+### 전처리
+
+### 모델 생성 및 학습
+
+### 모델 비교, 평가
+
+
+
+
 ## 신경망 만들어보기 - 다중 레이블
+
+### 예제 설명
+
+### 데이터 설명
+
+### 전처리
+
+### 모델 생성 및 학습
+
+### 모델 비교, 평가
