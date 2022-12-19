@@ -20,7 +20,8 @@ meta: "Springfield"                       # 이건 뭐지?
 
 |모듈명|라이브러리명|설명|파라미터|
 |---|---|---|---|
-|ImageDataGenerator|keras.uitl|기존 이미지를 가지고 새로운 이미지 생성|
+|ImageDataGenerator|keras.uitls|기존 이미지를 가지고 새로운 이미지 생성||
+|to_categorical|keras.utils|데이터를 원-핫 인코딩 해준다.||
 
 
 
