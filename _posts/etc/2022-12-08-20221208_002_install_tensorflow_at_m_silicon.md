@@ -36,12 +36,16 @@ https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Mac
 ```
 
 (5) 필요한 프로그램 및 라이브러리를 설치한다.  
+conda-activate 로 가상 환경을 실행 후 설치를 진행해야 하며,
+conda-forge 의 라이브러리를 설치해야 한다. 아래 링크를 참고  
+[https://anaconda.org/conda-forge/repo]('https://anaconda.org/conda-forge/repo')
 
 ```Terminal
-(1) 주피터랩 : conda install jupyterlab
-(2) Pandas 업데이트 : conda install pandas
-(3) Numpy 업데이트 : conda install numpy
-(4) Tensorflow 설치 : conda install tensorflow
+(1) 주피터랩 : conda install -c conda-forge jupyterlab
+(2) Pandas : conda install -c conda-forge pandas
+(3) Numpy : conda install -c conda-forge numpy
+(4) Tensorflow : conda install -c conda-forge tensorflow
+(5) MatPlotlib : conda install -c conda-forge matplotlib-base
 (5) tqdm 설치 : conda install tqdm
 ... 등등
 ```
