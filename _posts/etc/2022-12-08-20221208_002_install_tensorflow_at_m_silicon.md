@@ -45,8 +45,9 @@ conda-forge 의 라이브러리를 설치해야 한다. 아래 링크를 참고
 (2) Pandas : conda install -c conda-forge pandas
 (3) Numpy : conda install -c conda-forge numpy
 (4) Tensorflow : conda install -c conda-forge tensorflow
-(5) MatPlotlib : conda install -c conda-forge matplotlib-base
-(5) tqdm 설치 : conda install tqdm
+(6) MatPlotlib : conda install -c conda-forge matplotlib-base
+(7) 사이킷런 : conda install -c conda-forge scikit-learn
+(8) tqdm 설치 : conda install -c conda-forge tqdm
 ... 등등
 ```
 
