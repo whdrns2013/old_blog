@@ -28,3 +28,12 @@ zip_ref.extractall('dataset/')
 # zip 파일 닫기
 zip_ref.close
 ```
+
+## tqdm
+진행률을 표시해주는 라이브러리
+```python
+from tqdm import tqdm
+
+for i in tqdm(range(10)):
+    time.sleep(0.5)
+```

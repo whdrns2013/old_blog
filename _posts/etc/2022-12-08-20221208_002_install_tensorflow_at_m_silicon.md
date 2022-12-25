@@ -16,6 +16,11 @@ meta: "Springfield"                       # 이건 뭐지?
 Miniconda 는 아직 arm 아키텍처를 지원하지 않음.  
 때문에, arm아키텍처를 유일하게 지원하는 Conda-Forge를 설치해 파이썬을 사용하는 게 유일한 해결책임.  
 
+tensorflow-macos + tensorflow-metal 과도 실행 속도를 비교해봤으나,  
+forge를 통해 설치한 tensorflow의 처리속도가 훨씬 빨랐음.  
+왜인지는 모르겠음.. 
+(forge - cpu 480% 사용, metal - cpu 60%, gpu 90% 사용)
+
 (1) 아래 링크에서 arm64 버전 forge를 다운로드 해준다.  
 https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
 
@@ -29,6 +34,7 @@ https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Mac
 (3) 설치 중 약관 동의 및 기본 설치 경로 등은 y로 동의한다.
 
 (4) conda 가상환경을 만들어준다.  
+텐서플로와 호환되는 파이썬 버전이 현재 기준(2022.12.25) 3.10 이하이므로, 주의.  
 
 ```Terminal
 (1) conda create -n 가상환경명 python=3.8
@@ -36,8 +42,8 @@ https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Mac
 ```
 
 (5) 필요한 프로그램 및 라이브러리를 설치한다.  
-conda-activate 로 가상 환경을 실행 후 설치를 진행해야 하며,
-conda-forge 의 라이브러리를 설치해야 한다. 아래 링크를 참고  
+conda-activate 로 가상 환경 하에서 설치를 진행해야한다.  
+conda-forge 의 라이브러리를 설치해야 하므로 아래 링크를 참고  
 [https://anaconda.org/conda-forge/repo]('https://anaconda.org/conda-forge/repo')
 
 ```Terminal
@@ -48,6 +54,9 @@ conda-forge 의 라이브러리를 설치해야 한다. 아래 링크를 참고
 (6) MatPlotlib : conda install -c conda-forge matplotlib-base
 (7) 사이킷런 : conda install -c conda-forge scikit-learn
 (8) tqdm 설치 : conda install -c conda-forge tqdm
+(9) cv 설치 : conda install -c conda-forge opencv
+(10) pydot 설치 : conda install -c conda-forge pydot
+(11) grapgviz : conda install -c conda-forge graphviz
 ... 등등
 ```
 
