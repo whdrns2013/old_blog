@@ -1,3 +1,15 @@
+---
+layout: post                              # 레이아웃 : post(게시물)
+title:  파이썬 맷플로립 라이브러리 matplotlib            # 게시물의 제목
+subtitle: 파이썬에서 시각화 해보자!   # 서브타이틀
+date:   2022-12-02 16:46:06 +0900         # 게시물 작성 일자
+categories: Python                          # 게시물이 속하는 카테고리
+author:                                   # 작성자
+tags: 파이썬, 맷플로립, matplotlib, 시각화                 # 태그
+meta: "Springfield"                       # 이건 뭐지?
+---
+<!--postNo: 20221202_001-->
+
 ## 인트로
 * matplotlib은 파이썬의 시각화 라이브러리이다.
 
