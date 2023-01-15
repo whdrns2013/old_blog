@@ -1,2479 +1,865 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-12T02:56:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">마크다운 문법 요약</title><link href="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html" rel="alternate" type="text/html" title="마크다운 문법 요약" /><published>2022-12-11T18:05:30+09:00</published><updated>2022-12-11T18:05:30+09:00</updated><id>http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/11/20221211_001_markdown_syntax.html"><![CDATA[<!--postNo: 20221211_001-->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-15T18:34:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">프로그레스 바 만들어보기</title><link href="http://localhost:4000/lab/2023/01/12/20230112_001_making_progress_bar.html" rel="alternate" type="text/html" title="프로그레스 바 만들어보기" /><published>2023-01-12T10:12:00+09:00</published><updated>2023-01-12T10:12:00+09:00</updated><id>http://localhost:4000/lab/2023/01/12/20230112_001_making_progress_bar</id><content type="html" xml:base="http://localhost:4000/lab/2023/01/12/20230112_001_making_progress_bar.html"><![CDATA[<!--postNo: 20230112_001-->
 
-<h2 id="헤딩-heading">헤딩 heading</h2>
-<hr />
-<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># : 헤딩 1번 (#과 스페이스바 후 입력)</span>
-<span class="gu">## : 헤딩 2번 (##과 스페이스바 후 입력)</span>
-<span class="gu">### : 헤딩 3번</span>
-...
+<h2 id="인트로">인트로</h2>
+<p>tqdm 만들어보기 : print 줄바꿈 없이 출력하기|아직 미작성 : tqdm을 쓰면 느려지는 것 같아서 자신은 잘 안쓴다는 선생님의 말씀 / 횟수가 많은 동일 작업을 각각의 방법으로 했을 때의 비교를 해보면 되겠다.</p>
+
+<h2 id="사용-개념--정규표현식-r">사용 개념 : 정규표현식 \r</h2>
+<p>tqdm을 살펴보면, 진행률을 한 줄로 표시함을 볼 수 있다.<br />
+그러므로 필요한 기술은, 연속된 출력에서 이전 출력 내용을 지우고 업데이트 하는 것.<br />
+간단한 기술로 가능한데, 바로 print 메서드에 정규표현식을 이용하는 것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 그냥 print 사용해보기
+</span><span class="k">print</span><span class="p">(</span><span class="s">'1번입니다'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'2번입니다'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+<span class="o">-----------</span><span class="n">출력</span><span class="o">-----------</span>
+<span class="mi">1</span><span class="n">번입니다2번입니다</span>
+
+<span class="c1"># \r을 사용해 이전 출력내용 지우기
+</span><span class="k">print</span><span class="p">(</span><span class="s">'1번입니다'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="s">2번입니다'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+<span class="o">-----------</span><span class="n">출력</span><span class="o">-----------</span>
+<span class="mi">2</span><span class="n">번입니다</span><span class="p">.</span>
+
 </code></pre></div></div>
+<ul>
+  <li>\r 정규표현식 : 앞쪽 출력물을 지운다.</li>
+  <li>end = ‘’ : print의 파라미터로, 기본값은 ‘\n’(줄바꿈)으로 되어있다.</li>
+</ul>
 
-<h2 id="형광펜-색상">형광펜 (색상)</h2>
-<hr />
-<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code>형광펜은 html을 사용해야 한다.
-범위 지정 span과 스타일지정 style을 함께 사용한다.
+<h2 id="표현법-기초공사">표현법 기초공사</h2>
 
-<span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">'background-color: #fff5b1'</span><span class="nt">&gt;</span> 노란색 형광펜 <span class="nt">&lt;/span&gt;</span>
+<h3 id="1차--진행률-로-표기해보기">1차 : 진행률 %로 표기해보기</h3>
+<p>1회 ~ 100회 동안 각 회마다 진행률%를 출력하도록 했다.<br />
+time.sleep을 이용해 0.1초 간격을 두고 각 회차가 진행된다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="se">\r</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">%'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </code></pre></div></div>
+<p><img src="/assets/images/20230112_001_002.gif" alt="" /></p>
 
-<h2 id="펼치기접기-영역">펼치기/접기 영역</h2>
-<hr />
-<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">*</span> html을 이용한다.
-<span class="p">*</span> <span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/div&gt;</span>안쪽은 마크다운 형식 작성이 가능하다.
-<span class="p">*</span> 디폴트로는 접힌 상태로 보이나,
-<span class="p">*</span> <span class="nt">&lt;details</span> <span class="na">open</span><span class="nt">&gt;</span> 태그로 시작하면 펼쳐진 채로 보인다.<span class="sb">
+<h3 id="2차--진행률을-input-num과-매칭하여-진행률-표기하기">2차 : 진행률을 input num과 매칭하여 진행률 표기하기</h3>
+<p>진행 횟수인 fit_num에 대해 %로 표기를 할 수 있게끔<br />
+(현재 진행횟수 / fit_num * 100)의 반올림 값을 표기하게 한다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">fit_num</span> <span class="o">=</span> <span class="mi">51</span>
 
-
-</span><span class="nt">&lt;details&gt;</span>
-<span class="nt">&lt;summary&gt;</span>펼치기/접기 영역<span class="nt">&lt;/summary&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
-
-|표만들기|내용|
-|-----|---|
-|내용1|내용2|
-|내용3|내용4|
-
-<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/details&gt;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fit_num</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="se">\r</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="n">fit_num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s">%'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </code></pre></div></div>
-<details>
-<summary>펼치기/접기 영역</summary>
-<div>
+<p><img src="/assets/images/20230112_001_003.gif" alt="" /></p>
 
-    <table>
-      <thead>
-        <tr>
-          <th>표만들기</th>
-          <th>내용</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>내용1</td>
-          <td>내용2</td>
-        </tr>
-        <tr>
-          <td>내용3</td>
-          <td>내용4</td>
-        </tr>
-      </tbody>
-    </table>
+<h3 id="3차--좀-더-예쁘게-디자인해보기">3차 : 좀 더 예쁘게 디자인해보기</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">fit_num</span> <span class="o">=</span> <span class="mi">101</span>
 
-  </div>
-</details>
-
-<h2 id="인용-블록">인용 블록</h2>
-<hr />
-<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1) 마크다운 방식
-꺽쇠(&gt;) 후 스페이스바 한 후 내용 입력
-<span class="gt">&gt; 내용입력</span>
-
-(2) html 방식
-<span class="nt">&lt;blockquote&gt;</span>
-내용입력
-<span class="nt">&lt;/blockquote&gt;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fit_num</span><span class="p">):</span>
+    
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="p">((</span><span class="n">fit_num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="n">n</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="se">\r</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="n">fit_num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s">%'</span><span class="p">,</span>
+          <span class="s">'|'</span><span class="p">,</span>
+          <span class="s">'■ '</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span> <span class="s">'&gt;'</span> <span class="o">*</span> <span class="n">m</span><span class="p">,</span> <span class="s">' .'</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+          <span class="s">'|'</span><span class="p">,</span>
+          <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+    
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </code></pre></div></div>
-<blockquote>
-  <p>내용입력 마크다운 형식 (&gt;)</p>
-</blockquote>
-<blockquote> 내용입력 html 형식 </blockquote>
-
-<h2 id="이미지">이미지</h2>
-<hr />
+<p><img src="/assets/images/20230112_001_001.gif" alt="" /></p>
 
 <h2 id="레퍼런스">레퍼런스</h2>
-<p>형광펜 : https://geniewishescometrue.tistory.com/entry/마크다운-관련-팁-글-색상-형광펜</p>]]></content><author><name>Jongya</name></author><category term="summary" /><category term="마크다운" /><category term="markdown" /><category term="문법" /><category term="syntax" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">맥 텐서플로우 설치하기 5단계 (M1 M2 M실리콘)</title><link href="http://localhost:4000/etc/2022/12/10/20221208_002_install_tensorflow_at_m_silicon.html" rel="alternate" type="text/html" title="맥 텐서플로우 설치하기 5단계 (M1 M2 M실리콘)" /><published>2022-12-10T20:21:00+09:00</published><updated>2022-12-10T20:21:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221208_002_install_tensorflow_at_m_silicon</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221208_002_install_tensorflow_at_m_silicon.html"><![CDATA[<!--postNo: 20221210_002-->
+<p>https://jellyho.com/blog/96/</p>]]></content><author><name>Jongya</name></author><category term="lab" /><category term="프로그레스바" /><category term="\r" /><category term="tqdm" /><category term="대체하기" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">파이썬 클래스 선언 방법</title><link href="http://localhost:4000/python/2023/01/09/20230109_002_python_class.html" rel="alternate" type="text/html" title="파이썬 클래스 선언 방법" /><published>2023-01-09T21:51:10+09:00</published><updated>2023-01-09T21:51:10+09:00</updated><id>http://localhost:4000/python/2023/01/09/20230109_002_python_class</id><content type="html" xml:base="http://localhost:4000/python/2023/01/09/20230109_002_python_class.html"><![CDATA[<!--postNo: 20230109_002-->
 
-<h3 id="m실리콘-tensorflow-설치하기">M실리콘 tensorflow 설치하기</h3>
+<h2 id="들어가며">들어가며</h2>
+<p>새싹 과정의 java 교육에서 잠깐 맛보았던 클래스.<br />
+객체 선언의 A-Z라는 클래스. 잊고 살다가..<br />
+데이콘에서 클래스 정의를 통해 최적화된 문제풀이를 하는 코드들을 보았다.</p>
 
-<ol>
-  <li>Conda 가상환경 만들기
-    <pre><code class="language-Terminal">conda create -n 가상환경명 anaconda
-</code></pre>
-  </li>
-  <li>Conda 가상환경 실행
-    <pre><code class="language-Terminal">conda activate 가상환경명
-</code></pre>
-  </li>
-  <li>numpy, scipy 업그레이드
-    <pre><code class="language-Terminal">pip install numpy --upgrade
-pip install scipy --upgrade
-</code></pre>
-    <blockquote>
-      <p>Requirement already satisfied:<br />
-이 문구는, 이미 최신버전이라는 뜻입니다. 다음 단계로 넘어가세요.</p>
-    </blockquote>
-  </li>
-  <li>tensorflow 설치
-    <pre><code class="language-Terminal">conda install -c apple tensorflow-deps
-pip install tensorflow-macos
-pip install tensorflow-metal
-</code></pre>
-    <blockquote>
-      <p>tensorflow-metal : GPU환경을 사용할 수 있게 해주는 툴</p>
-    </blockquote>
-  </li>
-  <li>tensorflow 설치 확인 (버전 확인)
-```Terminal</li>
-</ol>
+<p>java 교육때 배운 것으로 클래스를 정의하고,<br />
+클래스 안에 비슷한 함수들을 모아 정의하는 등.. 의 사용까지는 했었으나,<br />
+__init__이 무언지, 어떻게 사용해야하는지 등을 깊게 공부해본 적은 없었다.</p>
 
-<h1 id="tensor-버전-확인">tensor 버전 확인</h1>
-<p>python # 파이썬 실행
-import tensorflow # 텐서플로우 import
-tensorflow.<strong>version</strong> # 텐서 버전 확인
-‘버전명 출력됨 -&gt; 내 경우 2.11.0’</p>
+<p>러닝메이트 스터디에서 ‘마진계산기’ 서비스를 출시하는 프로젝트를 하면서<br />
+“아.. 실제 출시하는 서비스는 주피터나 코랩같은 ipynb같은 형식으로 하는 건 힘들겠구나..” 를 느끼면서<br />
+파이썬 클래스를 적극적으로 사용해보았다.</p>
 
-<h1 id="gpu-사용-여부-확인-1이면-정상">GPU 사용 여부 확인 (1이면 정상)</h1>
-<p>print(len(tensorflow.config.experimental.list_physical_devices(‘GPU’)))</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<h2 id="클래스란">클래스란?</h2>
 
-### 주피터에서 tensorflow를 쓰고 싶다면?
-1. conda 가상환경을 실행
-```Terminal 
-conda activate 가상환경명
+<p>클래스란 무엇인지 예시</p>
+
+<h2 id="클래스를-만들어보자">클래스를 만들어보자</h2>
+<p>클래스 선언
+클래스의 속성 선언과 사용
+클래스의 메서드 선언과 사용</p>
+
+<h2 id="외부-파일의-클래스를-불러와-사용하기">외부 파일의 클래스를 불러와 사용하기</h2>
+<p>외부 파이썬 코드와 현재 코드 위치 보여주기
+외부 파이썬 코드 불러오기</p>
+
+<h2 id="클래스를-사용하는-이유">클래스를 사용하는 이유</h2>
+<p>메서드를 정의하는 것과 같이 재사용성
+선언부와 실행부를 분리함으로써 코드를 체계적으로 정리 가능하고
+선언부와 실행부 분리로, 실행부의 알고리즘에 끊김이 없어져 집중이 가능
+속성 및 메서드 등의 공유가 간편</p>
+
+<h2 id="레퍼런스">레퍼런스</h2>
+<p>https://wikidocs.net/28<br />
+dacon.io 베이스라인 코드들</p>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="파이썬" /><category term="클래스" /><category term="선언" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">파이썬 람다식 lambda 함수 (익명함수)</title><link href="http://localhost:4000/python/2023/01/09/20230109_001_python_lambda.html" rel="alternate" type="text/html" title="파이썬 람다식 lambda 함수 (익명함수)" /><published>2023-01-09T20:45:37+09:00</published><updated>2023-01-09T20:45:37+09:00</updated><id>http://localhost:4000/python/2023/01/09/20230109_001_python_lambda</id><content type="html" xml:base="http://localhost:4000/python/2023/01/09/20230109_001_python_lambda.html"><![CDATA[<!--postNo: 20230109_001-->
+
+<h2 id="람다식이란-lambda">람다식이란? lambda</h2>
+<p>정식 명칭은 ‘익명 함수’. (위키백과)<br />
+이름에서 알 수 있듯이, 이름이 없는 함수이다.  <br />
+풀어서 이야기하자면, def와 같은 식별자가 없고,<br />
+일반적인 함수 정의 형태를 따르지 않는 함수식이다.<br />
+쉽게 아래 예시를 참고해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 두 숫자를 더하는 함수를 정의하고,
+# 함수를 통해 10과 20을 더한 값을 출력해보자. 
+</span>
+<span class="c1"># (1) 람다함수를 사용하지 않았을 때
+</span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># (2) 람다함수를 사용하였을 때
+</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
 </code></pre></div></div>
 
-<ol>
-  <li>jupyter 설치
-    <pre><code class="language-Terminal">pip install jupyter lab # 주피터랩 설치
-pip install jupyter notebook # 주피터노트북 설치
-</code></pre>
-  </li>
-  <li>jupyter 실행
-    <pre><code class="language-Terminal">conda activate 가상환경명 # 가상환경 실행 후 
-jupyter lab
-</code></pre>
-  </li>
-</ol>
+<h2 id="람다식의-특징">람다식의 특징</h2>
+<p>(1) 이름을 가지고 선언되는 일반적인 함수와 달리, 일회성으로 쓰이고 폐기된다.<br />
+메모리에 오르지 않기에 메모리를 절약할 수 있으나, 다른 말로 하면 재사용이 불가능하다.<br />
+(2) 함수의 정의와 동시에 매개변수를 지정해 값을 출력하도록 사용이 가능하다.<br />
+(3) 일반적인 함수보다 짧게 작성이 가능하다.</p>
+<blockquote>
+  <p>단, 변수 = lambda x: 식 과 같이 변수에 함수를 정의하는 경우 메모리에 올라가며, 이후에도 호출하여 사용이 가능하다.</p>
+</blockquote>
 
-<p>이후 tensorflow를 사용할 때에는, 가상환경 실행 후에야 가능합니다.. ㅠㅠ.. 얼른 업데이트가 되길..<br />
-아니면.. 구글 코랩 사용을 권장합니다!</p>
+<h2 id="람다식을-사용하는-경우">람다식을 사용하는 경우</h2>
+<p>람다식은 아래와 같은 경우에 사용된다.<br />
+(1)일회성으로 쓰이는 이름을 지정할 필요가 없이 간단히 쓰는 함수를 정의할 때<br />
+(2)함수식 자체가 매개변수가 되는 경우<br />
+(3)특정 함수의 return값이 특정 함수여야 하는 경우</p>
 
-<h3 id="레퍼런스">레퍼런스</h3>
-<p>(1) https://discuss.tensorflow.org/t/tensorflow-mac-m1/8706<br />
-(2) https://pasus.tistory.com/218<br />
-(3) https://velog.io/@psjlmk/M1-맥북-tensorflow-설치</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥북" /><category term="맥" /><category term="M1" /><category term="M2" /><category term="파이썬" /><category term="텐서플로우" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)</title><link href="http://localhost:4000/etc/2022/12/10/20221210_002.html" rel="alternate" type="text/html" title="맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)" /><published>2022-12-10T20:21:00+09:00</published><updated>2022-12-10T20:21:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221210_002</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221210_002.html"><![CDATA[<!--postNo: 20221210_002-->
+<p>그리고, 해석에 어려움만 없다면 짧은 코드 작성에 일조할 수 있다.</p>
 
-<p>아끼고 아껴 썼던 맥북 프로 2015를 어언 8년째..<br />
-배터리 관리를 잘못 했는지 10분만 지나도 방전이 되어버린다.
-그래서! 얼마 전 M2 맥북 에어를 샀다.</p>
+<h2 id="람다식-사용법">람다식 사용법</h2>
+<p>람다식의 다양한 사용법을 서술한다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># 일반적인 계산 함수에 사용
+</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  <span class="c1">## 두 인자를 더하는 함수
+</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>      <span class="c1">## 제곱을 출력하는 함수
+</span>
+<span class="c1"># dict를 정렬할 때
+</span><span class="n">dict_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">vocab</span><span class="p">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-<p>가볍고, 성능좋은 노트북에 싱글벙글 하다가<br />
-큰 문제를 맞딱뜨렸다.</p>
+<span class="c1"># 조건문과 함께 사용
+</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">'합격'</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="k">else</span> <span class="k">print</span><span class="p">(</span><span class="s">'불합격'</span><span class="p">))(</span><span class="mi">70</span><span class="p">)</span>
 
-<p>바로, 파이썬에서 모듈을 불러오지 못하는 문제!</p>
+<span class="c1"># 조건문과 함께 사용 - 다른 표현법
+</span><span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s">'합격'</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="k">else</span> <span class="s">'불합격'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="mi">70</span><span class="p">))</span>
 
-<h3 id="상황">상황</h3>
-<p>맞딱뜨린 문제는 크게 두 가지로 정리할 수 있다.</p>
+<span class="c1"># map 함수와 함께 사용
+# 주어지는 매개변수가 sequence형일 경우, 순환하며 함수를 적용한다.
+</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">매개변수</span><span class="p">:</span> <span class="n">식</span><span class="p">,</span> <span class="n">sequence형</span> <span class="n">자료</span><span class="p">)</span>
+<span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="c1">## 출력은 &lt;map object at 0x000001EAE8C6EAF0&gt; 와 같이 메모리에 올라간 object 형태가 된다.  
+</span>
+<span class="c1"># reduce 함수와 함께 사용
+# 주어지는 매개변수가 sequence형일 경우, 앞의 인자부터 함수식을 적용해간다.  
+</span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
+<span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
-<pre><code class="language-Terminal">(1) ImportError: No module named pandas
-(2) File "&lt;stdin&gt;", line 1
-</code></pre>
 
+<span class="c1"># 이후 추가
+</span>
+</code></pre></div></div>
+
+<h2 id="람다식의-등장-배경">람다식의 등장 배경</h2>
+<p>수학자이자 철학자인 Alonzo Church가 Entscheidungs problem 을 해결할 때 등장한 것으로 보이는데.. 이 부분은 잘 모르겠다. 패스!</p>
+
+<h2 id="람다식의-장단점">람다식의 장단점</h2>
+<p>람다식은 좋다 나쁘다로 평가하는 것 보다는..<br />
+필요에 의해, 그리고 상황에 알맞게 사용했는지가 가장 중요할 것으로 보인다.</p>
+
+<p>예를 들어) 나중에 재사용을 하는 함수를 일회성으로 람다로 써버린다면,<br />
+결국 나중에 동일 함수를 다시 정의하는, 두 번 일을 하는 불상사가 있을 것이다.</p>
+
+<p>하지만 일회성 함수이면서 코드를 단순화하는 데 도움을 준다거나 하는 데에는<br />
+좋은 역할을 할 것으로 보인다.</p>
+
+<p>람다식의 사용은, 좋다 나쁘다보다는 작성자의 성향에 따른 것일 수도 있다.</p>
+
+<h2 id="람다함수의-존폐-위기">람다함수의 존폐 위기</h2>
+
+<h2 id="생각해보기">생각해보기</h2>
+<p>람다식을 쓰면서 생각이 드는 게..<br />
+파이썬의 comprehension을 이용하는 것과 거의 비슷한 효과를 내는구나라는 생각이 든다.<br />
+comprehension으로 for문과 if문을 혼합해 사용하면 같은 결과를 낼 수 있을 것 같다.<br />
+이후 람다식을 만나면, 어떤 이유로 람다식을 썼는지, 그리고 대체할 수 있는 작성법은 무엇이 있는지 유심히 지켜봐야겠다.</p>
+
+<p>하지만, 기존 작성된 코드 중 람다식이 사용된 경우도 많을 테니<br />
+그 코드를 해석할 수 있는 능력을 갖추기 위해서라도 람다식에 익숙해져야겠다.</p>
+
+<h2 id="레퍼런스">레퍼런스</h2>
+<p>https://en.wikipedia.org/wiki/Anonymous_function<br />
+https://en.wikipedia.org/wiki/Alonzo_Church<br />
+https://en.wikipedia.org/wiki/Entscheidungsproblem<br />
+https://wikidocs.net/22804<br />
+https://wikidocs.net/64<br />
+https://wpaud16.tistory.com/55</p>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="파이썬" /><category term="람다" /><category term="lambda" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">코딩테스트 마법의 엘리베이터 풀이</title><link href="http://localhost:4000/coding_test/2023/01/06/20230106_001_magic_elevator.html" rel="alternate" type="text/html" title="코딩테스트 마법의 엘리베이터 풀이" /><published>2023-01-06T16:46:06+09:00</published><updated>2023-01-06T16:46:06+09:00</updated><id>http://localhost:4000/coding_test/2023/01/06/20230106_001_magic_elevator</id><content type="html" xml:base="http://localhost:4000/coding_test/2023/01/06/20230106_001_magic_elevator.html"><![CDATA[<!--postNo: 20230106_001-->
+
+<blockquote>
+  <p>코딩테스트 연습에 공개된 문제는 (주)그렙이 저작권을 가지고 있습니다.<br />
+(지문 하단에 별도 저작권 표시 문제 제외)
+코딩테스트 연습 문제의 지문, 테스트케이스, 풀이 등과 같은 정보는 비상업적, 비영리적 용도로 게시할 수 있습니다.</p>
+</blockquote>
+
+<h2 id="코딩테스트-정보">코딩테스트 정보</h2>
 <ul>
-  <li>
-    <p>(1) ImportError: No module named pandas<br />
-해당 모듈을 찾을 수 없어, import 할 수 없다는 것이다.</p>
-  </li>
-  <li>
-    <p>(2) File “<stdin>", line 1  
-파이썬이 이미 실행되어있는 상태에서, 파이썬을 다시 실행해 생기는 오류라고 한다.  
-보통 이 문구를 보면 exit() 문을 통해 문제가 되는 프로그램에서 나가면 해결이 되나..  
-지금은 상황이 다르다.</stdin></p>
+  <li>프로그래머스</li>
+  <li>python</li>
+  <li>level 2</li>
+  <li>획득 점수 : 21</li>
+</ul>
+
+<h2 id="문제">문제</h2>
+<blockquote>
+<br />
+마법의 세계에 사는 민수는 아주 높은 탑에 살고 있습니다.  
+탑이 너무 높아서 걸어 다니기 힘든 민수는 마법의 엘리베이터를 만들었습니다.  
+마법의 엘리베이터의 버튼은 특별합니다.  
+
+마법의 엘리베이터에는 -1, +1, -10, +10, -100, +100 등과 같이 절댓값이 10c (c ≥ 0 인 정수) 형태인 정수들이 적힌 버튼이 있습니다.  
+마법의 엘리베이터의 버튼을 누르면 현재 층 수에 버튼에 적혀 있는 값을 더한 층으로 이동하게 됩니다.  
+단, 엘리베이터가 위치해 있는 층과 버튼의 값을 더한 결과가 0보다 작으면 엘리베이터는 움직이지 않습니다.  
+민수의 세계에서는 0층이 가장 아래층이며 엘리베이터는 현재 민수가 있는 층에 있습니다.  
+
+마법의 엘리베이터를 움직이기 위해서 버튼 한 번당 마법의 돌 한 개를 사용하게 됩니다.  
+예를 들어, 16층에 있는 민수가 0층으로 가려면 -1이 적힌 버튼을 6번, -10이 적힌 버튼을 1번 눌러 마법의 돌 7개를 소모하여 0층으로 갈 수 있습니다.  
+하지만, +1이 적힌 버튼을 4번, -10이 적힌 버튼 2번을 누르면 마법의 돌 6개를 소모하여 0층으로 갈 수 있습니다.  
+
+마법의 돌을 아끼기 위해 민수는 항상 최소한의 버튼을 눌러서 이동하려고 합니다.  
+민수가 어떤 층에서 엘리베이터를 타고 0층으로 내려가는데 필요한 마법의 돌의 최소 개수를 알고 싶습니다.  
+민수와 마법의 엘리베이터가 있는 층을 나타내는 정수 storey 가 주어졌을 때,  
+0층으로 가기 위해 필요한 마법의 돌의 최소값을 return 하도록 solution 함수를 완성하세요.
+<br />
+</blockquote>
+
+<h2 id="풀이-코드">풀이 코드</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">storey</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">digit</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">storey</span><span class="p">))</span>     <span class="c1"># digit = storey 의 자릿수
+</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">digit</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>   <span class="c1"># 반올림을 고려해 시행횟수 1회 늘림
+</span>        <span class="n">num</span> <span class="o">=</span> <span class="n">storey</span> <span class="o">%</span> <span class="mi">10</span>        <span class="c1"># num = 1의 자리수의 숫자
+</span>        <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">answer</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="n">num</span><span class="p">)</span>
+            <span class="n">storey</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">storey</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">10</span>
+            <span class="c1"># 처리 완료한 1의 자리 숫자를 지우기
+</span>        <span class="k">else</span><span class="p">:</span>
+            <span class="n">answer</span> <span class="o">+=</span> <span class="n">num</span>
+            <span class="n">storey</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">storey</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">10</span>
+            <span class="c1"># 처리 완료한 1의 자리 숫자를 지우기
+</span>
+    <span class="k">return</span> <span class="n">answer</span>
+</code></pre></div></div>
+
+<h2 id="풀이-방식">풀이 방식</h2>
+<p>■■■■ 문제 요약 ■■■■</p>
+<ul>
+  <li>버튼 : -1, +1, -10, +10, -100, +100 과 같이 절대값이 10c (c &gt;= 0 인 정수)</li>
+  <li>층수 : 0층이 가장 아래 층. 최고 100,000,000 층</li>
+  <li>엘리베이터 로직 1 : 현재 층 수 + 누른 버튼들에 적혀 있는 값을 더한 층으로 이동</li>
+  <li>엘리베이터 로직 2 : 엘리베이터가 위치한 층과 버튼의 값을 더한 결과가 0보다 작으면 엘리베이터는 움직이지 않음</li>
+  <li>현재 엘리베이터 위치 :  : 엘리베이터는 민수가 있는 storey층에 있음
+    <blockquote>
+      <p>예시) 0층에서 시작해 16층으로 가는 방법<br />
+(1) : +1 * 6번, +10 * 1번 — 총 7번<br />
+(2) : -1 * 4번, +10 * 2번 — 총 6번<br />
+2번 방법이 더 효율적</p>
+    </blockquote>
   </li>
 </ul>
 
-<h3 id="문제-원인-추정">문제 원인 추정</h3>
-<h4 id="1-인텔-맥북---m실리콘-맥북-환경-차이">(1) 인텔 맥북 -&gt; M실리콘 맥북 환경 차이</h4>
-<p>노트북을 바꾸면서 프로세서의 종류 또한 인텔에서 M실리콘으로 바뀌었다.<br />
-마이그레이션을 통해 이전 노트북에 있는 설정과 파일을 그대로 새 노트북으로 가져왔기 때문에<br />
-현재 프로세서와 맞지 않는 설정 혹은 프로그램 설치가 되었을 수도 있겠다고 생각했다.</p>
-
-<h4 id="2-모듈-설치-경로의-문제">(2) 모듈 설치 경로의 문제</h4>
-<p>terminal에서는 모듈을 import하고 사용하는 데 문제가 없다.<br />
-다만, VScode 등 다른 편집기들에서만 모듈이 import 되지 않는다.<br />
-그렇다면 모듈의 설치 경로를 인식하지 못하는 게 아닐까.. 싶다.</p>
-
-<p>테스트를 원한다면 terminal을 실행 후, 아래의 명령어를 실행해보자.</p>
-<pre><code class="language-Terminal">(1) 파이썬 실행 : python
-(2) 모듈 import(예시_pandas) : import pandas
-(3) 해당 모듈의 메서드들을 실행해보자. 에러문구가 뜨지 않으면
-    모듈 설치 자체는 잘 되어있다는 뜻.
-</code></pre>
-
-<h3 id="해결">해결</h3>
-<h4 id="1-미니콘다-삭제-후-재설치">(1) 미니콘다 삭제 후 재설치</h4>
-<p>라이브러리들이 있는 미니콘다를 삭제 후 현재 프로세서에 맞는 버전으로 다시 설치해보기로 했다.<br />
-terminal을 열고, 미니콘다 삭제 명령어를 입력해준다.</p>
-<pre><code class="language-Terminal">* 미니콘다 삭제 : rm -rf ~/miniconda
-</code></pre>
-
-<p>그 외로, 아래 두 경로에도 설치되어있을 수 있으니, 찾아서 직접 삭제해보자.</p>
-<ul>
-  <li>/opt (숨김파일 보기 : finder에서 shift +command + . 키)</li>
-  <li>user/user명/opt/miniconda3</li>
-  <li>lib/miniconda3</li>
-</ul>
-
-<p>이후, 콘다 사이트에서 미니콘다를 현재 프로세서에 맞는 것으로 재설치해준다.<br />
-(나는 Apple M1 64-bit 패키지 버전으로 다시 설치했다.)<br />
-<a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda 설치 페이지</a></p>
-
-<p>하지만 이걸로 해결되지는 않았다..</p>
-
-<h4 id="2-파이썬-삭제-후-재철치">(2) 파이썬 삭제 후 재철치</h4>
-<p>파이썬의 버전이 꼬여 일어난 문제는 아닐까 하여 삭제 후 재설치를 진행했다.<br />
-살펴보니, 미니콘다에 설치된 파이썬 외로, 3.7버전과 3.10버전이 추가 설치되어있었다.</p>
-
-<p>아래 경로에서 파이썬 삭제</p>
-<ul>
-  <li>/응용 프로그램 -&gt; python 버전별 폴더</li>
-  <li>/Library/Frameworks/Python.framework/Versions -&gt; 버전별 폴더</li>
-</ul>
-
-<p>이로써, 미니콘다에 설치된 파이썬 외의 파이썬은 모두 삭제했다.</p>
-
-<h4 id="3-편집기-재실행-및-인터프리터-재선택">(3) 편집기 재실행 및 인터프리터 재선택</h4>
-<p>코드 편집기를 재실행시켜준 후, 코드를 실행해보자.<br />
-내 경우엔, 인터프리터를 다시 선택하라는 경고가 떴고, 미니콘다에 설치되어있는 파이썬 버전을 선택했다.<br />
-이후부터는 설치된 모듈이 잘 돌아간다!</p>
-
-<h3 id="후기">후기</h3>
-<p>아직 설치한 라이브러리가 많지 않아, 프로그램 삭제 후 재설치라는 선택을 할 수 있었다.<br />
-하지만.. 설치된 게 많고, 엮여있는 게 많다면.. 생각하기도 싫다.<br />
-여튼 해결!</p>
-
-<h3 id="레퍼런스">레퍼런스</h3>
-<ul>
-  <li>미니콘다 제거 : https://www.delftstack.com/ko/howto/python/uninstall-miniconda/#macos%25EC%2597%2590%25EC%2584%259C-miniconda-%25EC%25A0%259C%25EA%25B1%25B0</li>
-  <li>미니콘다 설치 : https://docs.conda.io/en/latest/miniconda.html</li>
-  <li>MAC에서 숨김파일 보기 : https://macnews.tistory.com/5286</li>
-  <li>파이썬 삭제하기 : https://investechnews.com/2021/06/25/mac-python-완전-삭제초기화하기/</li>
-  <li>vi 편집기 명령어 : https://blockdmask.tistory.com/25</li>
-</ul>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥북" /><category term="맥" /><category term="M1" /><category term="M2" /><category term="파이썬" /><category term="판다스" /><category term="모듈" /><category term="에러" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">CSV, 엑셀 파일 마크다운으로 바꾸기 (파이썬 코드)</title><link href="http://localhost:4000/etc/2022/12/10/20221210_001.html" rel="alternate" type="text/html" title="CSV, 엑셀 파일 마크다운으로 바꾸기 (파이썬 코드)" /><published>2022-12-10T18:57:00+09:00</published><updated>2022-12-10T18:57:00+09:00</updated><id>http://localhost:4000/etc/2022/12/10/20221210_001</id><content type="html" xml:base="http://localhost:4000/etc/2022/12/10/20221210_001.html"><![CDATA[<!--postNo: 20221210_001-->
-
-<p>코드정리 목적으로 만든 CSV - 마크다운 변환 코드를 공유합니다.</p>
-
-<h4 id="csv---마크다운-변환-파이썬-코드">CSV -&gt; 마크다운 변환 파이썬 코드</h4>
-
-<p><a href="/assets/tools/csv_to_markdown.py">CSV-&gt;마크다운 변환 파이썬</a></p>
-
-<h4 id="마크다운---csv-변환-파이썬-코드">마크다운 -&gt; CSV 변환 파이썬 코드</h4>
-
-<p><a href="/assets/tools/markdown_to_csv.py">CSV-&gt;마크다운 변환 파이썬</a></p>
-
-<h4 id="레퍼런스">레퍼런스</h4>
-<ul>
-  <li>파일 대화창 모듈 : https://digiconfactory.tistory.com/entry/파이썬-GUI-프로그래밍-5-7-Tkinter-filedialog</li>
-  <li>마크다운 -&gt; CSV : https://blog.finxter.com/python-convert-markdown-table-to-csv/</li>
-  <li>제너레이터 리스트화 : https://whatisthenext.tistory.com/114</li>
-</ul>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="csv" /><category term="마크다운" /><category term="변환" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Google Colab Hot Key 구글 코랩 단축키</title><link href="http://localhost:4000/summary/2022/12/08/20221208_002_Google_Colab_Hotkey.html" rel="alternate" type="text/html" title="Google Colab Hot Key 구글 코랩 단축키" /><published>2022-12-08T21:52:00+09:00</published><updated>2022-12-08T21:52:00+09:00</updated><id>http://localhost:4000/summary/2022/12/08/20221208_002_Google_Colab_Hotkey</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/08/20221208_002_Google_Colab_Hotkey.html"><![CDATA[<!--postNo: 20221208_002-->
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">구분</th>
-      <th style="text-align: left">단축키</th>
-      <th style="text-align: left">설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">단축키</td>
-      <td style="text-align: left">Ctrl + M , H</td>
-      <td style="text-align: left">단축키 표시</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 생성/변경</td>
-      <td style="text-align: left">Ctrl + M , A</td>
-      <td style="text-align: left">위에 코드 셀 생성</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 생성/변경</td>
-      <td style="text-align: left">Ctrl + M , B</td>
-      <td style="text-align: left">아래에 코드 셀 생성</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 생성/변경</td>
-      <td style="text-align: left">Ctrl + M , D</td>
-      <td style="text-align: left">셀 지우기</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 생성/변경</td>
-      <td style="text-align: left">Ctrl + M , M</td>
-      <td style="text-align: left">마크다운 셀로 변경</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 생성/변경</td>
-      <td style="text-align: left">Ctrl + M , Y</td>
-      <td style="text-align: left">코드 셀로 변경</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 생성/변경</td>
-      <td style="text-align: left">Ctrl + M , Z</td>
-      <td style="text-align: left">실행 취소</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 실행</td>
-      <td style="text-align: left">Shift + Enter</td>
-      <td style="text-align: left">셀 실행</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 실행</td>
-      <td style="text-align: left">Alt + Enter</td>
-      <td style="text-align: left">셀 실행 후 아래에 셀 생성</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 실행</td>
-      <td style="text-align: left">Ctrl + F9</td>
-      <td style="text-align: left">모든 셀 실행</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 실행</td>
-      <td style="text-align: left">Ctrl + F8</td>
-      <td style="text-align: left">선택된 셀의 이전 셀들 실행</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 실행</td>
-      <td style="text-align: left">Ctrl + F10</td>
-      <td style="text-align: left">선택된 셀 포함 다음 셀들 실행</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 실행</td>
-      <td style="text-align: left">Ctrl + M</td>
-      <td style="text-align: left">런타임 다시 시작</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 실행</td>
-      <td style="text-align: left">Ctrl + M , I</td>
-      <td style="text-align: left">실행 중단</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 선택/이동</td>
-      <td style="text-align: left">Ctrl + Shift + A</td>
-      <td style="text-align: left">모든 셀 선택</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 선택/이동</td>
-      <td style="text-align: left">Shift + up or down</td>
-      <td style="text-align: left">셀 선택</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 선택/이동</td>
-      <td style="text-align: left">Ctrl + M , K</td>
-      <td style="text-align: left">선택된 셀을 위로 이동</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 선택/이동</td>
-      <td style="text-align: left">Ctrl + M , J</td>
-      <td style="text-align: left">선택된 셀을 아래로 이동</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 내용 수정</td>
-      <td style="text-align: left">Tab</td>
-      <td style="text-align: left">들여쓰기</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">셀 내용 수정</td>
-      <td style="text-align: left">Shift + Tab</td>
-      <td style="text-align: left">들여쓰기 취소 (역 들여쓰기)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">기타</td>
-      <td style="text-align: left">Ctrl + Alt + M</td>
-      <td style="text-align: left">댓글 추가</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">기타</td>
-      <td style="text-align: left">Ctrl + H</td>
-      <td style="text-align: left">전체 찾기/ 바꾸기</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Jongya</name></author><category term="summary" /><category term="Google" /><category term="Colab" /><category term="Hotkey" /><category term="구글" /><category term="코랩" /><category term="단축키" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">딥러닝 개요</title><link href="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html" rel="alternate" type="text/html" title="딥러닝 개요" /><published>2022-12-08T21:46:00+09:00</published><updated>2022-12-08T21:46:00+09:00</updated><id>http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro</id><content type="html" xml:base="http://localhost:4000/study_deep_learning/2022/12/08/20221208_001_deeplearning_intro.html"><![CDATA[<!--postNo: 20221208_001-->
-
-<blockquote>
-<div>
-
-    <p>들어가기 전에 : <a href="https://whdrns2013.github.io/Workspace_SeSAC/pythonDir/06_deeplearning/df_01_deeplearning.ipynb">코드 : 딥러닝 개요_ipynb 코드</a></p>
-  </div>
-
-<details>
-<summary> 공부 환경 </summary>
-<div>
-
-      <ul>
-        <li>교재 : 백견불여일타</li>
-        <li>코딩 환경 : Google Colab</li>
-        <li>Colab 사용 이유 : GPU 세션을 통한 빠른 속도의 연산처리 가능</li>
-        <li>Colab 사용법 : 대부분 주피터 랩과 비슷하나, 단축키 부분은 조금 다름</li>
-        <li>Colab 주의사항 : GPU 사용은 6~8시간 사용 후 24시간 대기 필요.<br />
-때문에 불필요한 GPU 세션 연결은 지양</li>
-      </ul>
-
-    </div></details></blockquote>
-
-<h2 id="1-딥러닝-개요">1. 딥러닝 개요</h2>
-<hr />
-
-<p><img src="/assets/images/20221208_001_010.png" alt="" /></p>
-
-<h3 id="1-딥러닝이란">(1) 딥러닝이란</h3>
-<p>기계학습 방법, 인공지능의 일종. 많은 데이터를 가지고 컴퓨터가 사람처럼 스스로 학습하도록 인공신경망 등의 기술을 이용한 기법이다. 여러(깊은) 학습층을 가지고 유연하고도 확장성 높은 학습이 가능한 기술이다.</p>
-
-<p>자료를 컴퓨터가 알아들을 수 있는 형태로 표현(ex.이미지-&gt;배열화)하고, 이를 컴퓨터가 학습하도록 하기 위한 많은 연구들의 결과로 여러 딥러닝 기법들이 만들어지고 있다. (DNN, CNN, RNN, RBM, DBN, Deep Q-Networks 등)</p>
-
-<p>딥러닝은 과거 과적합 문제와 느린 학습시간이라는 문제를 안고 있었으나, 과적합 방지 기술과 하드웨어의 발전에 따라 문제들이 해결됐고, 현업과 생활 전반에서 많은 부분들이 데이터화됨에 따라 많은 데이터(=빅데이터)들이 생겨나고 이를 수집하고 분석하는 기술의 발전에 따라 각광받고 있는 기술이다.</p>
-
-<p>딥러닝에 대해서는 아래 영상을 참고.<br />
-<a href="https://www.youtube.com/watch?v=aircAruvnKk">https://www.youtube.com/watch?v=aircAruvnKk</a></p>
-
-<p>딥러닝의 역사에 대해서는 아래 글을 참고.<br />
-<a href="https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html">https://beamandrew.github.io</a></p>
-
-<h3 id="2-딥러닝이-활약하는-분야">(2) 딥러닝이 활약하는 분야</h3>
-
-<p><img src="/assets/images/20221208_001_011.jpg" alt="" width="600" /></p>
-<center><div>
-    <p><em>저작자:Sven Behnke / 위키피디아: <a href="https://ko.wikipedia.org/wiki/딥_러닝#/media/파일:Deep_Learning.jpg">링크</a> / 라이선스 : CC-BY-SA 3.0</em></p>
-  </div></center>
-
-<ol>
-  <li>음성 인식 : 코타나, 스카이프, 구글 나우, 애플 시리 등</li>
-  <li>영상 인식 : 이미지 분류, 자동차 탑재용 컴퓨터 등</li>
-  <li>자연어 처리 : 단어표현에 대한 학습 및 분석. 번역, 감정 분석, 정보 검색 등에 사용</li>
-  <li>약학 및 독성학 : 약 제조 등에 있어 가상 실험 방법으로 사용됨</li>
-  <li>CRM : 고객 관계 관리</li>
-</ol>
-
-<h3 id="3-관련-용어">(3) 관련 용어</h3>
-
-<blockquote>
-  <p>인공신경망</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>용어                   </th>
-      <th>영단어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>인공신경망</td>
-      <td>Artificial Neural Network</td>
-      <td>인간의 뉴런 구조를 참고하여 만든 기계학습 모델. 뉴런에 해당하는 유닛이라 불리는 개체들이 다음 층에 있는 유닛들에 신호를 주면서 학습해간다. 자세한 내용은 하단 신경망 단원에서 서술한다.</td>
-    </tr>
-    <tr>
-      <td>오차</td>
-      <td>Error</td>
-      <td>모델이 예측한 예측값과 실제값 사이의 차이를 의미한다. 오차가 작을 수록 잘 예측했다고 할 수 있다.</td>
-    </tr>
-    <tr>
-      <td>활성화 함수</td>
-      <td>Activation Function|</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>가중치</td>
-      <td>weight</td>
-      <td>처음 들어오는 데이터를 다음 유닛(혹은 층)으로 넘길 때 데이터를 각기 다른 비중으로 넘기기 위한 값. 유닛들이 각기 다른 값을 내도록 하는 주요한 요인</td>
-    </tr>
-    <tr>
-      <td>편향(역치)</td>
-      <td>bias</td>
-      <td>유닛이 다음 유닛(혹은 층)으로 데이터를 넘길 때, 가중치와 함께 넘기는 값을 조정하는 상수</td>
-    </tr>
-    <tr>
-      <td>퍼셉트론</td>
-      <td>perceptron</td>
-      <td>인공신경망의 한 종류로서, 여러 개의 입력 신호를 받아, 하나의 출력 신호로 출력하는 과정을 이른다.</td>
-    </tr>
-    <tr>
-      <td>단층 퍼셉트론</td>
-      <td>Single Layer Perceptron</td>
-      <td>입력층과 출력층을 제외한 은닉층이 하나인 퍼셉트론.</td>
-    </tr>
-    <tr>
-      <td>다층 퍼셉트론</td>
-      <td>Multi Layer Perceptron</td>
-      <td>하나의 입력층과 하나의 출력층 및 다수개의 은닉층으로 이루어져있는 퍼셉트론</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="4-딥러닝-알고리즘라이브러리">(4) 딥러닝 알고리즘,라이브러리</h3>
-<blockquote>
-  <p>딥러닝 알고리즘</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>알고리즘</th>
-      <th>영단어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>심층 신경망</td>
-      <td>Deep Neural Network(DNN)</td>
-      <td>입력층과 출력층 사이에 여러 개의 은닉층들로 이뤄진 인공신경망</td>
-    </tr>
-    <tr>
-      <td>합성곱 신경망</td>
-      <td>Convolutional Neural Network(CNN)</td>
-      <td>최소한의 전처리를 사용하도록 설계된 다층 퍼셉트론의 한 종류</td>
-    </tr>
-    <tr>
-      <td>순환 신경망</td>
-      <td>Recurrent Neural Network(RNN)</td>
-      <td>인공신경망의 유닛 사이의 연결이 Directed cycle을 구성하는 신경망</td>
-    </tr>
-    <tr>
-      <td>제한 볼츠만 머신</td>
-      <td>Restircted Boltzmann Machine(RBM)</td>
-      <td>볼츠만 머신에서 층간 연결을 없앤 형태의 모델</td>
-    </tr>
-    <tr>
-      <td>심층 신뢰 신경망</td>
-      <td>Deep Belief Network(DBN)</td>
-      <td>층간에는 연결이 있지만, 층 내 유닛 간에는 연결이 없는 모습의 신경망</td>
-    </tr>
-    <tr>
-      <td>심층 Q 네트워크</td>
-      <td>Deep Q-Networks</td>
-      <td>강화 학습을 위한 딥러닝 모델</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>딥러닝 라이브러리</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>라이브러리</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Tensorflow</td>
-      <td>구글에서 발표한 기계학습 오픈소스 라이브러리. 많은 딥러닝 분야가 이 라이브러리를 사용한다.</td>
-    </tr>
-    <tr>
-      <td>NVIDIA cuDNN</td>
-      <td>DNN의 프리미티브를 제공해주는 라이브러리</td>
-    </tr>
-    <tr>
-      <td>convnetjs</td>
-      <td>자바스크립트로 구현된 딥러닝 라이브러리</td>
-    </tr>
-    <tr>
-      <td>그 외 라이브러리는 추후에 설명한다.|</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="2-자주-만날-용어-정리">2. 자주 만날 용어 정리</h2>
-<hr />
-<blockquote>
-  <p>데이터 준비 단계</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>용어</th>
-      <th>영단어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>클래스 불균형</td>
-      <td>class imbalance</td>
-      <td>데이터에서 각 클래스(변수. 주로 범주형)가 가지는 데이터 양의 차이가 큰 경우. 불균형 자체가 의미를 가질 수도 있으므로, 불균형 처리시에 주의 필요.</td>
-    </tr>
-    <tr>
-      <td>언더 샘플링(과소표집)</td>
-      <td>under sampling</td>
-      <td>클래스 불균형 데이터에 대해 양이 적은 쪽 클래스의 데이터 양에 맞춰 샘플링하는 방법</td>
-    </tr>
-    <tr>
-      <td>오버 샘플링(과대표집)</td>
-      <td>over sampling</td>
-      <td>클래스 불균형 데이터에 대해 양이 많은 쪽 클래스의 데이터 양에 맞춰 샘플링하는 방법</td>
-    </tr>
-    <tr>
-      <td>자세한 내용은 이후 단계에서 추가 공부||</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>분석 방법 (분류)</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>용어</th>
-      <th>영단어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>분류</td>
-      <td>Classification</td>
-      <td>데이터에서 규칙을 찾아내고, 유사도와 불순도(그룹 내 불순도)에 따라 분류하는 것. 이를 통한 미래 사건의 예측을 목표로 한다.</td>
-    </tr>
-    <tr>
-      <td>이진 분류</td>
-      <td>Binary -</td>
-      <td>분류되는 범주가 두 가지인 분류 분석 방법. 하나의 데이터는 하나의 범주에만 들어갈 수 있다.</td>
-    </tr>
-    <tr>
-      <td>다중 분류</td>
-      <td>Multiclass -</td>
-      <td>분류되는 범주가 여러 개인 분류 분석 방법. 하나의 데이터는 하나의 범주에만 들어갈 수 있다.</td>
-    </tr>
-    <tr>
-      <td>다중 레이블 분류</td>
-      <td>Multi Label -</td>
-      <td>분류되는 범주가 여러 개이면서, 하나의 데이터가 동시에 여러 범주로 들어갈 수 있는 분류 분석 방법. 비 배타적인(non-exclusive) 분류 방식이라고 부를 수 있다.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>분석 방법 (회귀)</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>용어</th>
-      <th>영단어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>회귀</td>
-      <td>Regression</td>
-      <td>둘 이상의 변수 간 관계를 찾는 방법. 보통 종속변수가 연속형 숫자인 경우에 사용. 이를 통한 미래 사건의 예측을 목표로 한다.</td>
-    </tr>
-    <tr>
-      <td>선형 회귀</td>
-      <td>Linear Regression</td>
-      <td>예측 대상인 종속 변수 한 개와 이를 설명하는 한 개 이상의 독립변수 간의 선형 관계성(상관성)을 파악하는 회귀 분석 방법</td>
-    </tr>
-    <tr>
-      <td>단순 회귀</td>
-      <td>Simple Regression</td>
-      <td>예측 대상인 종속변수와 이를 설명하는 독립변수가 <b>모두 하나</b>인 회귀 분석 방법</td>
-    </tr>
-    <tr>
-      <td>다중 회귀</td>
-      <td>Multiple Regression</td>
-      <td>예측 대상인 종속변수는 하나이지만, 이를 설명하는 <b>독립변수를 여러개</b>로 하는 회귀 분석 방법</td>
-    </tr>
-    <tr>
-      <td>로지스틱 회귀</td>
-      <td>Logistic Regression</td>
-      <td>종속변수가 범주형 데이터인 경우 사용되는 회귀 분석 방법</td>
-    </tr>
-    <tr>
-      <td>이항형(단순) 로지스틱 회귀</td>
-      <td>Binomial -</td>
-      <td>종속변수가 이항형(분류가 두 개인 하나의 범주; ex.생물학적 성별)일 때의 분석 방법</td>
-    </tr>
-    <tr>
-      <td>다항형(다항) 로지스틱 회귀</td>
-      <td>Multnomial -</td>
-      <td>종속변수가 다항형(분류가 두 개 초과인 하나의 범주; ex.봄/여름/가을/겨울)일 때의 분석 방법</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>전처리</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>용어        </th>
-      <th>영단어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>원 핫 인코딩</td>
-      <td>One-Hot-Encoding</td>
-      <td>수치형이 아닌 자료를 수치형으로 표현할 수 있게 하는 인코딩 방법. 여러 개의 클래스를 각각 칼럼으로 생성해준 후, 데이터가 해당되는 칼럼에는 1, 해당되지 않는 칼럼에는 0을 표시하는 방법.</td>
-    </tr>
-    <tr>
-      <td>레이블 인코딩</td>
-      <td>Label Encoding</td>
-      <td>수치형이 아닌 자료를 수치형으로 표현할 수 있게 하는 인코딩 방법. 하나의 클래스를 하나의 숫자로 변환한다. 딥러닝에서는 이 방식을 지양하는데, 딥러닝 모델이 인코딩된 숫자값의 크기 차에 영향을 받을 수 있기 때문.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>모델 학습과 파라미터</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>용어           </th>
-      <th>영단어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>하이퍼<br />파라미터</td>
-      <td>Hyper Parameter</td>
-      <td>모델이 스스로 찾는 요소 외로, 사람이 직접 설정해줘야 하는 요소. 학습률, 학습 횟수 등이 있다.</td>
-    </tr>
-    <tr>
-      <td>학습률</td>
-      <td>Learning Rate</td>
-      <td>인공신경망 모델은 데이터를 학습하면서 예측치와 실제값 간의 오차를 줄여나가는 것을 우선 목표로 한다. 이를 위해 예측을 위한 함수에서 가중치(weight)와 역치(bias)를 조정하는데, 이 가중치와 역치를 조정하는 강도를 학습률이라고 한다.</td>
-    </tr>
-    <tr>
-      <td>에폭</td>
-      <td>Epochs</td>
-      <td>전체 데이터를 학습하는 횟수. 전체 데이터를 10번 학습한다면 epochs = 10 (10epochs)이 된다.</td>
-    </tr>
-    <tr>
-      <td>스텝</td>
-      <td>Steps</td>
-      <td>모델의 가중치(weight)와 역치(bias)를 업데이트 하는 횟수. 업데이트 횟수가 10번이면 steps = 10 (10steps)이 된다.</td>
-    </tr>
-    <tr>
-      <td>배치 크기</td>
-      <td>Batch Size</td>
-      <td>1step에서 사용한 데이터의 개수이다. 몇 개의 데이터를 학습할 때마다 중량치를 조정할지.</td>
-    </tr>
-    <tr>
-      <td>예시|</td>
-      <td>일주일동안 매일 벤치 프레스 40개를 5세트로 나눠 하려 한다.<br /> 1. epoch = 7 (일주일) <br />2. step = 5 (5세트) <br /> 3. batch size = 8 (세트당 8회) <br /> 4. 학습률 : 벤치프레스 중량 조정비 <br /> 5. n(전체 데이터 수) = 40</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>과대, 과소적합</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>용어            </th>
-      <th>영단어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>과적합<br />(과대적합)</td>
-      <td>Over Fitting</td>
-      <td>모델이 학습(훈련) 데이터에 너무 최적화하여 만들어진 경우. 학습(훈련)데이터에는 좋은 분류/예측 성능을 보이지만, 검증 혹은 실제 데이터에는 낮은 분류/예측 성능을 보일 수 있다. 그러므로 모델을 만들 때 과적합되지 않도록 주의해야 한다.</td>
-    </tr>
-    <tr>
-      <td>과소적합</td>
-      <td>Under Fitting</td>
-      <td>과대적합의 반대 개념. 모델이 학습(훈련)데이터를 정확히 분류/예측하지 못하는 문제.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>평가</p>
-</blockquote>
-
-<ul>
-  <li>평가는 머신러닝에서의 평가와 동일한 지표들을 사용한다.
-    <h4 id="업데이터-필요-머신러닝-평가지표-링크">(업데이터 필요) 머신러닝 평가지표 링크</h4>
-  </li>
-</ul>
-
-<h2 id="3-인공-신경망">3. 인공 신경망</h2>
-<hr />
-
-<p>딥러닝을 알기 위해서는 우선 인공 신경망을 알아야 한다. 딥러닝은 인공신경망을 베이스로 하기 때문.<br />
-인공신경망은 인간의 뉴런간 시냅스 결합에서 영감을 얻은 기계학습 방법의 하나이다. 하나의 층 혹은 여러 개의 층에 속한 유닛(신경계의 뉴런에 해당)간의 정보 전달을 통해 학습을 해가는 방법으로, 필기체 인식 및 음성 인식 등에 활용된다.</p>
-
-<h3 id="1-활성화-함수">(1) 활성화 함수</h3>
-<blockquote>
-  <p>Activation Function</p>
-</blockquote>
-
-<p>한 층의 유닛에서 다음 층의 유닛에 전달하는 값을 변환하는 함수로, 활성화 함수를 통해 변환된 값이 임계값을 넘지 못하는 경우 다음 층으로 값이 전달되지 않는다.<br />
-활성화 함수는 ‘비선형’ 함수를 사용하는데, 이는 딥러닝 모델의 레이어 층을 깊에 가져갈 수 있기 때문이다. 즉, 선형 함수를 사용할 경우 아무리 많은 층을 사용하더라도 선형으로 설명이 가능하기 때문에, 딥러닝을 이용하는 의미가 없어지는 것이다.<br />
-다양한 활성화 함수가 있으며, 아래와 같다.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>활성화 함수</th>
-      <th>영단어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>시그모이드 함수</td>
-      <td>Sigmoid Function</td>
-      <td>입력값을 0~1 사이의 값으로 변환한 뒤 출력(전달) 하는 함수</td>
-    </tr>
-    <tr>
-      <td>ReLU</td>
-      <td>Rectified Linear Unit</td>
-      <td>입력값이 0보다 작으면 0으로 출력, 입력값이 0보다 크면 그대로 출력(전달)하는 함수</td>
-    </tr>
-    <tr>
-      <td>쌍곡탄젠트</td>
-      <td>Hyperbolic Function</td>
-      <td>입력값을 -1~1 사이의 값으로 변환한 뒤 출력(전달) 하는 함수</td>
-    </tr>
-    <tr>
-      <td>소프트맥스 함수</td>
-      <td>Softmax Function</td>
-      <td>세 개 이상으로 분류하는 다중 클래스 분류에서 사용되는 함수로, 각 클래스에 속할 확률을 추정하는 함수이다. 인공신경망에서는 가장 마지막 활성화 함수로 자주 쓰인다. 입력값을 자연로그의 밑으로 한 지수 함수를 취한 두, 그 지수함수의 합으로 나눠주는 것. 다른 활성화함수와는 조금 다르게 보아야 한다.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><img src="/assets/images/20221208_001_003.png" alt="출처:wikipedia" width="400" /></p>
-
-<center><b>↑시그모이드 함수</b></center>
-
-<p><img src="/assets/images/20221208_001_004.png" alt="출처:wikipedia" width="400" /></p>
-
-<center><b>↑ReLU</b></center>
-
-<p><img src="/assets/images/20221208_001_005.png" alt="출처:wikipedia" width="400" /></p>
-
-<center><b>↑쌍곡탄젠트</b></center>
-
-<p><img src="/assets/images/20221208_001_006.png" alt="출처:The Maverick Meerkat https://themaverickmeerkat.com/2019-10-23-Softmax/" width="400" /></p>
-
-<center><b>↑소프트맥스 함수</b></center>
-
-<p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=handuelly&amp;logNo=221824080339">활성화함수 추가 설명</a></p>
-
-<h3 id="추가-필요--2-손실함수">추가 필요 : (2) 손실함수</h3>
-
-<h3 id="추가-필요--3-평가지표">추가 필요 : (3) 평가지표</h3>
-
-<h2 id="4-퍼셉트론-알고리즘">4. 퍼셉트론 알고리즘</h2>
-
-<h3 id="1-퍼셉트론-알고리즘이란">(1) 퍼셉트론 알고리즘이란?</h3>
-
-<p><img src="/assets/images/20221208_001_002.png" alt="자체제작" /></p>
-
-<p>인공신경망의 한 종류로서, 여러 개의 입력 신호를 받아, 하나의 출력 신호로 출력하는 과정을 이른다.</p>
-
-<p>인공신경망은 크게<br />
-(1) 입력 신호를 받는 입력층<br />
-(2) 신호에 가중치와 역치 계산을 조정한 후, 활성함수를 통해 다음 층으로 전달하는 은닉층<br />
-(3) 값을 출력하는 출력층 으로 이루어져 있다.</p>
-
-<ul>
-  <li>
-    <p>층 layer
-입력층과 출력층 사이에 있는 은닉층. 은닉층에 있는 뉴런들이 가중치와 bias값을 조정하면서 학습하는 과정을 통해 최소 손실값을 찾아간다. 층의 유닛간 연결법에는 Dense(완전연결), LSTM, RNN 등이 있다.</p>
-  </li>
-  <li>
-    <p>유닛 (=노드 = 뉴런)<br />
-각 층에 있는 정보를 받고, 다음 층으로 정보를 전달하는 x들을 ‘유닛(=뉴런 =노드)’라 한다.</p>
-  </li>
-  <li>
-    <p>가중치 weight<br />
-하나의 유닛에서 다음 층에 있는 유닛에 정보를 전달할 때, 가중치(weight)를 곱하고 편향(bias)을 더한 후 전달하게 된다. 전달된 정보는 활성화 함수를 통해 임계값을 넘어야 전달되며, 임계값에 미달할 경우 전달되지 않는다.</p>
-  </li>
-  <li>
-    <p>활성화 함수 activation function<br />
-입력값(정보)을 변환하는 함수. 변환된 입력값이 임계값을 넘어가면 값이 다음 층의 유닛으로 전달된다.</p>
-  </li>
-</ul>
-
-<h3 id="2-퍼셉트론-알고리즘-만들기">(2) 퍼셉트론 알고리즘 만들기</h3>
-
-<blockquote>
-<span style="background-color:#fff5b1"><b> 퍼셉트론 만들어보기</b></span>
-<span><details>
-<summary><b><u>기본적인 퍼셉트론 모델 코딩 FLOW (펼치기/접기)</u></b></summary>
- <div>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== Import ==='</span>
-
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span> <span class="c1"># 텐서플로우
-</span><span class="n">tf</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">777</span><span class="p">)</span> <span class="c1"># 텐서플로우의 난수 생성 규칙 지정
-</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># 넘파이
-</span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span> <span class="c1"># Sequential 모델
-</span><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span> <span class="c1"># Dense 완전 연결층
-</span><span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span> <span class="c1"># 확률적 경사하강법
-</span><span class="kn">from</span> <span class="nn">keras.losses</span> <span class="kn">import</span> <span class="n">mse</span> <span class="c1"># mean squared error 평가 지표
-</span></code></pre></div>        </div>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 만들기 ==='</span>
-
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'activation function'</span><span class="p">))</span>
-<span class="c1">## Dense : 완전 연결층. 모든 입력값들에 대해 연결을 하는 층이다.
-## n : 층에 생성할 유닛(=뉴런)의 갯수
-## input shape 들어오는 값의 형태는 i * j 행렬의 형태 
-## activation = 활성화 함수
-## 다층 퍼셉트론을 만들려면, model.add를 여러 번 반복하면 된다.
-</span></code></pre></div>        </div>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 컴파일 ==='</span>
-
-<span class="c1"># 컴파일 : 모델 설정이라고 보면 편하다.
-</span><span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">옵티마이저</span><span class="p">,</span>
-              <span class="n">loss</span> <span class="o">=</span> <span class="n">로스측정방식</span><span class="p">,</span>
-              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="n">평가지표들</span><span class="p">])</span>
-<span class="c1">## 컴파일에서는 옵티마이저, 로스, 평가 모듈을 정의한다.
-## 옵티마이저는 : 학습된 손실값을 통해 모델을 업데이트 하는 방식
-## 로스 : 손실함수
-## 메트릭스 : 평가 지표 acc, mse 등.
-</span></code></pre></div>        </div>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 학습 ==='</span>
-
-<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="n">전체데이터</span> <span class="n">학습횟수</span><span class="p">)</span>
-<span class="c1">## x, y : 독립변수들과 종속변수
-## epochs : 전체 데이터를 몇 번 학습할 것인지
-## 이 모델은 x1 * w1 _ x2 * w1 .... 형식으로 가중치 계산이 되었다.
-</span></code></pre></div>        </div>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 가중치(weight와 편향bias 찾기) ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
-<span class="c1">## 우리는 x값은 알고 있으나, 학습 과정에서 생긴 w (weight = 가중치) 값은 모른다.
-## 그러므로, .get_weights() 메서드로 확인해본다.
-</span>
-<span class="s">'=== 결과값 예시 ==='</span>
-<span class="o">-</span> <span class="n">array</span><span class="p">([[</span><span class="mf">0.49431458</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.37552658</span><span class="p">]]</span><span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
-<span class="o">-</span> <span class="n">array</span><span class="p">([</span><span class="mf">0.32719323</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
-<span class="c1">## 가중치 -&gt; 0.49431458, 0.37552658
-## 편향 -&gt; 0.32719323
-</span></code></pre></div>        </div>
-      </div>
-</details>
-</span>
-</blockquote>
-
-<h3 id="3-keras-주요-클래스-설명">(3) keras 주요 클래스 설명</h3>
-
-<blockquote>
-  <p>keras 주요 클래스</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>keras 주요 클래스</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>keras.Sequential()</td>
-      <td>층을 차례대로 쌓은 모델</td>
-    </tr>
-    <tr>
-      <td>keras.layers()</td>
-      <td>층을 생성하는 메서드</td>
-    </tr>
-    <tr>
-      <td>keras.data import Dataset</td>
-      <td>케라스 데이터셋</td>
-    </tr>
-    <tr>
-      <td>keras.Model.evaluate()</td>
-      <td>손실(loss)과 정확도 등의 지표</td>
-    </tr>
-    <tr>
-      <td>keras.Model.predict()</td>
-      <td>예측 실행</td>
-    </tr>
-    <tr>
-      <td>keras.Model.summary()</td>
-      <td>모델의 층 정보, 파라미터 정보 등을 요약해 보여준다.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>keras 레이어 클래스</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>layer</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Dense</td>
-      <td>완전연결층. 모든 유닛들이 연결된다.</td>
-    </tr>
-    <tr>
-      <td>LSTM</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>GRU</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>SimpleRNN</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>TimeDistributed</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Bidirectional</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>ConvLSTM1D ~ 3D</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>BaseRNN</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>그 외로, layer를 직접 설정해줄 수도 있다.|</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>activation function</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>relu</td>
-      <td>ReLU 함수. 입력값이 0보다 작으면 0으로 출력, 입력값이 0보다 크면 그대로 출력(전달)하는 함수. 가장 많이 쓰인다.</td>
-    </tr>
-    <tr>
-      <td>sigmoid</td>
-      <td>시그모이드 함수</td>
-    </tr>
-    <tr>
-      <td>softmax</td>
-      <td>소프트맥스 함수. 입력값을 자연로그의 밑으로 한 지수 함수를 취한 두, 그 지수함수의 합으로 나눠주는 것.</td>
-    </tr>
-    <tr>
-      <td>tanh</td>
-      <td>탄젠트쌍곡선. 입력값을 -1~1 사이의 값으로 변환한 뒤 출력(전달) 하는 함수</td>
-    </tr>
-    <tr>
-      <td>softplus</td>
-      <td>ReLU함수를 부드럽게 근사한 것으로, 출력을 항상 양수로 제한한다.</td>
-    </tr>
-    <tr>
-      <td>softsign</td>
-      <td>시그모이드와 비슷하면서, 경사소실문제를 어느정도 완화해줌.</td>
-    </tr>
-    <tr>
-      <td>elu</td>
-      <td>ReLU의 변종으로, 다른 ReLU 변종들의 성능을 앞질렀다. 시간단축, 성능향상</td>
-    </tr>
-    <tr>
-      <td>selu</td>
-      <td>ELU 의 변종. 완전연결 + 모든 은닉층이 selu 사용시 네트워크가 가지 정규화 된다고 저자가 주장함. 평균0과 표준편차 1을 유지하는 경향을 보임.</td>
-    </tr>
-    <tr>
-      <td>exponential</td>
-      <td>지수함수.</td>
-    </tr>
-    <tr>
-      <td>그 외, 직접 활성함수를 제작할 수도 있다.|</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>keras compile 클래스 : (layer의 optimizer, loss, metrics 설정)</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>Optimizer</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Optimizer?  직역하면 최적화 알고리즘으로, ‘손실값을 최소로 하는 최적의 방법’을 찾아가는 방법론. 손실함수를 통해 얻은 손실값으로부터 모델을 업데이트하는 계산식을 의미한다.|</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Adam</td>
-      <td>일반적으로 가장 많이 사용하는 옵티마이저. RMSprop에 모멘텀을 적용한 것.</td>
-    </tr>
-    <tr>
-      <td>SGD</td>
-      <td>경사하강법. 모멘텀 및 네스테로프 모멘텀, learning_rate_decay 방법을 지원한다.</td>
-    </tr>
-    <tr>
-      <td>RMSprop</td>
-      <td>일반적으로 순환 신경망 RNN의 옵티마이저로 많이 사용된다.</td>
-    </tr>
-    <tr>
-      <td>Adagrad</td>
-      <td>모델 파라미터별 학습률을 사용하는 옵티마이저. 파라미터의 값이 업데이트되는 빈도에 의해 학습률이 결정됨. 모든 인자를 기본값으로 사용하는 것이 권장됨.</td>
-    </tr>
-    <tr>
-      <td>Adadelta</td>
-      <td>Adagrad를 확장한 보다 견고한 옵티마이저. 과거의 모든 그래디언트를 축적하는 대신, 그래디언트 업데이트의 이동창에 기반해 학습률을 조정함.</td>
-    </tr>
-    <tr>
-      <td>Adamax</td>
-      <td>Adam의 변형으로, 무한 노름(infinity norm)에 기반함</td>
-    </tr>
-    <tr>
-      <td>Nadam</td>
-      <td>RMSprop에 네스테로프 모멘텀을 적용한 옵티마이저.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><a href="https://heeya-stupidbutstudying.tistory.com/entry/ML-신경망에서의-Optimizer-역할과-종류">참고 : 옵티마이저에 대한 설명</a></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>loss</th>
-      <th>문제종류</th>
-      <th>설명</th>
-      <th>모델의 마지막 활성화 함수</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>loss?  손실함수(=최적화 함수) 최소의 손실값을 찾아가는 계산식이다.|||</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>binary_crossentropy</td>
-      <td>classification</td>
-      <td>클래스가 두 개인 이진 분류 문제에서 사용하는 손실함수. label이 0 또는 1을 값으로 가질 때.</td>
-      <td>sigmoid</td>
-    </tr>
-    <tr>
-      <td>categorical_crossentropy</td>
-      <td>classification</td>
-      <td>클래스가 여러 개인 다중 분류 문제에서 사용하는 손실함수. label이 원-핫 인코딩 된 형태에서 사용한다.</td>
-      <td>softmax</td>
-    </tr>
-    <tr>
-      <td>sparse_categorical_crossentropy</td>
-      <td>classification</td>
-      <td>클래스가 여러 개인 다중 분류 문제에서 사용하는 손실함수. label이 정수 인코딩 label encoding 된 값을 가질 때 사용한다.</td>
-      <td>softmax</td>
-    </tr>
-    <tr>
-      <td>mse</td>
-      <td>regression</td>
-      <td>mean_squared_error. 평균 제곱 오차 손실.|</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>mean_absolute_error</td>
-      <td>regression||</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>mean_absolute_percentage_error</td>
-      <td>regression||</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>mean_squared_logarithmic_error</td>
-      <td>regression||</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>squared_hinge</td>
-      <td>regression||</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>metrics</th>
-      <th>문제종류</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>metrics?  평가지표. keras에서는 한 층에 다수의 평가지표를 리스트 형태로 넣을 수 있다.||</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>acc</td>
-      <td>Classification</td>
-      <td>정확도</td>
-    </tr>
-    <tr>
-      <td>mse</td>
-      <td>Regression</td>
-      <td>MeanSquaredError</td>
-    </tr>
-    <tr>
-      <td>rmse</td>
-      <td>Regression</td>
-      <td>평균 제곱근 편차 Root Mean Square Error</td>
-    </tr>
-    <tr>
-      <td>r2</td>
-      <td>Regression</td>
-      <td>통계학의 결정계수. 추정한 선형 모형이 주어진 자료에 적합한 정도.</td>
-    </tr>
-    <tr>
-      <td>mae</td>
-      <td>Regression</td>
-      <td>MeanAbsoluteError</td>
-    </tr>
-    <tr>
-      <td>mape</td>
-      <td>Regression</td>
-      <td>MeanAbsolutePercentageError</td>
-    </tr>
-    <tr>
-      <td>msle</td>
-      <td>Regression</td>
-      <td>MeanSquaredLogarithmicError</td>
-    </tr>
-    <tr>
-      <td>categorical_crossentropy</td>
-      <td>Probabilistic|</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>precision, recall, f1 등은 keras 2.0부터 제외되었다. 이에 해당 지표를 사용하려면 사용자 정의 함수로 정의해야한다.|</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="4-단층-퍼셉트론">(4) 단층 퍼셉트론</h3>
-<blockquote>
-  <p>Single layer Perceptron</p>
-</blockquote>
-
-<p><img src="/assets/images/20221208_001_001.png" alt="자체제작" /></p>
-
-<p>입력층과 출력층을 제외한 은닉층이 하나인 퍼셉트론. <br />
-각각의 입력값에 대해 유닛에서 가중치를 준 후, 활성화 함수를 통해 다음 층으로 값을 전달하거나 전달하지 않는다.<br />
-AND, OR, NAND(Not-AND) 와 같은 선형 분리가 가능한 문제에 대해선 해결이 가능하나,<br />
-<span style="background-color:#fff5b1"><b><u>XOR(배타적 논리합) 연산은 해결이 불가능</u></b></span>한 문제를 가지고 있다. (하기 코드 강조)<br />
-이 문제와 함께 하드웨어의 연산 속도의 한계로 인해 인공신경망은 발전이 더딘 암흑기를 보냈었다.</p>
-
-<blockquote>
-<span style="background-color:#fff5b1"><b> OR, NAND, XOR에 대한 설명</b></span>
-<details>
-<summary> 펼치기/접기 </summary>
-<div>
-
-      <table>
-        <thead>
-          <tr>
-            <th>구분</th>
-            <th>설명</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>OR</td>
-            <td>논리합. <br /> 둘 중 하나라도 True [0, 1] [1, 0] [1, 1]이면 -&gt; True(1) <br /> 둘 다 False [0, 0] 이면 -&gt; Flase(0)</td>
-          </tr>
-          <tr>
-            <td>AND</td>
-            <td>논리곱. <br /> 둘 다 True [1, 1] 이면 -&gt; True(1) <br /> 둘 중 하나라도 False [0, 1],[1, 0],[0,0]이면 -&gt; False(0)</td>
-          </tr>
-          <tr>
-            <td>NAND</td>
-            <td>둘 다 True [1, 1] 이면 -&gt; True가 아님(False=0) <br /> 둘 다 True 가 아니면[0, 0] -&gt; True(1)</td>
-          </tr>
-          <tr>
-            <td>XOR</td>
-            <td>둘 중 한 가지만 True면 -&gt; True(1)<br /> 둘 다 True거나 False면 -&gt; False(0)</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div></details></blockquote>
-
-<blockquote>
-<span style="background-color:#fff5b1"><b> 단층 퍼셉트론 만들어보기</b></span>
-<details>
-<summary> OR 데이터에 대한 단층 퍼셉트론 모델 </summary>
-<div>
-
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== OR 데이터 만들기 ==='</span>
-<span class="c1">## 둘 다 False [0, 0] 이면 -&gt; Flase(0)
-## 둘 중 하나라도 True [0, 1] [1, 0] [1, 1]이면 -&gt; True(1)
-</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
-
-
-<span class="s">'=== 모델 만들기 ==='</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'linear'</span><span class="p">))</span>
-<span class="c1"># 시퀀셜 모델, 은닉층은 완전연결층으로 1개
-# 은닉층에 유닛은 2개, 활성함수는 선형함수
-</span>
-
-<span class="s">'=== 모델 컴파일 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(),</span>
-              <span class="n">loss</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span>
-              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
-<span class="c1"># 옵티마이저는 경사하강법 SGD
-# 로스는 mse, 평가는 정확도
-</span>
-
-<span class="s">'=== 모델 학습 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
-<span class="c1"># 전체데이터를 500번 학습함
-</span>
-
-<span class="s">'=== 학습결과 ==='</span>
-<span class="o">*</span> <span class="n">loss</span> <span class="p">:</span> <span class="mf">0.2282</span> <span class="o">~</span> <span class="mf">0.0656</span>
-<span class="o">*</span> <span class="n">acc</span> <span class="p">:</span> <span class="mf">1.000</span> <span class="p">(</span><span class="mi">100</span><span class="o">%</span><span class="p">)</span>
-
-
-<span class="s">'=== 가중치값 구하기 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
-<span class="o">*</span> <span class="n">가중치</span> <span class="p">:</span> <span class="p">[[</span><span class="mf">0.5609935</span> <span class="p">],[</span><span class="mf">0.58792883</span><span class="p">]]</span>
-<span class="o">*</span> <span class="n">bias</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.16167852</span><span class="p">]</span>
-
-</code></pre></div>      </div>
-    </div></details>
-
-<details>
-<summary> NAND(Not AND) 데이터에 대한 단층 퍼셉트론 모델 </summary>
-<div>
-
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== NAND 데이터 만들기 ==='</span>
-<span class="c1">## 둘 다 True [1, 1] 이면 -&gt; True가 아님(False=0)
-## 둘 다 True 가 아니면 -&gt; True(1)
-</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
-
-
-<span class="s">'=== 모델 만들기 ==='</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'linear'</span><span class="p">))</span>
-<span class="c1"># 시퀀셜 모델, 은닉층은 완전연결층으로 1개
-# 은닉층에 유닛은 2개, 활성함수는 선형함수
-</span>
-
-<span class="s">'=== 모델 컴파일 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(),</span>
-              <span class="n">loss</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span>
-              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
-<span class="c1"># 옵티마이저는 경사하강법 SGD
-# 로스는 mse, 평가는 정확도
-</span>
-
-<span class="s">'=== 모델 학습 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
-<span class="c1"># 전체데이터를 500번 학습함
-</span>
-
-<span class="s">'=== 학습결과 ==='</span>
-<span class="o">*</span> <span class="n">loss</span> <span class="p">:</span> <span class="mf">1.0076</span> <span class="o">~</span> <span class="mf">0.0712</span>
-<span class="o">*</span> <span class="n">acc</span> <span class="p">:</span> <span class="mf">0.2500</span> <span class="o">~</span> <span class="mf">1.0000</span>
-
-
-<span class="s">'=== 가중치값 구하기 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
-<span class="o">*</span> <span class="n">가중치</span> <span class="p">:</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.3768994</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.3686214</span><span class="p">]]</span>
-<span class="o">*</span> <span class="n">bias</span> <span class="p">:</span> <span class="p">[</span><span class="mf">1.0990759</span><span class="p">]</span>
-
-</code></pre></div>      </div>
-    </div></details>
-
-<details>
-<summary> XOR(exclusive or : 배타적 논리합) 데이터에 대한 단층 퍼셉트론 모델 </summary>
-<div>
-
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== XOR 데이터 만들기 ==='</span>
-<span class="c1">## 두 가지 중 한 가지만 True면 -&gt; True(1)
-## 둘 다 True거나 False면 -&gt; False(0)
-</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
-
-
-<span class="s">'=== 모델 만들기 ==='</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'linear'</span><span class="p">))</span>
-<span class="c1"># 시퀀셜 모델, 은닉층은 완전연결층으로 1개
-# 은닉층에 유닛은 2개, 활성함수는 선형함수
-</span>
-
-<span class="s">'=== 모델 컴파일 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(),</span>
-              <span class="n">loss</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span>
-              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
-<span class="c1"># 옵티마이저는 경사하강법 SGD
-# 로스는 mse, 평가는 정확도
-</span>
-
-<span class="s">'=== 모델 학습 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
-<span class="c1"># 전체데이터를 500번 학습함
-</span>
-
-<span class="s">'=== 학습결과 ==='</span>
-<span class="o">*</span> <span class="n">loss</span> <span class="p">:</span> <span class="mf">0.3424</span> <span class="o">~</span> <span class="mf">0.2500</span>
-<span class="o">*</span> <span class="n">acc</span> <span class="p">:</span> <span class="mf">0.2500</span>
-<span class="s">'정확도가 25%에서 올라가지 않는다.'</span>
-<span class="s">'4개 관측값 중 1/4 확률이므로 찍어맞추는 것. 모델 가치 없음'</span>
-
-
-<span class="s">'=== 가중치값 구하기 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
-<span class="o">*</span> <span class="n">가중치</span> <span class="p">:</span> <span class="p">[[</span><span class="mf">0.0037272</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0037034</span><span class="p">]]</span>
-<span class="o">*</span> <span class="n">bias</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.49559313</span><span class="p">]</span>
-
-</code></pre></div>      </div>
-    </div></details></blockquote>
-
-<h3 id="5-다층-퍼셉트론">(5) 다층 퍼셉트론</h3>
-<blockquote>
-  <p>Multi layer Perceptron</p>
-</blockquote>
-
-<p><img src="/assets/images/20221208_001_002.png" alt="자체제작" /></p>
-
-<p>하나의 입력층과 하나의 출력층 및 다수개의 은닉층으로 이루어져있다.<br />
-퍼셉트론을 여러 층 쌓은 모습으로, 각 층에서는 활성함수를 통해 값이 전달된다.<br />
-기존 단층 퍼셉트론이 아무리 학습을 시켜도 XOR문제에 대해서는 정확도가 떨어지는 반면,<br />
-다층 퍼셉트론은 이러한 XOR 문제를 해결하였다.<br />
-이 다층 퍼셉트론은 현재 딥러닝의 기본 바탕이 된다.</p>
-
-<blockquote>
-<span style="background-color:#fff5b1"><b> 다층 퍼셉트론 만들어보기</b></span>
-<details>
-<summary> XOR 데이터에 대한 다층 퍼셉트론 모델 </summary>
-<div>
-
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="s">'=== XOR 데이터 만들기 ==='</span>
-<span class="c1">## 두 가지 중 한 가지만 True면 -&gt; True(1)
-## 둘 다 True거나 False면 -&gt; False(0)
-</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
-
-
-<span class="s">'=== 모델 만들기 ==='</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
-<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'sigmoid'</span><span class="p">))</span>
-<span class="c1"># 시퀀셜 모델, 은닉층은 완전연결층으로 2개
-# 첫 번째 은닉층은 유닛 32개, 활성함수는 ReLU
-# 두 번째 은닉층은 유닛 1개, 활성함수는 시그모이드
-</span>
-
-<span class="s">'=== 모델 컴파일 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">RMSprop</span><span class="p">(),</span>
-              <span class="n">loss</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span>
-              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
-<span class="c1"># 옵티마이저는 RMSprop (Root Mean Square Propagation)
-# 로스는 mse, 평가는 정확도
-</span>
-
-<span class="s">'=== 모델 학습 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
-<span class="c1"># 전체데이터를 500번 학습함
-</span>
-
-<span class="s">'=== 학습결과 ==='</span>
-<span class="o">*</span> <span class="n">loss</span> <span class="p">:</span> <span class="mf">0.2490</span> <span class="o">~</span> <span class="mf">0.0421</span>
-<span class="o">*</span> <span class="n">acc</span> <span class="p">:</span> <span class="mf">0.7500</span> <span class="o">~</span> <span class="mf">1.000</span>
-<span class="c1">## 100%의 정확도를 보인다.
-</span>
-
-<span class="s">'=== 가중치값 구하기 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
-<span class="o">*</span> <span class="n">가중치</span> <span class="p">:</span> <span class="mi">32</span><span class="n">개</span> <span class="o">+</span> <span class="mi">32</span><span class="n">개의</span> <span class="n">가중치가</span> <span class="n">나온다</span><span class="p">.</span>
-<span class="o">*</span> <span class="n">bias</span> <span class="p">:</span> <span class="mi">32</span><span class="n">개의</span> <span class="n">bias</span> <span class="n">가</span> <span class="n">나온다</span><span class="p">.</span>
-
-
-<span class="s">'=== x 에 대한 predict 진행 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
- <span class="o">*</span> <span class="p">[</span><span class="mf">0.248</span><span class="p">,</span> <span class="mf">0.812</span><span class="p">,</span> <span class="mf">0.812</span><span class="p">,</span> <span class="mf">0.188</span><span class="p">]</span>
- <span class="o">*</span> <span class="n">반올림하면</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="n">정답률</span> <span class="mi">100</span><span class="o">%</span>
-
-</code></pre></div>      </div>
-    </div></details></blockquote>
-
-<h2 id="5-실습--신경망-만들어보기">5. 실습 : 신경망 만들어보기</h2>
-
-<h3 id="1-케라스">(1) 케라스</h3>
-<ul>
-  <li>import keras</li>
-  <li>파이썬 기반 머신러닝 라이브러리</li>
-  <li>텐서플로우를 편하게 사용할 수 있도록 보조하는 역할</li>
-  <li>
-    <p>텐서플로우는 거의 모두 케라스를 통해 사용한다 해도 과언이 아님</p>
-  </li>
-  <li>(1) 높은 유연성</li>
-  <li>(2) 명확한 예약어명<br />
-등등의 장점</li>
-</ul>
-
-<h3 id="2-실습--손글씨-인식-딥러닝">(2) 실습 : 손글씨 인식 딥러닝</h3>
-
-<p>이제 딥러닝을 실제로 사용해볼 차례입니다.<br />
-손글씨를 인식하고 예측하는 모델을 만들어봅시다.<br />
-코드는 아래 접어놨으니, 펼쳐서 봐주세요.</p>
-
+<p>■■■■ 문제 ■■■■<br />
+현재 층 storey에서 0층으로 가기 위해 필요한 최소 버튼 누르기 횟수를 구하는 solution 함수를 완성하시오</p>
+
+<p>■■■■ 접근 방식 ■■■■<br />
+(1) 0층으로 간다는 불필요한 트릭이다. 0층에서 storey 층으로 가는 것으로 문제를 바꾸면 편하다.<br />
+(2) 즉, 10의 n승인 수들로 storey를 만드는 방법을 구하면 되는 것이다.<br />
+(3) 포인트는 +와 -를 조합해 최소의 횟수를 구하는 것이다. 이 기준을 정해야 한다.</p>
+
+<p>■■■■ 하드 풀이 ■■■■
+16층 : 10 * 2 , -1 * 4<br />
+20층 : 10 * 2<br />
+24층 : 10 * 2 , 1 * 4<br />
+15층 : 10 * 1 , 1 * 5<br />
+155층 : 100 * 1 , 10 * 5, 1 * 5<br />
+156층 : 100 * 1, 10 * 2, -1 * 4<br />
+166층 : -1 * 4, -10 * 4 + 1, 100 * 2<br />
+98층 : -1 * 2, 100 * 1<br />
+88층 : -1 * 2, -10 * 1, 100 * 1</p>
+
+<p>==&gt; 5 단위로 나누어 생각해야 한다.<br />
+==&gt; 1의 자리의 수가 5이하면 10의 단위는 그대로, 1의 단위가 5 초과이면 10의 단위는 +1<br />
+==&gt; 10의 자리의 수가 5 이하이면 100의 단위는 그대로, 10의 단위가 5 초과이면 100의 단위는 +1</p>
+
+<p>==&gt; 계산은1의 단위부터 진행해야 한다.</p>
+
+<p>■■■■ 핵심 계산식 서술 ■■■■<br />
+크게 세 단계로 진행한다.<br />
+(1) 1의 자리의 수 구하기<br />
+(2) 1의 자리의 수에 도달하는 누르는 최소 횟수 구하기 (5 기준으로 up, down)<br />
+(3) 1의 자리를 제거한 수 구하기 (반올림하여 1의자리가 5 이상인 경우 다음자리수에 +1)</p>
+
+<p>(1) 1의 자리의 수 구하기<br />
+k = storey % 10<br />
+…</p>
+
+<p>(2) 1의 자리의 수 누르는 횟수 구하기<br />
+count = 0<br />
+if k &gt; 5 =&gt; count += 10 - k<br />
+if k &lt;=5 =&gt; count += k<br />
+…</p>
+
+<p>(3) 1의 자리의 수를 제외한 수 구하기<br />
+storey = round(storey , -1) // 10</p>
+
+<p><img src="/assets/images/20230106_001_001.png" alt="" /></p>]]></content><author><name>Jongya</name></author><category term="coding_test" /><category term="프로그래머스" /><category term="파이썬" /><category term="레벨2" /><category term="마법의엘리베이터" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">python comprehension</title><link href="http://localhost:4000/python/2023/01/05/20230105_001_python_comprehension.html" rel="alternate" type="text/html" title="python comprehension" /><published>2023-01-05T16:46:06+09:00</published><updated>2023-01-05T16:46:06+09:00</updated><id>http://localhost:4000/python/2023/01/05/20230105_001_python_comprehension</id><content type="html" xml:base="http://localhost:4000/python/2023/01/05/20230105_001_python_comprehension.html"><![CDATA[<!--postNo: 20230105_001-->
+
+<h2 id="python-comprehension-이란">python comprehension 이란?</h2>
+<p>조건문 혹은 반복문을 적용한 자료형태를 간단하게 작성하는 방법.<br />
+list, dict, set 등의 자료 형태에 적용할 수 있다.</p>
 <blockquote>
   <ul>
-    <li>사용 데이터셋 : keras.datasets.mnist</li>
-    <li>손글씨 데이터셋으로</li>
-    <li>x = 총 7만개의 데이터, 각 데이터는 28*28 픽셀 이미지</li>
-    <li>y = 총 7만개의 데이터, 데이터는 0부터 9까지의 값 (답안)</li>
+    <li>list comprehension</li>
+    <li>dict comprehension</li>
+    <li>set comprehension</li>
   </ul>
 </blockquote>
 
-<p><img src="/assets/images/20221208_001_007.png" alt="x데이터 시각화" /></p>
+<h2 id="자료형에-따른-comprehension-예시">자료형에 따른 comprehension 예시</h2>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== import ==='</span>
-<span class="kn">from</span> <span class="nn">keras.datasets.mnist</span> <span class="kn">import</span> <span class="n">load_data</span>   <span class="c1"># 손글씨 데이터셋
-</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># 이미지 시각화 도구
-</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># 행렬 연산 도구
-</span><span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span> <span class="c1"># 범주형데이터 인코딩 모듈
-</span></code></pre></div></div>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 훈련/테스트 데이터 나누기 ==='</span>
-<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
+<h3 id="list-comprehension">list comprehension</h3>
 
-<span class="s">'=== 데이터 살펴보기 ==='</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x_train</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">x_test</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="c1"># x_train : 60000, 28, 28 -&gt; 6만개, 28*28 행렬
-# y_train : 60000, -&gt; 6만개 1개씩
-# x_test : 10000, 28, 28 -&gt; 1만개, 28*29 행렬
-# y_test : 10000, -&gt; 1만개 1개씩
-</span></code></pre></div></div>
+<p>(1) 주어진 문장에서 단어들만을 뽑아 리스트로 만들고,<br />
+(2) 이 리스트에서 금지단어로 지정된 단어를 빼는 작업을 해보자</p>
 
 <blockquote>
-<span style="background-color:#fff5b1"><b> 실습 : 손글씨 인식 딥러닝</b></span>
-<details>
-<summary><b><u>이후 코드 펼치기/접기</u></b></summary>
- <div>
+  <p>먼저, comprehension 사용시</p>
+</blockquote>
 
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 샘플 3개 데이터 출력해보기 ==='</span>
-<span class="n">sample_size</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">random_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">sample_size</span><span class="p">)</span>
-<span class="c1"># 0 ~ 59,999 사이의 정수값을 무작위로 3개 뽑기
-</span>
-<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">random_idx</span><span class="p">:</span>
-    <span class="n">img</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># x_train에서 임의 3개 idx 값에 맞는 데이터 추출
-</span>    <span class="n">label</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="c1"># idx에 맞는 label값 추출
-</span>    <span class="n">plt</span><span class="p">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s">'gray'</span><span class="p">)</span> <span class="c1"># img를 흑백으로 시각하에 추가
-</span>    <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s">th, label=</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s">'</span><span class="p">)</span> <span class="c1"># 시각화 제목 설정 (idx값, label값)
-</span>    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># 시각화
-</span>
-</code></pre></div>      </div>
-      <p><img src="/assets/images/20221208_001_007.png" alt="" /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'stop words는 금지 단어 리스트를 의미합니다.'</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="s">'금지'</span><span class="p">,</span> <span class="s">'단어'</span><span class="p">,</span> <span class="s">'리스트'</span><span class="p">]</span>
 
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 트레인셋을 훈련-검증 7:3 으로 분할 ==='</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="n">x_train</span><span class="p">,</span> <span class="n">x_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
-<span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
-<span class="n">random_state</span> <span class="o">=</span><span class="mi">777</span><span class="p">)</span>
+<span class="c1"># (1) 반복문 활용
+## text에 포함된 단어를 원소로 가지는 리스트 만들기
+</span><span class="n">text_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">()]</span>
 
-<span class="c1"># 이로써 데이터셋은 아래와 같이 분할되었다.
-# x_train : (42000, 28, 28) 훈련용 데이터
-# y_train : (42000, ) 훈련용 답안
-# x_val : (18000, 28, 28) 검증용 데이터
-# y_val : (18000, ) 검증용 답안
-# x_test : (10000, 28, 28) 최종 테스트용 데이터
-# y_test : (10000, ) 최종 테스트용 답안
-</span></code></pre></div>      </div>
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 28*28 데이터를 1차원 데이터로 변환==='</span>
-<span class="c1"># 변환의 목적 : 쉽게 모델에 넣을 수 있도록 변환
-</span>
-<span class="n">x_train</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_train</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">20</span><span class="p">)))</span><span class="o">/</span><span class="mi">255</span>
-<span class="n">x_val</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_val</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">20</span><span class="p">)))</span><span class="o">/</span><span class="mi">255</span>
-<span class="n">x_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_test</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">20</span><span class="p">)))</span><span class="o">/</span><span class="mi">255</span>
+<span class="s">"==&gt; 출력 : ['stop', 'words는', '금지', '단어', '리스트를', '의미합니다.']"</span>
 
-<span class="c1"># 변환 후 데이터 shape
-# x_train : (42000, 784)
-# x_val : (18000, 784)
-# x_test : (10000, 784)
-# x_train.min(), x_train.max() : 0, 255 흑백조 = 256색상 데이터기 때문
-</span></code></pre></div>      </div>
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== y값 원-핫 인코딩 ==='</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
-<span class="n">y_val</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_val</span><span class="p">)</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
-</code></pre></div>      </div>
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델 생성 ==='</span>
-<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="c1"># (2) 반복문과 조건문 함께 활용
+## stop words에 포함되지 않는 단어로 리스트 만들기
+</span><span class="n">clean_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="p">),</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'relu'</span><span class="p">))</span>
-<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'relu'</span><span class="p">))</span>
-<span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'softmax'</span><span class="p">))</span>
+<span class="s">"==&gt; 출력 : ['stop', 'words는', '리스트를', '의미합니다.']"</span>
 
-<span class="c1"># 시퀀셜 모델로, 총 3개의 완전연결 은닉층을 가진 형태의 모델
-# 첫 번째 층은 64개의 유닛, ReLU 활성함수 사용
-# 두 번째 층은 32개의 유닛, ReLU 활성함수 사용
-# 세 번째 층은 10개의 유닛, softmax 활성함수 사용
-# 세 번째 층이 10개인 이유 : label 종류가 10개이기 때문
-# 즉, 출력층은 최종 답안과 같은 개수로 세팅함
-</span>
+</code></pre></div></div>
 
-<span class="s">'=== 컴파일 ==='</span>
-<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="s">'adam'</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="s">'categorical_crossentropy'</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
+<blockquote>
+  <p>comprehension 미사용시</p>
+</blockquote>
 
-<span class="c1"># 모델의 옵티마이저는 adam으로
-# 로스는 categorical_crossentropy
-# 평가지표는 정확도
-</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'stop words는 금지 단어 리스트를 의미합니다.'</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="s">'금지'</span><span class="p">,</span> <span class="s">'단어'</span><span class="p">,</span> <span class="s">'리스트'</span><span class="p">]</span>
 
-<span class="s">'=== 학습 &amp; 학습 이력을 변수에 담기==='</span>
-<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epoch</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span>
+<span class="c1"># (1) 반복문 활용
+## text에 포함된 단어를 원소로 가지는 리스트 만들기
+</span><span class="n">text_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">():</span>
+    <span class="n">text_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="c1"># loss : 0.5008 ~ 0.0074
-# acc : 0.8548 ~ 0.9980
-# val_loss : 0.2437 ~ 0.1624
-# val_acc : 0.9314 ~ 0.9674
-</span></code></pre></div>      </div>
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 학습에 따른 지표 추이를 그래프로 살펴보기 ==='</span>
-<span class="n">hist_dict</span> <span class="o">=</span> <span class="n">history</span><span class="p">.</span><span class="n">history</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">his_dict</span><span class="p">[</span><span class="s">'loss'</span><span class="p">]</span>
-<span class="n">val_loss</span> <span class="o">=</span> <span class="n">his_dict</span><span class="p">[</span><span class="s">'val_loss'</span><span class="p">]</span>
-<span class="n">accs</span> <span class="o">=</span> <span class="n">his_dict</span><span class="p">[</span><span class="s">'acc'</span><span class="p">]</span>
-<span class="n">val_accs</span> <span class="o">=</span> <span class="n">his_dict</span><span class="p">[</span><span class="s">'val_acc'</span><span class="p">]</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="s">"==&gt; 출력 : ['stop', 'words는', '금지', '단어', '리스트를', '의미합니다.']"</span>
 
-<span class="c1"># 각 지표를 변수에 담아주고, 학습 횟수 또한 range로 담아줌
-</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">gifsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="p">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'train_loss'</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'orange'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'val_loss'</span><span class="p">)</span>
+<span class="c1"># (2) 반복문과 조건문 함께 활용
+## stop words에 포함되지 않는 단어로 리스트 만들기
+</span><span class="n">clean_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">:</span>
+        <span class="n">clean_words</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">continue</span>
+    
+<span class="s">"==&gt; 출력 : ['stop', 'words는', '리스트를', '의미합니다.']"</span>
 
-<span class="c1"># loss와 val_loss를 하나의 그래프에 그림
-# train_loss(학습)는 파란색, val_loss(검증)는 주황색
-</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">gifsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="p">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">accs</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'train_acc'</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_accs</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'orange'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'val_acc'</span><span class="p">)</span>
+</code></pre></div></div>
+<p>훨씬 짧은 문장으로 같은 기능을 수행할 수가 있다.</p>
 
-<span class="c1"># acc와 val_acc를 하나의 그래프에 그림
-# acc(학습)는 파란색, val_acc(검증)는 주황색
-</span>
-<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="c1"># 그래프 그리기
-</span></code></pre></div>      </div>
-      <p><img src="/assets/images/20221208_001_008.png" alt="" /></p>
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 그래프 해석 ==='</span>
-<span class="c1"># loss
-## 학습 loss는 지속 감소되지만, 검증 loss는 감소하다 증가
-## 이는, 모델이 중간부터 학습데이터에 과적합되었음을 나타냄
-</span>
-<span class="c1"># acc
-## 학습 acc는 지속 증가하지만, 검증 acc는 증가하다 보합세
-## 이 또한 모델이 중간부터 학습데이터에 과적합되었음을 나타냄
-</span>
-<span class="c1"># -&gt; epoch를 10~15회 정도로 설정하는 게 좋음
-</span></code></pre></div>      </div>
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 테스트셋으로 모델 평가 ==='</span>
-<span class="c1"># 딥러닝에서는 model.evaluate 메서드로 기본적인 평가 가능
-</span><span class="n">model</span><span class="p">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<h3 id="dict-comprehension">dict comprehension</h3>
 
-<span class="c1">## loss = 0.1329, acc = 0.9723
-## 97.23%의 정확도, 꽤 높은 정확도이다.
-</span></code></pre></div>      </div>
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 랜덤 테스트데이터를 실제로 검증해보기 ==='</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_test</span><span class="p">[</span><span class="mi">4523</span><span class="p">].</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s">'gray'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'4523번 정답 : </span><span class="si">{</span><span class="n">y_test</span><span class="p">[</span><span class="mi">4523</span><span class="p">].</span><span class="n">argmax</span><span class="p">()</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
-<span class="c1"># 4523번 정답 : 8
-# 4523번 이미지는 아래. 제대로 분류했다.
-</span></code></pre></div>      </div>
-      <p><img src="/assets/images/20221208_001_009.png" alt="" /></p>
-      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'=== 모델의 가중치값 저장과 불러오기 ==='</span>
-<span class="c1"># 모델 학습은 결국 연산 가중치값을 얻어내는 과정이다.
-# 이 가중치값을 저장하고, 이후 불러와 재사용할 수 있다.
-</span>
-<span class="c1"># 가중치 저장
-</span><span class="n">model</span><span class="p">.</span><span class="n">save_weights</span><span class="p">(</span><span class="s">'mnist'</span><span class="p">)</span>
+<p>딕셔너리는 키값과 밸류값이 짝을 이루는 자료 형태로,<br />
+넓은 활용도를 가진 자료형이다.</p>
 
-<span class="c1"># 저장된 가중치 값을 가져와 새 모델에 적용
-</span><span class="n">model1</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model1</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">784</span><span class="p">,),</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'relu'</span><span class="p">))</span>
-<span class="n">model1</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'relu'</span><span class="p">))</span>
-<span class="n">model1</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s">'softmax'</span><span class="p">))</span>
+<p>처음엔 list comprehension만 있는 줄 알고 쓰다가..<br />
+dict comprehension을 만나고는 정말 편해졌다.</p>
 
-<span class="n">model</span><span class="p">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s">'mnist'</span><span class="p">)</span>
-</code></pre></div>      </div>
-    </div></details></blockquote>
+<p>주어진 텍스트에 포함된 각 단어에 index를 매긴 dict를 만들어보자.</p>
 
-<h3 id="3-딥러닝-학습의-의의">(3) 딥러닝 학습의 의의</h3>
-<ul>
-  <li>딥러닝 학습은 연산의 ‘가중치’를 얻어내는 과정이다.</li>
-</ul>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'stop words는 금지 단어 리스트를 의미합니다.'</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="s">'금지'</span><span class="p">,</span> <span class="s">'단어'</span><span class="p">,</span> <span class="s">'리스트'</span><span class="p">]</span>
+<span class="n">text_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">()]</span>
 
-<h2 id="to-do">To Do</h2>
-<ul>
-  <li>용어 정리 - 인공신경망 부분 좀 더 쉽게 설명</li>
-  <li>용어 정리 - 평가 지표 부분 추가</li>
-  <li>인공 신경망 - 손실함수, 층에 대한 추가 설명</li>
-  <li>keras - 주요 클래스 설명 마무리</li>
-</ul>
+<span class="c1"># (1) 반복문 활용
+## text에 포함된 단어들을 index를 매겨 dict 형태로 만들기
+</span><span class="n">text_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">text_list</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">text_list</span><span class="p">}</span>
+
+<span class="s">"==&gt; 출력 : {0: 'stop', 1: 'words는', 2: '금지', 3: '단어', 4: '리스트를', 5: '의미합니다.'}"</span>
+
+<span class="c1"># (2) 반복문과 조건문 함께 활용
+## stop_words에 포함되지 않은 단어를 index매겨 dict형태로 만들기
+</span><span class="n">clean_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">text_list</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">text_list</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">}</span>
+
+<span class="s">"==&gt; 출력 : {0: 'stop', 1: 'words는', 4: '리스트를', 5: '의미합니다.'}"</span>
+
+<span class="c1">## enumerate와 함께 사용할 수도 있다.
+</span><span class="n">clean_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span> <span class="p">:</span> <span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">])}</span>
+
+<span class="s">"==&gt; 출력 : {0: 'stop', 1: 'words는', 2: '리스트를', 3: '의미합니다.'}"</span>
+</code></pre></div></div>
+
+<h3 id="set-comprehension">set comprehension</h3>
+
+<p>나는 set 자료형을 unique 값을 얻어내는 데에 가장 많이 사용하는 것 같다.<br />
+더 다양한 활용법을 다룰 수 있는 실력자로 커가길 희망하며..</p>
+
+<p>이번엔 단어가 반복하여 등장하는 텍스트를 대상으로 해본다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'간장 공장 공장장은 강 공장장이고 된장 공장 공장장은 장 공장장이다'</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="s">'공장장은'</span><span class="p">,</span> <span class="s">'공장장이고'</span><span class="p">,</span> <span class="s">'공장장이다'</span><span class="p">]</span>
+<span class="n">text_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">()]</span>
+
+<span class="c1"># (1) 반복문 활용
+## text에 포함된 단어들을 set에 담아 표현
+</span><span class="n">text_set</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span><span class="p">}</span>
+
+<span class="s">"==&gt; 출력 : {'간장', '강', '공장', '공장장은', '공장장이다', '된장', '장'}"</span>
+
+<span class="c1"># (2) 반복문과 조건문 함께 활용
+## stop_words에 포함되지 않는 단어를 set에 답아 표현
+</span><span class="n">clean_set</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">}</span>
+
+<span class="s">"==&gt; 출력 : {'간장', '강', '공장', '된장', '장'}"</span>
+
+</code></pre></div></div>
 
 <h2 id="레퍼런스">레퍼런스</h2>
-<ul>
-  <li>교재1 : 백견불여일타 딥러닝</li>
-  <li>교재2 : 이기적 빅데이터 분석기사 2022(나홍석 등)</li>
-  <li>클래스 불균형 : https://techblog-history-younghunjo1.tistory.com/74</li>
-  <li>회귀분석 : https://bioinformaticsandme.tistory.com/290</li>
-  <li>회귀분석 : https://ko.wikipedia.org/wiki/회귀_분석</li>
-  <li>인공신경망의 역사 : https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html</li>
-  <li>인공신경망 개요 : https://ko.wikipedia.org/wiki/인공_신경망</li>
-  <li>딥러닝 개요 : https://ko.wikipedia.org/wiki/딥_러닝</li>
-  <li>다층 퍼셉트론 설명 : https://www.youtube.com/watch?v=aircAruvnKk</li>
-  <li>Batch, Epoch 등 설명 : http://esignal.co.kr/ai-ml-dl/?board_name=ai_ml_dl&amp;search_field=fn_title&amp;order_by=fn_pid&amp;order_type=asc&amp;board_page=1&amp;list_type=list&amp;vid=15</li>
-  <li>과대적합, 과소적합 : https://heytech.tistory.com/125</li>
-  <li>활성화함수 : https://themaverickmeerkat.com/2019-10-23-Softmax/</li>
-  <li>활성화함수 : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=handuelly&amp;logNo=221824080339</li>
-  <li>keras 활성화함수 : https://keras.io/api/layers/activations/#relu-function</li>
-  <li>keras 활성화함수 : https://hwk0702.github.io/ml/dl/deep%20learning/2020/07/09/activation_function/</li>
-  <li>옵티마이저 : https://codetorial.net/tensorflow/basics_of_optimizer.html</li>
-  <li>★★★옵티마이저 : https://keras.io/ko/optimizers/</li>
-  <li>손실함수 : https://cheris8.github.io/artificial%20intelligence/DL-Keras-Loss-Function/</li>
-</ul>]]></content><author><name>Jongya</name></author><category term="study_deep_learning" /><category term="딥러닝" /><category term="케라스" /><category term="텐서플로" /><category term="퍼셉트론" /><category term="신경망모델" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Python Pandas summary 판다스 요약</title><link href="http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary.html" rel="alternate" type="text/html" title="Python Pandas summary 판다스 요약" /><published>2022-12-01T19:32:30+09:00</published><updated>2022-12-01T19:32:30+09:00</updated><id>http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary</id><content type="html" xml:base="http://localhost:4000/summary/2022/12/01/20221201_001_Pandas_summary.html"><![CDATA[<!--postNo: 20221201_001-->
+<p>http://pythonstudy.xyz/python/article/22-Python-Comprehension<br />
+https://doorbw.tistory.com/174</p>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="comprehension" /><category term="list" /><category term="dict" /><category term="set" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">정규 표현식</title><link href="http://localhost:4000/python/2023/01/04/20220104_002_regular_expression.html" rel="alternate" type="text/html" title="정규 표현식" /><published>2023-01-04T22:46:06+09:00</published><updated>2023-01-04T22:46:06+09:00</updated><id>http://localhost:4000/python/2023/01/04/20220104_002_regular_expression</id><content type="html" xml:base="http://localhost:4000/python/2023/01/04/20220104_002_regular_expression.html"><![CDATA[<!--postNo: 20220104_002-->
 
-<ul>
-  <li>데이터프레임을 특정 파일로 저장 : DF.to_파일형식()</li>
-  <li>
-    <p>인덱스 없애기 : DF.to_파일형식(index=False)</p>
-  </li>
-  <li>NA 값이 있는 열 제거 : DF.dropna(axis=1)</li>
-  <li>NA 값이 있는 행 제거 : DF.dropna(axis=0)</li>
-  <li>
-    <p>NA 값이 있는 열과 행 제거 : DF.dropna()</p>
-  </li>
-  <li>특정 칼럼 제거 : DF.drop(columns=[칼럼명들], inplace=Bool) : inplace = 본 데이터프레임에 덮어쓰기</li>
-  <li>
-    <p>특정 행 제거 : DF.drop(index=[인덱스], inplace=Boo;) : inplace = 본 데이터프레임에 덮어쓰기</p>
-  </li>
-  <li>인덱스 재설정 : DF.reset_index(drop=Bool, inplace=Bool) : drop = 기존 인덱스 삭제, inplace = 본 데이터프레임에 덮어쓰기</li>
-</ul>]]></content><author><name>Jongya</name></author><category term="summary" /><category term="파이썬" /><category term="판다스" /><category term="요약" /><category term="Python" /><category term="Pandas" /><category term="summary" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Github Desktop 에디터 추가</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html" rel="alternate" type="text/html" title="Github Desktop 에디터 추가" /><published>2022-11-26T23:46:06+09:00</published><updated>2022-11-26T23:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_002</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_002.html"><![CDATA[<!--postNo: 20221126_002-->
+<h2 id="정규-표현식">정규 표현식</h2>
+<p>Regular Expression. re로 표현한다.<br />
+텍스트나 숫자, 특수문자 등으로 이루어진 문자열 패턴을 표현할 때 사용한다.</p>
 
-<h3 id="오류-사항">오류 사항</h3>
+<p>문자열 내 특정 패턴의 문자의 존재 여부를 확인하거나<br />
+이를 추출할 때 사용할 수 있다.</p>
 
+<h2 id="re-모듈">re 모듈</h2>
+<p>정규표현의 처리를 위한 기능들을 담고 있는 모듈이다.</p>
+
+<p>re 라이브러리 임포트 : <code class="language-plaintext highlighter-rouge">import re</code><br />
+|메서드|설명|예시|
+|—|—|—|
+|r = re.compile(패턴)|찾을 문자열이나 문자열 패턴(이하 패턴)을 지정한다. 또한 이를 변수에 담을 수 있다.|r = re.compile(‘abcdefabc’)|
+|re.search(패턴, 대상문자열)|대상문자열에서 찾을 패턴의 위치를 반환한다.|re.search(‘a’, ‘abc’)|
+|r.search(패턴)|상동|r = re.compile(‘abc’)  r.search(‘a’)|
+|re.match(패턴, 대상문자열)|대상문자열의 시작부가 패턴과 동일한지 여부와 위치를 반환|re.match(‘a’, ‘abc’)|
+|r.match(패턴)|상동|r = re.compile(‘abc’)  r.match(‘a’)|
+|re.findall(패턴, 대상문자열)|문자열에 패턴과 동일한 문자열을 모두 찾아 리스트로 반환|re.findall(‘abc’, ‘abcdefabc’)|
+|r.findall(패턴)|상동|r = re.compile(‘abcdefabc’)  r.findall(‘abc’)|
+|re.finditer(패턴, 대상문자열)|findall과 비슷하며, 반환 형식이 iterator이다.|re.finditer(‘abc’, ‘abcdefabc’)|
+|r.finditer(패턴)|상동|r = re.compile(‘abcdefabc’)  r.finditer(‘abc’)|
+|re.fullmatch(패턴, 대상문자열)|패턴과 꼭 일치하는 문자열의 위치를 반환|re.fullmatch(‘ab..c’, ‘abcdc’)|
+|r.fullmatch(패턴)|상동|r = re.compile(‘ab..c’)  r.fullmatch(‘abcdc’)|
+|re.split(패턴, 대상문자열, 최대split수)|대상 문자열을 특정 패턴으로 split 한다.|re.split(‘a..d’, ‘bcdabcdbcd’)|
+|re.sub(패턴, 교체할문자열, 대상문자열)|대상문자열에서 패턴에 해당하는 문자열을 교체할 문자열로 바꾼다.|re.sub(‘a.’, ‘bc’, ‘abcab’)|</p>
+
+<h2 id="정규-표현식의-표현">정규 표현식의 표현</h2>
+<p>|기호|설명|예시|예시 해석|
+|—|—|—|—|
+|.|미정의 어떠한 문자 1개를 뜻함|a.c|a로 시작해 c로 끝나면서 중간에 미정의 1개 문자를 포함한 문자열|
+|?|기호 앞에 붙은 문자가 1개이거나 0개인 문자열|ab?c|a로 시작해 c로 끝나면서 중간에 b를 1개 혹은 0개 포함한 문자열|
+|*|기호 앞에 붙은 문자가 0개 이상의 n개인 문자열|ab*c|a로 시작해 c로 끝나면서 중간에 b를 n개 포함한 문자열|
+|+|기호 앞에 붙은 문자가 1개 이상인 문자열|ab+c|a로 시작해 c로 끝나면서 중간에 b를 1개 이상 포함한 문자열|
+|^|기호 뒤에 붙은 문자열로 시작되는 문자열을 뜻함|^ab|ab로 시작되는 문자열|
+|{숫자}|기호 앞에 붙은 문자가 특정 숫자만큼 반복되는 문자열|ab{2}c|a로 시작해 c로 끝나면서 중간에 b를 2개 포함한 문자열|
+|{min, max}|기호 앞에 붙은 문자가 min ~ max개 반복되는 문자열|ab{1,3}c|a로 시작해 c로 끝나면서 중간에 b를 1개 혹은 2개 혹은 3개 포함한 문자열|
+|{min,}|기호 앞에 붙은 문자가 min개 이상 반복되는 문자열|ab{3,}c|a로 시작해 c로 끝나면서 중간에 b를 3개 이상 포함하는 문자열|
+|[문자1-문자2]|기호 앞 뒤로 붙은 문자1 ~ 문자2 사이에 해당하는 문자로 이루어진 문자열|A-z|영문자로 된 문자열|
+|[^문자열]|꺽쇠 뒤에 붙은 문자열로 시작하지 않는 문자열|[^ab]|ab로 시작하지 않는 문자열|
+|||or를 뜻함. 여러 패턴을 뜻할 때 사용할 수 있다.|[^a]|[A-z]|a로 시작하지 않는 영문자로 이루어진 문자열|
+|\d|숫자(digit)|\d|숫자|
+|\특수문자|특수문자를 문자 그 자체로 표현하는 방법|\+|기호 +의 문자 그 자체|</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#예시 : 숫자만 뽑아내기
+</span><span class="n">text</span> <span class="o">=</span> <span class="s">'홍길동 / 연락처 : 010-1234-5678 / 나이 : 67'</span>
+<span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'\d+'</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="s">"==&gt; 출력 : ['010', '1234', '5678', '67']"</span>
+
+<span class="c1">#예시 : 영문만 뽑아내기
+</span><span class="n">text</span> <span class="o">=</span> <span class="s">'라고 AP통신은 전했다. ABC뉴스 홍길동기자 hong@ABCNEW.com'</span>
+<span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'[a-zA-Z]+'</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="s">"==&gt; 출력 : ['AP'. 'ABC', 'hong', 'ABCNEW', 'com']
+
+#예시 : 한글(음절 이상)만 뽑아내기
+text = '안녕 hong! ㅋㅋㅋ'
+re.findall('[가-힣]+', text)
+"</span><span class="o">==&gt;</span> <span class="n">출력</span> <span class="p">:</span> <span class="p">[</span><span class="s">'안녕'</span><span class="p">]</span>
+
+<span class="c1">#예시 : 한글만 뽑아내기
+</span><span class="n">text</span> <span class="o">=</span> <span class="s">'안녕 hong! ㅋㅋㅋ'</span>
+<span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'[ㄱ-힣]+'</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="s">"==&gt; 출력 : ['안녕', 'ㅋㅋㅋ']
+</span></code></pre></div></div>
+
+<h2 id="레퍼런스">레퍼런스</h2>
+<p><a href="https://ko.wikipedia.org/wiki/%EC%A0%95%EA%B7%9C_%ED%91%9C%ED%98%84%EC%8B%9D">https://ko.wikipedia.org/wiki/정규표현식</a></p>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="정규표현식" /><category term="re" /><category term="regularexpression" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">파이썬 가상환경 만들고 관리하기 (버전 관리)</title><link href="http://localhost:4000/python/2023/01/04/20220104_001_virtual_environment.html" rel="alternate" type="text/html" title="파이썬 가상환경 만들고 관리하기 (버전 관리)" /><published>2023-01-04T22:27:06+09:00</published><updated>2023-01-04T22:27:06+09:00</updated><id>http://localhost:4000/python/2023/01/04/20220104_001_virtual_environment</id><content type="html" xml:base="http://localhost:4000/python/2023/01/04/20220104_001_virtual_environment.html"><![CDATA[<!--postNo: 20220104_001-->
+
+<blockquote>
+  <p>본 포스트의 내용은 여러 자료를 참고하여 만들어졌습니다.<br />
+단, 컨텐츠는 자체 제작하였으니 저작권 관련 사항은 메일로 문의해주세요.</p>
+</blockquote>
+
+<h2 id="가상환경이란">가상환경이란?</h2>
+<p>가상환경이란,</p>
+
+<h2 id="가상환경의-필요성">가상환경의 필요성</h2>
 <ul>
-  <li>Github Desktop 에서 <code class="language-plaintext highlighter-rouge">Select your editor in Preference</code> 에서 editor 안보임</li>
-  <li>본 글에서는 OS : 윈도우10, editor : VScode 기준입니다.</li>
+  <li>여러 프로젝트를 진행할 경우, 각각의 프로젝트에서 요구하는 언어나 패키지의 버전이 다른 경우</li>
+  <li>예를 들어 1번 프로젝트는 3.8 이상의 파이썬을 필요로 하고, 2번 프로젝트는 3.5 이하의 파이썬을 필요로 할 경우</li>
+  <li>이 때에는 각각의 프로젝트에 맞춘 가상환경을 각각 만들어주는 게 필요하다.</li>
+  <li>각 가상환경들은 언어와 패키지의 버전이 연동/혼용되지 않는다. (격리된 환경임)</li>
 </ul>
 
-<h3 id="오류-원인-추론">오류 원인 추론</h3>
+<h2 id="가상환경-명령어">가상환경 명령어</h2>
 
-<ul>
-  <li>(1) Github Desktop과 연동 불가능한 editor인 경우.</li>
-  <li>(2) 에디터를 설치파일이 아닌 Zip 파일로 설치했거나, 기본 설치 경로가 아닌 곳에 설치한 경우.</li>
-  <li>그 외 원인이 있다면 피드백 부탁드립니다. :)</li>
-</ul>
-
-<h3 id="1-github-desktop과-연동-가능한-editor-확인">(1) Github Desktop과 연동 가능한 editor 확인</h3>
-<p>Github Desktop과 연동 가능한 editor 목록은 아래 사이트에서 확인이 가능합니다.<br />
-<a href="https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor">GitHub Docs : default-editor</a></p>
-
-<h3 id="2-해결-방법-1--editor-재설치">(2) 해결 방법 1 : editor 재설치</h3>
-<p>editor를 재설치하며, 설치 경로 또한 권장 경로 그대로를 사용해줍니다.</p>
-
-<p><img src="/assets/images/20221126_002_002.png" alt="" width="700" align="left" />
-<img src="/assets/images/20221126_002_003.png" alt="" width="700" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>재부팅 후 Visual Studio Code 를 외부 편집기로 사용할 수 있다.</p>
-
-<p><img src="/assets/images/20221126_002_004.png" alt="" width="700" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<h3 id="2-해결-방법-2--환경-변수-path-추가">(2) 해결 방법 2 : 환경 변수 PATH 추가</h3>
-<p>고급 시스템 설정 메뉴를 들어가줍니다.</p>
-
-<p><img src="/assets/images/20221126_002_005.png" alt="" width="700" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>환경 변수 → 시스템 변수의 PATH → 편집</p>
-
-<p><img src="/assets/images/20221126_002_006.png" alt="" width="700" align="left" />
-<img src="/assets/images/20221126_002_007.png" alt="" width="700" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>찾아보기 → 프로그램이 설치된 폴더 선택 후 → 확인<br />
-확인을 눌러 설정을 저장해줍니다.</p>
-
-<p><img src="/assets/images/20221126_002_008.png" alt="" width="700" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>중요! 재부팅을 해야 설정이 적용됩니다.</p>
-
-<p><img src="/assets/images/20221126_002_009.png" alt="" width="700" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="Desktop" /><category term="깃허브" /><category term="데스크탑" /><category term="에디터" /><category term="안보일때" /><category term="윈도우" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">깃허브 블로그 페이지 만들기 (윈도우/맥)</title><link href="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html" rel="alternate" type="text/html" title="깃허브 블로그 페이지 만들기 (윈도우/맥)" /><published>2022-11-26T22:46:06+09:00</published><updated>2022-11-26T22:46:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/11/26/20221126_001</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/11/26/20221126_001.html"><![CDATA[<!-- postNo: 20221126_001-->
-
-<h2 id="1-인트로">1. 인트로</h2>
-<p>프로그래밍을 배우면서, <u><b>블로그 운영의 필요성</b></u>을 느꼈습니다.<br />
-어떤 블로그가 내게 맞을까.. 고민을 하다가!<br />
-html이나 마크다운에 대한 공부도 할 겸 <u><b>깃허브 블로그</b></u>를 선택했습니다.</p>
-
-<p>시중에서 제공하는 블로그 서비스들보다는 조금 다루기 어렵지만,<br />
-블로그를 만들고 보니 꽤나 뿌듯함이 있습니다.</p>
-
-<p>깃허브 블로그를 만들어보려는 분들께 자그마한 도움이 되었으면 하여<br />
-제가 적용했던 방법과 겪었던 어려움들, 해결방법을 공유합니다.</p>
+<h3 id="가상환경-만들기">가상환경 만들기</h3>
+<p>|명령어|설명|
+|—|—|
+|conda create -n 가상환경명 python==원하는버전|원하는 버전의 파이썬이 설치된 가상환경을 만든다.|
+|conda activate 가상환경명|가상환경명에 해당하는 가상환경을 구동한다. 이후 해당 가상환경 하에서 터미널이 작동한다.|
+|conda env list|PC에 만들어져있는 가상환경들 리스트를 보여준다. base는 기본 환경이다.|
+|conda env remove -n 가상환경명|가상환경명에 해당하는 가상환경을 삭제한다.|
+|conda rename -n 기존가상환경명 바꿀가상환경명|가상환경의 이름을 변경한다.|</p>
 
 <blockquote>
-  <p><em>윈도우/맥 모두 가능합니다.</em><br />
-<em>운영체제에 따라 방법이 다른 경우, 별도 표기했습니다.</em></p>
+  <p>참고<br />
+remove로 가상환경을 삭제하면 폴더 내의 파일들만 삭제된다.<br />
+하지만 폴더는 남아있으므로, 해당 가상환경을 activate할 수는 있다.<br />
+폴더는 남아있어도 별 문제 없으니 신경쓰지 않아도 되지만,<br />
+신경쓰인다면 직접 해당 가상환경 경로로 들어가 디렉토리를 삭제하면 된다.</p>
 </blockquote>
 
-<h2 id="2-깃허브-repository-만들기">2. 깃허브 Repository 만들기</h2>
-<h3 id="1-깃허브-계정-만들기">1) 깃허브 계정 만들기</h3>
-<p>깃허브 계정은 간단하게 만들 수 있습니다.<br />
-아래 깃허브 사이트에서 <code class="language-plaintext highlighter-rouge">Sign up</code> 버튼을 클릭해 가입을 진행해주세요.<br />
-(계정이 있으신 분은 Sign in 해주시면 됩니다.)</p>
+<h3 id="패키지-관련-명령어">패키지 관련 명령어</h3>
+<p>|명령어|설명|
+|—|—|
+|conda list|현재 가상환경에 설치되어있는 패키지들 리스트를 보여줌|
+|conda install 패키지명|패키지 설치 (conda 방식)|
+|conda remove 패키지명|패키지 제거 (conda 방식으로 설치된 패키지 대상)|
+|conda uninstall 패키지명|패키지 제거 (conda 방식으로 설치된 패키지 대상)|
+|pip install 패키지명|패키지 설치 (pip 방식)|
+|pip uninstall 패키지명|패키지 제거 (pip 방식으로 설치된 패키지 대상)|</p>
 
 <blockquote>
-  <p>GitHub : <a href="https://github.com">https://github.com</a></p>
+  <p>참고 : PIP 와 Conda?<br />
+우선, conda list로 설치된 패키지를 출력해보면, conda로 설치되었는지 pip로 설치되었는지 알 수 있다.<br />
+<img src="/assets/images/20230104_001_001.png" alt="" />
+패키지 버전 오른쪽에 pypi가 적혀있으면 pip로 설치된 것이며,<br />
+아무 것도 없는 경우 conda로 설치된 것이다.<br />
+pip와 conda 설치는 패키지를 다운로드 받는 원천 주소가 다르며, 이에 따라 설치되는 패키지 버전이 다를 수 있으므로 주의가 필요하다.<br />
+또한 pip 설치는 해당 패키지만 설치되는 데 반해, conda로 설치할 경우 해당 패키지에 필요한 dependence 패키지도 함께 설치하게 된다.</p>
 </blockquote>
 
-<p><img src="/assets/images/20221126_001_001.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+<h3 id="가상환경-추출과-불러오기">가상환경 추출과 불러오기</h3>
+<p>|명령어|설명|
+|—|—|
+|conda env export &gt; 파일명.yml|해당 가상환경에 설치된 프로그래밍 언어 및 패키지 리스트를 yml 파일로 추출한다.|
+|conda env create -f 와이엠엘파일명.yml|yml파일에 설정된 가상환경을 불러온다.|</p>
 
-<h3 id="2-깃허브-repository-만들기-1">2) 깃허브 Repository 만들기</h3>
-<p>화면 오른쪽 상단에서 ‘Your respository’ 를 클릭해주세요.</p>
-<blockquote>
-  <p>Repository : ‘저장소’입니다.</p>
-</blockquote>
+<h2 id="기타-참고">기타 참고</h2>
 
-<p><img src="/assets/images/20221126_001_002.png" alt="저장소" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+<h3 id="pip와-conda-install-의-차이점">PIP와 Conda Install 의 차이점</h3>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="파이썬" /><category term="가상환경" /><category term="관리" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">깃허브 기본 사용법</title><link href="http://localhost:4000/how_to_use_git/2022/12/19/20221219_001_git_basic.html" rel="alternate" type="text/html" title="깃허브 기본 사용법" /><published>2022-12-19T14:17:06+09:00</published><updated>2022-12-19T14:17:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/12/19/20221219_001_git_basic</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/12/19/20221219_001_git_basic.html"><![CDATA[<!--postNo: 20221219_001-->
 
-<p><code class="language-plaintext highlighter-rouge">NEW</code> 버튼을 눌러 새로운 repository(저장소)를 만들어 봅시다.</p>
-
-<p><img src="/assets/images/20221126_001_003.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">그 다음</code> Repository Name(저장소 이름)을 작성 후 <u><b>'Create repository'</b></u>를 클릭해주세요.</p>
-
-<blockquote>
-  <p>💡 Repository Name 은 ` ID.github.io `  형식으로 만드시길 추천드립니다.<br />
-이 Repository Name은 향후 블로그 주소가 됩니다.</p>
-</blockquote>
-
-<p><img src="/assets/images/20221126_001_004.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>repository가 만들어졌습니다. 한 번 들어가볼까요?
-<img src="/assets/images/20221126_001_005.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<h3 id="3-깃허브-page-setting">3) 깃허브 Page Setting</h3>
-<p>repository 화면에서 settings를 클릭해줍니다.
-<img src="/assets/images/20221126_001_006.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>page 메뉴에서 아래와 같이 설정한 후, save 해줍니다.
-<img src="/assets/images/20221126_001_007.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>index.html 파일을 만들어 볼 것입니다.<br />
-<code class="language-plaintext highlighter-rouge">ADD file -&gt; Create new file</code> 을 눌러 새로운 파일을 만들어주세요.</p>
-
-<p><img src="/assets/images/20221126_001_008.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>빈칸(파일명)에 index.html 을 입력해준 뒤,<br />
-파일 내용에는 간단한 html문을 입력해보겠습니다.<br />
-작성이 완료되었다면, <code class="language-plaintext highlighter-rouge">Commit new file</code> (새로운 파일 확정)을 눌러주세요.</p>
-<blockquote>
-  <p>💡 index.html 파일 : 웹 브라우저가 특정 url에 접근하였을때 처음 읽어들이는 파일로, 보여줄 첫 화면 결정해주는 역할을 합니다.</p>
-</blockquote>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
-    <span class="nt">&lt;body&gt;</span>
-        첫 화면입니다. 환영합니다. :)
-    <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div></div>
-
-<p><img src="/assets/images/20221126_001_009.png" alt="" align="left" /></p>
-
-<p>이제 5분 가량 잠시 쉬고 오세요.<br />
-잘 쉬고 오셨나요? 그러면 본인의 깃허브 페이지 주소 <code class="language-plaintext highlighter-rouge">ID.github.io</code>로 접속해봅시다.<br />
-아래와 같이 index 파일에 적어준 내용이 나온다면 성공!</p>
-
-<p><img src="/assets/images/20221126_001_010.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<h2 id="3-깃허브-페이지-관리-툴-설치">3. 깃허브 페이지 관리 툴 설치</h2>
-
-<h3 id="1-github-desktop-설치">1) Github Desktop 설치</h3>
-<p>깃허브 데스크탑을 다운받습니다. <a href="https://desktop.github.com/">GitHub Desktop</a></p>
-<blockquote>
-  <p>깃허브 데스크탑 : 깃허브 repository와 현재 사용중인 PC를 연동시켜주는 역할을 합니다.</p>
-</blockquote>
-
-<h3 id="2-코드-에디터-설치">2) 코드 에디터 설치</h3>
-<p>코드 에디터를 설치합니다. 주로 사용하는 코드 에디터가 있다면, 굳이 새로 설치할 필요는 없습니다.<br />
-저는 깃허브와 연동성이 좋은 VScode 를 설치했습니다.<br />
-<a href="https://code.visualstudio.com/">Visual Studio Code - Code Editing. Redefined</a></p>
-
-<h3 id="3-깃허브-클론-및-동기화">3) 깃허브 클론 및 동기화</h3>
-<p>깃허브 데스크탑을 설치한 후, repository를 컴퓨터에 clone 해줍니다.<br />
-사용중인 PC의 특정 폴더와 repository를 연결해주는 단계로 이해하시면 편합니다.<br />
-아래 이미지들을 따라 해주세요.<br />
-<img src="/assets/images/20221126_001_011.png" alt="" align="left" />
-<img src="/assets/images/20221126_001_012.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>클론 후, repository → pull 을 클릭합니다.<br />
-pull 을 통해, 변경 사항을 동기화한 후에, Clone 한 폴더를 찾아가봅시다.<br />
-(기본 경로 : /윈도우 기준/ 내문서 -&gt; ID.github.io 폴더)</p>
-
-<p>아까 웹상에서 만든 index.html 파일이 보일 것입니다.<br />
-즉, pull은 깃허브 repository의 최신 내용을 PC로 끌어오는(PULL) 기능입니다.</p>
-
-<p><img src="/assets/images/20221126_001_013.png" alt="" align="left" />
-<img src="/assets/images/20221126_001_014.png" alt="" align="left" /></p>
-<h2 id="이미지-필요--내문서---indexhtml">이미지 필요 : 내문서 -&gt; index.html</h2>
-<p><img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<blockquote>
-  <p>&lt;잠깐! 깃허브 용어 정리&gt;</p>
-  <ul>
-    <li>clone : PC의 특정 폴더와 repository를 연결</li>
-    <li>pull : 깃허브 repository의 최신 내용을 PC에 업데이트</li>
-    <li>push : PC 폴더의 최신 내용을 깃허브 repository에 업데이트</li>
-  </ul>
-</blockquote>
-
-<h3 id="4-에디터로-repository-열기">4) 에디터로 Repository 열기</h3>
-
-<p>Open the repository in your external editor 부분을 주목해주세요.<br />
-코드 에디터를 통해 repository를 여는 기능입니다.</p>
-
-<p>저는 notepad++ 가 설치되어있어 기본으로 잡히는군요!<br />
-본인에게 익숙한 코드 에디터를 option에서 설정하여 사용하시기 바랍니다.<br />
-저는 VScode를 사용할 예정입니다.</p>
-
-<p><img src="/assets/images/20221126_001_015.png" alt="" align="left" />
-<img src="/assets/images/20221126_001_016.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<blockquote>
-  <p>에디터가 보이지 않을 때에는 다음 글을 참고해주세요.<br />
-<a href="https://whdrns2013.github.io/how_to_use_git/2022/11/26/20221126_002.html">GitHub Desktop - editor 추가</a></p>
-</blockquote>
-
-<p>external editor로 열기를 선택하면, 해당 에디터가 열릴 것입니다.<br />
-github 사이트에서 만들었던 index.html 파일 또한 여기서 볼 수 있죠!</p>
-
-<p><img src="/assets/images/20221126_001_017.png" alt="" align="left" />
-<img src="/assets/images/20221126_001_018.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>인덱스 파일이 보이는 김에 내용을 간단히 수정해볼까요?<br />
-저는 선물받은 책의 문구를 써봤습니다. 이후 꼭 저장!</p>
-
-<p><img src="/assets/images/20221126_001_019.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
-
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;/br&gt;</span>
-    <span class="nt">&lt;/br&gt;</span>
-    <span class="nt">&lt;/br&gt;</span>
-    <span class="nt">&lt;/br&gt;</span>
-    <span class="nt">&lt;p</span> <span class="na">align=</span><span class="s">"center"</span><span class="nt">&gt;</span>
-        당신의 사고를 변화 시켜라.
-        <span class="nt">&lt;/br&gt;</span>
-        그러면 당신이 살고 있는 세상을 변화시킬 수 있을 것이다.
-    <span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div></div>
-<p>깃허브 데스크탑 화면으로 돌아가봅시다.<br />
-PC에서 진행된 변경사항이 화면에 출력되어있을 것입니다.</p>
-
-<p>(1) Commit to main 을 눌러 변경 사항을 확정하고,<br />
-(2) Push를 눌러 깃허브의 repository에 업데이트를 해줍니다.</p>
-
-<p><img src="/assets/images/20221126_001_020.png" alt="" align="left" />
-<img src="/assets/images/20221126_001_021.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>10분가량 휴식 시간을 가져봅시다.<br />
-(깃허브에 변경사항이 적용되는 데 10분가량 소요됩니다.)</p>
-
-<p>적용이 완료되면, 웹 브라우저를 통해 ID.github.io로 들어갔을 때, 아래와 같은 화면이 보일 거예요.</p>
-
-<p><img src="/assets/images/20221126_001_022.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<h2 id="4-테마-적용-준비--루비와-지킬">4. 테마 적용 준비 : 루비와 지킬</h2>
-<h3 id="1-루비-지킬">1) 루비? 지킬?</h3>
-
-<p>루비는 프로그램 언어 중 하나이며, 지킬은 루비를 기반으로 만들어진 블로그 제작 툴입니다.<br />
-지킬은 마크다운 형식을 지원하고 많은 무료 테마(템플릿)가 있기에, 많은 깃허브 블로그가 지킬을 사용합니다.</p>
-
-<h3 id="2-루비-설치">2) 루비 설치</h3>
-<h4 id="--windows-에서-설치">- Windows 에서 설치</h4>
-
-<p>루비 설치 페이지로 접속하고, 설치 프로그램 다운로드 후 설치해줍니다.</p>
-
-<p><a href="https://rubyinstaller.org/downloads/">https://rubyinstaller.org/downloads/</a></p>
-
-<p>설치시에 PATH에 추가하시겠습니까? 라는 질문이 나올텐데요,<br />
-필히 체크하여, PATH에 추가될 수 있도록 해주세요.<br />
-이거 안하면 나중에 환경변수에 경로를 추가하는 작업이 필요해 번거롭습니다.</p>
-
-<p>설치가 완료되었다면, 다음 단계로 넘어가주세요.</p>
-
-<p><img src="/assets/images/20221126_001_023.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<h4 id="--mac-에서-설치">- MAC 에서 설치</h4>
-
-<blockquote>
-  <p>🤔 MAC은 루비가 기본적으로 설치되어 있지만.. <br />
-예전 버전이라 재설치가 필요합니다.<br />
-아래에서 Homebrew를 통한 루비 설치 방법을 서술합니다.</p>
-</blockquote>
-
-<p>아래 사이트에서 Homebrew 설치 명령어를 복사한 후, Terminal에서 설치해줍니다.<br />
-<a href="https://brew.sh/index_ko">Homebrew 설치 : https://brew.sh/index_ko</a></p>
-
-<p><img src="/assets/images/20221126_001_024.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>터미널을 통해 설치할 때 PASSWORD 입력을 요구하는데요,<br />
-맥 로그인 할 때 사용하는 비밀번호를 입력하면 됩니다.</p>
-
-<p>비밀번호를 입력을 해도 화면에는 안보일겁니다. <br />
-보안을 위해 비밀번호를 노출하지 않는 것일 뿐,<br />
-입력은 되고 있으니 당황하지 말고 입력 후 엔터를 눌러주세요.</p>
-
-<p><img src="/assets/images/20221126_001_025.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<blockquote>
-  <p>홈브루 설치가 안된다면?
-<a href="https://whdrns2013.github.io/how_to_use_git/2022/11/26/20221126_003.html">에러 : 맥 홈브루 설치 오류 Not a valid ref: refs/remotes/origin/master</a></p>
-</blockquote>
-
-<p>홈브루 설치가 완료되었다면, rbenv를 설치해줍니다.</p>
-
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">brew install rbenv
-</span></code></pre></div></div>
-
-<p><img src="/assets/images/20221126_001_026.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>이후 루비를 설치해줍니다.</p>
-
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">* rbenv install 2.6.3 #</span>루비 2.6.3 버전 설치
-<span class="gp">* rbenv global 2.6.3 #</span>전역 루비 버전 지정
-</code></pre></div></div>
-
-<p>아래 명령어를 통해 루비 버전을 확인했을 때, 정상적으로 버전이 나오면 성공입니다.</p>
-
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">ruby -v
-</span></code></pre></div></div>
-
-<p>이후 터미널에서 루비를 편하게 호출할 수 있게 아래 명령어로 세팅해줍니다.</p>
-
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(1) echo 'if which rbenv &gt;</span><span class="w"> </span>/dev/null<span class="p">;</span> <span class="k">then </span><span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>rbenv init -<span class="si">)</span><span class="s2">"</span><span class="p">;</span> <span class="k">fi</span><span class="s1">' **&gt;&gt;** **~**/.bash_profile
-</span><span class="go">(2) source **~**/.bash_profile
-(3) rbenv rehash
-</span></code></pre></div></div>
-
-<h3 id="3-지킬-설치">3) 지킬 설치</h3>
-
-<h4 id="--windows-에서-설치-1">- Windows 에서 설치</h4>
-
-<p>cmd 등 프롬프트에서 아래 명령어를 차례대로 실행합니다.</p>
-
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">(1) gem install jekyll bundler
-(2) gem install webrick
-</span></code></pre></div></div>
-
-<p><img src="/assets/images/20221126_001_027.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>repository가 clone된 폴더로 이동합니다.</p>
-<pre><code class="language-Terminal">cd 리포지토리가 클론된 폴더명
-</code></pre>
-
-<p><img src="/assets/images/20221126_001_028.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>chcp 65001로 인코딩을 진행합니다.</p>
-<pre><code class="language-Terminal">chcp 65001
-</code></pre>
-
-<p><img src="/assets/images/20221126_001_029.png" alt="" align="left" />
-<img src="/assets/images/20221126_001_030.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>지킬을 생성할 차례입니다.</p>
-
-<pre><code class="language-Terminal">jekyll new ./ --force
-</code></pre>
-
-<blockquote>
-  <p>force : 강제 실행. 원래 지킬은 빈 디렉토리(empty directory)에만 설치가 가능합니다.<br />
-하지만 지금 디렉토리에는 index.html 파일이 있죠. 때문에 force 명령어로 강제 설치를 진행합니다.</p>
-</blockquote>
-
-<p><img src="/assets/images/20221126_001_031.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>번들을 설치하고, 로컬 서버에서 지킬을 실행해봅시다.</p>
-
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">(1) 번들 설치 : bundle install
-(2) 지킬 서버 실행 : bundle exec jekyll serve
-</span></code></pre></div></div>
-
-<p>아래처럼 나오면 성공입니다.<br />
-server address 를 확인해주세요.</p>
-
-<p><img src="/assets/images/20221126_001_032.png" alt="" align="left" />
-<img src="/assets/images/20221126_001_033.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>서버를 실행했으니, 웹 브라우저를 통해 확인해볼까요?<br />
-웹 브라우저를 통해 server address 로 접속시<br />
-아래와 같이 index.html 페이지가 보이면 성공입니다.</p>
-
-<p><img src="/assets/images/20221126_001_034.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<blockquote>
-  <p><b>(참고) 서버 실행 오류시</b><br />
-서버 실행이 제대로 되지 않는다면, 아래 글을 참고해주세요.<br />
-<a href="https://whdrns2013.github.io/how_to_use_git/2022/11/26/20221126_004.html">깃허브 페이지 테마 적용 : Gemfile 오류</a></p>
-</blockquote>
-
-<h4 id="-mac-에서-설치">-MAC 에서 설치</h4>
-
-<p>터미널에서 <code class="language-plaintext highlighter-rouge">gem install jekyll bundler</code> 명령어를 통해 지킬 번들러를 설치합니다.<br />
-아래와 같이 몇 개의 gems가 설치되었다 라는 프린트가 보이면 성공입니다.</p>
-
-<pre><code class="language-Terminal">jekyll 번들러 설치 : gem install jekyll bundler
-</code></pre>
-
-<p><img src="/assets/images/20221126_001_035.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>이제 지킬을 생성할 차례입니다.</p>
-
-<pre><code class="language-Terminal">jekyll 생성 : jekyll new ./ --force
-</code></pre>
-
-<blockquote>
-  <p>force : 강제 실행. 원래 지킬은 빈 디렉토리(empty directory)에만 설치가 가능합니다.<br />
-하지만 해당 디렉토리에는 index.html 파일이 있죠. 때문에 force 명령어로 강제 설치를 진행합니다.</p>
-</blockquote>
-
-<p><img src="/assets/images/20221126_001_036.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>번들을 설치하고, 로컬 서버에서 지킬을 실행해봅시다.</p>
-
-<pre><code class="language-Terminal">(1) 번들 설치 : bundle install
-(2) 지킬 서버 실행 : bundle exec jekyll serve
-</code></pre>
-
-<p><img src="/assets/images/20221126_001_037.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>아래처럼 나오면 성공입니다.<br />
-server address 를 확인해주세요.</p>
-
-<p><img src="/assets/images/20221126_001_038.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>서버를 실행했으니, 웹 브라우저를 통해 확인해볼까요?<br />
-웹 브라우저를 통해 server address 로 접속시<br />
-아래와 같이 index.html 페이지가 보이면 성공입니다.</p>
-
-<p><img src="/assets/images/20221126_001_039.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<blockquote>
-  <p><b>(참고) 서버 실행 오류시</b><br />
-서버 실행이 제대로 되지 않는다면, 아래 글을 참고해주세요.<br />
-<a href="https://whdrns2013.github.io/how_to_use_git/2022/11/26/20221126_004.html">깃허브 페이지 테마 적용 : Gemfile 오류</a></p>
-</blockquote>
-
-<h3 id="4-github-로-push-하기">4) Github 로 Push 하기</h3>
-
-<p>오랜만에 Github Desktop으로 돌아와봅시다.</p>
-
-<p>Changes탭을 보면, 많은 변경사항이 있습니다.<br />
-지금까지 했던 루비 설치, 지킬 설치 등의 변경사항들이죠.</p>
-
-<p><img src="/assets/images/20221126_001_040.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>PC에서 진행된 변경사항들을 PUSH하여 깃허브에도 적용해줍시다.</p>
-
-<p>(1) 변경사항들에 대한 정보를 적어준 후 → Commit to main 을 누릅니다.<br />
-(2) 이후 Push를 진행합니다.</p>
-
-<p><img src="/assets/images/20221126_001_041.png" alt="" align="left" />
-<img src="/assets/images/20221126_001_042.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<h2 id="5-깃허브-페이지-테마-적용">5. 깃허브 페이지 테마 적용</h2>
-<h3 id="1-깃허브-페이지-테마-고르기">1) 깃허브 페이지 테마 고르기</h3>
-
-<p>Push한 사항은 실제로 적용되는 데 10분 가량 소요됩니다.<br />
-그 동안 내 블로그에 적용할 테마를 둘러봅시다.</p>
-
-<p><b>지킬 테마 둘러보기</b><br />
-마음에 드는 테마를 골라보세요. 지킬 테마를 볼 수 있는 사이트는 여럿 있으며, 아래 두 사이트를 추천합니다.</p>
-
-<p><a href="https://github.com/topics/jekyll-theme">https://github.com/topics/jekyll-theme</a></p>
+<h2 id="git-명령어들">git 명령어들</h2>
+<p>https://subicura.com/git/guide/basic.html#git-init-저장소-만들기</p>
 
 <table>
+  <thead>
+    <tr>
+      <th>명령어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>[Free Jekyll Themes</td>
-      <td>Jekyll Themes](https://jekyll-themes.com/free/)</td>
+      <td>git clone [URL]</td>
+      <td>URL의 깃허브 repo를 clone한다.</td>
+    </tr>
+    <tr>
+      <td>git config –global user.name [ID]</td>
+      <td>깃허브 아이디를 설정한다.</td>
+    </tr>
+    <tr>
+      <td>git config –global user.password [PW]</td>
+      <td>아이디에 해당하는 비밀번호를 설정한다. (토큰 가능)</td>
+    </tr>
+    <tr>
+      <td>git pull</td>
+      <td>깃허브 repo로부터 업데이트 사항을 로컬 PC로 PULL한다.</td>
+    </tr>
+    <tr>
+      <td>git add [DIR]</td>
+      <td>업데이트 사항을 스테이지에 올린다.</td>
+    </tr>
+    <tr>
+      <td>git commit</td>
+      <td>로컬 PC에서 진행한 사항에 대해 Commit 한다.</td>
+    </tr>
+    <tr>
+      <td>git commit -m "[hash]"</td>
+      <td>commit을 진행하면서, 해당 commit에 이름을 붙인다.</td>
+    </tr>
+    <tr>
+      <td>git push</td>
+      <td>로컬 PC에서 진행한 사항에 대해 깃허브 repo로 push한다.</td>
+    </tr>
+    <tr>
+      <td>git rebase</td>
+      <td>바로 이전 commit 상태로 돌아간다.</td>
+    </tr>
+    <tr>
+      <td>git reset –hard [commit hash]</td>
+      <td>특정 commit 단계로 돌아가면서, 그 commit 단계 이후의 수정내용은 삭제된다.</td>
+    </tr>
+    <tr>
+      <td>git reset –soft [commit hash]</td>
+      <td>commit을 한 기록만 삭제하며, 수정내용은 유지된다.</td>
     </tr>
   </tbody>
 </table>
 
-<p><b>마음에 드는 테마 고르기</b><br />
-저는 YAT이라는 테마를 선택했습니다.<br />
-가독성, 태그기능, 사이드바, 깔끔한 카테고리 기능 등이 마음에 드네요!<br />
-검색기능, 댓글기능 등은 추후 추가할 예정입니다.</p>
-
-<p><a href="https://github.com/jeffreytse/jekyll-theme-yat">https://github.com/jeffreytse/jekyll-theme-yat</a></p>
-
-<h3 id="2-테마-적용하기">2) 테마 적용하기</h3>
-
-<p><b>테마 다운로드</b><br />
-골라놨던 테마를 적용시킬 차례입니다.<br />
-테마 소개 페이지에서 ‘Download Zip’ 을 통해 압축파일을 받아주세요.</p>
-
-<p><img src="/assets/images/20221126_001_046.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p><b>테마 파일들 복사 붙여넣기</b><br />
-다운받은 파일을 압축을 풀어준 후,<br />
-지킬을 설치했던 github repository 디렉토리 안에 파일들을 붙여넣습니다.</p>
-
-<p><img src="/assets/images/20221126_001_047.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>중복 파일 경고메세지가 뜨면, 덮어쓰기를 선택해주세요.</p>
-
-<p><img src="/assets/images/20221126_001_048.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p><b>필요 없는 파일 삭제</b><br />
-가장 처음 만들었던 index.html 파일은 이제 필요 없으니 삭제합니다.</p>
-
-<p><img src="/assets/images/20221126_001_049.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>더불어, 테마 제작자가 샘플로 만든 파일이 있다면, 함께 삭제해줍니다.<br />
-삭제할 파일이 무엇인지는 테마 소개 페이지에서 확인 가능합니다.</p>
-
-<p><img src="/assets/images/20221126_001_050.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
 <blockquote>
-  <p>❗️_config.yml 파일은 삭제하지 말고 다른 이름으로 보관하길 추천합니다.<br />
-나중에 블로그 설정할 때 참고가 될 수 있습니다.</p>
+  <p>[ ] 대괄호 안의 내용은 본인 혹은 상황에 맞게 넣는 부분.<br />
+대괄호는 빼고 작성해야 한다.</p>
 </blockquote>
 
-<p><b>로컬에서 테마 적용 확인</b><br />
-루비 명령 프롬프트를 실행한 후, 지킬 서버를 실행해주세요.</p>
+<h2 id="commit의-개념">commit의 개념</h2>
+<p>최종 저장을 하기 전의 임시 저장이라고 보면 좋겠다.
+여러 번 커밋할 수 있으며, 특정 커밋 지점으로 롤백할 수 있다.
+아직 깃허브 저장소에 저장이 된 건 아님.</p>
 
-<pre><code class="language-Terminal">지킬 서버 실행 : bundle exec jekyll serve
+<h2 id="깃허브-용량제한">깃허브 용량제한</h2>
+<p>git ignore 라는 파일을 만들어서 용량이 큰 파일은 올리지 않도록 하는 방법이 있다.</p>
+
+<h2 id="clone-하기-예시">clone 하기 예시</h2>
+
+<pre><code class="language-Terminal">git clone https://github.com/ivangrov/ModifiedOpenLabelling.git
+conda info --envs  #conda 가상환경
+conda activate  base
+pip install -r requirements.txt
+python run.py
+python train_test_split.py
 </code></pre>
 
-<p>server address로 접속해서 테마 적용된 페이지가 잘 로딩되는지 확인합니다.</p>
+<h2 id="깃허브-토큰-발행">깃허브 토큰 발행</h2>
+<p>토큰이란 ?<br />
+로그인을 위한 임시 비밀번호라고 보면 되겠다.</p>
 
-<p><img src="/assets/images/20221126_001_051.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+<p><a href="'https://wotres.tistory.com/entry/Github-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0%EB%B2%95-Authentication-failed-for-use-a-personal-access-token-instead'">깃허브 토큰 발행 방법</a></p>
 
-<p><b>Github로 Push</b><br />
-테마가 잘 적용된 걸 확인했다면<br />
-깃허브에 적용을 위해, Github로 Push를 진행해줍니다.<br />
-굳은 몸을 스트레칭으로 10분 가량 풀어주고 오세요.</p>
+<h2 id="자주-사용하는-외부-repo-리스트">자주 사용하는 외부 Repo 리스트</h2>
 
-<p><img src="/assets/images/20221126_001_052.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+<table>
+  <thead>
+    <tr>
+      <th>Repo</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Modified Open Labelling</td>
+      <td>https://github.com/ivangrov/ModifiedOpenLabelling.git</td>
+    </tr>
+    <tr>
+      <td>YoLoV5</td>
+      <td>https://github.com/ultralytics/yolov5</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="깃허브" /><category term="사용법" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">딥러닝 과적합 방지 (규제, 드롭아웃, 배치정규화, 데이터증식)</title><link href="http://localhost:4000/study_deep_learning/2022/12/13/20221213_002_dl_over.html" rel="alternate" type="text/html" title="딥러닝 과적합 방지 (규제, 드롭아웃, 배치정규화, 데이터증식)" /><published>2022-12-13T23:46:00+09:00</published><updated>2022-12-13T23:46:00+09:00</updated><id>http://localhost:4000/study_deep_learning/2022/12/13/20221213_002_dl_over</id><content type="html" xml:base="http://localhost:4000/study_deep_learning/2022/12/13/20221213_002_dl_over.html"><![CDATA[<!--postNo: 20221213_002-->
 
-<p>이제 내 깃허브 페이지(블로그) 주소로 접속해볼까요?<br />
-테마가 적용된 페이지가 보인다면, 성공입니다.</p>
+<h2 id="규제">규제</h2>
 
-<p>여기까지 깃허브 블로그 만들기였습니다.</p>
+<h2 id="드롭아웃">드롭아웃</h2>
 
-<p>이후 블로그 커스터마이징 방법이나 테마 추천 등은 아래 링크에서 확인해주세요.<br />
-어때요, 조금 어려웠지만 보람 있지 않나요?<br />
-나만의 블로그를 만드신 걸 축하드립니다. :)</p>
+<h2 id="배치-정규화-batch-normalization">배치 정규화 batch normalization</h2>
 
-<p>그럼, 다음에 또 만나요!</p>
+<h2 id="데이터-증식-data-augmentation">데이터 증식 data augmentation</h2>]]></content><author><name>Jongya</name></author><category term="study_deep_learning" /><category term="딥러닝" /><category term="과적합" /><category term="방지" /><category term="규제" /><category term="드롭아웃" /><category term="배치정규화" /><category term="데이터증식" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">데이콘 상추 생장률 베이스라인 코드 분석</title><link href="http://localhost:4000/code_analysis/2022/12/13/20221213-dacon_sangchu_baseline.html" rel="alternate" type="text/html" title="데이콘 상추 생장률 베이스라인 코드 분석" /><published>2022-12-13T21:50:06+09:00</published><updated>2022-12-13T21:50:06+09:00</updated><id>http://localhost:4000/code_analysis/2022/12/13/20221213-dacon_sangchu_baseline</id><content type="html" xml:base="http://localhost:4000/code_analysis/2022/12/13/20221213-dacon_sangchu_baseline.html"><![CDATA[<h2 id="과제-소개">과제 소개</h2>
 
-<h2 id="to-do">To Do</h2>
-<ul>
-  <li>테마 추천 글 올리면 보는 사람들에게 도움 많이 될 듯</li>
-  <li>깃허브 테마 적용이 안되면 : <a href="https://www.notion.so/Gemfile-4c012a13f0d34b0990d92468b40808e1">깃허브 페이지 테마 적용 : Gemfile 오류</a></li>
-  <li>깃허브 블로그 설정 (커스터마이징) 하기</li>
-</ul>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="Git" /><category term="GitHub" /><category term="깃허브" /><category term="블로그" /><category term="만들기" /><category term="윈도우" /><category term="맥" /><category term="MAC" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">MAC 홈브루 설치 오류</title><link href="http://localhost:4000/etc/2022/11/26/20221126_03.html" rel="alternate" type="text/html" title="MAC 홈브루 설치 오류" /><published>2022-11-26T16:46:06+09:00</published><updated>2022-11-26T16:46:06+09:00</updated><id>http://localhost:4000/etc/2022/11/26/20221126_03</id><content type="html" xml:base="http://localhost:4000/etc/2022/11/26/20221126_03.html"><![CDATA[<!--postNo: 20221126_003-->
+<h2 id="베이스라인">베이스라인</h2>
 
-<h2 id="에러-발생">에러 발생</h2>
+<h3 id="import">Import</h3>
 
-<p>터미널을 통해 홈브루 설치를 진행했더니..<br />
-그랬더니 아래와 같은 에러가 난다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
 
-<p><img src="/assets/images/20221126_003_001.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">Sequence</span>
 
-<h2 id="에러-원인-탐색">에러 원인 탐색</h2>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
-<p>홈브루의 문제보다는 깃허브와 PC 사이의 연결 문제일 것이라고 한다.<br />
-깃허브 토픽 discussion에서 해결책을 찾아보라고 한다. VPN등을 사용하는 해결책이 있을 것이라고..</p>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="p">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s">'ignore'</span><span class="p">)</span> 
+</code></pre></div></div>
 
-<p><img src="/assets/images/20221126_003_002.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" />
-<a href="https://github.com/orgs/Homebrew/discussions/666">Unable to install: “fatal: the remote end hung up unexpectedly” · Discussion #666 · Homebrew</a></p>
+<h3 id="hyperparameter-setting">Hyperparameter Setting</h3>
 
-<h2 id="첫-번째-시도--홈브루-강제-update-실패">첫 번째 시도 : 홈브루 강제 update (실패)</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CFG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'EPOCHS'</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>
+    <span class="s">'LEARNING_RATE'</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span>
+    <span class="s">'BATCH_SIZE'</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span>
+    <span class="s">'SEED'</span><span class="p">:</span><span class="mi">41</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<p>discussion에서 홈브루를 강제 업데이트 해보라는 의견이 있어 진행해본다.<br />
-터미널을 켜고 <code class="language-plaintext highlighter-rouge">brew update --force --verbose</code> 를 입력한다.<br />
-업데이트가 완료되었다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">seed_everything</span><span class="p">(</span><span class="n">seed</span><span class="p">):</span>
+    <span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'PYTHONHASHSEED'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">tf</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 
-<p><img src="/assets/images/20221126_003_003.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
-
-<p>터미널에서 <code class="language-plaintext highlighter-rouge">brew doctor</code>를 호출해 홈브루에 문제가 있는지 확인했는데.. 여전히 문제가 있다.</p>
-
-<h2 id="두-번째-시도--brew-doctor가-제시하는-해결책-성공">두 번째 시도 : brew doctor가 제시하는 해결책 (성공)</h2>
-
-<p>brew doctor에서는 다음과 같은 여섯가지 Warning 메세지가 나왔다.<br />
-살펴보면, 파일이 있어야 하는 디렉토리에 없거나 다른 곳에 있다는 오류들로 보인다.</p>
-
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">(1)
-Warning: Homebrew/homebrew-core was not tapped properly! Run:
-  rm -rf "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core"
-  brew tap homebrew/core
-
-(2)
-Warning: "config" scripts exist outside your system or Homebrew directories.
-`./configure` scripts often look for *-config scripts to determine if
-software packages are installed, and which additional flags to use when
-compiling and linking....
-
-(3)
-Warning: Unbrewed dylibs were found in /usr/local/lib.
-If you didn't put them there on purpose they could cause problems when
-building Homebrew formulae, and may need to be deleted....
-
-(4)
-Warning: Unbrewed header files were found in /usr/local/include.
-If you didn't put them there on purpose they could cause problems when
-building Homebrew formulae, and may need to be deleted.
-
-(5)
-Warning: Unbrewed '.pc' files were found in /usr/local/lib/pkgconfig.
-If you didn't put them there on purpose they could cause problems when
-building Homebrew formulae, and may need to be deleted....
-
-(6)
-Warning: Unbrewed static libraries were found in /usr/local/lib.
-If you didn't put them there on purpose they could cause problems when
-building Homebrew formulae, and may need to be deleted....
+<span class="n">seed_everything</span><span class="p">(</span><span class="n">CFG</span><span class="p">[</span><span class="s">'SEED'</span><span class="p">])</span> <span class="c1"># Seed 고정
 </span></code></pre></div></div>
 
-<p>첫 번째 제시된 해결책처럼 homebrew-core 를 삭제해보자.<br />
-터미널에 아래와 같이 명령어를 입력한다.</p>
+<h3 id="data">Data</h3>
 
-<p><code class="language-plaintext highlighter-rouge">rm -rf "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core"</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">all_input_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/train_input/*.csv'</span><span class="p">))</span>
+<span class="n">all_target_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/train_target/*.csv'</span><span class="p">))</span>
 
-<p>삭제가 되면 사용자에게로 입력권한이 돌아온다.<br />
-이후 <code class="language-plaintext highlighter-rouge">brew doctor</code>를 실행하면 부족한 파일들을 설치한다.<br />
-그래도 아래와 같은 Warning 메세지가 떴지만, 무시해도 된다.</p>
+<span class="n">train_input_list</span> <span class="o">=</span> <span class="n">all_input_list</span><span class="p">[:</span><span class="mi">25</span><span class="p">]</span>
+<span class="n">train_target_list</span> <span class="o">=</span> <span class="n">all_target_list</span><span class="p">[:</span><span class="mi">25</span><span class="p">]</span>
 
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">Please note that these warnings are just used to help the Homebrew maintainers
-with debugging if you file an issue. If everything you use Homebrew for is
-</span><span class="gp">working fine: please don't worry or file an issue;</span><span class="w"> </span>just ignore this. Thanks!
-<span class="go">
-Warning: "config" scripts exist outside your system or Homebrew directories.
-`./configure` scripts often look for *-config sc....
-</span></code></pre></div></div>
+<span class="n">val_input_list</span> <span class="o">=</span> <span class="n">all_input_list</span><span class="p">[</span><span class="mi">25</span><span class="p">:]</span>
+<span class="n">val_target_list</span> <span class="o">=</span> <span class="n">all_target_list</span><span class="p">[</span><span class="mi">25</span><span class="p">:]</span>
 
-<p>이제 다시 루비를 설치한다.<br />
-터미널을 켜고 <code class="language-plaintext highlighter-rouge">brew update --force --verbose</code> 를 입력한다.</p>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'학습: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">train_input_list</span><span class="p">)</span><span class="si">}</span><span class="s">, 검증: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">val_input_list</span><span class="p">)</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
 
-<p><img src="/assets/images/20221126_003_004.png" alt="" align="left" />
-<img src="/assets/images/blank_1000px.png" alt="" width="500" /></p>
+<h3 id="custom-dataset">Custom Dataset</h3>
 
-<p>설치에 성공했다. hooray!</p>]]></content><author><name>Jongya</name></author><category term="etc" /><category term="맥" /><category term="MAC" /><category term="홈브루" /><category term="homebrew" /><category term="설치" /><category term="오류" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dataloader</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">Sequence</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_paths</span><span class="p">,</span> <span class="n">target_paths</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">infer_mode</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">input_paths</span> <span class="o">=</span> <span class="n">input_paths</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">target_paths</span> <span class="o">=</span> <span class="n">target_paths</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">infer_mode</span> <span class="o">=</span> <span class="n">infer_mode</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">shuffle</span> <span class="o">=</span> <span class="n">shuffle</span>
+
+        <span class="bp">self</span><span class="p">.</span><span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">label_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Data Pre-processing..'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">input_path</span><span class="p">,</span> <span class="n">target_path</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">input_paths</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">target_paths</span><span class="p">)):</span>
+            <span class="n">input_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_path</span><span class="p">)</span>
+            <span class="n">target_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">target_path</span><span class="p">)</span>
+
+            <span class="n">input_df</span> <span class="o">=</span> <span class="n">input_df</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'obs_time'</span><span class="p">])</span>
+            <span class="n">input_df</span> <span class="o">=</span> <span class="n">input_df</span><span class="p">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+
+            <span class="n">target_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">target_df</span><span class="p">))</span>
+
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">target_length</span><span class="p">):</span>
+                <span class="n">time_series</span> <span class="o">=</span> <span class="n">input_df</span><span class="p">[</span><span class="mi">24</span><span class="o">*</span><span class="n">idx</span><span class="p">:</span><span class="mi">24</span><span class="o">*</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)].</span><span class="n">values</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">data_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_series</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">target_df</span><span class="p">[</span><span class="s">'predicted_weight_g'</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">label_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Done. </span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">on_epoch_end</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">data_list</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="p">.</span><span class="n">batch_size</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">batch_size</span><span class="p">:(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">batch_size</span><span class="p">]</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">.</span><span class="n">data_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">]</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">.</span><span class="n">label_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">infer_mode</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tf</span><span class="p">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">tf</span><span class="p">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tf</span><span class="p">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">data_list</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">shuffle</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">indices</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_loader</span> <span class="o">=</span> <span class="n">Dataloader</span><span class="p">(</span><span class="n">train_input_list</span><span class="p">,</span> <span class="n">train_target_list</span><span class="p">,</span> <span class="n">CFG</span><span class="p">[</span><span class="s">'BATCH_SIZE'</span><span class="p">],</span> <span class="bp">False</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">val_loader</span> <span class="o">=</span> <span class="n">Dataloader</span><span class="p">(</span><span class="n">val_input_list</span><span class="p">,</span> <span class="n">val_target_list</span><span class="p">,</span> <span class="n">CFG</span><span class="p">[</span><span class="s">'BATCH_SIZE'</span><span class="p">],</span> <span class="bp">False</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="model-define">Model Define</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">).</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">lstm</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">lstm</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">classifier</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="train">Train</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span> <span class="o">=</span> <span class="n">BaseModel</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">optimizers</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">CFG</span><span class="p">[</span><span class="s">'LEARNING_RATE'</span><span class="p">]),</span>
+    <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">losses</span><span class="p">.</span><span class="n">MeanAbsoluteError</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_loader</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="n">val_loader</span><span class="p">,</span> 
+    <span class="n">epochs</span><span class="o">=</span><span class="n">CFG</span><span class="p">[</span><span class="s">'EPOCHS'</span><span class="p">],</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">callbacks</span><span class="p">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s">'val_loss'</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_lr</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)])</span>
+</code></pre></div></div>
+
+<h3 id="inference">Inference</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test_input_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/test_input/*.csv'</span><span class="p">))</span>
+<span class="n">test_target_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/test_target/*.csv'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">test_input_path</span><span class="p">,</span> <span class="n">test_target_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_input_list</span><span class="p">,</span> <span class="n">test_target_list</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">test_target_path</span><span class="p">)</span>
+    <span class="n">test_loader</span> <span class="o">=</span> <span class="n">Dataloader</span><span class="p">([</span><span class="n">test_input_path</span><span class="p">],</span> <span class="p">[</span><span class="n">test_target_path</span><span class="p">],</span> <span class="n">CFG</span><span class="p">[</span><span class="s">'BATCH_SIZE'</span><span class="p">],</span> <span class="bp">True</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">model_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_loader</span><span class="p">)</span>
+
+    <span class="n">submit_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">test_target_path</span><span class="p">)</span>
+    <span class="n">submit_df</span><span class="p">[</span><span class="s">'predicted_weight_g'</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_pred</span>
+    <span class="n">submit_df</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">test_target_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>]]></content><author><name>Jongya</name></author><category term="code_analysis" /><category term="코드" /><category term="분석" /><category term="공부" /><summary type="html"><![CDATA[과제 소개]]></summary></entry></feed>

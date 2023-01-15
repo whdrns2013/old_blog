@@ -119,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     display: none;
   }
 </style>
-<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -884,6 +883,1094 @@ function googleTranslateElementInit() {
 
 
 <h2 class="post-title">
+        <a class="post-link" href="/lab/2023/01/12/20230112_001_making_progress_bar.html">
+          프로그레스 바 만들어보기
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Jan 12, 2023</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+      </div>
+      <a class="post-excerpt" href="/lab/2023/01/12/20230112_001_making_progress_bar.html">
+        <p>
+        
+
+인트로
+tqdm 만들어보기 : print 줄바꿈 없이 출력하기|아직 미작성 : tqdm을 쓰면 느려지는 것 같아서 자신은 잘 안쓴다는 선생님의 말씀 / 횟수가 많은 동일 작업을 각각의 방법으로 했을 때의 비교를 해보면 되겠다.
+
+사용 개념 : 정규표현식 \r
+tqdm을 살펴보면, 진행률을 한 줄로 표시함을 볼 수 있다.
+그러므로 필요한 기술은, 연속된 출력에서 이전 출력 내용을 지우고 업데이트 하는 것.
+간단한 기술로 가능한데, 바로 print 메서드에 정규표현식을 이용하는 것이다.
+
+# 그냥 print 사용해보기
+print('1번입니다', end='')
+print('2번입니다', end='')
+--------... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%A0%88%EC%8A%A4%EB%B0%94">#프로그레스바</a><a class="post-tag" href="/tags.html#%5Cr">#\r</a><a class="post-tag" href="/tags.html#tqdm">#tqdm</a><a class="post-tag" href="/tags.html#%EB%8C%80%EC%B2%B4%ED%95%98%EA%B8%B0">#대체하기</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/python/2023/01/09/20230109_002_python_class.html">
+          파이썬 클래스 선언 방법
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Jan 09, 2023</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+      </div>
+      <a class="post-excerpt" href="/python/2023/01/09/20230109_002_python_class.html">
+        <p>
+        
+
+들어가며
+새싹 과정의 java 교육에서 잠깐 맛보았던 클래스.
+객체 선언의 A-Z라는 클래스. 잊고 살다가..
+데이콘에서 클래스 정의를 통해 최적화된 문제풀이를 하는 코드들을 보았다.
+
+java 교육때 배운 것으로 클래스를 정의하고,
+클래스 안에 비슷한 함수들을 모아 정의하는 등.. 의 사용까지는 했었으나,
+__init__이 무언지, 어떻게 사용해야하는지 등을 깊게 공부해본 적은 없었다.
+
+러닝메이트 스터디에서 ‘마진계산기’ 서비스를 출시하는 프로젝트를 하면서
+“아.. 실제 출시하는 서비스는 주피터나 코랩같은 ipynb같은 형식으로 하는 건 힘들겠구나..” 를 느끼면서
+파이썬 클래스를 적극적으로 사용해보았다.
+... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%ED%8C%8C%EC%9D%B4%EC%8D%AC">#파이썬</a><a class="post-tag" href="/tags.html#%ED%81%B4%EB%9E%98%EC%8A%A4">#클래스</a><a class="post-tag" href="/tags.html#%EC%84%A0%EC%96%B8">#선언</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/python/2023/01/09/20230109_001_python_lambda.html">
+          파이썬 람다식 lambda 함수 (익명함수)
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Jan 09, 2023</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
+      </div>
+      <a class="post-excerpt" href="/python/2023/01/09/20230109_001_python_lambda.html">
+        <p>
+        
+
+람다식이란? lambda
+정식 명칭은 ‘익명 함수’. (위키백과)
+이름에서 알 수 있듯이, 이름이 없는 함수이다.  
+풀어서 이야기하자면, def와 같은 식별자가 없고,
+일반적인 함수 정의 형태를 따르지 않는 함수식이다.
+쉽게 아래 예시를 참고해보자.
+
+# 두 숫자를 더하는 함수를 정의하고,
+# 함수를 통해 10과 20을 더한 값을 출력해보자. 
+
+# (1) 람다함수를 사용하지 않았을 때
+def sum(a, b):
+    return a + b
+sum(10, 20)
+
+# (2) 람다함수를 사용하였을 때
+(lambda x, y : x + y)(10, 20)
+
+
+
+람다식의 특징
+(1) 이름을 가지고 선언되는 일반적... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%ED%8C%8C%EC%9D%B4%EC%8D%AC">#파이썬</a><a class="post-tag" href="/tags.html#%EB%9E%8C%EB%8B%A4">#람다</a><a class="post-tag" href="/tags.html#lambda">#lambda</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/coding_test/2023/01/06/20230106_001_magic_elevator.html">
+          코딩테스트 마법의 엘리베이터 풀이
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Jan 06, 2023</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
+      </div>
+      <a class="post-excerpt" href="/coding_test/2023/01/06/20230106_001_magic_elevator.html">
+        <p>
+        
+
+
+  코딩테스트 연습에 공개된 문제는 (주)그렙이 저작권을 가지고 있습니다.
+(지문 하단에 별도 저작권 표시 문제 제외)
+코딩테스트 연습 문제의 지문, 테스트케이스, 풀이 등과 같은 정보는 비상업적, 비영리적 용도로 게시할 수 있습니다.
+
+
+코딩테스트 정보
+
+  프로그래머스
+  python
+  level 2
+  획득 점수 : 21
+
+
+문제
+
+
+마법의 세계에 사는 민수는 아주 높은 탑에 살고 있습니다.  
+탑이 너무 높아서 걸어 다니기 힘든 민수는 마법의 엘리베이터를 만들었습니다.  
+마법의 엘리베이터의 버튼은 특별합니다.  
+
+마법의 엘리베이터에는 -1, +1, -10, +10, -100, +100 등과 같이 ... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4">#프로그래머스</a><a class="post-tag" href="/tags.html#%ED%8C%8C%EC%9D%B4%EC%8D%AC">#파이썬</a><a class="post-tag" href="/tags.html#%EB%A0%88%EB%B2%A82">#레벨2</a><a class="post-tag" href="/tags.html#%EB%A7%88%EB%B2%95%EC%9D%98%EC%97%98%EB%A6%AC%EB%B2%A0%EC%9D%B4%ED%84%B0">#마법의엘리베이터</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/python/2023/01/05/20230105_001_python_comprehension.html">
+          python comprehension
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Jan 05, 2023</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
+      </div>
+      <a class="post-excerpt" href="/python/2023/01/05/20230105_001_python_comprehension.html">
+        <p>
+        
+
+python comprehension 이란?
+조건문 혹은 반복문을 적용한 자료형태를 간단하게 작성하는 방법.
+list, dict, set 등의 자료 형태에 적용할 수 있다.
+
+  
+    list comprehension
+    dict comprehension
+    set comprehension
+  
+
+
+자료형에 따른 comprehension 예시
+
+list comprehension
+
+(1) 주어진 문장에서 단어들만을 뽑아 리스트로 만들고,
+(2) 이 리스트에서 금지단어로 지정된 단어를 빼는 작업을 해보자
+
+
+  먼저, comprehension 사용시
+
+
+text = 'stop words는 금지 단어 리스... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#comprehension">#comprehension</a><a class="post-tag" href="/tags.html#list">#list</a><a class="post-tag" href="/tags.html#dict">#dict</a><a class="post-tag" href="/tags.html#set">#set</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/python/2023/01/04/20220104_002_regular_expression.html">
+          정규 표현식
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Jan 04, 2023</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+      </div>
+      <a class="post-excerpt" href="/python/2023/01/04/20220104_002_regular_expression.html">
+        <p>
+        
+
+정규 표현식
+Regular Expression. re로 표현한다.
+텍스트나 숫자, 특수문자 등으로 이루어진 문자열 패턴을 표현할 때 사용한다.
+
+문자열 내 특정 패턴의 문자의 존재 여부를 확인하거나
+이를 추출할 때 사용할 수 있다.
+
+re 모듈
+정규표현의 처리를 위한 기능들을 담고 있는 모듈이다.
+
+re 라이브러리 임포트 : import re
+|메서드|설명|예시|
+|—|—|—|
+|r = re.compile(패턴)|찾을 문자열이나 문자열 패턴(이하 패턴)을 지정한다. 또한 이를 변수에 담을 수 있다.|r = re.compile(‘abcdefabc’)|
+|re.search(패턴, 대상문자열)|대상문자열에서 찾을 패... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D">#정규표현식</a><a class="post-tag" href="/tags.html#re">#re</a><a class="post-tag" href="/tags.html#regularexpression">#regularexpression</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/python/2023/01/04/20220104_001_virtual_environment.html">
+          파이썬 가상환경 만들고 관리하기 (버전 관리)
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Jan 04, 2023</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+      </div>
+      <a class="post-excerpt" href="/python/2023/01/04/20220104_001_virtual_environment.html">
+        <p>
+        
+
+
+  본 포스트의 내용은 여러 자료를 참고하여 만들어졌습니다.
+단, 컨텐츠는 자체 제작하였으니 저작권 관련 사항은 메일로 문의해주세요.
+
+
+가상환경이란?
+가상환경이란,
+
+가상환경의 필요성
+
+  여러 프로젝트를 진행할 경우, 각각의 프로젝트에서 요구하는 언어나 패키지의 버전이 다른 경우
+  예를 들어 1번 프로젝트는 3.8 이상의 파이썬을 필요로 하고, 2번 프로젝트는 3.5 이하의 파이썬을 필요로 할 경우
+  이 때에는 각각의 프로젝트에 맞춘 가상환경을 각각 만들어주는 게 필요하다.
+  각 가상환경들은 언어와 패키지의 버전이 연동/혼용되지 않는다. (격리된 환경임)
+
+
+가상환경 명령어
+
+가상환경 만들기
+|명령어... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%ED%8C%8C%EC%9D%B4%EC%8D%AC">#파이썬</a><a class="post-tag" href="/tags.html#%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD">#가상환경</a><a class="post-tag" href="/tags.html#%EA%B4%80%EB%A6%AC">#관리</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/how_to_use_git/2022/12/19/20221219_001_git_basic.html">
+          깃허브 기본 사용법
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Dec 19, 2022</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+      </div>
+      <a class="post-excerpt" href="/how_to_use_git/2022/12/19/20221219_001_git_basic.html">
+        <p>
+        
+
+git 명령어들
+https://subicura.com/git/guide/basic.html#git-init-저장소-만들기
+
+
+  
+    
+      명령어
+      설명
+    
+  
+  
+    
+      git clone [URL]
+      URL의 깃허브 repo를 clone한다.
+    
+    
+      git config –global user.name [ID]
+      깃허브 아이디를 설정한다.
+    
+    
+      git config –global user.password [PW]
+      아이디에 해당하는 비밀번호를 설정한다. (토큰 가능)
+    
+    
+      git... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%EA%B9%83%ED%97%88%EB%B8%8C">#깃허브</a><a class="post-tag" href="/tags.html#%EC%82%AC%EC%9A%A9%EB%B2%95">#사용법</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/study_deep_learning/2022/12/13/20221213_002_dl_over.html">
+          딥러닝 과적합 방지 (규제, 드롭아웃, 배치정규화, 데이터증식)
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Dec 13, 2022</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+      </div>
+      <a class="post-excerpt" href="/study_deep_learning/2022/12/13/20221213_002_dl_over.html">
+        <p>
+        
+
+규제
+
+드롭아웃
+
+배치 정규화 batch normalization
+
+데이터 증식 data augmentation
+ <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%EB%94%A5%EB%9F%AC%EB%8B%9D">#딥러닝</a><a class="post-tag" href="/tags.html#%EA%B3%BC%EC%A0%81%ED%95%A9">#과적합</a><a class="post-tag" href="/tags.html#%EB%B0%A9%EC%A7%80">#방지</a><a class="post-tag" href="/tags.html#%EA%B7%9C%EC%A0%9C">#규제</a><a class="post-tag" href="/tags.html#%EB%93%9C%EB%A1%AD%EC%95%84%EC%9B%83">#드롭아웃</a><a class="post-tag" href="/tags.html#%EB%B0%B0%EC%B9%98%EC%A0%95%EA%B7%9C%ED%99%94">#배치정규화</a><a class="post-tag" href="/tags.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A6%9D%EC%8B%9D">#데이터증식</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/code_analysis/2022/12/13/20221213-dacon_sangchu_baseline.html">
+          데이콘 상추 생장률 베이스라인 코드 분석
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Dec 13, 2022</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 6 mins</span>
+      </div>
+      <a class="post-excerpt" href="/code_analysis/2022/12/13/20221213-dacon_sangchu_baseline.html">
+        <p>
+        과제 소개
+
+베이스라인
+
+Import
+
+import random
+import pandas as pd
+import numpy as np
+import math
+import os
+import glob
+
+import tensorflow as tf
+from tensorflow.keras.utils import Sequence
+
+from tqdm import tqdm
+
+import warnings
+warnings.filterwarnings(action='ignore') 
+
+
+Hyperparameter Setting
+
+CFG = {
+    'EPOCHS':100,
+    'LEARNING_RATE':1e-3,
+    'BATC... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%EC%BD%94%EB%93%9C">#코드</a><a class="post-tag" href="/tags.html#%EB%B6%84%EC%84%9D">#분석</a><a class="post-tag" href="/tags.html#%EA%B3%B5%EB%B6%80">#공부</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
+        <a class="post-link" href="/study_deep_learning/2022/12/13/20221213_001_CNN.html">
+          CNN
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Dec 13, 2022</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+      </div>
+      <a class="post-excerpt" href="/study_deep_learning/2022/12/13/20221213_001_CNN.html">
+        <p>
+        
+ <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%EB%94%A5%EB%9F%AC%EB%8B%9D">#딥러닝</a><a class="post-tag" href="/tags.html#CNN">#CNN</a><a class="post-tag" href="/tags.html#%EB%AA%A8%EB%8D%B8">#모델</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
         <a class="post-link" href="/summary/2022/12/11/20221211_001_markdown_syntax.html">
           마크다운 문법 요약
         </a>
@@ -988,7 +2075,7 @@ function googleTranslateElementInit() {
 
 
 <h2 class="post-title">
-        <a class="post-link" href="/etc/2022/12/10/20221210_002.html">
+        <a class="post-link" href="/etc/2022/12/10/20221210_002_mac_import_error.html">
           맥북 파이썬 모듈 import 에러 (M1 M2 M실리콘)
         </a>
       </h2>
@@ -996,7 +2083,7 @@ function googleTranslateElementInit() {
         <span class="post-date"><i class="fa fa-calendar"></i> Dec 10, 2022</span>
         <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
       </div>
-      <a class="post-excerpt" href="/etc/2022/12/10/20221210_002.html">
+      <a class="post-excerpt" href="/etc/2022/12/10/20221210_002_mac_import_error.html">
         <p>
         
 
@@ -1096,34 +2183,24 @@ function googleTranslateElementInit() {
       </h2>
       <div class="post-meta">
         <span class="post-date"><i class="fa fa-calendar"></i> Dec 10, 2022</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
       </div>
       <a class="post-excerpt" href="/etc/2022/12/10/20221208_002_install_tensorflow_at_m_silicon.html">
         <p>
         
 
-M실리콘 tensorflow 설치하기
+Miniforge를 이용한 tensorflow 설치
 
+Miniconda 는 아직 arm 아키텍처를 지원하지 않음.
+때문에, arm아키텍처를 유일하게 지원하는 Conda-Forge를 설치해 파이썬을 사용하는 게 유일한 해결책임.
 
-  Conda 가상환경 만들기
-    conda create -n 가상환경명 anaconda
+tensorflow-macos + tensorflow-metal 과도 실행 속도를 비교해봤으나,
+forge를 통해 설치한 tensorflow의 처리속도가 훨씬 빨랐음.
+왜인지는 모르겠음.. 
+(forge - cpu 480% 사용, metal - cpu 60%, gpu 90% 사용)
 
-  
-  Conda 가상환경 실행
-    conda activate 가상환경명
-
-  
-  numpy, scipy 업그레이드
-    pip install numpy --upgrade
-pip install scipy --upgrade
-
-    
-      Requirement already satisfied:
-이 문구는, 이미 최신버전이라는 뜻입니다. 다음 단계로 넘어가세요.
-    
-  
-  tensorflow 설치
-    conda install -c apple tensorfl... <span class="read_more">Read More</span>
+(1) 아래 링크에서 arm64 버전 forge를 다운로드 해준다.
+https://github.com/c... <span class="read_more">Read More</span>
         </p>
       </a>
       <div class="post-tags">
@@ -1194,7 +2271,7 @@ pip install scipy --upgrade
 
 
 <h2 class="post-title">
-        <a class="post-link" href="/etc/2022/12/10/20221210_001.html">
+        <a class="post-link" href="/etc/2022/12/10/20221210_001_csv_to_markdown.html">
           CSV, 엑셀 파일 마크다운으로 바꾸기 (파이썬 코드)
         </a>
       </h2>
@@ -1202,7 +2279,7 @@ pip install scipy --upgrade
         <span class="post-date"><i class="fa fa-calendar"></i> Dec 10, 2022</span>
         <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
       </div>
-      <a class="post-excerpt" href="/etc/2022/12/10/20221210_001.html">
+      <a class="post-excerpt" href="/etc/2022/12/10/20221210_001_csv_to_markdown.html">
         <p>
         
 
@@ -1519,6 +2596,119 @@ CSV-&gt;마크다운 변환 파이썬
 
 
 <h2 class="post-title">
+        <a class="post-link" href="/python/2022/12/02/20221202_001_python_matplotlib.html">
+          파이썬 맷플로립 라이브러리 matplotlib
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> Dec 02, 2022</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 7 mins</span>
+      </div>
+      <a class="post-excerpt" href="/python/2022/12/02/20221202_001_python_matplotlib.html">
+        <p>
+        
+
+인트로
+
+  matplotlib은 파이썬의 시각화 라이브러리이다.
+
+
+설치
+
+  pip install matplotlib 혹은
+  conda install matplotlib
+
+
+pip install matplotlib # pip 이용
+conda install matplotlib # anaconda 이용
+
+
+matplotlib.pyplot (그래프 관련 기본)
+
+
+  
+    import : import matplotlib.pyplot
+    이하에서는 plt로 줄여 설명한다.
+    다양한 시각화 도구가 있는 라이브러리
+  
+
+
+Matplotlib 설명
+
+
+  
+    matplotlib을 진행하는 순서
+  ... <span class="read_more">Read More</span>
+        </p>
+      </a>
+      <div class="post-tags">
+<a class="post-tag" href="/tags.html#%ED%8C%8C%EC%9D%B4%EC%8D%AC,">#파이썬,</a><a class="post-tag" href="/tags.html#%EB%A7%B7%ED%94%8C%EB%A1%9C%EB%A6%BD,">#맷플로립,</a><a class="post-tag" href="/tags.html#matplotlib,">#matplotlib,</a><a class="post-tag" href="/tags.html#%EC%8B%9C%EA%B0%81%ED%99%94">#시각화</a>
+</div>
+    </li>
+<li>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="post-title">
         <a class="post-link" href="/summary/2022/12/01/20221201_001_Pandas_summary.html">
           Python Pandas summary 판다스 요약
         </a>
@@ -1614,7 +2804,7 @@ CSV-&gt;마크다운 변환 파이썬
 
 
 <h2 class="post-title">
-        <a class="post-link" href="/how_to_use_git/2022/11/26/20221126_002.html">
+        <a class="post-link" href="/how_to_use_git/2022/11/26/20221126_002._add_github_editor.html">
           Github Desktop 에디터 추가
         </a>
       </h2>
@@ -1622,7 +2812,7 @@ CSV-&gt;마크다운 변환 파이썬
         <span class="post-date"><i class="fa fa-calendar"></i> Nov 26, 2022</span>
         <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
       </div>
-      <a class="post-excerpt" href="/how_to_use_git/2022/11/26/20221126_002.html">
+      <a class="post-excerpt" href="/how_to_use_git/2022/11/26/20221126_002._add_github_editor.html">
         <p>
         
 
@@ -1713,7 +2903,7 @@ Github Desktop과 연동 가능한 editor 목록은 아래 사이트에서 확..
 
 
 <h2 class="post-title">
-        <a class="post-link" href="/how_to_use_git/2022/11/26/20221126_001.html">
+        <a class="post-link" href="/how_to_use_git/2022/11/26/20221126_001_how_to_make_git_blog.html">
           깃허브 블로그 페이지 만들기 (윈도우/맥)
         </a>
       </h2>
@@ -1721,7 +2911,7 @@ Github Desktop과 연동 가능한 editor 목록은 아래 사이트에서 확..
         <span class="post-date"><i class="fa fa-calendar"></i> Nov 26, 2022</span>
         <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 13 mins</span>
       </div>
-      <a class="post-excerpt" href="/how_to_use_git/2022/11/26/20221126_001.html">
+      <a class="post-excerpt" href="/how_to_use_git/2022/11/26/20221126_001_how_to_make_git_blog.html">
         <p>
         
 
@@ -1814,110 +3004,7 @@ html이나 마크다운에 대한 공부도 할 겸 깃허브 블로그를 선�
 
 
 <h2 class="post-title">
-        <a class="post-link" href="/etc/2022/11/26/20221126_03.html">
-          MAC 홈브루 설치 오류
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Nov 26, 2022</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
-      </div>
-      <a class="post-excerpt" href="/etc/2022/11/26/20221126_03.html">
-        <p>
-        
-
-에러 발생
-
-터미널을 통해 홈브루 설치를 진행했더니..
-그랬더니 아래와 같은 에러가 난다.
-
-
-
-
-에러 원인 탐색
-
-홈브루의 문제보다는 깃허브와 PC 사이의 연결 문제일 것이라고 한다.
-깃허브 토픽 discussion에서 해결책을 찾아보라고 한다. VPN등을 사용하는 해결책이 있을 것이라고..
-
-
-
-Unable to install: “fatal: the remote end hung up unexpectedly” · Discussion #666 · Homebrew
-
-첫 번째 시도 : 홈브루 강제 update (실패)
-
-discussion에서 홈브루를 강제 업데이트 해보라는 의견이 있어 진행해본다.
-터미널을 켜고 ... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags">
-<a class="post-tag" href="/tags.html#%EB%A7%A5">#맥</a><a class="post-tag" href="/tags.html#MAC">#MAC</a><a class="post-tag" href="/tags.html#%ED%99%88%EB%B8%8C%EB%A3%A8">#홈브루</a><a class="post-tag" href="/tags.html#homebrew">#homebrew</a><a class="post-tag" href="/tags.html#%EC%84%A4%EC%B9%98">#설치</a><a class="post-tag" href="/tags.html#%EC%98%A4%EB%A5%98">#오류</a>
-</div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/etc/2022/11/26/20221126_004.html">
+        <a class="post-link" href="/etc/2022/11/26/20221126_004_gemfile_error.html">
           지킬 페이지 테마 적용 Gemfile 오류
         </a>
       </h2>
@@ -1925,7 +3012,7 @@ discussion에서 홈브루를 강제 업데이트 해보라는 의견이 있어 
         <span class="post-date"><i class="fa fa-calendar"></i> Nov 26, 2022</span>
         <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
       </div>
-      <a class="post-excerpt" href="/etc/2022/11/26/20221126_004.html">
+      <a class="post-excerpt" href="/etc/2022/11/26/20221126_004_gemfile_error.html">
         <p>
         
 
@@ -2015,1260 +3102,44 @@ Gemfile 파싱 도중 오류이며, jekyll-theme-so-simple.gemspec 파일을 로
 
 
 <h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2022/11/24/welcome-to-jekyll.html">
-          Welcome to Jekyll!
+        <a class="post-link" href="/etc/2022/11/26/20221126_003_mac_homebrew.html">
+          MAC 홈브루 설치 오류
         </a>
       </h2>
       <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Nov 24, 2022</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2022/11/24/welcome-to-jekyll.html">
-        <p>
-        You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
-
-Jekyll requires blog post files to be named according ... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2018/12/07/welcome-to-jekyll.html">
-          Welcome to Jekyll!
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Dec 07, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2018/12/07/welcome-to-jekyll.html">
-        <p>
-        You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
-
-To add new posts, simply add a file in the _posts dire... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags">
-<a class="post-tag" href="/tags.html#jekyll">#jekyll</a><a class="post-tag" href="/tags.html#theme">#theme</a><a class="post-tag" href="/tags.html#yat">#yat</a>
-</div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2018/12/05/an-exhibit-of-markdown.html">
-          An exhibit of Markdown
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Dec 05, 2018</span>
+        <span class="post-date"><i class="fa fa-calendar"></i> Nov 26, 2022</span>
         <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
       </div>
-      <a class="post-excerpt" href="/git_blog_samples/2018/12/05/an-exhibit-of-markdown.html">
+      <a class="post-excerpt" href="/etc/2022/11/26/20221126_003_mac_homebrew.html">
         <p>
-        This note demonstrates some of what Markdown is capable of doing.
+        
 
-An exhibit of Markdown
+에러 발생
 
-Note: Feel free to play with this page. Unlike regular notes, this doesn’t automatically save itself.
+터미널을 통해 홈브루 설치를 진행했더니..
+그랬더니 아래와 같은 에러가 난다.
 
-Basic formatting
 
-Paragraphs can be written like so. A paragraph is the basic block of Markdown. A paragraph is what text will turn into when there is no... <span class="read_more">Read More</span>
+
+
+에러 원인 탐색
+
+홈브루의 문제보다는 깃허브와 PC 사이의 연결 문제일 것이라고 한다.
+깃허브 토픽 discussion에서 해결책을 찾아보라고 한다. VPN등을 사용하는 해결책이 있을 것이라고..
+
+
+
+Unable to install: “fatal: the remote end hung up unexpectedly” · Discussion #666 · Homebrew
+
+첫 번째 시도 : 홈브루 강제 update (실패)
+
+discussion에서 홈브루를 강제 업데이트 해보라는 의견이 있어 진행해본다.
+터미널을 켜고 ... <span class="read_more">Read More</span>
         </p>
       </a>
       <div class="post-tags">
-<a class="post-tag" href="/tags.html#example">#example</a><a class="post-tag" href="/tags.html#markdown">#markdown</a>
+<a class="post-tag" href="/tags.html#%EB%A7%A5">#맥</a><a class="post-tag" href="/tags.html#MAC">#MAC</a><a class="post-tag" href="/tags.html#%ED%99%88%EB%B8%8C%EB%A3%A8">#홈브루</a><a class="post-tag" href="/tags.html#homebrew">#homebrew</a><a class="post-tag" href="/tags.html#%EC%84%A4%EC%B9%98">#설치</a><a class="post-tag" href="/tags.html#%EC%98%A4%EB%A5%98">#오류</a>
 </div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2018/05/26/mathjax-test.html">
-          Mathjax Test
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 26, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2018/05/26/mathjax-test.html">
-        <p>
-        
-  A safe integer is an integer that
-    
-      can be exactly represented as an IEEE-754 double precision number, and
-      whose IEEE-75 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation
-    
-  
-  For example, $ 2 ^ {53} - 1 $ is a safe integer,
-    
-      it can be exactly represented
-    
-  
-
- <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"><a class="post-tag" href="/tags.html#test">#test</a></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2017/12/18/video-example.html">
-          Video example
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Dec 18, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2017/12/18/video-example.html">
-        <p>
-        Canon in D (Pachelbel’s Canon) - Cello &amp; Piano [BEST WEDDING VERSION]
-Some of you know that we occasionally play for weddings. As you can imagine, we get a LOT of requests for Canon in D, and we discovered that there were no good arrangements available anywhere for piano and cello! Hard to believe given its popularity. So we decided to make ... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"><a class="post-tag" href="/tags.html#video">#video</a></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2017/12/15/table-example.html">
-          Table example
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Dec 15, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2017/12/15/table-example.html">
-        <p>
-        Table example as below
-
-For now, these extended features are provided:
-
-
-  Cells spanning multiple columns
-  Cells spanning multiple rows
-  Cells text align separately
-  Table header not required
-  Grouped table header rows or data rows
-
-
-Rowspan and Colspan
-^^ in a cell indicates it should be merged with the cell above.
-This feature is contribu... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"><a class="post-tag" href="/tags.html#table">#table</a></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2017/12/08/mermaid-example.html">
-          Mermaid example
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Dec 08, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2017/12/08/mermaid-example.html">
-        <p>
-        1. Pie chart
-
-
-
-2. sequence diagram
-
-
-
-
-
-3. Class diagram
-
-
-4. State diagram
-
- <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"><a class="post-tag" href="/tags.html#mermaid">#mermaid</a></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2017/12/04/plantuml-example.html">
-          Plantuml example
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Dec 04, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2017/12/04/plantuml-example.html">
-        <p>
-        My First PlantUML
-
-PlantUML Block-1
-
-
-PlantUML Block-2
-
-
-PlantUML Block-3
-
-
-PlantUML Block-4
-
-
- <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"><a class="post-tag" href="/tags.html#plantuml">#plantuml</a></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2017/06/10/quick-mardown-example.html">
-          Quick markdown example
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Jun 10, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2017/06/10/quick-mardown-example.html">
-        <p>
-        Paragraphs are separated by a blank line.
-
-2nd paragraph. Italic, bold, and monospace. Itemized lists
-look like:
-
-
-  this one
-  that one
-  the other one
-
-
-Note that — not considering the asterisk — the actual text
-content starts at 4-columns in.
-
-
-  Block quotes are
-written like so.
-
-  They can span multiple paragraphs,
-if you like.
-
-
-Use 3 dash... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"><a class="post-tag" href="/tags.html#example">#example</a></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2017/05/20/this-post-demonstrates-post-content-styles.html">
-          This post demonstrates post content styles
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 20, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2017/05/20/this-post-demonstrates-post-content-styles.html">
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
-
-Some great heading (h2)
-
-Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, m... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2016/08/12/my-example-post.html">
-          My Example Post
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Aug 12, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2016/08/12/my-example-post.html">
-        <p>
-        Eos eu docendi tractatos sapientem, brute option menandri in vix, quando vivendo accommodare te ius. Nec melius fastidii constituam id, viderer theophrastus ad sit, hinc semper periculis cum id. Noluisse postulant assentior est in, no choro sadipscing repudiandae vix. Vis in euismod delenit dignissim. Ex quod nostrum sit, suas decore animal id i... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2016/05/20/super-long-article.html">
-          Some articles are just so long they deserve a really long title to see if things will break well
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 20, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2016/05/20/super-long-article.html">
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lo... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2016/05/19/super-short-article.html">
-          Some articles are just so short that we have to make the footer stick
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 19, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2016/05/19/super-short-article.html">
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur s... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2016/01/01/another-test-markdown.html">
-          Another test markdown
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Jan 01, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 9 mins</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2016/01/01/another-test-markdown.html">
-        <p>
-        Put the math expression within $…$:
-
-\(\LaTeX{}\)
-
-$\Pi$
-
-$ a * b = c ^ b $
-
-$ 2^{\frac{n-1}{3}} $
-
-$ \int_a^b f(x)\,dx. $
-
-\( \int_a^b f(x)\,dx. \)
-
-$$
-\begin{cases}
-\text{if true}\ foo 
-\text{if false}\ bar
-\end{cases}
-$$
-
-
-  
-    
-      $ \rho {\rm{FOD}} = \sum\limits{\sigma ,i} {(\delta _1 - \delta _2 n_i^\sigma )
-      \phi _i^\sigma ({\bf{... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"><a class="post-tag" href="/tags.html#test">#test</a></div>
-    </li>
-<li>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="post-title">
-        <a class="post-link" href="/git_blog_samples/2015/02/28/test-markdown.html">
-          Test markdown
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> Feb 28, 2015</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
-      </div>
-      <a class="post-excerpt" href="/git_blog_samples/2015/02/28/test-markdown.html">
-        <p>
-        You can write regular markdown here and Jekyll will automatically convert it to a nice webpage.  I strongly encourage you to take 5 minutes to learn how to write in markdown - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc.
-
-Here is some bold text
-
-Here is a secondary heading
-
-Here’s a useless table:
-
-
-  
-   ... <span class="read_more">Read More</span>
-        </p>
-      </a>
-      <div class="post-tags"><a class="post-tag" href="/tags.html#test">#test</a></div>
     </li>
 </ul>
 
@@ -3304,20 +3175,32 @@ Here’s a useless table:
   <ul>
     <li>
       <a href="/index.html">
-        All<span>26</span>
+        All<span>23</span>
       </a>
     </li>
 
     
       <li>
-        <a href="/categories.html#h-Git_Blog_Samples">
-          Git_Blog_Samples <span>15</span>
+        <a href="/categories.html#h-How_To_Use_Git">
+          How_To_Use_Git <span>3</span>
         </a>
       </li>
     
       <li>
-        <a href="/categories.html#h-How_To_Use_Git">
-          How_To_Use_Git <span>2</span>
+        <a href="/categories.html#h-Python">
+          Python <span>6</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/categories.html#h-code_analysis">
+          code_analysis <span>1</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/categories.html#h-coding_test">
+          coding_test <span>1</span>
         </a>
       </li>
     
@@ -3328,8 +3211,14 @@ Here’s a useless table:
       </li>
     
       <li>
+        <a href="/categories.html#h-lab">
+          lab <span>1</span>
+        </a>
+      </li>
+    
+      <li>
         <a href="/categories.html#h-study_deep_learning">
-          study_deep_learning <span>1</span>
+          study_deep_learning <span>3</span>
         </a>
       </li>
     
@@ -3351,7 +3240,7 @@ Here’s a useless table:
 
   <div class="wrapper">
     <div class="site-footer-inner">
-<div>Copyright © <span class="copyleft">©</span> 2022-2022 Jongya</div>
+<div>Copyright © <span class="copyleft">©</span> 2022-2023 Jongya</div>
       <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
       generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
       another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
