@@ -3,7 +3,7 @@ title: Customize the Favicon
 author: cotes
 date: 2022-11-11 11:33:00 +0800
 lastmod: 2022-11-11 11:33:00 +0800
-categories: [Blogging, Tutorial]
+categories: Blogging, Tutorial
 tags: [favicon]
 sitemap :
   changefreq : daily
