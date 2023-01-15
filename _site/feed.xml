@@ -1,865 +1,327 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-15T18:34:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jongya’s Git Page</title><subtitle>새내기 프로그래머 Jongya의 블로그입니다.</subtitle><author><name>Jongya</name></author><entry><title type="html">프로그레스 바 만들어보기</title><link href="http://localhost:4000/lab/2023/01/12/20230112_001_making_progress_bar.html" rel="alternate" type="text/html" title="프로그레스 바 만들어보기" /><published>2023-01-12T10:12:00+09:00</published><updated>2023-01-12T10:12:00+09:00</updated><id>http://localhost:4000/lab/2023/01/12/20230112_001_making_progress_bar</id><content type="html" xml:base="http://localhost:4000/lab/2023/01/12/20230112_001_making_progress_bar.html"><![CDATA[<!--postNo: 20230112_001-->
 
-<h2 id="인트로">인트로</h2>
-<p>tqdm 만들어보기 : print 줄바꿈 없이 출력하기|아직 미작성 : tqdm을 쓰면 느려지는 것 같아서 자신은 잘 안쓴다는 선생님의 말씀 / 횟수가 많은 동일 작업을 각각의 방법으로 했을 때의 비교를 해보면 되겠다.</p>
 
-<h2 id="사용-개념--정규표현식-r">사용 개념 : 정규표현식 \r</h2>
-<p>tqdm을 살펴보면, 진행률을 한 줄로 표시함을 볼 수 있다.<br />
-그러므로 필요한 기술은, 연속된 출력에서 이전 출력 내용을 지우고 업데이트 하는 것.<br />
-간단한 기술로 가능한데, 바로 print 메서드에 정규표현식을 이용하는 것이다.</p>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Jongya's blog</title>
+  <subtitle>A minimal, responsive, and powerful Jekyll theme for presenting professional writing.</subtitle>
+  <updated>2023-01-16T01:46:23+09:00</updated>
+  <author>
+    <name>Jongya</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator>
+  <rights> © 2023 Jongya </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 그냥 print 사용해보기
-</span><span class="k">print</span><span class="p">(</span><span class="s">'1번입니다'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'2번입니다'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
-<span class="o">-----------</span><span class="n">출력</span><span class="o">-----------</span>
-<span class="mi">1</span><span class="n">번입니다2번입니다</span>
 
-<span class="c1"># \r을 사용해 이전 출력내용 지우기
-</span><span class="k">print</span><span class="p">(</span><span class="s">'1번입니다'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="s">2번입니다'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
-<span class="o">-----------</span><span class="n">출력</span><span class="o">-----------</span>
-<span class="mi">2</span><span class="n">번입니다</span><span class="p">.</span>
+  
+  <entry>
+    <title>프로그레스 바 만들어보기</title>
+    <link href="http://localhost:4000/posts/20230112_001_making_progress_bar/" rel="alternate" type="text/html" title="프로그레스 바 만들어보기" />
+    <published>2023-01-12T10:12:00+09:00</published>
+  
+    <updated>2023-01-12T10:12:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/20230112_001_making_progress_bar/</id>
+    <content src="http://localhost:4000/posts/20230112_001_making_progress_bar/" />
+    <author>
+      <name>Jongya</name>
+    </author>
 
-</code></pre></div></div>
-<ul>
-  <li>\r 정규표현식 : 앞쪽 출력물을 지운다.</li>
-  <li>end = ‘’ : print의 파라미터로, 기본값은 ‘\n’(줄바꿈)으로 되어있다.</li>
-</ul>
-
-<h2 id="표현법-기초공사">표현법 기초공사</h2>
-
-<h3 id="1차--진행률-로-표기해보기">1차 : 진행률 %로 표기해보기</h3>
-<p>1회 ~ 100회 동안 각 회마다 진행률%를 출력하도록 했다.<br />
-time.sleep을 이용해 0.1초 간격을 두고 각 회차가 진행된다.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="se">\r</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">%'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
-    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-</code></pre></div></div>
-<p><img src="/assets/images/20230112_001_002.gif" alt="" /></p>
-
-<h3 id="2차--진행률을-input-num과-매칭하여-진행률-표기하기">2차 : 진행률을 input num과 매칭하여 진행률 표기하기</h3>
-<p>진행 횟수인 fit_num에 대해 %로 표기를 할 수 있게끔<br />
-(현재 진행횟수 / fit_num * 100)의 반올림 값을 표기하게 한다.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
-<span class="n">fit_num</span> <span class="o">=</span> <span class="mi">51</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fit_num</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="se">\r</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="n">fit_num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s">%'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
-    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-</code></pre></div></div>
-<p><img src="/assets/images/20230112_001_003.gif" alt="" /></p>
-
-<h3 id="3차--좀-더-예쁘게-디자인해보기">3차 : 좀 더 예쁘게 디자인해보기</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
-<span class="n">fit_num</span> <span class="o">=</span> <span class="mi">101</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fit_num</span><span class="p">):</span>
+  
     
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="p">((</span><span class="n">fit_num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">10</span><span class="p">))</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="n">n</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <category term="lab" />
     
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="se">\r</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="n">fit_num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s">%'</span><span class="p">,</span>
-          <span class="s">'|'</span><span class="p">,</span>
-          <span class="s">'■ '</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span> <span class="s">'&gt;'</span> <span class="o">*</span> <span class="n">m</span><span class="p">,</span> <span class="s">' .'</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-          <span class="s">'|'</span><span class="p">,</span>
-          <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+
+인트로
+tqdm을 쓰면 느려지는 것 같아서 자신은 잘 안쓴다는 선생님의 말씀을 듣고,
+실제로 그러한지에 대한 테스트를 해본다.
+
+
+
+사용 개념 : \r
+tqdm을 살펴보면, 진행률을 한 줄로 표시함을 볼 수 있다.
+그러므로 필요한 기술은, 연속된 출력에서 이전 출력 내용을 지우고 업데이트 하는 것.
+간단한 기술로 가능한데, 바로 print 메서드에 \r정규표현식을 이용하는 것이다.
+
+# 그냥 print 사용해보기
+print('1번입니다', end='')
+print('2번입니다', end='')
+-----------출력-----------
+1번입니다2번입니다
+
+# \r을 사용해 이전 출력내용 지우기
+print('1번입니다', end='')
+print('\r2번입니다', end='')
+---------...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>파이썬 람다식 lambda 함수 (익명함수)</title>
+    <link href="http://localhost:4000/posts/20230109_001_python_lambda/" rel="alternate" type="text/html" title="파이썬 람다식 lambda 함수 (익명함수)" />
+    <published>2023-01-09T20:45:37+09:00</published>
+  
+    <updated>2023-01-09T20:45:37+09:00</updated>
+  
+    <id>http://localhost:4000/posts/20230109_001_python_lambda/</id>
+    <content src="http://localhost:4000/posts/20230109_001_python_lambda/" />
+    <author>
+      <name>Jongya</name>
+    </author>
+
+  
     
-    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-</code></pre></div></div>
-<p><img src="/assets/images/20230112_001_001.gif" alt="" /></p>
+    <category term="Language" />
+    
+    <category term="Python" />
+    
+  
 
-<h2 id="레퍼런스">레퍼런스</h2>
-<p>https://jellyho.com/blog/96/</p>]]></content><author><name>Jongya</name></author><category term="lab" /><category term="프로그레스바" /><category term="\r" /><category term="tqdm" /><category term="대체하기" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">파이썬 클래스 선언 방법</title><link href="http://localhost:4000/python/2023/01/09/20230109_002_python_class.html" rel="alternate" type="text/html" title="파이썬 클래스 선언 방법" /><published>2023-01-09T21:51:10+09:00</published><updated>2023-01-09T21:51:10+09:00</updated><id>http://localhost:4000/python/2023/01/09/20230109_002_python_class</id><content type="html" xml:base="http://localhost:4000/python/2023/01/09/20230109_002_python_class.html"><![CDATA[<!--postNo: 20230109_002-->
+  
+    <summary>
+      
 
-<h2 id="들어가며">들어가며</h2>
-<p>새싹 과정의 java 교육에서 잠깐 맛보았던 클래스.<br />
-객체 선언의 A-Z라는 클래스. 잊고 살다가..<br />
-데이콘에서 클래스 정의를 통해 최적화된 문제풀이를 하는 코드들을 보았다.</p>
 
-<p>java 교육때 배운 것으로 클래스를 정의하고,<br />
-클래스 안에 비슷한 함수들을 모아 정의하는 등.. 의 사용까지는 했었으나,<br />
-__init__이 무언지, 어떻게 사용해야하는지 등을 깊게 공부해본 적은 없었다.</p>
 
-<p>러닝메이트 스터디에서 ‘마진계산기’ 서비스를 출시하는 프로젝트를 하면서<br />
-“아.. 실제 출시하는 서비스는 주피터나 코랩같은 ipynb같은 형식으로 하는 건 힘들겠구나..” 를 느끼면서<br />
-파이썬 클래스를 적극적으로 사용해보았다.</p>
 
-<h2 id="클래스란">클래스란?</h2>
 
-<p>클래스란 무엇인지 예시</p>
+      
 
-<h2 id="클래스를-만들어보자">클래스를 만들어보자</h2>
-<p>클래스 선언
-클래스의 속성 선언과 사용
-클래스의 메서드 선언과 사용</p>
+람다식이란? lambda
+정식 명칭은 익명 함수 (위키백과)로, 이름에서 알 수 있듯 ‘이름이 없는 함수’이다.  
+풀어서 이야기하자면, def와 같은 식별자가 없고, 일반적인 함수 정의 형태를 따르지 않는 함수식이다.
+아래 예시를 참고해보자.
 
-<h2 id="외부-파일의-클래스를-불러와-사용하기">외부 파일의 클래스를 불러와 사용하기</h2>
-<p>외부 파이썬 코드와 현재 코드 위치 보여주기
-외부 파이썬 코드 불러오기</p>
-
-<h2 id="클래스를-사용하는-이유">클래스를 사용하는 이유</h2>
-<p>메서드를 정의하는 것과 같이 재사용성
-선언부와 실행부를 분리함으로써 코드를 체계적으로 정리 가능하고
-선언부와 실행부 분리로, 실행부의 알고리즘에 끊김이 없어져 집중이 가능
-속성 및 메서드 등의 공유가 간편</p>
-
-<h2 id="레퍼런스">레퍼런스</h2>
-<p>https://wikidocs.net/28<br />
-dacon.io 베이스라인 코드들</p>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="파이썬" /><category term="클래스" /><category term="선언" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">파이썬 람다식 lambda 함수 (익명함수)</title><link href="http://localhost:4000/python/2023/01/09/20230109_001_python_lambda.html" rel="alternate" type="text/html" title="파이썬 람다식 lambda 함수 (익명함수)" /><published>2023-01-09T20:45:37+09:00</published><updated>2023-01-09T20:45:37+09:00</updated><id>http://localhost:4000/python/2023/01/09/20230109_001_python_lambda</id><content type="html" xml:base="http://localhost:4000/python/2023/01/09/20230109_001_python_lambda.html"><![CDATA[<!--postNo: 20230109_001-->
-
-<h2 id="람다식이란-lambda">람다식이란? lambda</h2>
-<p>정식 명칭은 ‘익명 함수’. (위키백과)<br />
-이름에서 알 수 있듯이, 이름이 없는 함수이다.  <br />
-풀어서 이야기하자면, def와 같은 식별자가 없고,<br />
-일반적인 함수 정의 형태를 따르지 않는 함수식이다.<br />
-쉽게 아래 예시를 참고해보자.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 두 숫자를 더하는 함수를 정의하고,
+# 두 숫자를 더하는 함수를 정의하고,
 # 함수를 통해 10과 20을 더한 값을 출력해보자. 
-</span>
-<span class="c1"># (1) 람다함수를 사용하지 않았을 때
-</span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 
-<span class="c1"># (2) 람다함수를 사용하였을 때
-</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-
-</code></pre></div></div>
-
-<h2 id="람다식의-특징">람다식의 특징</h2>
-<p>(1) 이름을 가지고 선언되는 일반적인 함수와 달리, 일회성으로 쓰이고 폐기된다.<br />
-메모리에 오르지 않기에 메모리를 절약할 수 있으나, 다른 말로 하면 재사용이 불가능하다.<br />
-(2) 함수의 정의와 동시에 매개변수를 지정해 값을 출력하도록 사용이 가능하다.<br />
-(3) 일반적인 함수보다 짧게 작성이 가능하다.</p>
-<blockquote>
-  <p>단, 변수 = lambda x: 식 과 같이 변수에 함수를 정의하는 경우 메모리에 올라가며, 이후에도 호출하여 사용이 가능하다.</p>
-</blockquote>
-
-<h2 id="람다식을-사용하는-경우">람다식을 사용하는 경우</h2>
-<p>람다식은 아래와 같은 경우에 사용된다.<br />
-(1)일회성으로 쓰이는 이름을 지정할 필요가 없이 간단히 쓰는 함수를 정의할 때<br />
-(2)함수식 자체가 매개변수가 되는 경우<br />
-(3)특정 함수의 return값이 특정 함수여야 하는 경우</p>
-
-<p>그리고, 해석에 어려움만 없다면 짧은 코드 작성에 일조할 수 있다.</p>
-
-<h2 id="람다식-사용법">람다식 사용법</h2>
-<p>람다식의 다양한 사용법을 서술한다.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="c1"># 일반적인 계산 함수에 사용
-</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  <span class="c1">## 두 인자를 더하는 함수
-</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>      <span class="c1">## 제곱을 출력하는 함수
-</span>
-<span class="c1"># dict를 정렬할 때
-</span><span class="n">dict_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">vocab</span><span class="p">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="c1"># 조건문과 함께 사용
-</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">'합격'</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="k">else</span> <span class="k">print</span><span class="p">(</span><span class="s">'불합격'</span><span class="p">))(</span><span class="mi">70</span><span class="p">)</span>
-
-<span class="c1"># 조건문과 함께 사용 - 다른 표현법
-</span><span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s">'합격'</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="k">else</span> <span class="s">'불합격'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="mi">70</span><span class="p">))</span>
-
-<span class="c1"># map 함수와 함께 사용
-# 주어지는 매개변수가 sequence형일 경우, 순환하며 함수를 적용한다.
-</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">매개변수</span><span class="p">:</span> <span class="n">식</span><span class="p">,</span> <span class="n">sequence형</span> <span class="n">자료</span><span class="p">)</span>
-<span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="c1">## 출력은 &lt;map object at 0x000001EAE8C6EAF0&gt; 와 같이 메모리에 올라간 object 형태가 된다.  
-</span>
-<span class="c1"># reduce 함수와 함께 사용
-# 주어지는 매개변수가 sequence형일 경우, 앞의 인자부터 함수식을 적용해간다.  
-</span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
-<span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+'(1) 람다함수를 사용하지 않았을 때'
+def sum(a, b):
+    return a + b
+sum(10, 20)
 
 
-<span class="c1"># 이후 추가
-</span>
-</code></pre></div></div>
+'(2) 람다함수를 사용하였을 때'
+(lambda x, y : x + y)(10, 20)
 
-<h2 id="람다식의-등장-배경">람다식의 등장 배경</h2>
-<p>수학자이자 철학자인 Alonzo Church가 Entscheidungs problem 을 해결할 때 등장한 것으로 보이는데.. 이 부분은 잘 모르겠다. 패스!</p>
 
-<h2 id="람다식의-장단점">람다식의 장단점</h2>
-<p>람다식은 좋다 나쁘다로 평가하는 것 보다는..<br />
-필요에 의해, 그리고 상황에 알맞게 사용했는지가 가장 중요할 것으로 보인다.</p>
 
-<p>예를 들어) 나중에 재사용을 하는 함수를 일회성으로 람다로 써버린다면,<br />
-결국 나중에 동일 함수를 다시 정의하는, 두 번 일을 하는 불상사가 있을 것이다.</p>
+람다식의 특징
 
-<p>하지만 일회성 함수이면서 코드를 단순화하는 데 도움을 준다거나 하는 데에는<br />
-좋은 역할을 할 것으로 보인다.</p>
+  이름을 가지고 선언되는 일반적인 함수와 달리, 일회성으로 쓰이고 폐기된다.
+메모리에 오르지 않기에 메모리를 절약할 수 있으나,...
+    </summary>
+  
 
-<p>람다식의 사용은, 좋다 나쁘다보다는 작성자의 성향에 따른 것일 수도 있다.</p>
+  </entry>
 
-<h2 id="람다함수의-존폐-위기">람다함수의 존폐 위기</h2>
+  
+  <entry>
+    <title>코딩테스트 마법의 엘리베이터 풀이</title>
+    <link href="http://localhost:4000/posts/20230106_001_magic_elevator/" rel="alternate" type="text/html" title="코딩테스트 마법의 엘리베이터 풀이" />
+    <published>2023-01-06T16:46:06+09:00</published>
+  
+    <updated>2023-01-06T16:46:06+09:00</updated>
+  
+    <id>http://localhost:4000/posts/20230106_001_magic_elevator/</id>
+    <content src="http://localhost:4000/posts/20230106_001_magic_elevator/" />
+    <author>
+      <name>Jongya</name>
+    </author>
 
-<h2 id="생각해보기">생각해보기</h2>
-<p>람다식을 쓰면서 생각이 드는 게..<br />
-파이썬의 comprehension을 이용하는 것과 거의 비슷한 효과를 내는구나라는 생각이 든다.<br />
-comprehension으로 for문과 if문을 혼합해 사용하면 같은 결과를 낼 수 있을 것 같다.<br />
-이후 람다식을 만나면, 어떤 이유로 람다식을 썼는지, 그리고 대체할 수 있는 작성법은 무엇이 있는지 유심히 지켜봐야겠다.</p>
-
-<p>하지만, 기존 작성된 코드 중 람다식이 사용된 경우도 많을 테니<br />
-그 코드를 해석할 수 있는 능력을 갖추기 위해서라도 람다식에 익숙해져야겠다.</p>
-
-<h2 id="레퍼런스">레퍼런스</h2>
-<p>https://en.wikipedia.org/wiki/Anonymous_function<br />
-https://en.wikipedia.org/wiki/Alonzo_Church<br />
-https://en.wikipedia.org/wiki/Entscheidungsproblem<br />
-https://wikidocs.net/22804<br />
-https://wikidocs.net/64<br />
-https://wpaud16.tistory.com/55</p>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="파이썬" /><category term="람다" /><category term="lambda" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">코딩테스트 마법의 엘리베이터 풀이</title><link href="http://localhost:4000/coding_test/2023/01/06/20230106_001_magic_elevator.html" rel="alternate" type="text/html" title="코딩테스트 마법의 엘리베이터 풀이" /><published>2023-01-06T16:46:06+09:00</published><updated>2023-01-06T16:46:06+09:00</updated><id>http://localhost:4000/coding_test/2023/01/06/20230106_001_magic_elevator</id><content type="html" xml:base="http://localhost:4000/coding_test/2023/01/06/20230106_001_magic_elevator.html"><![CDATA[<!--postNo: 20230106_001-->
-
-<blockquote>
-  <p>코딩테스트 연습에 공개된 문제는 (주)그렙이 저작권을 가지고 있습니다.<br />
-(지문 하단에 별도 저작권 표시 문제 제외)
-코딩테스트 연습 문제의 지문, 테스트케이스, 풀이 등과 같은 정보는 비상업적, 비영리적 용도로 게시할 수 있습니다.</p>
-</blockquote>
-
-<h2 id="코딩테스트-정보">코딩테스트 정보</h2>
-<ul>
-  <li>프로그래머스</li>
-  <li>python</li>
-  <li>level 2</li>
-  <li>획득 점수 : 21</li>
-</ul>
-
-<h2 id="문제">문제</h2>
-<blockquote>
-<br />
-마법의 세계에 사는 민수는 아주 높은 탑에 살고 있습니다.  
-탑이 너무 높아서 걸어 다니기 힘든 민수는 마법의 엘리베이터를 만들었습니다.  
-마법의 엘리베이터의 버튼은 특별합니다.  
-
-마법의 엘리베이터에는 -1, +1, -10, +10, -100, +100 등과 같이 절댓값이 10c (c ≥ 0 인 정수) 형태인 정수들이 적힌 버튼이 있습니다.  
-마법의 엘리베이터의 버튼을 누르면 현재 층 수에 버튼에 적혀 있는 값을 더한 층으로 이동하게 됩니다.  
-단, 엘리베이터가 위치해 있는 층과 버튼의 값을 더한 결과가 0보다 작으면 엘리베이터는 움직이지 않습니다.  
-민수의 세계에서는 0층이 가장 아래층이며 엘리베이터는 현재 민수가 있는 층에 있습니다.  
-
-마법의 엘리베이터를 움직이기 위해서 버튼 한 번당 마법의 돌 한 개를 사용하게 됩니다.  
-예를 들어, 16층에 있는 민수가 0층으로 가려면 -1이 적힌 버튼을 6번, -10이 적힌 버튼을 1번 눌러 마법의 돌 7개를 소모하여 0층으로 갈 수 있습니다.  
-하지만, +1이 적힌 버튼을 4번, -10이 적힌 버튼 2번을 누르면 마법의 돌 6개를 소모하여 0층으로 갈 수 있습니다.  
-
-마법의 돌을 아끼기 위해 민수는 항상 최소한의 버튼을 눌러서 이동하려고 합니다.  
-민수가 어떤 층에서 엘리베이터를 타고 0층으로 내려가는데 필요한 마법의 돌의 최소 개수를 알고 싶습니다.  
-민수와 마법의 엘리베이터가 있는 층을 나타내는 정수 storey 가 주어졌을 때,  
-0층으로 가기 위해 필요한 마법의 돌의 최소값을 return 하도록 solution 함수를 완성하세요.
-<br />
-</blockquote>
-
-<h2 id="풀이-코드">풀이 코드</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">storey</span><span class="p">):</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">digit</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">storey</span><span class="p">))</span>     <span class="c1"># digit = storey 의 자릿수
-</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">digit</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>   <span class="c1"># 반올림을 고려해 시행횟수 1회 늘림
-</span>        <span class="n">num</span> <span class="o">=</span> <span class="n">storey</span> <span class="o">%</span> <span class="mi">10</span>        <span class="c1"># num = 1의 자리수의 숫자
-</span>        <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
-            <span class="n">answer</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="n">num</span><span class="p">)</span>
-            <span class="n">storey</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">storey</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">10</span>
-            <span class="c1"># 처리 완료한 1의 자리 숫자를 지우기
-</span>        <span class="k">else</span><span class="p">:</span>
-            <span class="n">answer</span> <span class="o">+=</span> <span class="n">num</span>
-            <span class="n">storey</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">storey</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">10</span>
-            <span class="c1"># 처리 완료한 1의 자리 숫자를 지우기
-</span>
-    <span class="k">return</span> <span class="n">answer</span>
-</code></pre></div></div>
-
-<h2 id="풀이-방식">풀이 방식</h2>
-<p>■■■■ 문제 요약 ■■■■</p>
-<ul>
-  <li>버튼 : -1, +1, -10, +10, -100, +100 과 같이 절대값이 10c (c &gt;= 0 인 정수)</li>
-  <li>층수 : 0층이 가장 아래 층. 최고 100,000,000 층</li>
-  <li>엘리베이터 로직 1 : 현재 층 수 + 누른 버튼들에 적혀 있는 값을 더한 층으로 이동</li>
-  <li>엘리베이터 로직 2 : 엘리베이터가 위치한 층과 버튼의 값을 더한 결과가 0보다 작으면 엘리베이터는 움직이지 않음</li>
-  <li>현재 엘리베이터 위치 :  : 엘리베이터는 민수가 있는 storey층에 있음
-    <blockquote>
-      <p>예시) 0층에서 시작해 16층으로 가는 방법<br />
-(1) : +1 * 6번, +10 * 1번 — 총 7번<br />
-(2) : -1 * 4번, +10 * 2번 — 총 6번<br />
-2번 방법이 더 효율적</p>
-    </blockquote>
-  </li>
-</ul>
-
-<p>■■■■ 문제 ■■■■<br />
-현재 층 storey에서 0층으로 가기 위해 필요한 최소 버튼 누르기 횟수를 구하는 solution 함수를 완성하시오</p>
-
-<p>■■■■ 접근 방식 ■■■■<br />
-(1) 0층으로 간다는 불필요한 트릭이다. 0층에서 storey 층으로 가는 것으로 문제를 바꾸면 편하다.<br />
-(2) 즉, 10의 n승인 수들로 storey를 만드는 방법을 구하면 되는 것이다.<br />
-(3) 포인트는 +와 -를 조합해 최소의 횟수를 구하는 것이다. 이 기준을 정해야 한다.</p>
-
-<p>■■■■ 하드 풀이 ■■■■
-16층 : 10 * 2 , -1 * 4<br />
-20층 : 10 * 2<br />
-24층 : 10 * 2 , 1 * 4<br />
-15층 : 10 * 1 , 1 * 5<br />
-155층 : 100 * 1 , 10 * 5, 1 * 5<br />
-156층 : 100 * 1, 10 * 2, -1 * 4<br />
-166층 : -1 * 4, -10 * 4 + 1, 100 * 2<br />
-98층 : -1 * 2, 100 * 1<br />
-88층 : -1 * 2, -10 * 1, 100 * 1</p>
-
-<p>==&gt; 5 단위로 나누어 생각해야 한다.<br />
-==&gt; 1의 자리의 수가 5이하면 10의 단위는 그대로, 1의 단위가 5 초과이면 10의 단위는 +1<br />
-==&gt; 10의 자리의 수가 5 이하이면 100의 단위는 그대로, 10의 단위가 5 초과이면 100의 단위는 +1</p>
-
-<p>==&gt; 계산은1의 단위부터 진행해야 한다.</p>
-
-<p>■■■■ 핵심 계산식 서술 ■■■■<br />
-크게 세 단계로 진행한다.<br />
-(1) 1의 자리의 수 구하기<br />
-(2) 1의 자리의 수에 도달하는 누르는 최소 횟수 구하기 (5 기준으로 up, down)<br />
-(3) 1의 자리를 제거한 수 구하기 (반올림하여 1의자리가 5 이상인 경우 다음자리수에 +1)</p>
-
-<p>(1) 1의 자리의 수 구하기<br />
-k = storey % 10<br />
-…</p>
-
-<p>(2) 1의 자리의 수 누르는 횟수 구하기<br />
-count = 0<br />
-if k &gt; 5 =&gt; count += 10 - k<br />
-if k &lt;=5 =&gt; count += k<br />
-…</p>
-
-<p>(3) 1의 자리의 수를 제외한 수 구하기<br />
-storey = round(storey , -1) // 10</p>
-
-<p><img src="/assets/images/20230106_001_001.png" alt="" /></p>]]></content><author><name>Jongya</name></author><category term="coding_test" /><category term="프로그래머스" /><category term="파이썬" /><category term="레벨2" /><category term="마법의엘리베이터" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">python comprehension</title><link href="http://localhost:4000/python/2023/01/05/20230105_001_python_comprehension.html" rel="alternate" type="text/html" title="python comprehension" /><published>2023-01-05T16:46:06+09:00</published><updated>2023-01-05T16:46:06+09:00</updated><id>http://localhost:4000/python/2023/01/05/20230105_001_python_comprehension</id><content type="html" xml:base="http://localhost:4000/python/2023/01/05/20230105_001_python_comprehension.html"><![CDATA[<!--postNo: 20230105_001-->
-
-<h2 id="python-comprehension-이란">python comprehension 이란?</h2>
-<p>조건문 혹은 반복문을 적용한 자료형태를 간단하게 작성하는 방법.<br />
-list, dict, set 등의 자료 형태에 적용할 수 있다.</p>
-<blockquote>
-  <ul>
-    <li>list comprehension</li>
-    <li>dict comprehension</li>
-    <li>set comprehension</li>
-  </ul>
-</blockquote>
-
-<h2 id="자료형에-따른-comprehension-예시">자료형에 따른 comprehension 예시</h2>
-
-<h3 id="list-comprehension">list comprehension</h3>
-
-<p>(1) 주어진 문장에서 단어들만을 뽑아 리스트로 만들고,<br />
-(2) 이 리스트에서 금지단어로 지정된 단어를 빼는 작업을 해보자</p>
-
-<blockquote>
-  <p>먼저, comprehension 사용시</p>
-</blockquote>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'stop words는 금지 단어 리스트를 의미합니다.'</span>
-<span class="n">stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="s">'금지'</span><span class="p">,</span> <span class="s">'단어'</span><span class="p">,</span> <span class="s">'리스트'</span><span class="p">]</span>
-
-<span class="c1"># (1) 반복문 활용
-## text에 포함된 단어를 원소로 가지는 리스트 만들기
-</span><span class="n">text_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">()]</span>
-
-<span class="s">"==&gt; 출력 : ['stop', 'words는', '금지', '단어', '리스트를', '의미합니다.']"</span>
-
-<span class="c1"># (2) 반복문과 조건문 함께 활용
-## stop words에 포함되지 않는 단어로 리스트 만들기
-</span><span class="n">clean_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
-
-<span class="s">"==&gt; 출력 : ['stop', 'words는', '리스트를', '의미합니다.']"</span>
-
-</code></pre></div></div>
-
-<blockquote>
-  <p>comprehension 미사용시</p>
-</blockquote>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'stop words는 금지 단어 리스트를 의미합니다.'</span>
-<span class="n">stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="s">'금지'</span><span class="p">,</span> <span class="s">'단어'</span><span class="p">,</span> <span class="s">'리스트'</span><span class="p">]</span>
-
-<span class="c1"># (1) 반복문 활용
-## text에 포함된 단어를 원소로 가지는 리스트 만들기
-</span><span class="n">text_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">():</span>
-    <span class="n">text_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="s">"==&gt; 출력 : ['stop', 'words는', '금지', '단어', '리스트를', '의미합니다.']"</span>
-
-<span class="c1"># (2) 반복문과 조건문 함께 활용
-## stop words에 포함되지 않는 단어로 리스트 만들기
-</span><span class="n">clean_words</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">:</span>
-        <span class="n">clean_words</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">continue</span>
+  
     
-<span class="s">"==&gt; 출력 : ['stop', 'words는', '리스트를', '의미합니다.']"</span>
+    <category term="Improve" />
+    
+    <category term="coding_test" />
+    
+  
 
-</code></pre></div></div>
-<p>훨씬 짧은 문장으로 같은 기능을 수행할 수가 있다.</p>
+  
+    <summary>
+      
 
-<h3 id="dict-comprehension">dict comprehension</h3>
 
-<p>딕셔너리는 키값과 밸류값이 짝을 이루는 자료 형태로,<br />
-넓은 활용도를 가진 자료형이다.</p>
-
-<p>처음엔 list comprehension만 있는 줄 알고 쓰다가..<br />
-dict comprehension을 만나고는 정말 편해졌다.</p>
 
-<p>주어진 텍스트에 포함된 각 단어에 index를 매긴 dict를 만들어보자.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'stop words는 금지 단어 리스트를 의미합니다.'</span>
-<span class="n">stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="s">'금지'</span><span class="p">,</span> <span class="s">'단어'</span><span class="p">,</span> <span class="s">'리스트'</span><span class="p">]</span>
-<span class="n">text_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">()]</span>
-
-<span class="c1"># (1) 반복문 활용
-## text에 포함된 단어들을 index를 매겨 dict 형태로 만들기
-</span><span class="n">text_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">text_list</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">text_list</span><span class="p">}</span>
-
-<span class="s">"==&gt; 출력 : {0: 'stop', 1: 'words는', 2: '금지', 3: '단어', 4: '리스트를', 5: '의미합니다.'}"</span>
-
-<span class="c1"># (2) 반복문과 조건문 함께 활용
-## stop_words에 포함되지 않은 단어를 index매겨 dict형태로 만들기
-</span><span class="n">clean_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">text_list</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">text_list</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">}</span>
-
-<span class="s">"==&gt; 출력 : {0: 'stop', 1: 'words는', 4: '리스트를', 5: '의미합니다.'}"</span>
-
-<span class="c1">## enumerate와 함께 사용할 수도 있다.
-</span><span class="n">clean_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span> <span class="p">:</span> <span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">])}</span>
-
-<span class="s">"==&gt; 출력 : {0: 'stop', 1: 'words는', 2: '리스트를', 3: '의미합니다.'}"</span>
-</code></pre></div></div>
-
-<h3 id="set-comprehension">set comprehension</h3>
-
-<p>나는 set 자료형을 unique 값을 얻어내는 데에 가장 많이 사용하는 것 같다.<br />
-더 다양한 활용법을 다룰 수 있는 실력자로 커가길 희망하며..</p>
-
-<p>이번엔 단어가 반복하여 등장하는 텍스트를 대상으로 해본다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span> <span class="o">=</span> <span class="s">'간장 공장 공장장은 강 공장장이고 된장 공장 공장장은 장 공장장이다'</span>
-<span class="n">stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="s">'공장장은'</span><span class="p">,</span> <span class="s">'공장장이고'</span><span class="p">,</span> <span class="s">'공장장이다'</span><span class="p">]</span>
-<span class="n">text_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">()]</span>
-
-<span class="c1"># (1) 반복문 활용
-## text에 포함된 단어들을 set에 담아 표현
-</span><span class="n">text_set</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span><span class="p">}</span>
-
-<span class="s">"==&gt; 출력 : {'간장', '강', '공장', '공장장은', '공장장이다', '된장', '장'}"</span>
-
-<span class="c1"># (2) 반복문과 조건문 함께 활용
-## stop_words에 포함되지 않는 단어를 set에 답아 표현
-</span><span class="n">clean_set</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text_list</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">}</span>
-
-<span class="s">"==&gt; 출력 : {'간장', '강', '공장', '된장', '장'}"</span>
-
-</code></pre></div></div>
-
-<h2 id="레퍼런스">레퍼런스</h2>
-<p>http://pythonstudy.xyz/python/article/22-Python-Comprehension<br />
-https://doorbw.tistory.com/174</p>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="comprehension" /><category term="list" /><category term="dict" /><category term="set" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">정규 표현식</title><link href="http://localhost:4000/python/2023/01/04/20220104_002_regular_expression.html" rel="alternate" type="text/html" title="정규 표현식" /><published>2023-01-04T22:46:06+09:00</published><updated>2023-01-04T22:46:06+09:00</updated><id>http://localhost:4000/python/2023/01/04/20220104_002_regular_expression</id><content type="html" xml:base="http://localhost:4000/python/2023/01/04/20220104_002_regular_expression.html"><![CDATA[<!--postNo: 20220104_002-->
-
-<h2 id="정규-표현식">정규 표현식</h2>
-<p>Regular Expression. re로 표현한다.<br />
-텍스트나 숫자, 특수문자 등으로 이루어진 문자열 패턴을 표현할 때 사용한다.</p>
-
-<p>문자열 내 특정 패턴의 문자의 존재 여부를 확인하거나<br />
-이를 추출할 때 사용할 수 있다.</p>
-
-<h2 id="re-모듈">re 모듈</h2>
-<p>정규표현의 처리를 위한 기능들을 담고 있는 모듈이다.</p>
-
-<p>re 라이브러리 임포트 : <code class="language-plaintext highlighter-rouge">import re</code><br />
-|메서드|설명|예시|
-|—|—|—|
-|r = re.compile(패턴)|찾을 문자열이나 문자열 패턴(이하 패턴)을 지정한다. 또한 이를 변수에 담을 수 있다.|r = re.compile(‘abcdefabc’)|
-|re.search(패턴, 대상문자열)|대상문자열에서 찾을 패턴의 위치를 반환한다.|re.search(‘a’, ‘abc’)|
-|r.search(패턴)|상동|r = re.compile(‘abc’)  r.search(‘a’)|
-|re.match(패턴, 대상문자열)|대상문자열의 시작부가 패턴과 동일한지 여부와 위치를 반환|re.match(‘a’, ‘abc’)|
-|r.match(패턴)|상동|r = re.compile(‘abc’)  r.match(‘a’)|
-|re.findall(패턴, 대상문자열)|문자열에 패턴과 동일한 문자열을 모두 찾아 리스트로 반환|re.findall(‘abc’, ‘abcdefabc’)|
-|r.findall(패턴)|상동|r = re.compile(‘abcdefabc’)  r.findall(‘abc’)|
-|re.finditer(패턴, 대상문자열)|findall과 비슷하며, 반환 형식이 iterator이다.|re.finditer(‘abc’, ‘abcdefabc’)|
-|r.finditer(패턴)|상동|r = re.compile(‘abcdefabc’)  r.finditer(‘abc’)|
-|re.fullmatch(패턴, 대상문자열)|패턴과 꼭 일치하는 문자열의 위치를 반환|re.fullmatch(‘ab..c’, ‘abcdc’)|
-|r.fullmatch(패턴)|상동|r = re.compile(‘ab..c’)  r.fullmatch(‘abcdc’)|
-|re.split(패턴, 대상문자열, 최대split수)|대상 문자열을 특정 패턴으로 split 한다.|re.split(‘a..d’, ‘bcdabcdbcd’)|
-|re.sub(패턴, 교체할문자열, 대상문자열)|대상문자열에서 패턴에 해당하는 문자열을 교체할 문자열로 바꾼다.|re.sub(‘a.’, ‘bc’, ‘abcab’)|</p>
-
-<h2 id="정규-표현식의-표현">정규 표현식의 표현</h2>
-<p>|기호|설명|예시|예시 해석|
-|—|—|—|—|
-|.|미정의 어떠한 문자 1개를 뜻함|a.c|a로 시작해 c로 끝나면서 중간에 미정의 1개 문자를 포함한 문자열|
-|?|기호 앞에 붙은 문자가 1개이거나 0개인 문자열|ab?c|a로 시작해 c로 끝나면서 중간에 b를 1개 혹은 0개 포함한 문자열|
-|*|기호 앞에 붙은 문자가 0개 이상의 n개인 문자열|ab*c|a로 시작해 c로 끝나면서 중간에 b를 n개 포함한 문자열|
-|+|기호 앞에 붙은 문자가 1개 이상인 문자열|ab+c|a로 시작해 c로 끝나면서 중간에 b를 1개 이상 포함한 문자열|
-|^|기호 뒤에 붙은 문자열로 시작되는 문자열을 뜻함|^ab|ab로 시작되는 문자열|
-|{숫자}|기호 앞에 붙은 문자가 특정 숫자만큼 반복되는 문자열|ab{2}c|a로 시작해 c로 끝나면서 중간에 b를 2개 포함한 문자열|
-|{min, max}|기호 앞에 붙은 문자가 min ~ max개 반복되는 문자열|ab{1,3}c|a로 시작해 c로 끝나면서 중간에 b를 1개 혹은 2개 혹은 3개 포함한 문자열|
-|{min,}|기호 앞에 붙은 문자가 min개 이상 반복되는 문자열|ab{3,}c|a로 시작해 c로 끝나면서 중간에 b를 3개 이상 포함하는 문자열|
-|[문자1-문자2]|기호 앞 뒤로 붙은 문자1 ~ 문자2 사이에 해당하는 문자로 이루어진 문자열|A-z|영문자로 된 문자열|
-|[^문자열]|꺽쇠 뒤에 붙은 문자열로 시작하지 않는 문자열|[^ab]|ab로 시작하지 않는 문자열|
-|||or를 뜻함. 여러 패턴을 뜻할 때 사용할 수 있다.|[^a]|[A-z]|a로 시작하지 않는 영문자로 이루어진 문자열|
-|\d|숫자(digit)|\d|숫자|
-|\특수문자|특수문자를 문자 그 자체로 표현하는 방법|\+|기호 +의 문자 그 자체|</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#예시 : 숫자만 뽑아내기
-</span><span class="n">text</span> <span class="o">=</span> <span class="s">'홍길동 / 연락처 : 010-1234-5678 / 나이 : 67'</span>
-<span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'\d+'</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-<span class="s">"==&gt; 출력 : ['010', '1234', '5678', '67']"</span>
-
-<span class="c1">#예시 : 영문만 뽑아내기
-</span><span class="n">text</span> <span class="o">=</span> <span class="s">'라고 AP통신은 전했다. ABC뉴스 홍길동기자 hong@ABCNEW.com'</span>
-<span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'[a-zA-Z]+'</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-<span class="s">"==&gt; 출력 : ['AP'. 'ABC', 'hong', 'ABCNEW', 'com']
-
-#예시 : 한글(음절 이상)만 뽑아내기
-text = '안녕 hong! ㅋㅋㅋ'
-re.findall('[가-힣]+', text)
-"</span><span class="o">==&gt;</span> <span class="n">출력</span> <span class="p">:</span> <span class="p">[</span><span class="s">'안녕'</span><span class="p">]</span>
-
-<span class="c1">#예시 : 한글만 뽑아내기
-</span><span class="n">text</span> <span class="o">=</span> <span class="s">'안녕 hong! ㅋㅋㅋ'</span>
-<span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'[ㄱ-힣]+'</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-<span class="s">"==&gt; 출력 : ['안녕', 'ㅋㅋㅋ']
-</span></code></pre></div></div>
-
-<h2 id="레퍼런스">레퍼런스</h2>
-<p><a href="https://ko.wikipedia.org/wiki/%EC%A0%95%EA%B7%9C_%ED%91%9C%ED%98%84%EC%8B%9D">https://ko.wikipedia.org/wiki/정규표현식</a></p>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="정규표현식" /><category term="re" /><category term="regularexpression" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">파이썬 가상환경 만들고 관리하기 (버전 관리)</title><link href="http://localhost:4000/python/2023/01/04/20220104_001_virtual_environment.html" rel="alternate" type="text/html" title="파이썬 가상환경 만들고 관리하기 (버전 관리)" /><published>2023-01-04T22:27:06+09:00</published><updated>2023-01-04T22:27:06+09:00</updated><id>http://localhost:4000/python/2023/01/04/20220104_001_virtual_environment</id><content type="html" xml:base="http://localhost:4000/python/2023/01/04/20220104_001_virtual_environment.html"><![CDATA[<!--postNo: 20220104_001-->
-
-<blockquote>
-  <p>본 포스트의 내용은 여러 자료를 참고하여 만들어졌습니다.<br />
-단, 컨텐츠는 자체 제작하였으니 저작권 관련 사항은 메일로 문의해주세요.</p>
-</blockquote>
-
-<h2 id="가상환경이란">가상환경이란?</h2>
-<p>가상환경이란,</p>
-
-<h2 id="가상환경의-필요성">가상환경의 필요성</h2>
-<ul>
-  <li>여러 프로젝트를 진행할 경우, 각각의 프로젝트에서 요구하는 언어나 패키지의 버전이 다른 경우</li>
-  <li>예를 들어 1번 프로젝트는 3.8 이상의 파이썬을 필요로 하고, 2번 프로젝트는 3.5 이하의 파이썬을 필요로 할 경우</li>
-  <li>이 때에는 각각의 프로젝트에 맞춘 가상환경을 각각 만들어주는 게 필요하다.</li>
-  <li>각 가상환경들은 언어와 패키지의 버전이 연동/혼용되지 않는다. (격리된 환경임)</li>
-</ul>
-
-<h2 id="가상환경-명령어">가상환경 명령어</h2>
-
-<h3 id="가상환경-만들기">가상환경 만들기</h3>
-<p>|명령어|설명|
-|—|—|
-|conda create -n 가상환경명 python==원하는버전|원하는 버전의 파이썬이 설치된 가상환경을 만든다.|
-|conda activate 가상환경명|가상환경명에 해당하는 가상환경을 구동한다. 이후 해당 가상환경 하에서 터미널이 작동한다.|
-|conda env list|PC에 만들어져있는 가상환경들 리스트를 보여준다. base는 기본 환경이다.|
-|conda env remove -n 가상환경명|가상환경명에 해당하는 가상환경을 삭제한다.|
-|conda rename -n 기존가상환경명 바꿀가상환경명|가상환경의 이름을 변경한다.|</p>
-
-<blockquote>
-  <p>참고<br />
-remove로 가상환경을 삭제하면 폴더 내의 파일들만 삭제된다.<br />
-하지만 폴더는 남아있으므로, 해당 가상환경을 activate할 수는 있다.<br />
-폴더는 남아있어도 별 문제 없으니 신경쓰지 않아도 되지만,<br />
-신경쓰인다면 직접 해당 가상환경 경로로 들어가 디렉토리를 삭제하면 된다.</p>
-</blockquote>
-
-<h3 id="패키지-관련-명령어">패키지 관련 명령어</h3>
-<p>|명령어|설명|
-|—|—|
-|conda list|현재 가상환경에 설치되어있는 패키지들 리스트를 보여줌|
-|conda install 패키지명|패키지 설치 (conda 방식)|
-|conda remove 패키지명|패키지 제거 (conda 방식으로 설치된 패키지 대상)|
-|conda uninstall 패키지명|패키지 제거 (conda 방식으로 설치된 패키지 대상)|
-|pip install 패키지명|패키지 설치 (pip 방식)|
-|pip uninstall 패키지명|패키지 제거 (pip 방식으로 설치된 패키지 대상)|</p>
-
-<blockquote>
-  <p>참고 : PIP 와 Conda?<br />
-우선, conda list로 설치된 패키지를 출력해보면, conda로 설치되었는지 pip로 설치되었는지 알 수 있다.<br />
-<img src="/assets/images/20230104_001_001.png" alt="" />
-패키지 버전 오른쪽에 pypi가 적혀있으면 pip로 설치된 것이며,<br />
-아무 것도 없는 경우 conda로 설치된 것이다.<br />
-pip와 conda 설치는 패키지를 다운로드 받는 원천 주소가 다르며, 이에 따라 설치되는 패키지 버전이 다를 수 있으므로 주의가 필요하다.<br />
-또한 pip 설치는 해당 패키지만 설치되는 데 반해, conda로 설치할 경우 해당 패키지에 필요한 dependence 패키지도 함께 설치하게 된다.</p>
-</blockquote>
-
-<h3 id="가상환경-추출과-불러오기">가상환경 추출과 불러오기</h3>
-<p>|명령어|설명|
-|—|—|
-|conda env export &gt; 파일명.yml|해당 가상환경에 설치된 프로그래밍 언어 및 패키지 리스트를 yml 파일로 추출한다.|
-|conda env create -f 와이엠엘파일명.yml|yml파일에 설정된 가상환경을 불러온다.|</p>
-
-<h2 id="기타-참고">기타 참고</h2>
-
-<h3 id="pip와-conda-install-의-차이점">PIP와 Conda Install 의 차이점</h3>]]></content><author><name>Jongya</name></author><category term="Python" /><category term="파이썬" /><category term="가상환경" /><category term="관리" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">깃허브 기본 사용법</title><link href="http://localhost:4000/how_to_use_git/2022/12/19/20221219_001_git_basic.html" rel="alternate" type="text/html" title="깃허브 기본 사용법" /><published>2022-12-19T14:17:06+09:00</published><updated>2022-12-19T14:17:06+09:00</updated><id>http://localhost:4000/how_to_use_git/2022/12/19/20221219_001_git_basic</id><content type="html" xml:base="http://localhost:4000/how_to_use_git/2022/12/19/20221219_001_git_basic.html"><![CDATA[<!--postNo: 20221219_001-->
-
-<h2 id="git-명령어들">git 명령어들</h2>
-<p>https://subicura.com/git/guide/basic.html#git-init-저장소-만들기</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>명령어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>git clone [URL]</td>
-      <td>URL의 깃허브 repo를 clone한다.</td>
-    </tr>
-    <tr>
-      <td>git config –global user.name [ID]</td>
-      <td>깃허브 아이디를 설정한다.</td>
-    </tr>
-    <tr>
-      <td>git config –global user.password [PW]</td>
-      <td>아이디에 해당하는 비밀번호를 설정한다. (토큰 가능)</td>
-    </tr>
-    <tr>
-      <td>git pull</td>
-      <td>깃허브 repo로부터 업데이트 사항을 로컬 PC로 PULL한다.</td>
-    </tr>
-    <tr>
-      <td>git add [DIR]</td>
-      <td>업데이트 사항을 스테이지에 올린다.</td>
-    </tr>
-    <tr>
-      <td>git commit</td>
-      <td>로컬 PC에서 진행한 사항에 대해 Commit 한다.</td>
-    </tr>
-    <tr>
-      <td>git commit -m "[hash]"</td>
-      <td>commit을 진행하면서, 해당 commit에 이름을 붙인다.</td>
-    </tr>
-    <tr>
-      <td>git push</td>
-      <td>로컬 PC에서 진행한 사항에 대해 깃허브 repo로 push한다.</td>
-    </tr>
-    <tr>
-      <td>git rebase</td>
-      <td>바로 이전 commit 상태로 돌아간다.</td>
-    </tr>
-    <tr>
-      <td>git reset –hard [commit hash]</td>
-      <td>특정 commit 단계로 돌아가면서, 그 commit 단계 이후의 수정내용은 삭제된다.</td>
-    </tr>
-    <tr>
-      <td>git reset –soft [commit hash]</td>
-      <td>commit을 한 기록만 삭제하며, 수정내용은 유지된다.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>[ ] 대괄호 안의 내용은 본인 혹은 상황에 맞게 넣는 부분.<br />
-대괄호는 빼고 작성해야 한다.</p>
-</blockquote>
-
-<h2 id="commit의-개념">commit의 개념</h2>
-<p>최종 저장을 하기 전의 임시 저장이라고 보면 좋겠다.
-여러 번 커밋할 수 있으며, 특정 커밋 지점으로 롤백할 수 있다.
-아직 깃허브 저장소에 저장이 된 건 아님.</p>
-
-<h2 id="깃허브-용량제한">깃허브 용량제한</h2>
-<p>git ignore 라는 파일을 만들어서 용량이 큰 파일은 올리지 않도록 하는 방법이 있다.</p>
-
-<h2 id="clone-하기-예시">clone 하기 예시</h2>
-
-<pre><code class="language-Terminal">git clone https://github.com/ivangrov/ModifiedOpenLabelling.git
-conda info --envs  #conda 가상환경
-conda activate  base
-pip install -r requirements.txt
-python run.py
-python train_test_split.py
-</code></pre>
-
-<h2 id="깃허브-토큰-발행">깃허브 토큰 발행</h2>
-<p>토큰이란 ?<br />
-로그인을 위한 임시 비밀번호라고 보면 되겠다.</p>
-
-<p><a href="'https://wotres.tistory.com/entry/Github-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0%EB%B2%95-Authentication-failed-for-use-a-personal-access-token-instead'">깃허브 토큰 발행 방법</a></p>
-
-<h2 id="자주-사용하는-외부-repo-리스트">자주 사용하는 외부 Repo 리스트</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Repo</th>
-      <th>URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Modified Open Labelling</td>
-      <td>https://github.com/ivangrov/ModifiedOpenLabelling.git</td>
-    </tr>
-    <tr>
-      <td>YoLoV5</td>
-      <td>https://github.com/ultralytics/yolov5</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Jongya</name></author><category term="How_To_Use_Git" /><category term="깃허브" /><category term="사용법" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">딥러닝 과적합 방지 (규제, 드롭아웃, 배치정규화, 데이터증식)</title><link href="http://localhost:4000/study_deep_learning/2022/12/13/20221213_002_dl_over.html" rel="alternate" type="text/html" title="딥러닝 과적합 방지 (규제, 드롭아웃, 배치정규화, 데이터증식)" /><published>2022-12-13T23:46:00+09:00</published><updated>2022-12-13T23:46:00+09:00</updated><id>http://localhost:4000/study_deep_learning/2022/12/13/20221213_002_dl_over</id><content type="html" xml:base="http://localhost:4000/study_deep_learning/2022/12/13/20221213_002_dl_over.html"><![CDATA[<!--postNo: 20221213_002-->
-
-<h2 id="규제">규제</h2>
-
-<h2 id="드롭아웃">드롭아웃</h2>
-
-<h2 id="배치-정규화-batch-normalization">배치 정규화 batch normalization</h2>
-
-<h2 id="데이터-증식-data-augmentation">데이터 증식 data augmentation</h2>]]></content><author><name>Jongya</name></author><category term="study_deep_learning" /><category term="딥러닝" /><category term="과적합" /><category term="방지" /><category term="규제" /><category term="드롭아웃" /><category term="배치정규화" /><category term="데이터증식" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">데이콘 상추 생장률 베이스라인 코드 분석</title><link href="http://localhost:4000/code_analysis/2022/12/13/20221213-dacon_sangchu_baseline.html" rel="alternate" type="text/html" title="데이콘 상추 생장률 베이스라인 코드 분석" /><published>2022-12-13T21:50:06+09:00</published><updated>2022-12-13T21:50:06+09:00</updated><id>http://localhost:4000/code_analysis/2022/12/13/20221213-dacon_sangchu_baseline</id><content type="html" xml:base="http://localhost:4000/code_analysis/2022/12/13/20221213-dacon_sangchu_baseline.html"><![CDATA[<h2 id="과제-소개">과제 소개</h2>
-
-<h2 id="베이스라인">베이스라인</h2>
-
-<h3 id="import">Import</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">glob</span>
-
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">Sequence</span>
-
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="p">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s">'ignore'</span><span class="p">)</span> 
-</code></pre></div></div>
-
-<h3 id="hyperparameter-setting">Hyperparameter Setting</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CFG</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'EPOCHS'</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>
-    <span class="s">'LEARNING_RATE'</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span>
-    <span class="s">'BATCH_SIZE'</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span>
-    <span class="s">'SEED'</span><span class="p">:</span><span class="mi">41</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">seed_everything</span><span class="p">(</span><span class="n">seed</span><span class="p">):</span>
-    <span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-    <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'PYTHONHASHSEED'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-    <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-    <span class="n">tf</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-
-<span class="n">seed_everything</span><span class="p">(</span><span class="n">CFG</span><span class="p">[</span><span class="s">'SEED'</span><span class="p">])</span> <span class="c1"># Seed 고정
-</span></code></pre></div></div>
-
-<h3 id="data">Data</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">all_input_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/train_input/*.csv'</span><span class="p">))</span>
-<span class="n">all_target_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/train_target/*.csv'</span><span class="p">))</span>
-
-<span class="n">train_input_list</span> <span class="o">=</span> <span class="n">all_input_list</span><span class="p">[:</span><span class="mi">25</span><span class="p">]</span>
-<span class="n">train_target_list</span> <span class="o">=</span> <span class="n">all_target_list</span><span class="p">[:</span><span class="mi">25</span><span class="p">]</span>
-
-<span class="n">val_input_list</span> <span class="o">=</span> <span class="n">all_input_list</span><span class="p">[</span><span class="mi">25</span><span class="p">:]</span>
-<span class="n">val_target_list</span> <span class="o">=</span> <span class="n">all_target_list</span><span class="p">[</span><span class="mi">25</span><span class="p">:]</span>
-
-<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'학습: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">train_input_list</span><span class="p">)</span><span class="si">}</span><span class="s">, 검증: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">val_input_list</span><span class="p">)</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="custom-dataset">Custom Dataset</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dataloader</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">Sequence</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_paths</span><span class="p">,</span> <span class="n">target_paths</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">infer_mode</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">input_paths</span> <span class="o">=</span> <span class="n">input_paths</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">target_paths</span> <span class="o">=</span> <span class="n">target_paths</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">infer_mode</span> <span class="o">=</span> <span class="n">infer_mode</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">shuffle</span> <span class="o">=</span> <span class="n">shuffle</span>
-
-        <span class="bp">self</span><span class="p">.</span><span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">label_list</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'Data Pre-processing..'</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">input_path</span><span class="p">,</span> <span class="n">target_path</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">input_paths</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">target_paths</span><span class="p">)):</span>
-            <span class="n">input_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_path</span><span class="p">)</span>
-            <span class="n">target_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">target_path</span><span class="p">)</span>
-
-            <span class="n">input_df</span> <span class="o">=</span> <span class="n">input_df</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'obs_time'</span><span class="p">])</span>
-            <span class="n">input_df</span> <span class="o">=</span> <span class="n">input_df</span><span class="p">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-
-            <span class="n">target_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">target_df</span><span class="p">))</span>
-
-            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">target_length</span><span class="p">):</span>
-                <span class="n">time_series</span> <span class="o">=</span> <span class="n">input_df</span><span class="p">[</span><span class="mi">24</span><span class="o">*</span><span class="n">idx</span><span class="p">:</span><span class="mi">24</span><span class="o">*</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)].</span><span class="n">values</span>
-                <span class="bp">self</span><span class="p">.</span><span class="n">data_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_series</span><span class="p">)</span>
-
-            <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">target_df</span><span class="p">[</span><span class="s">'predicted_weight_g'</span><span class="p">]:</span>
-                <span class="bp">self</span><span class="p">.</span><span class="n">label_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'Done. </span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">on_epoch_end</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">math</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">data_list</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="p">.</span><span class="n">batch_size</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="n">indices</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">batch_size</span><span class="p">:(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">batch_size</span><span class="p">]</span>
-
-        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">.</span><span class="n">data_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">]</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">.</span><span class="n">label_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">infer_mode</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">tf</span><span class="p">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">tf</span><span class="p">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">tf</span><span class="p">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">on_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">data_list</span><span class="p">))</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">shuffle</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">indices</span><span class="p">)</span>
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_loader</span> <span class="o">=</span> <span class="n">Dataloader</span><span class="p">(</span><span class="n">train_input_list</span><span class="p">,</span> <span class="n">train_target_list</span><span class="p">,</span> <span class="n">CFG</span><span class="p">[</span><span class="s">'BATCH_SIZE'</span><span class="p">],</span> <span class="bp">False</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">val_loader</span> <span class="o">=</span> <span class="n">Dataloader</span><span class="p">(</span><span class="n">val_input_list</span><span class="p">,</span> <span class="n">val_target_list</span><span class="p">,</span> <span class="n">CFG</span><span class="p">[</span><span class="s">'BATCH_SIZE'</span><span class="p">],</span> <span class="bp">False</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="model-define">Model Define</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">).</span><span class="n">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">lstm</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">lstm</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">classifier</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="train">Train</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span> <span class="o">=</span> <span class="n">BaseModel</span><span class="p">()</span>
-<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span>
-    <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">optimizers</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">CFG</span><span class="p">[</span><span class="s">'LEARNING_RATE'</span><span class="p">]),</span>
-    <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">losses</span><span class="p">.</span><span class="n">MeanAbsoluteError</span><span class="p">()</span>
-<span class="p">)</span>
-
-<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span>
-    <span class="n">train_loader</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="n">val_loader</span><span class="p">,</span> 
-    <span class="n">epochs</span><span class="o">=</span><span class="n">CFG</span><span class="p">[</span><span class="s">'EPOCHS'</span><span class="p">],</span>
-    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">callbacks</span><span class="p">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s">'val_loss'</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_lr</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)])</span>
-</code></pre></div></div>
-
-<h3 id="inference">Inference</h3>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test_input_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/test_input/*.csv'</span><span class="p">))</span>
-<span class="n">test_target_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'data/test_target/*.csv'</span><span class="p">))</span>
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">test_input_path</span><span class="p">,</span> <span class="n">test_target_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_input_list</span><span class="p">,</span> <span class="n">test_target_list</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">test_target_path</span><span class="p">)</span>
-    <span class="n">test_loader</span> <span class="o">=</span> <span class="n">Dataloader</span><span class="p">([</span><span class="n">test_input_path</span><span class="p">],</span> <span class="p">[</span><span class="n">test_target_path</span><span class="p">],</span> <span class="n">CFG</span><span class="p">[</span><span class="s">'BATCH_SIZE'</span><span class="p">],</span> <span class="bp">True</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">model_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_loader</span><span class="p">)</span>
-
-    <span class="n">submit_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">test_target_path</span><span class="p">)</span>
-    <span class="n">submit_df</span><span class="p">[</span><span class="s">'predicted_weight_g'</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_pred</span>
-    <span class="n">submit_df</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">test_target_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</code></pre></div></div>]]></content><author><name>Jongya</name></author><category term="code_analysis" /><category term="코드" /><category term="분석" /><category term="공부" /><summary type="html"><![CDATA[과제 소개]]></summary></entry></feed>
+
+
+      
+
+
+  코딩테스트 연습에 공개된 문제는 (주)그렙이 저작권을 가지고 있습니다.
+(지문 하단에 별도 저작권 표시 문제 제외)
+코딩테스트 연습 문제의 지문, 테스트케이스, 풀이 등과 같은 정보는 비상업적, 비영리적 용도로 게시할 수 있습니다.
+
+
+코딩테스트 정보
+
+  프로그래머스
+  python
+  level 2
+  획득 점수 : 21
+
+
+문제
+
+마법의 세계에 사는 민수는 아주 높은 탑에 살고 있습니다.
+탑이 너무 높아서 걸어 다니기 힘든 민수는 마법의 엘리베이터를 만들었습니다.
+마법의 엘리베이터의 버튼은 특별합니다.
+
+마법의 엘리베이터에는 -1, +1, -10, +10, -100, +100 등과 같이 
+절댓값이 10c (c ≥ 0 인 정수) 형태인 정수들이 적힌 버튼이 있습니다.
+마법의 엘리베이터의 버...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>python comprehension</title>
+    <link href="http://localhost:4000/posts/20230105_001_python_comprehension/" rel="alternate" type="text/html" title="python comprehension" />
+    <published>2023-01-05T16:46:06+09:00</published>
+  
+    <updated>2023-01-05T16:46:06+09:00</updated>
+  
+    <id>http://localhost:4000/posts/20230105_001_python_comprehension/</id>
+    <content src="http://localhost:4000/posts/20230105_001_python_comprehension/" />
+    <author>
+      <name>Jongya</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="Python" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+
+python comprehension 이란?
+조건문 혹은 반복문을 적용한 자료형태를 간단하게 작성하는 방법.
+list, dict, set 등의 자료 형태에 적용할 수 있다.
+
+  
+    list comprehension
+    dict comprehension
+    set comprehension
+  
+
+
+자료형에 따른 comprehension 예시
+
+list comprehension
+
+(1) 주어진 문장에서 단어들만을 뽑아 리스트로 만들고,
+(2) 이 리스트에서 금지단어로 지정된 단어를 빼는 작업을 해보자
+
+
+  먼저, comprehension 사용시
+
+
+text = 'stop words는 금지 단어 리스트를 의미합니다.'
+stop_words = ['금지', '단어', '리스트']
+
+# (1)...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>정규 표현식</title>
+    <link href="http://localhost:4000/posts/20220104_002_regular_expression/" rel="alternate" type="text/html" title="정규 표현식" />
+    <published>2023-01-04T22:46:06+09:00</published>
+  
+    <updated>2023-01-04T22:46:06+09:00</updated>
+  
+    <id>http://localhost:4000/posts/20220104_002_regular_expression/</id>
+    <content src="http://localhost:4000/posts/20220104_002_regular_expression/" />
+    <author>
+      <name>Jongya</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="Python" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+
+정규 표현식
+Regular Expression. re로 표현한다.
+텍스트나 숫자, 특수문자 등으로 이루어진 문자열 패턴을 표현할 때 사용한다.
+
+문자열 내 특정 패턴의 문자의 존재 여부를 확인하거나
+이를 추출할 때 사용할 수 있다.
+
+re 모듈
+정규표현의 처리를 위한 기능들을 담고 있는 모듈이다.
+
+re 라이브러리 임포트 : import re
+
+
+  
+    
+      메서드
+      설명
+      예시
+    
+  
+  
+    
+      r = re.compile(패턴)
+      찾을 문자열이나 문자열 패턴(이하 패턴)을 지정한다. 또한 이를 변수에 담을 수 있다.
+      r = re.compile(‘abcdefabc’)
+    
+    
+      re.search(패턴, 대상문자...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+

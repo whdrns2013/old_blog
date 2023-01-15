@@ -1,0 +1,271 @@
+---
+title:  기본적인 인공신경망 모델 만들어보기 예제                            # 게시물의 제목
+subtitle: 분류, 회귀, 다중레이블 문제   # 서브타이틀
+date:   2022-12-12 19:46:16 +0900
+lastmod:   2022-12-12 19:46:16 +0900
+categories: [study, deep_learning]
+author:                                   # 작성자
+tags: 인공신경망 퍼셉트론 모델                              # 태그
+sitemap :
+  changefreq : daily
+  priority : 1.0
+---
+<!--postNo: 20221212_001-->
+
+# 신경망 만들어보기 - 의류 품목 인식 (fashion mnist)
+
+## 예제 설명
+
+* 의류 사진들을 주고, 해당 의류가 어떠한 의류인지 분류하는 모델
+* 층의 수가 다른 2개의 모델을 만들 예정이며, 각 모델의 성능을 비교해볼 것이다.
+
+## 데이터 설명
+
+* 데이터셋은 keras.fashion_mnist. 
+* 데이터 총 수는 7만개이며, train 6만개, test 1만개로 이루어져 있다.
+* X인 의류사진은 28 * 28 사이즈의 array이며
+* Y인 label은 의류종류 10가지가 0~9라는 정수값으로 인코딩 되어있다.
+* 데이터에 대한 설명을 보려면, `load_data()` 의 괄호 안에 커서를 둔 뒤, Tab 키를 누른다.   
+* label의 class 는 아래와 같다.
+
+|int|fashion|
+|---|-------|
+|0|T-shirt/top|
+|1|Trouser|
+|2|Pullover|
+|3|Dress|
+|4|Coat|
+|5|Sandal|
+|6|Shirt|
+|7|Sneaker|
+|8|Bag|
+|9|Ankle boot|
+
+```python
+# 케라스에서 데이터셋 불러오기
+from keras.datasets.fashion_mnist import load_data
+
+# 변수에 트레인, 테스트 데이터 받기
+(x_train, y_train), (x_test, y_test) = load_data()
+
+# 데이터 생김새 확인
+print(x_train.shape, y_train.shape, x_test.shape, y_test.shape)
+print(x_train[0], y_train[0])
+```
+> 출력값  
+> * shape : (60000, 28, 28) (60000,) (10000, 28, 28) (10000,)  
+> * 0번 원소 : 28*28 행렬, 9  
+
+```python
+# X데이터 이미지 시각화하여 살펴보기
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 랜덤으로 9개의 X값 불러와 시각화하기
+sample_size = 9
+random_idx = np.random.randint(0, 60000, size = sample_size)
+
+plt.figure(figsize = (5, 5))
+for i, idx in enumerate(random_idx):
+    plt.sublpot(3, 3, i+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(x_train[idx], cmap='gray')
+    plt.xlabel(class_names[y_train[idx]])
+plt.show()
+
+# X의 Min, Max 값 살펴보기
+print(f'x의 min값 : {x_train.min()}, x의 max값 : {x_train.max()}')
+
+```
+> 출력값  
+> * 이미지 : 랜덤으로 9개 출력 (이하 참고, 실행시마다 다를 수 있음)  
+> * x의 min값 : 0, max 값 : 255 ==> 0~255의 흑백 이미지  
+> ![](/assets/images/20221212_001_001.png)
+
+
+## 전처리
+전처리에서는 아래와 같은 사항을 진행한다.  
+  
+기본 이상치 처리  
+(1) Null값 처리 : Null값 존재 여부와 함께 존재의 가치를 확인한 후 필요 없는 Null 값은 제거 혹은 대치로 처리해준다.  
+(2) 이상치 처리 : 이상치 존재 여부와 가치를 확인한 후 필요 없는 이상치는 제거 혹은 대치로 처리해준다.  
+
+스케일링  
+딥러닝은 숫자 크기에 크게 영향을 받으므로, 모든 칼럼의 평균과 분산이 비슷하게 스케일링을 해준다.  
+
+인코딩  
+숫자가 아닌 값에 대해서는 인코딩을 통해 숫자로 변환시켜준다.  
+컴퓨터는 문자를 연산할 수 없다.  
+(1) label encoding : 대상을 정수값으로 변환한다.  
+(2) one-hot encoding :  대상을 1 혹은 0으로 변환한다.  
+자세한 내용은 인코딩 페이지 참고  
+
+훈련, 검증, 테스트 데이터셋 나누기  
+훈련과 검증 데이터셋을 통해 모델 성능을 평가할 수 있고, 과적합 여부를 판단할 수 있다.  
+
+```python
+# 스케일링 : 255로 나눠, 0~1 사이 값을 갖게 함
+x_trian = x_train/255
+x_test = x_test/255
+
+# 인코딩 (원 핫)
+from keras.utils import to_categorical
+y_train = to_categorical(y_train)
+y_test = to_categorical(y_test)
+
+# 데이터셋 나누기 (훈련, 검증 7:3)
+from sklearn.model_selection import train_test_split
+x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size = 0.3)
+
+```
+
+## 모델 생성 및 학습 (1번 : 3층)
+모델을 생성하고 학습시키는 단계.  
+1번 모델은 3개의 Dense(완전연결)층이 있는 Sequential 모델로 구성하며,  
+adam 옵티마이저, categorical_crossentropy 로스를 사용한다.  
+
+Flatten 층  
+입력된 데이터를 펼쳐주는 층이다. n차원 행렬 형태의 데이터를 1차원 데이터로 펼쳐준다.  
+예로, (28, 28) 2차원 행렬은 (784) 형태의 1차원 행렬로 전환된다.
+
+```python
+# import
+from keras.models import Sequential
+from keras.layers import Dense, Flatten
+from keras.optimizers import Adam
+from keras.losses import categorical_crossentropy
+import keras.metrics
+
+# 모델 생성
+first_model = Sequential()
+
+# 층 생성
+first_model.add(Flatten(input_shape(28, 28)))
+first_model.add(Dense(64, activation = 'relu'))
+first_model.add(Dense(32, activation = 'relu'))
+first_model.add(Dense(10, activation = 'softmax'))
+
+# 모델 컴파일
+first_model.compile(optimizer = Adam(),
+                    loss = categorical_crossentropy,
+                    metrics = ['acc'])
+
+# 모델 학습시키기
+first_history = first_model.fit(x_train, y_train,
+                                epochs = 30, 
+                                batch_size = 128,
+                                validataion_data = (x_val, y_val))
+
+```
+
+## 모델 생성 및 학습 (2번 : 4층)
+1번 모델에 층 하나를 추가한 모델을 작성한다.  
+128개의 유닛을 가진 가장 위에 위치하는 층을 추가한다.  
+```python
+# import
+from keras.models import Sequential
+from keras.layers import Dense, Flatten
+from keras.optimizers import Adam
+from keras.losses import categorical_crossentropy
+import keras.metrics
+
+# 모델 생성
+second_model = Sequential()
+
+# 층 생성
+second_model.add(Flatten(input_shape(28, 28)))
+second_model.add(Dense(128, activation = 'relu'))
+second_model.add(Dense(64, activation = 'relu'))
+second_model.add(Dense(32, activation = 'relu'))
+second_model.add(Dense(10, activation = 'softmax'))
+
+# 모델 컴파일
+second_model.compile(optimizer = Adam(),
+                    loss = categorical_crossentropy,
+                    metrics = ['acc'])
+
+# 모델 학습시키기
+second_history = first_model.fit(x_train, y_train,
+                                epochs = 30, 
+                                batch_size = 128,
+                                validataion_data = (x_val, y_val))
+```
+
+
+## 모델 비교, 평가
+두 모델의 loss, acc를 시각화하여 비교해본다.
+
+```python
+# 두 모델의 학습 결과 비교해보기 : 그래프로 비교하는 함수 지정
+def draw_loss_acc(history1, history2, epochs):
+  import numpy as np
+  import matplotlib.pyplot as plt
+  his_dict_1 = history1.history
+  his_dict_2 = history2.history
+  keys = list(his_dict_1.keys())
+  epochs = range(1, epochs)
+
+  # 그래프 설정
+  fig = plt.figure(figsize = (10, 10))
+  ax = fig.add_subplot(1, 1, 1)
+  ax.spines['top'].set_color('none')
+  ax.spines['bottom'].set_color('none')
+  ax.spines['left'].set_color('none')
+  ax.spines['right'].set_color('none')
+  ax.tick_params(labelcolor='w', top=False, bottom=False, left=False, right=False)
+
+  # 그래프 그리기
+  for i in range(len(his_dict_1)):
+    temp_ax = fig.add_subplot(2,2,i+1)
+    temp = keys[i%2]
+    val_temp = keys[(i+2)%2 + 2]
+    temp_history = his_dict_1 if i <2 else his_dict_2
+    temp_ax.plot(epochs, temp_history[temp][1:], color='blue', label='train_'+temp)
+    temp_ax.plot(epochs, temp_history[val_temp][1:], color='orange', label='val_'+temp)
+
+    if(i==1 or i==3):
+      start, end = temp_ax.get_ylim()
+      temp_ax.yaxis.set_ticks(np.arange(np.round(start,2),end,0.01))
+
+    temp_ax.legend()
+
+  ax.set_ylabel('loss', size=20, labelpad=20)
+  ax.set_xlabel('Epochs', size=20, labelpad=20)
+  plt.tight_layout()
+  plt.show()
+
+  draw_loss_acc(first_history, second_history, 30)
+```
+
+> 평가 결과  
+> acc는 두 모델 모두 88~89%에서 머무르며, 큰 차이를 보이지 않았다.  
+> ![](/assets/images/20221212_001_002.png)
+
+
+# 신경망 만들어보기 - 보스턴 주택 가격 (회귀)
+
+## 예제 설명
+
+## 데이터 설명
+
+## 전처리
+
+## 모델 생성 및 학습
+
+## 모델 비교, 평가
+
+
+
+
+# 신경망 만들어보기 - 다중 레이블
+
+## 예제 설명
+
+## 데이터 설명
+
+## 전처리
+
+## 모델 생성 및 학습
+
+## 모델 비교, 평가
