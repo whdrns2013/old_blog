@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
+gem "jekyll-theme-chirpy", "~> 3.3", ">= 3.3.0"
 
-gemspec
+# gemspec
 
 group :test do
   gem "html-proofer", "~> 3.18"
