@@ -2,39 +2,41 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4000/</id>
-  <title>Jongya's blog</title>
+  <title>Chirpy</title>
   <subtitle>A minimal, responsive, and powerful Jekyll theme for presenting professional writing.</subtitle>
-  <updated>2023-01-16T03:13:37+09:00</updated>
+  <updated>2023-01-16T02:39:39+08:00</updated>
   <author>
-    <name>Jongya</name>
+    <name>your_full_name</name>
     <uri>http://localhost:4000/</uri>
   </author>
   <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="en"
     href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator>
-  <rights> © 2023 Jongya </rights>
+  <rights> © 2023 your_full_name </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
 
   
   <entry>
-    <title>프로그레스 바 만들어보기</title>
-    <link href="http://localhost:4000/posts/20230112_001_making_progress_bar/" rel="alternate" type="text/html" title="프로그레스 바 만들어보기" />
-    <published>2023-01-12T10:12:00+09:00</published>
+    <title>Enable Google Page Views</title>
+    <link href="http://localhost:4000/posts/enable-google-pv/" rel="alternate" type="text/html" title="Enable Google Page Views" />
+    <published>2021-01-04T07:32:00+08:00</published>
   
-    <updated>2023-01-12T10:12:00+09:00</updated>
+    <updated>2021-01-04T07:32:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/20230112_001_making_progress_bar/</id>
-    <content src="http://localhost:4000/posts/20230112_001_making_progress_bar/" />
+    <id>http://localhost:4000/posts/enable-google-pv/</id>
+    <content src="http://localhost:4000/posts/enable-google-pv/" />
     <author>
-      <name>Jongya</name>
+      <name>sille_bille</name>
     </author>
 
   
     
-    <category term="lab" />
+    <category term="Blogging" />
+    
+    <category term="Tutorial" />
     
   
 
@@ -47,28 +49,10 @@
 
 
       
-
-인트로
-tqdm을 쓰면 느려지는 것 같아서 자신은 잘 안쓴다는 선생님의 말씀을 듣고,
-실제로 그러한지에 대한 테스트를 해본다.
+  The content of this post applies only to Universal Analytics property (UA), not Google Analytics 4 (GA 4). In addition, since UA is about to be deprecated on Jul 1, 2023, the Page Views feature of Chirpy will also be deprecated at that time.
 
 
-
-사용 개념 : \r
-tqdm을 살펴보면, 진행률을 한 줄로 표시함을 볼 수 있다.
-그러므로 필요한 기술은, 연속된 출력에서 이전 출력 내용을 지우고 업데이트 하는 것.
-간단한 기술로 가능한데, 바로 print 메서드에 \r정규표현식을 이용하는 것이다.
-
-# 그냥 print 사용해보기
-print('1번입니다', end='')
-print('2번입니다', end='')
------------출력-----------
-1번입니다2번입니다
-
-# \r을 사용해 이전 출력내용 지우기
-print('1번입니다', end='')
-print('\r2번입니다', end='')
----------...
+This post is to enable Page Views on the Chirpy theme based blog that you just built. This requires technical knowledge and it’s recommended to keep t...
     </summary>
   
 
@@ -76,23 +60,23 @@ print('\r2번입니다', end='')
 
   
   <entry>
-    <title>파이썬 람다식 lambda 함수 (익명함수)</title>
-    <link href="http://localhost:4000/posts/20230109_001_python_lambda/" rel="alternate" type="text/html" title="파이썬 람다식 lambda 함수 (익명함수)" />
-    <published>2023-01-09T20:45:37+09:00</published>
+    <title>Customize the Favicon</title>
+    <link href="http://localhost:4000/posts/customize-the-favicon/" rel="alternate" type="text/html" title="Customize the Favicon" />
+    <published>2019-08-11T00:34:00+08:00</published>
   
-    <updated>2023-01-09T20:45:37+09:00</updated>
+    <updated>2019-08-11T00:34:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/20230109_001_python_lambda/</id>
-    <content src="http://localhost:4000/posts/20230109_001_python_lambda/" />
+    <id>http://localhost:4000/posts/customize-the-favicon/</id>
+    <content src="http://localhost:4000/posts/customize-the-favicon/" />
     <author>
-      <name>Jongya</name>
+      <name>cotes</name>
     </author>
 
   
     
-    <category term="Language" />
+    <category term="Blogging" />
     
-    <category term="Python" />
+    <category term="Tutorial" />
     
   
 
@@ -104,31 +88,11 @@ print('\r2번입니다', end='')
 
 
 
-      
+      The favicons of Chirpy are placed in the directory assets/img/favicons/. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
 
-람다식이란? lambda
-정식 명칭은 익명 함수 (위키백과)로, 이름에서 알 수 있듯 ‘이름이 없는 함수’이다.  
-풀어서 이야기하자면, def와 같은 식별자가 없고, 일반적인 함수 정의 형태를 따르지 않는 함수식이다.
-아래 예시를 참고해보자.
+Generate the favicon
 
-# 두 숫자를 더하는 함수를 정의하고,
-# 함수를 통해 10과 20을 더한 값을 출력해보자. 
-
-'(1) 람다함수를 사용하지 않았을 때'
-def sum(a, b):
-    return a + b
-sum(10, 20)
-
-
-'(2) 람다함수를 사용하였을 때'
-(lambda x, y : x + y)(10, 20)
-
-
-
-람다식의 특징
-
-  이름을 가지고 선언되는 일반적인 함수와 달리, 일회성으로 쓰이고 폐기된다.
-메모리에 오르지 않기에 메모리를 절약할 수 있으나,...
+Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool Real Favicon Generator and click the button Select your Favicon image ...
     </summary>
   
 
@@ -136,23 +100,23 @@ sum(10, 20)
 
   
   <entry>
-    <title>코딩테스트 마법의 엘리베이터 풀이</title>
-    <link href="http://localhost:4000/posts/20230106_001_magic_elevator/" rel="alternate" type="text/html" title="코딩테스트 마법의 엘리베이터 풀이" />
-    <published>2023-01-06T16:46:06+09:00</published>
+    <title>Getting Started</title>
+    <link href="http://localhost:4000/posts/getting-started/" rel="alternate" type="text/html" title="Getting Started" />
+    <published>2019-08-09T20:55:00+08:00</published>
   
-    <updated>2023-01-06T16:46:06+09:00</updated>
+    <updated>2019-08-09T20:55:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/20230106_001_magic_elevator/</id>
-    <content src="http://localhost:4000/posts/20230106_001_magic_elevator/" />
+    <id>http://localhost:4000/posts/getting-started/</id>
+    <content src="http://localhost:4000/posts/getting-started/" />
     <author>
-      <name>Jongya</name>
+      <name>cotes</name>
     </author>
 
   
     
-    <category term="Improve" />
+    <category term="Blogging" />
     
-    <category term="coding_test" />
+    <category term="Tutorial" />
     
   
 
@@ -164,31 +128,19 @@ sum(10, 20)
 
 
 
-      
+      Prerequisites
+
+Follow the instructions in the Jekyll Docs to complete the installation of Ruby, RubyGems, Jekyll, and Bundler. In addition, Git is also required to be installed.
+
+Installation
+
+Creating a New Site
+
+There are two ways to create a new repository for this theme:
 
 
-  코딩테스트 연습에 공개된 문제는 (주)그렙이 저작권을 가지고 있습니다.
-(지문 하단에 별도 저작권 표시 문제 제외)
-코딩테스트 연습 문제의 지문, 테스트케이스, 풀이 등과 같은 정보는 비상업적, 비영리적 용도로 게시할 수 있습니다.
-
-
-코딩테스트 정보
-
-  프로그래머스
-  python
-  level 2
-  획득 점수 : 21
-
-
-문제
-
-마법의 세계에 사는 민수는 아주 높은 탑에 살고 있습니다.
-탑이 너무 높아서 걸어 다니기 힘든 민수는 마법의 엘리베이터를 만들었습니다.
-마법의 엘리베이터의 버튼은 특별합니다.
-
-마법의 엘리베이터에는 -1, +1, -10, +10, -100, +100 등과 같이 
-절댓값이 10c (c ≥ 0 인 정수) 형태인 정수들이 적힌 버튼이 있습니다.
-마법의 엘리베이터의 버...
+  Using the Chirpy Starter - Easy to upgrade, isolates irrelevant project files so you can focus on writing.
+  Forking ...
     </summary>
   
 
@@ -196,23 +148,23 @@ sum(10, 20)
 
   
   <entry>
-    <title>python comprehension</title>
-    <link href="http://localhost:4000/posts/20230105_001_python_comprehension/" rel="alternate" type="text/html" title="python comprehension" />
-    <published>2023-01-05T16:46:06+09:00</published>
+    <title>Writing a New Post</title>
+    <link href="http://localhost:4000/posts/write-a-new-post/" rel="alternate" type="text/html" title="Writing a New Post" />
+    <published>2019-08-08T14:10:00+08:00</published>
   
-    <updated>2023-01-05T16:46:06+09:00</updated>
+    <updated>2019-08-08T14:10:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/20230105_001_python_comprehension/</id>
-    <content src="http://localhost:4000/posts/20230105_001_python_comprehension/" />
+    <id>http://localhost:4000/posts/write-a-new-post/</id>
+    <content src="http://localhost:4000/posts/write-a-new-post/" />
     <author>
-      <name>Jongya</name>
+      <name>cotes</name>
     </author>
 
   
     
-    <category term="Language" />
+    <category term="Blogging" />
     
-    <category term="Python" />
+    <category term="Tutorial" />
     
   
 
@@ -224,34 +176,11 @@ sum(10, 20)
 
 
 
-      
+      This tutorial will guide you how to write a post in the Chirpy template, and it’s worth reading even if you’ve used Jekyll before, as many features require specific variables to be set.
 
-python comprehension 이란?
-조건문 혹은 반복문을 적용한 자료형태를 간단하게 작성하는 방법.
-list, dict, set 등의 자료 형태에 적용할 수 있다.
+Naming and Path
 
-  
-    list comprehension
-    dict comprehension
-    set comprehension
-  
-
-
-자료형에 따른 comprehension 예시
-
-list comprehension
-
-(1) 주어진 문장에서 단어들만을 뽑아 리스트로 만들고,
-(2) 이 리스트에서 금지단어로 지정된 단어를 빼는 작업을 해보자
-
-
-  먼저, comprehension 사용시
-
-
-text = 'stop words는 금지 단어 리스트를 의미합니다.'
-stop_words = ['금지', '단어', '리스트']
-
-# (1)...
+Create a new file named YYYY-MM-DD-TITLE.EXTENSION and put it in the _posts of the root directory. Please note that the EXTENSION must be one of md and markdown. If you want to save time of cre...
     </summary>
   
 
@@ -259,23 +188,23 @@ stop_words = ['금지', '단어', '리스트']
 
   
   <entry>
-    <title>정규 표현식</title>
-    <link href="http://localhost:4000/posts/20220104_002_regular_expression/" rel="alternate" type="text/html" title="정규 표현식" />
-    <published>2023-01-04T22:46:06+09:00</published>
+    <title>Text and Typography</title>
+    <link href="http://localhost:4000/posts/text-and-typography/" rel="alternate" type="text/html" title="Text and Typography" />
+    <published>2019-08-08T11:33:00+08:00</published>
   
-    <updated>2023-01-04T22:46:06+09:00</updated>
+    <updated>2019-08-08T11:33:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/20220104_002_regular_expression/</id>
-    <content src="http://localhost:4000/posts/20220104_002_regular_expression/" />
+    <id>http://localhost:4000/posts/text-and-typography/</id>
+    <content src="http://localhost:4000/posts/text-and-typography/" />
     <author>
-      <name>Jongya</name>
+      <name>cotes</name>
     </author>
 
   
     
-    <category term="Language" />
+    <category term="Blogging" />
     
-    <category term="Python" />
+    <category term="Demo" />
     
   
 
@@ -287,36 +216,22 @@ stop_words = ['금지', '단어', '리스트']
 
 
 
-      
+      This post is to show Markdown syntax rendering on Chirpy, you can also use it as an example of writing. Now, let’s start looking at text and typography.
 
-정규 표현식
-Regular Expression. re로 표현한다.
-텍스트나 숫자, 특수문자 등으로 이루어진 문자열 패턴을 표현할 때 사용한다.
+Titles
 
-문자열 내 특정 패턴의 문자의 존재 여부를 확인하거나
-이를 추출할 때 사용할 수 있다.
+H1 - heading
 
-re 모듈
-정규표현의 처리를 위한 기능들을 담고 있는 모듈이다.
+H2 - heading
 
-re 라이브러리 임포트 : import re
+H3 - heading
+
+H4 - heading
 
 
-  
-    
-      메서드
-      설명
-      예시
-    
-  
-  
-    
-      r = re.compile(패턴)
-      찾을 문자열이나 문자열 패턴(이하 패턴)을 지정한다. 또한 이를 변수에 담을 수 있다.
-      r = re.compile(‘abcdefabc’)
-    
-    
-      re.search(패턴, 대상문자...
+Paragraph
+
+Quisque egestas convallis ipsum, ut sollicitudin risus tincidunt a. Maecenas interdum malesuada egestas. Duis consectetur porta risus, sit amet vulputate urna facilisi...
     </summary>
   
 
