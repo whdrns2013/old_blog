@@ -21,13 +21,13 @@ timezone: Asia/Seoul
 
 title: Jongya's blog
 
-tagline: 새내기 프로그래머 Jongya의 블로그입니다.   # it will display as the sub-title
+tagline: 새내기 프로그래머 Jongya의 블로그입니다. 사용자의 시간을 아껴주는, 혹은 그 시간을 빼앗을 만큼 재밌는 서비스를 만들고 싶어요.   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ''
+url: 'https://whdrns2013.github.io'
 
 github:
   username: whdrns2013             # change to your github username
@@ -54,7 +54,7 @@ google_site_verification:               # fill in to your verification string
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id:                 # fill in your Google Analytics ID
+  id: 251691943                # fill in your Google Analytics ID
   # Google Analytics pageviews report settings
   pv:
     proxy_endpoint:   # fill in the Google Analytics superProxy endpoint of Google App Engine
@@ -81,7 +81,7 @@ theme_mode:   # [light|dark]
 # img_cdn: 'https://chirpy-img.netlify.app'
 
 # the avatar on sidebar, support local or CORS resources
-avatar: '/commons/avatar.jpg'
+avatar: '/assets/images/profile.png'
 
 # boolean type, the global switch for ToC in posts.
 toc: true
