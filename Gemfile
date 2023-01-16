@@ -29,5 +29,4 @@ end
 
 
 # seo 다운로드
-gems:
-  - jekyll-seo-tag
+gem 'jekyll-seo-tag'
