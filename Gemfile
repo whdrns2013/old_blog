@@ -27,6 +27,10 @@ if RUBY_PLATFORM =~ /linux-musl/
   gem "jekyll-sass-converter", "~> 2.0"
 end
 
-
+# 이하 추가 내용
 # seo 다운로드
+
 gem 'jekyll-seo-tag'
+
+group :jekyll_plugins do
+	gem "jekyll-paginate"

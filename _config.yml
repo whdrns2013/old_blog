@@ -199,3 +199,9 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+
+## 이하 추가 내용
+# Plugins (previously gems:)
+plugins:
+	- jekyll-paginate
